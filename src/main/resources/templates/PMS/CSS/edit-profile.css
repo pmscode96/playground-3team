@@ -1,0 +1,1457 @@
+@charset "utf-8";
+
+body, button, input, select, td, textarea, th {
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: KakaoBig Regular,Malgun Gothic,맑은 고딕,Apple SD Gothic Neo,dotum,돋움,sans-serif;
+    color: #444;
+}
+
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    display: block;
+}
+
+a {
+    cursor: pointer;
+    color: #444;
+}
+
+a, a:active, a:hover {
+    text-decoration: none;
+}
+
+button, input, select, textarea {
+    vertical-align: middle;
+    font-size: 100%;
+}
+
+button {
+    border: 0;
+    border-radius: 0;
+    background-color: initial;
+    cursor: pointer;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+dl, li, menu, ol, ul {
+    list-style: none;
+}
+
+#dkIndex {
+    overflow: hidden;
+    position: absolute;
+    left: -9999px;
+    width: 0;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+}
+
+#dkWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    min-height: 100vh;
+}
+
+#dkHead {
+    position: relative;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    box-sizing: border-box;
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+    top: 0;
+}
+
+#dkHead:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #eee;
+}
+
+.d_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 1120px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.d_head, .d_head h1 {
+    height: 100%;
+}
+
+.link_service {
+    display: block;
+    width: 115px;
+    height: 100%;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    background: url(//t1.kakaocdn.net/together_image/svg/logo_pc.svg) 50%/contain no-repeat;
+}
+
+.navigation_list {
+    display: flex;
+    flex: 1 0 auto;
+    height: 100%;
+    margin-left: 0;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.screen_out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.link_gnb {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    display: inline-flex;
+    height: auto;
+    border-bottom: 2px solid #0000;
+    margin: 0 11px;
+    padding: 22px 14px;
+    font-size: 16px;
+    font-family: KakaoBig Bold,sans-serif;
+    color: #444;
+}
+
+.txt_gnb {
+    position: relative;
+}
+
+.wrap_util{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    min-width: auto;
+}
+
+.btn_profile {
+    position: relative;
+    display: flex;
+    margin: 0;
+}
+
+.box_avatar_squircle{
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.box_avatar_squircle:after {
+    content: "";
+    position: absolute;
+    top: -.49%;
+    bottom: -.49%;
+    left: -.49%;
+    right: -.49%;
+    background-image: url(//t1.kakaocdn.net/together_image/common/bg_mask.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 0;
+    border-radius: 0;
+}
+
+.thumb_profile {
+    height: 100%;
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+
+.btn_search {
+    height: auto;
+    padding: 8px;
+    margin: 0 11px 0 19px;
+}
+
+.ico_together, .ico_together2 {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.d_head .wrap_util .ico_search {
+    width: 22px;
+    height: 22px;
+    background: url(//t1.kakaocdn.net/together_image/svg/ico_search.svg) 50%/contain no-repeat;
+}
+
+.slide_menu_button{
+    display: contents;
+}
+
+.btn_side {
+    display: flex;
+    position: relative;
+    padding: 8px;
+    border: 1px solid #0000;
+    box-sizing: border-box;
+}
+
+.d_navigation .btn_side .ico_menu {
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    background-image: url(//t1.kakaocdn.net/together_image/svg/ico_menu.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+
+/* 사이드 메뉴 */
+.sideouter_layer {
+    display: none;
+    /*display: block;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100000;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .3;
+    filter: alpha(opacity=30);
+}
+
+.sidemenu{
+    z-index: 1001;
+    background-color: #fff;
+    overflow-y: auto;
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 100%;
+    margin-right: 0;
+    padding: 30px;
+    border: 0;
+}
+
+.tit_sidemenu{
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.wrap_my{
+    display: block;
+}
+
+.side_btn_profile{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin: 0 0 20px;
+}
+
+.side_box_avatar_squircle{
+    display: block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.side_box_avatar_squircle::after{
+    content: "";
+    position: absolute;
+    top: -.49%;
+    bottom: -.49%;
+    left: -.49%;
+    right: -.49%;
+    background-image: url(//t1.kakaocdn.net/together_image/common/bg_mask.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 0;
+    border-radius: 0;
+}
+
+.side_thumb_profile{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+.user_id{
+    overflow: hidden;
+    padding-left: 12px;
+    color: #202020;
+    font-family: KakaoBig Bold, sans-serif;
+    font-size: 16px;
+    line-height: 1.56;
+    letter-spacing: -.1px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user_id_screen_out{
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.my_util{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #00000008;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+}
+
+.my_util li{
+    width: 50%;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.link_util{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 4px;
+    gap: 4px;
+    padding: 12px;
+    color: #444;
+    font-family: KakaoBig Bold, sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.ico_svg {
+    display: inline-flex;
+    width: 14px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: contain;
+}
+
+.ico_my {
+    background-image: url(//t1.kakaocdn.net/together_image/svg/ico_side_my.svg);
+}
+
+.my_util li+li {
+    position: relative;
+}
+
+.my_util li+li:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 14px;
+    margin-top: -7px;
+    background-color: #e5e5e5;
+}
+
+.ico_alert {
+    background-image: url(//t1.kakaocdn.net/together_image/svg/ico_side_notice.svg);
+}
+
+.side_screen_out{
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.list_sidemenu{
+    position: relative;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-gap: 8px;
+    gap: 8px;
+    margin-top: 28px;
+    border: 0;
+}
+
+.list_sidemenu>li {
+    width: 100%;
+}
+
+.list_sidemenu .ico_svg{
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    margin-right: 13px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: contain;
+}
+
+.link_sidemenu{
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    margin: 0;
+    padding: 6px 0;
+    border: 0;
+    color: #202020;
+    font-family: KakaoBig Bold, sans-serif;
+    font-size: 16px;
+    line-height: 1.88;
+    letter-spacing: -.1px;
+}
+
+.sidemenu li:first-child .link_sidemenu {
+    border-top: 0;
+}
+
+.ico_fundraising {
+    background-image: url(//t1.kakaocdn.net/together_image/svg/ico_side_fundraising.svg);
+}
+
+.ico_action {
+    background-image: url(//t1.kakaocdn.net/together_image/svg/ico_side_action.svg);
+}
+
+.ico_weather {
+    background-image: url(//t1.kakaocdn.net/together_image/svg/ico_side_weather.svg);
+}
+
+.ico_campaign {
+    background-image: url(//t1.kakaocdn.net/together_image/svg/ico_side_campaign.svg);
+}
+
+.list_sidesub{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0 0;
+    margin: 0 -18px;
+}
+
+.list_sidesub>li {
+    width: calc(50% - 36px);
+    margin: 0 18px;
+}
+
+.link_sidesub {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px 0;
+    color: #666;
+    font-family: KakaoBig Bold, sans-serif;
+    font-size: 14px;
+    line-height: 1.57;
+    letter-spacing: -.1px;
+}
+
+.cont_addition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    margin-top: 14px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.info_addition {
+    color: #444;
+    font-size: 13px;
+    line-height: 1.54;
+    letter-spacing: -.1px;
+}
+
+.btn_addition {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background-color: #fae100;
+    cursor: pointer;
+    color: #444;
+    font-family: KakaoBig Bold, sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: -.1px;
+    box-sizing: border-box;
+}
+
+.ico_addition {
+    display: inline-flex;
+    width: 26px;
+    height: 18px;
+    background: url(//t1.kakaocdn.net/together_image/svg/ico_channel.svg) no-repeat 50% 50%/contain;
+}
+
+.cont_addition .txt_addition {
+    margin-left: 5px;
+    margin-top: -1px;
+}
+
+.btn_logout {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    color: #666;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: -.1px;
+    text-decoration: underline;
+}
+
+/* 사이드 메뉴 끝*/
+
+/* 메인 컨텐츠 시작 */
+#dkContent, #rootContent {
+    flex-grow: 1;
+    min-height: calc(100vh - (70px + 250px));
+}
+
+#dkContent {
+    position: relative;
+    margin: 0 0 -212px;
+}
+
+#mArticle {
+    padding: 0 0 250px;
+}
+
+.screen_out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.wrap_project {
+    background-color: #fff;
+}
+
+.cont_thumb {
+    margin-top: 55px;
+}
+
+.file_upload {
+    position: relative;
+    width: 117px;
+    height: 117px;
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 100px;
+    background-color: #fafafa;
+}
+
+.cont_thumb .img_thumb {
+    float: left;
+    width: 117px;
+    height: 117px;
+    margin: -1px 0 0 -1px;
+    border: 1px solid #e0e0e0;
+    border-radius: 100px;
+}
+
+.file_upload .lab_photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 118px;
+    height: 118px;
+    border-radius: 100px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+}
+
+.ico_together {
+    background: url(//t1.kakaocdn.net/together_image/common/ico_together_201008.png) no-repeat 0 0;
+}
+
+.file_upload .ico_photo {
+    width: 30px;
+    height: 25px;
+    margin: 46px auto 0;
+}
+
+.file_upload .img_thumb+.lab_photo .ico_photo {
+    margin-top: 76px;
+    background-position: -200px -88px;
+}
+
+.wrap_project .box_cont {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.wrap_project .box_cont .list_write {
+    position: relative;
+    margin: 11px 50px 7px;
+    font-size: 16px;
+}
+
+.box_cont .list_write dt {
+    position: absolute;
+    left: 0;
+    width: 170px;
+    margin-top: 36px;
+    font-family: KakaoBig Bold,sans-serif;
+}
+
+.list_write dt.screen_out {
+    margin: 0;
+}
+
+.wrap_profile .list_write dt {
+    width: 150px;
+}
+
+.wrap_profile .list_write .item_btn {
+    padding: 10px 190px 45px;
+}
+
+.btn_katalk {
+    display: block;
+    position: relative;
+    width: 345px;
+    height: 49px;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 50px;
+    background-color: #ffe100;
+    text-align: center;
+}
+
+.wrap_profile .btn_katalk, .wrap_profile .btn_step_type .link_step {
+    width: 100%;
+}
+
+.btn_katalk .ico_katalk {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    margin: -2px 10px 0 0;
+    background-position: -344px -104px;
+    vertical-align: middle;
+}
+
+.box_cont .list_write .group_tf {
+    overflow: hidden;
+    position: relative;
+}
+
+.tf_write {
+    float: left;
+    height: 44px;
+    padding: 9px 13px;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #444;
+    background-color: #fafafa;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.box_cont .list_write .tf_write {
+    width: 100%;
+    border-radius: 2px;
+}
+
+.box_cont .list_write .info_append {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    padding-right: 2px;
+    font-size: 14px;
+    color: #959595;
+}
+
+.box_cont .info_append .txt_num {
+    color: #444;
+}
+
+.bg_dashline {
+    height: 1px;
+    background: url(//t1.kakaocdn.net/together_image/common/bg_line.png) repeat-x 0 0;
+}
+
+.wrap_profile .bg_dashline {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.wrap_profile .list_write dt {
+    width: 150px;
+}
+
+.phone_item {
+    position: relative;
+    min-height: 44px;
+    padding: 26px 0 26px 170px;
+}
+
+.box_cont .list_write dd {
+    position: relative;
+    min-height: 44px;
+    padding: 26px 0 20px 170px;
+}
+
+.wrap_profile .list_write dd {
+    padding-left: 150px;
+}
+
+.box_cont .list_write .group_tf {
+    overflow: hidden;
+    position: relative;
+}
+
+.btn_number {
+    display: block;
+    height: 44px;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    font-size: 16px;
+    line-height: 43px;
+    color: #444;
+}
+
+.phone_item .btn_number {
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.pack_select {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+}
+
+.pack_select .box_select {
+    float: left;
+    width: 230px;
+    padding-left: 4px;
+    box-sizing: border-box;
+}
+
+.pack_select .box_select:first-of-type {
+    padding-left: 0;
+    padding-right: 4px;
+}
+
+.edit_school{
+    width: 100%;
+}
+
+.inp_comm{
+    cursor: pointer;
+}
+
+.school{
+    float: left;
+    width: 230px;
+    padding-left: 4px;
+    box-sizing: border-box;
+    display: flex;
+    height: 50px;
+    align-items: center;
+}
+
+.opt_comm {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 44px;
+    padding: 0;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 44px;
+    background-color: #fdfdfd;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.opt_comm .select_option {
+    overflow: hidden;
+    right: 0;
+    margin: 0 30px 0 12px;
+    padding: 0;
+    line-height: 44px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.opt_comm .opt_select, .opt_comm .select_option {
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+    color: #444;
+}
+
+.opt_comm .opt_select {
+    display: block;
+    z-index: 10;
+    top: 0;
+    height: 44px;
+    width: 100%;
+    border: 0;
+    background: none;
+    -webkit-appearance: none;
+    opacity: .01;
+    filter: alpha(opacity=0);
+}
+
+.group_schproject .opt_comm .box_arrow, .opt_comm .opt_select {
+    height: 100%;
+}
+
+.opt_comm .box_arrow {
+    position: absolute;
+    right: 0;
+    width: 29px;
+    height: 44px;
+    background-color: #fff;
+}
+
+
+.opt_comm .ico_arrow {
+    width: 12px;
+    height: 8px;
+    margin: 17px 0 0 7px;
+    background-position: -236px -116px;
+}
+
+.group_gender {
+    overflow: hidden;
+    width: 551px;
+}
+
+.box_cont .list_write .group_tf {
+    overflow: hidden;
+    position: relative;
+}
+
+.choice_comm {
+    display: block;
+    position: relative;
+}
+
+.choice_btn {
+    float: left;
+    margin: 0 -1px;
+}
+
+.choice_btn:first-child {
+    margin-left: 0;
+}
+
+.choice_btn:first-child {
+    width: 181px;
+}
+
+.choice_comm .inp_comm {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    outline: none;
+    -webkit-appearance: none;
+    opacity: .01;
+    filter: alpha(opacity=1);
+}
+
+.choice_btn .lab_comm {
+    display: block;
+    height: 44px;
+    border: 1px solid #e0e0e0;
+    line-height: 45px;
+    color: #444;
+    background-color: #fafafa;
+    text-align: center;
+}
+
+.choice_btn:first-child .lab_comm {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.list_write .choice_comm .lab_comm {
+    padding: 0 0 0 42px;
+}
+
+.choice_btn .inp_comm:checked+.lab_comm {
+    position: relative;
+    z-index: 1;
+    border-color: #dc287c;
+    color: #fff;
+    background-color: #dc287c;
+}
+
+.group_tf .choice_comm.choice_btn .lab_comm {
+    padding: 0;
+}
+
+.choice_btn:nth-child(2) {
+    width: 178px;
+}
+
+.choice_btn:nth-child(3) {
+    width: 195px;
+}
+
+.wrap_project .box_cont:after {
+    display: block;
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    content: "";
+}
+
+.bg_dashline {
+    height: 1px;
+    background: url(//t1.kakaocdn.net/together_image/common/bg_line.png) repeat-x 0 0;
+}
+
+.wrap_profile .bg_dashline {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.btn_step_type {
+    overflow: hidden;
+}
+
+.wrap_profile .btn_step_type {
+    width: 700px;
+    margin: 40px auto 60px;
+}
+
+.btn_step_type .link_step {
+    display: block;
+    width: 395px;
+    height: 60px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 60px;
+    color: #fff;
+    background-color: #dc287c;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.ngdialog-content {
+    overflow: hidden;
+    position: absolute;
+    z-index: 999999;
+    top: 50%;
+    left: 50%;
+}
+
+.inner_together_layer {
+    background-color: #fff;
+}
+
+.inner_together_layer2 {
+    width: 392px;
+}
+
+.inner_together_layer .wrap_phone {
+    margin: 0 22px 20px;
+    padding-top: 28px;
+    background: url(//t1.kakaocdn.net/together_image/common/bg_line.png) repeat-x 0 0;
+}
+
+.inner_together_layer .write_phone {
+    margin: 0 22px 28px;
+    padding-top: 53px;
+    background: #fff;
+}
+
+.wrap_project .box_cont .list_write {
+    position: relative;
+    margin: 10px 0 26px;
+    font-size: 16px;
+}
+
+.wrap_profile .box_cont .list_write {
+    margin: 11px 50px 7px;
+}
+
+.inner_together_layer .wrap_phone .list_write {
+    margin: 0;
+}
+
+.inner_together_layer .wrap_phone dt {
+    position: static;
+    margin-top: 0;
+    padding-bottom: 22px;
+    font-size: 16px;
+    color: #626262;
+}
+
+.inner_together_layer .write_phone dt {
+    width: auto;
+    padding-bottom: 20px;
+    line-height: 28px;
+}
+
+.inner_together_layer .list_write dd {
+    position: relative;
+    padding: 0;
+}
+
+.inner_together_layer .wrap_phone .info_phone {
+    height: 44px;
+}
+
+.box_cont .list_write .info_phone {
+    min-height: 44px;
+}
+
+.inner_together_layer .wrap_phone .group_tf {
+    overflow: hidden;
+    position: relative;
+    border-radius: 2px;
+}
+
+.list_write .info_phone .group_tf {
+    float: left;
+    width: 100px;
+}
+
+.inner_together_layer .wrap_phone .info_phone .group_tf {
+    width: 120px;
+}
+
+.list_write .info_phone .group_tf:first-child {
+    width: 112px;
+}
+
+.inner_together_layer .wrap_phone .info_phone .group_tf:first-child {
+    width: 60px;
+}
+
+.inner_together_layer .wrap_phone .list_write .tf_write {
+    width: 100%;
+}
+
+.list_write .dash_among, .list_write .tilde_among {
+    float: left;
+}
+
+.list_write .dash_among .inner_among {
+    display: block;
+    width: 12px;
+    height: 2px;
+    margin: 21px 9px 0;
+    background-color: #e0e0e0;
+}
+
+.inner_together_layer .wrap_phone .dash_among .inner_among {
+    width: 11px;
+    height: 2px;
+    margin: 20px 6px 0 7px;
+}
+
+.inner_together_layer .wrap_phone .btn_certify {
+    width: 100%;
+    height: 44px;
+    margin: 12px 0;
+    border: 1px solid #ea7eb0;
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 44px;
+    color: #dc287c;
+    background-color: #fdf4f8;
+    box-sizing: border-box;
+}
+
+.inner_together_layer .wrap_phone .group_tf .txt_lab {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #cacaca;
+    cursor: text;
+}
+
+.inner_together_layer .wrap_btn {
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.inner_together_layer .wrap_btn_type {
+    margin: 0 30px;
+}
+
+.inner_together_layer2 .wrap_btn_type {
+    overflow: hidden;
+}
+
+.inner_together_layer .write_phone+.wrap_btn_type {
+    margin: 0 22px;
+}
+
+.inner_together_layer .wrap_btn .btn_set {
+    position: relative;
+    display: inline-block;
+    width: 160px;
+    height: 48px;
+    margin: 0 4px;
+    vertical-align: top;
+    color: #fff;
+    font-size: 16px;
+    line-height: 49px;
+}
+
+.inner_together_layer .wrap_btn .btn_type1 {
+    background-color: #dc287c;
+}
+
+.inner_together_layer .wrap_btn_type .btn_set {
+    width: 100%;
+    margin: 0 0 12px;
+}
+
+.inner_together_layer2 .wrap_btn .btn_set {
+    text-align: center;
+}
+
+.inner_together_layer .wrap_btn_type .btn_set:last-child {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.inner_together_layer .layer_foot {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.inner_together_layer .layer_foot .btn_close {
+    display: block;
+    overflow: hidden;
+}
+
+.inner_together_layer .layer_foot .ico_together {
+    width: 17px;
+    height: 17px;
+    margin: 22px;
+    background-position: -184px 0;
+}
+
+.modalOFF {
+    display: none;
+}
+
+.modalON {
+    display: block;
+}
+
+.dimmed_layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    background-color: #000;
+    opacity: .3;
+    filter: alpha(opacity=30);
+    display: none;
+}
+
+.on {
+    display: block;
+}
+
+/* 메인 컨텐츠 끝*/
+.hide{
+    display: none;
+}
+/* 푸터 시작*/
+#dkFoot {
+    position: relative;
+}
+
+.wrap_channel_banner {
+    margin-top: auto;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+}
+
+.inner_wrap {
+    display: flex;
+    align-items: center;
+    grid-gap: 16px;
+    gap: 16px;
+    width: 1120px;
+    margin: 0 auto;
+    padding: 26px 0;
+}
+
+.cont_banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-gap: 2px;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.tit_banner {
+    color: #444;
+    font-size: 15px;
+    font-family: KakaoBig Bold, sans-serif;
+    line-height: 1.47;
+    font-style: normal;
+    word-wrap: break-word;
+    letter-spacing: -.1px;
+}
+
+.desc_banner{
+    font-style: normal;
+    word-wrap: break-word;
+    letter-spacing: -.1px;
+    color: #666;
+    font-size: 13px;
+    font-family: KakaoBig Regular, sans-serif;
+    line-height: 1.54;
+}
+
+.btn_talk {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    padding: 0 20px;
+    border: 1px solid #fae100;
+    border-radius: 999px;
+    background-color: #fae100;
+    color: #444;
+    font-family: KakaoBig Bold, sans-serif;
+    font-size: 12px;
+    letter-spacing: -.1px;
+}
+
+.ico_channel {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    margin: 3px 5px 0 0;
+    background: url(//t1.kakaocdn.net/together_image/svg/ico_channel.svg) no-repeat 0 0/contain;
+    vertical-align: top;
+}
+
+.d_footer {
+    height: 180px;
+    padding: 40px 0 45px;
+    border-top: 1px solid #eee;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+}
+
+.inner_footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 1120px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.d_footer .link_home {
+    display: block;
+    flex-shrink: 0;
+    width: 115px;
+    height: 18px;
+    background: url(//t1.kakaocdn.net/together_image/svg/footer_logo_black.svg) no-repeat 50%/contain;
+}
+
+.ir_pm {
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    display: block;
+    overflow: hidden;
+}
+
+.desc_footer {
+    padding: 16px 0 18px;
+    color: #666;
+    font-size: 14px;
+    font-style: normal;
+    font-family: KakaoBig Regular, sans-serif;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.57;
+    letter-spacing: -.1px;
+}
+
+.area_info {
+    flex-direction: row;
+    justify-content: space-between;
+    grid-gap: 16px;
+    gap: 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.list_menu , .list_menu li{
+    display: flex;
+    align-items: center;
+}
+
+.list_menu li {
+    position: relative;
+    font-size: 13px;
+    line-height: 1.54;
+    letter-spacing: -.1px;
+}
+
+.list_menu li:after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 100%;
+    background-color: #444;
+}
+
+.link_menu {
+    display: inline-block;
+    vertical-align: top;
+    padding: 6px 0;
+    color: #444;
+    font-size: 14px;
+    font-style: normal;
+    font-family: KakaoBig Regular, sans-serif;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.57;
+    letter-spacing: -.1px;
+    text-decoration: none;
+}
+
+.link_policy {
+    font-family: KakaoBig Bold, sans-serif;
+}
+
+.list_sns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+    gap: 10px;
+}
+
+.list_sns li {
+    display: list-item;
+    position: relative;
+    font-size: 13px;
+    line-height: 1.54;
+    letter-spacing: -.1px;
+}
+
+.list_sns .link_sns {
+    display: inline-block;
+    width: 30px;
+    padding: 6px 0;
+    text-align: center;
+    color: #444;
+    font-size: 14px;
+    font-style: normal;
+    font-family: KakaoBig Regular, sans-serif;
+    word-wrap: break-word;
+    line-height: 1.57;
+    letter-spacing: -.1px;
+}
+
+.d_footer .list_sns .ico_svg {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+}
+
+.ico_kakaotalk {
+    background-image: url(//t1.kakaocdn.net/together_image/svg/footer_kakaotalk_gray80.svg);
+}
+
+.ico_facebook {
+    background-image: url(//t1.kakaocdn.net/together_image/svg/footer_facebook_gray80.svg);
+}
+
+.ico_instargram {
+    background-image: url(//t1.kakaocdn.net/together_image/svg/footer_instagram_gray80.svg);
+}
+
+.d_footer .area_info>.link_menu {
+    display: none;
+}

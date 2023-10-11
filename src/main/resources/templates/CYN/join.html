@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JOIN</title>
+    <link rel="stylesheet" href="./join.css">
+</head>
+<body>
+<div id="wrap">
+    <div class="div1">
+        <div class="div2">
+            <main class="main1">
+                <div class="main1_div1" style="padding-top: 50px">
+                    <h1 class="h1">
+                            <span class="span1">
+                                <span class="span2" >회원가입</span>
+                            </span>
+                    </h1>
+                </div>
+                <article class="main1_article1">
+                    <div class="div1" style="height: 100%; padding: 55px 0 50px;">
+                        <div class="name">
+                            <label for="">
+                                <span>이름</span>
+                            </label>
+                            <div class="name_div1">
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="id" style="margin-top: 24px">
+                            <label for="">
+                                <span>아이디</span>
+                            </label>
+                            <div class="id_div1">
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="password" style="margin-top: 24px">
+                            <label for="">
+                                <span>비밀번호</span>
+                            </label>
+                            <div class="password_div1">
+                                <input type="password">
+                            </div>
+                        </div>
+                        <div class="passwordCheck" style="margin-top: 24px">
+                            <label for="">
+                                <span>비밀번호 확인</span>
+                            </label>
+                            <div class="passwordCheck_div1">
+                                <input type="password">
+                            </div>
+                        </div>
+                        <div class="phone" style="margin-top: 24px">
+                            <label for="">
+                                <span>휴대폰 번호</span>
+                            </label>
+                            <div class="phone_div1">
+                                <div class="phone_div2">
+                                    <div class="phone_div3">
+                                        <input type="text">
+                                    </div>
+                                </div>
+                                <button class="phone_b1">
+                                    인증번호 발송
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="phonecheck" style="margin-top: 24px">
+                            <label for="">
+                                <span>인증번호</span>
+                            </label>
+                            <div class="phonecheck_div1">
+                                <div class="phonecheck_div2">
+                                    <input type="text">
+                                </div>
+                                <button class="phonecheck_b1">
+                                    인증하기
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="email" style="margin-top: 24px">
+                            <label for="">
+                                <span>이메일</span>
+                            </label>
+                            <div class="email_div1">
+                                <input placeholder="'@' 를 포함한 이메일 형태">
+                            </div>
+                        </div>
+
+
+
+                        <div class="join" style="margin-top: 24px">
+                            <button>가입하기</button>
+                        </div>
+                    </div>
+                </article>
+            </main>
+            <footer class="main2">
+                <strong>서비스 이용정보</strong>
+                <div>
+                    <!--                        여기도 채워야함...-->
+                </div>
+                <small>
+                    Copyright ©
+                    <a class="" href="">Kakao Corp.</a>
+                    All rights reserved.
+                </small>
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+    function inp(){
+        const input = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3 .d3_1 input[name=in]");
+        const span1 = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3 .d3_1 .label1 .span1");
+        const span2 = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3 .d3_1 .label1 .span2");
+
+
+        if(span2.style.visibility === 'visible') {
+            span2.style.visibility = 'hidden';
+        }
+        else{
+            span2.style.visibility = 'visible';
+        }
+    }
+
+    // const button = document.querySelector(".main1_article1 .div1 .div2 .form1 .d4 .bt1");
+    // button.addEventListener("click", (e) => {
+    //     const input1 = document.querySelector(".main1_article1 .div1 .div2 .form1 .d1 .d1_1 input");
+    //     const alert = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3_5");
+    //     if(input1.value === ""){
+    //         alert.style.display = 'block';
+    //     }
+    // })
+
+    const b1 = document.querySelector('.phone_b1');
+    b1.addEventListener("mouseover", (e) => {
+        e.target.style.backgroundColor = '#b4b4b4';
+    })
+
+    b1.addEventListener("mouseout", (e) => {
+        e.target.style.backgroundColor = '#dcdcdc';
+    })
+
+    const b2 = document.querySelector('.phonecheck_b1');
+    b2.addEventListener("mouseover", (e) => {
+        e.target.style.backgroundColor = '#b4b4b4';
+    })
+
+    b2.addEventListener("mouseout", (e) => {
+        e.target.style.backgroundColor = '#dcdcdc';
+    })
+
+</script>
+</html>

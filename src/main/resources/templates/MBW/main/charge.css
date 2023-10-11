@@ -1,0 +1,1088 @@
+element.style{
+    overflow: auto;
+}
+
+@media only screen and (min-width: 768px){
+body{
+    min-width: 1140px;
+}
+}
+
+body{
+    font-family: "KakaoBig Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    line-height: 1;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    display: block;
+}
+
+body{
+    vertical-align: baseline;
+}
+
+.two{
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0px, 0px, 0px, 0px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    color: transparent;
+}
+
+div{
+    display: block;
+}
+
+div{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+}
+
+div{
+    vertical-align: baseline;
+}
+
+.menu{
+    color: transparent;
+}
+
+a{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+a::-webkit-any-link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px){
+.nav-two {
+    height: 70px;
+}
+}
+
+.nav-two{
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 200;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    position: sticky;
+}
+
+header{
+    display: block;
+}
+
+header{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.nav-two::before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(238, 238, 238);
+}
+
+@media only screen and (min-width: 768px){
+.bar-two {
+    align-items: center;
+    width: 1120px;
+    height: 100%;
+    margin: 0px auto;
+}
+}
+
+.bar-two{
+    display: flex;
+    justify-content: space-between;
+    min-width: 280px;
+}
+
+@media only screen and (min-width: 768px){
+.gachi {
+    height: 70px;
+}
+}
+
+h1{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+h1{
+    display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+@media only screen and (min-width: 768px){
+.small {
+    width: 115px;
+    background-image: url(//t1.kakaocdn.net/together_image/svg/logo_pc.svg);
+}
+}
+
+.small{
+    display: block;
+    height: 100%;
+    background: url(//t1.kakaocdn.net/together_image/svg/logo_mo.svg) center center / contain no-repeat;
+}
+
+span{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+@media only screen and (min-width: 768px){
+.mai-and {
+    justify-content: center;
+    flex: 1 0 auto;
+    height: 100%;
+}
+}
+
+.mai-and{
+    display: flex;
+    align-items: center;
+}
+
+nav{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+h2{
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+h2{
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.mai-and > ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.list-one{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul{
+    list-style: none;
+}
+
+ul{
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+ul{
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+@media only screen and (min-width: 768px){
+.menu-four {
+    margin: 0px 11px;
+}
+}
+
+.menu-four{
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    box-sizing: border-box;
+}
+
+.menu-two{
+    display: list-item;
+    position: relative;
+    font-size: 13px;
+    line-height: 1.54;
+    letter-spacing: -0.1px;
+}
+
+li{
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+li{
+    text-align:-webkit-match-parent;
+}
+
+ul{
+    list-style: none;
+}
+
+@media only screen and (min-width: 768px){
+.h-six{
+    padding: 0px 14px;
+    font-family: "KakaoBig Bold";
+    font-size: 16px;
+    color: rgb(68, 68, 68);
+}
+}
+
+.h-six{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+    letter-spacing: normal;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.h-five{
+    font-style: normal;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (min-width: 768px){
+.menu-five{
+    margin: 0px 11px;
+}
+}
+
+.menu-five{
+    height: 100%;
+    border-bottom: 2px solid rgb(57, 57, 57);
+    box-sizing: border-box;
+}
+
+.util-two{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.uall{
+    position: relative;
+    display: flex;
+}
+
+.hyp-two{
+    vertical-align: top;
+    font: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+.hyp-five{
+    display: flex;
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+@media only screen and (min-width: 768px){
+.menu-five, .h-seven {
+    color: rgb(32, 32, 32);
+}
+}
+
+.ava-four{
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ava-three{
+    overflow: hidden;
+    position: relative;
+    background: url(//t1.kakaocdn.net/together_image/common/avatar/avatar.png) 50% 50% / cover no-repeat;
+}
+
+
+.ava-three::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    background-image: url(//t1.kakaocdn.net/together_image/common/bg_mask.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 768px){
+.search-two {
+    height: auto;
+    margin: 0px 11px 0px 19px;
+    padding: 8px;
+}
+}
+
+.search-two{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px){
+.svg-four {
+    width: 22px;
+    height: 22px;
+}
+}
+
+.svg-tw{
+    vertical-align: top;
+}
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+}
+
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+
+.trans-five{
+    position: relative;
+}
+
+.trans{
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    margin: 0px;
+    font-family: "KakaoBig Bold";
+    line-height: 1.5;
+    letter-spacing: -0.1px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    padding: 8px;
+    font-size: 12px;
+}
+
+button{
+    appearance: auto;
+    text-rendering: auto;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    writing-mode: horizontal-tb !important;
+    padding-block: 1px;
+    padding-inline: 6px;
+}
+
+.liTurH{
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+}
+
+.direc-two{
+    overflow: hidden;
+    position: fixed;
+    inset: 0px;
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    clip: rect(0px, 0px, 0px, 0px);
+    clip-path: inset(50%);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.direc-four, .draw-contain{
+    max-width: 300px;
+    min-width: 280px;
+    padding: 30px;
+}
+
+.direc-two, .draw-contain{
+    height: 100%;
+    transform: translateX(120%);
+}
+
+.good-three{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    transition: transform 300ms ease 0s;
+}
+
+.wic{
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0px 0px 20px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+button{
+    font-family: "KakaoBig Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+}
+
+.need{
+    flex-shrink: 0;
+}
+
+.made-hu{
+    overflow: hidden;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: url(//t1.kakaocdn.net/together_image/common/avatar/avatar.png) 50% 50% / cover no-repeat;
+}
+
+.made-hu::after{
+    content: "";
+    position: absolute;
+    inset: 0px;
+    background-image: url(//t1.kakaocdn.net/together_image/common/bg_mask.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.with-thr{
+    display: block;
+    overflow: hidden;
+    text-align: left;
+}
+
+.with{
+    padding-left: 12px;
+}
+
+.key-in{
+    color: rgb(32, 32, 32);
+    font-size: 16px;
+    font-style: normal;
+    font-family: "KakaoBig Bold", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.56;
+    letter-spacing: -0.1px;
+    font-weight: 600;
+}
+
+strong{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.gat-two{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 6px;
+    background-color: rgb(249, 249, 249);
+}
+
+.bad-two{
+    position: fixed;
+    inset: 0px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: opacity 300ms ease 0s;
+    opacity: 0;
+}
+
+.goo-two{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 244px);
+    background-color: rgb(255, 255, 255);
+    box-sizing: border-box;
+}
+
+main{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.two{
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0px, 0px, 0px, 0px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    color: transparent;
+}
+
+@media only screen and (min-width: 768px){
+.bow-thr{
+     width: 1120px;
+     margin: 0px auto;
+     padding: 40px 0px 0px;
+}
+}
+
+.bow-thr{
+    box-sizing: border-box;
+}
+
+.ban-two{
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 768px){
+.bu-thr {
+    height: 100px;
+    gap: 20px;
+}
+}
+
+.bu-thr{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border-radius: 6px;
+    background-color: rgb(0, 0, 0);
+    box-sizing: border-box;
+}
+
+.bu{
+    padding: 0px 20px;
+}
+
+@media only screen and (min-width: 768px){
+.ba-con-two {
+    max-width: 400px;
+}
+}
+
+.ba-con-two{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (min-width: 768px){
+.rib-thr {
+    max-width: 370px;
+    padding: 12px 0px;
+}
+}
+
+.rib-thr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.emer-thr{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: -0.3px;
+}
+
+.emer-two{
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-style: normal;
+    font-family: "KakaoBig Bold", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.67;
+    font-weight: 600;
+}
+
+.noww-thr{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    opacity: 0.8;
+}
+
+.noww-two{
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-style: normal;
+    font-family: "KakaoBig Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    line-height: 2;
+    letter-spacing: -0.1px;
+}
+
+p{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.ree-thr{
+    display: inline-block;
+    vertical-align: middle;
+    margin: -2px 0px 0px 2px;
+}
+
+@media only screen and (min-width: 768px){
+.ree-thr {
+    width: 10px;
+    height: 10px;
+}
+}
+
+@media only screen and (min-width: 768px){
+.mapp-two{
+    max-width: 125px;
+}
+}
+
+.mapp-two{
+    flex-shrink: 0;
+    display: flex;
+    width: auto;
+    height: 100%;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.med-four{
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+.mad-two{
+    display: inline-block;
+    vertical-align: top;
+}
+
+img{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+}
+
+img{
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+@media only screen and (min-width: 768px){
+.sqa-two {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 1120px;
+    margin: 0px auto;
+    padding: 30px 0px 0px;
+}
+}
+
+.sqa-two{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px){
+.divi-two {
+    gap: 24px;
+}
+}
+
+.divi-two{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.fre-two{
+    display: block;
+    height: 100%;
+    text-decoration: none;
+}
+
+.fr-thr.active{
+    border-bottom: 2px solid rgb(32, 32, 32);
+}
+
+.fr-thr{
+    display: block;
+}
+
+.fr-two{
+    color: rgb(32, 32, 32);
+    font-size: 22px;
+    font-style: normal;
+    font-family: "KakaoBig Bold", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.3px;
+    font-weight: 600;
+    line-height: 1.48;
+}
+
+.saly{
+    padding-bottom: 4px;
+}
+
+.fr-baka{
+    color: rgb(148, 148, 148);
+    font-size: 22px;
+    font-style: normal;
+    font-family: "KakaoBig Bold", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.3px;
+    font-weight: 600;
+    line-height: 1.48;
+}
+
+.lin-thr{
+    position: relative;
+}
+
+@media only screen and (min-width: 768px){
+.lin-thr {
+    width: 1120px;
+    margin: 0px auto;
+    padding: 24px 0px 0px;
+}
+}
+
+@media only screen and (min-width: 768px){
+.info-two {
+    max-width: 100%;
+    gap: 8px;
+}
+}
+
+.info-two{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px 6px;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.frind.active{
+    color: rgb(255, 255, 255);
+    font-family: "KakaoBig Bold";
+    font-weight: 600;
+}
+
+@media only screen and (min-width: 768px){
+.frind {
+    height: 38px;
+    padding: 8px 14px;
+    font-size: 15px;
+    transform: translateX(0px);
+    transition: all 0.3s ease 0s;
+}
+}
+
+.frind{
+    border-radius: 999px;
+    box-shadow: none;
+    font-family: "KakaoBig Regular";
+    color: rgb(32, 32, 32);
+}
+
+.gim{
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(32, 32, 32);
+    margin: 0px;
+    line-height: 1.5;
+    letter-spacing: -0.1px;
+    text-decoration: none;
+    background-color: rgb(32, 32, 32);
+    cursor: pointer;
+}
+
+.caido{
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(238, 238, 238);
+    margin: 0px;
+    line-height: 1.5;
+    letter-spacing: -0.1px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+}
+
+@media only screen and (min-width: 768px){
+.mane-thr {
+    width: 1120px;
+    margin: 0px auto;
+    padding: 30px 0px 60px;
+}
+}
+
+.mane-thr{
+    box-sizing: border-box;
+}
+
+h3{
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+h3{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+@media only screen and (min-width: 768px){
+.ma-c-two {
+    margin: -20px calc(-12px);
+}
+}
+
+.ma-c-two{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+@media only screen and (min-width: 768px){
+.ma-c-two .card-thr {
+    margin: 20px calc(12px);
+}
+}
+
+@media only screen and (min-width: 768px){
+    .ma-c-two .card-thr {
+        width: calc(25% - 24px);
+    }
+    }
+
+.ma-c-two .card-thr{
+    height: auto;
+}
+
+.card-five{
+    display: flex;
+}
+
+.card-two{
+    box-sizing: border-box;
+}
+
+.ma-c-two .card-thr .card-in-thr{
+    flex-direction: column;
+}
+
+.mane-thr .card-in-thr{
+    position: relative;
+}
+
+.card-five .card-in-thr{
+    width: 100%;
+}
+
+.card-in-two{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 768px){
+.ma-c-two .card-thr .thumbnail{
+    padding-bottom: 68.7%;
+}
+}
+
+.ma-c-two .card-thr .thumbnail{
+    width: 100%;
+    height: 0px;
+}
+
+@media only screen and (min-width: 768px){
+.ohn-two {
+    border-radius: 8px;
+}
+}
+
+.ohn-two{
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    background: url(https://mud-kage.kakaocdn.net/dn/cRxy5y/btssHjx4Arm/3O2otWWRqMFfQUVBywFKc0/c360.jpg) 50% 50% / cover no-repeat, url(https://t1.kakaocdn.net/together_image/common/no_image.png);
+}
+
+.ohn-two::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: inherit;
+}
+
+@media only screen and (min-width: 768px){
+.ma-c-two .card-thr .card-con-three {
+    padding: 14px 0px 0px;
+}
+}
+
+.ma-c-two .card-thr .card-con-three{
+    flex: 1 0 auto;
+    overflow: visible;
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.card-con-two{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px){
+.ma-c-two .card-thr .carti-four{
+    font-size: 16px;
+    line-height: 24px;
+}
+}
+
+.carti-thr{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
+}
+
+.carti-two{
+    color: rgb(32, 32, 32);
+    font-style: normal;
+    font-family: "KakaoBig Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.1px;
+}
+
+@media only screen and (min-width: 768px){
+    .ma-c-two .card-thr .carsub-four{
+        font-size: 16px;
+        line-height: 24px;
+    }
+    }
+
+.carsub-thr{
+    overflow: hidden;
+    width: 100%;
+    margin-top: 4px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}    
+
+.carsub-two{
+    color: rgb(136, 136, 136);
+    font-style: normal;
+    font-family: "KakaoBig Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.1px;
+}

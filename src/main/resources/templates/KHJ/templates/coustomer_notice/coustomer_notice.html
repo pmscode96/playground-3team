@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>공지사항</title>
+    <meta property="og:url" content="https://together.kakao.com/notices">
+    <meta property="og:image" content="https://together-mk.kakaocdn.net/dn/together/images/default_images/new_default_800x400.png">
+    <meta name="viewport" content="width=device-width, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+     <link rel="stylesheet" href="coustomer_notice.css">
+    <style>[_nghost-eie-c22]{display:contents}</style>
+</head>
+
+<style>
+    @media (max-width: 1000px) {
+        .menu_side {
+            right: 0;
+            margin-right: 0;
+        }
+    }
+</style>
+<body>
+    <together-app ng-version="12.1.5">
+        <div id="dkIndex">
+            <a >본문 바로가기</a>
+            <a >메뉴 바로가기</a>
+        </div>
+<!--        전체 layer-->
+        <div id="dkWrap" scrollheaderfixed="" fixedreachedelementid="btnSearch" fixeddirection="bottom" fixedclass="header_fixed" class="together_top">
+<!--        상단바 header-->
+            <together-header>
+                <div id="dkHead">
+                    <div data-tiara-layer="gnb" class="d_head d_navigation">
+<!--                        로고(logo)-->
+                        <h1>
+                            <a reloadonduplicatedclick="" id="dkServiceLogo" data-tiara-layer="BI" data-tiara-action-name="BI_클릭" class="link_service">카카오같이가치</a>
+                        </h1>
+<!--                        메뉴들-->
+                        <div role="navigation" class="gnb_together">
+                            <h2 class="screen_out">메인메뉴</h2>
+                            <a reloadonduplicatedclick="" data-tiara-layer="home" data-tiara-action-name="홈_클릭" class="link_gnb link_home">
+                                <span class="txt_gnb">홈</span>
+                            </a>
+                            <a reloadonduplicatedclick="" data-tiara-layer="notice" data-tiara-action-name="공지사항_클릭" class="link_gnb link_ notice">
+                                <span class="txt_gnb">공지사항</span>
+                            </a>
+                            <a reloadonduplicatedclick="" data-tiara-layer="subject" data-tiara-action-name="과목별_예상문제_클릭" class="link_gnb link_subject">
+                                <span class="txt_gnb">과목별 예상문제</span>
+                            </a>
+                            <a reloadonduplicatedclick="" data-tiara-layer="mind" data-tiara-action-name="게시판_클릭" class="link_gnb link_board">
+                                <span class="txt_gnb">게시판</span>
+                            </a>
+                        </div>
+<!--                        상단 바 오른쪽 아이콘들(프로필, 돋보기)-->
+                        <div class="wrap_util">
+<!--                        프로필 쪽-->
+                            <gnb-profile>
+                                <button type="button" class="btn_profile">
+                                    <div class="box_avatar_squircle">
+                                        <img profileimagecheck="" width="30" height="30" alt="프로필사진" class="thumb_profile" src="//t1.kakaocdn.net/together_image/common/avatar/avatar.png">
+                                    </div>
+                                </button>
+                            </gnb-profile>
+<!--                            검색쪽 -->
+                            <gnb-search>
+                                <button type="button" id="btnSearch" data-tiara-layer="search" data-tiara-action-name="검색_클릭" class="btn_search" tabindex="0">
+                                    <span class="ico_together ico_search">검색</span>
+                                </button>
+                            </gnb-search>
+                        </div>
+<!--                        맨오른쪽 줄세개 아이콘-->
+                        <gnb-menu-notification _nghost-weo-c22="">
+                            <button _ngcontent-weo-c22="" type="button" data-tiara-layer="m_menu" data-tiara-action-name="메뉴펼치기_클릭" class="btn_side">
+                                <span _ngcontent-weo-c22="" class="screen_out">내 알림</span>
+                                <!----><span _ngcontent-weo-c22="" class="ico_together ico_menu">playgorund 메뉴 펼치기</span>
+                            </button>
+                        </gnb-menu-notification>
+                    </div>
+                    <div id="sideouter_layer" class="sideouter_layer" style="height: 100vh; z-index: 1000;" hidden=""></div>
+                    <div id="mFeature" data-tiara-layer="sidemenu" class="menu_side side_together #sidemenu">
+                        <div class="inner_side">
+<!--                            사이드 메뉴 쪽-->
+                            <h2 class="screen_out tit_sidemenu">playground 사이드 메뉴</h2>
+                            <div id="side_content" class="side_content" style="height: auto;">
+                                <div data-tiara-layer="profile" class="wrap_my">
+                                    <button type="button" data-tiara-layer="login" data-tiara-action-kind="Login" data-tiara-action-name="로그인_클릭" class="btn_profile">
+                                        <span class="box_avatar_squircle">
+                                            <img src="//t1.kakaocdn.net/together_image/common/avatar/avatar.png" alt="프로필사진" class="thumb_profile">
+                                        </span>
+                                        <span class="user_id">로그인하세요</span>
+                                    </button>
+                                    <ul class="my_util">
+                                        <li>
+                                            <a reloadonduplicatedclick="" data-tiara-layer="my_profile" data-tiara-action-name="사이드 메뉴 마이_클릭" class="link_util">
+                                                <i class="ico_svg ico_my"></i> MY
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a reloadonduplicatedclick="" data-tiara-layer="notifications" data-tiara-action-name="사이드 메뉴 알림_클릭" class="link_util">
+                                                <i class="ico_svg ico_alert"></i> 알림 <!---->
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h3 class="screen_out">playground 모바일사이드 메뉴</h3>
+                                <ul class="list_sidemenu">
+                                    <li>
+<!--                                        공지사항 사이드-->
+                                        <a reloadonduplicatedclick="" data-tiara-layer="notice" data-tiara-action-name="사이드 메뉴 공지사항_클릭" class="link_sidemenu">
+                                            <span class="ico_svg ico_notice"></span>
+                                            <span class="txt_sidemenu">공지사항</span>
+                                        </a>
+                                    </li>
+                                    <li>
+<!--                                        과목별 예상문제 사이드-->
+                                        <a data-tiara-layer="subject" data-tiara-action-name="사이드 메뉴 과목별예상문제_클릭" class="link_sidemenu">
+                                            <span class="ico_svg ico_subject"></span>
+                                            <span class="txt_sidemenu">과목별 예상문제</span>
+                                        </a>
+                                    </li>
+                                    <li>
+<!--                                        게시판 사이드-->
+                                        <a reloadonduplicatedclick="" data-tiara-layer="board" data-tiara-action-name="사이드 메뉴 게시판_클릭" class="link_sidemenu">
+                                            <span class="ico_svg ico_board"></span>
+                                            <span class="txt_sidemenu">게시판</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <modal>
+                    <div tabindex="-1" role="dialog" class="ngdialog-content" id="modalOFF" style="position: fixed; display: none; top: 25%; margin-left: -192px;">
+                        <modal-contant>
+                            <div class="inner_together_layer inner_together_layer2">
+                                <div class="layer_body">
+                                    <p class="desc_together">
+                                        <span class="txt_desc">로그인방법을 선택해주세요.</span>
+                                    </p>
+                                    <div class="wrap_btn wrap_btn_type">
+                                        <a login="" class="btn_set btn_type3">로그인 하기</a>
+                                    </div>
+                                </div>
+                                <div class="layer_foot">
+                                    <button type="button" class="btn_close">
+                                        <span class="ico_together">닫기</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </modal-contant>
+                    </div>
+                </modal>
+            </together-header>
+<!--            상단바 제외한 아래부분-->
+            <span id="rootContent">
+                <router-outlet></router-outlet>
+                <ng-compoent>
+                    <div id="dkContent" class="cont_join">
+                        <div id="mArticle">
+                            <h2 id="dkBody" class="screen_out">공지사항</h2>
+<!--                            상단바 바로 아래 바 부분-->
+                            <div class="wrap_tab">
+                                <h3 class="screen_out">공지사항 메뉴</h3>
+                                <ul class="list_tab tab_type4">
+<!--                              전체 공지사항-->
+                                    <li class="on">
+                                        <a class="link_tab">
+                                            <span class="txt_tab">전체</span>
+                                        </a>
+                                        <span class="screen_out">선택됨</span>
+                                    </li>
+                                    <li>
+<!--                                    서비스 안내-->
+                                        <a class="#tab_1 link_tab">
+                                            <span class="txt_tab">서비스안내</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <router-outlet></router-outlet>
+<!--                            본문 부분-->
+                            <ng-component>
+                                <div class="group_official">
+<!--                                    공지사항 내용들-->
+                                    <h4 class="screen_out">전체 리스트</h4>
+                                    <ul class="list_official">
+                                        <li data-tiara-layer="card">
+                                            <intersection-observer>
+                                                <a data-tiara-action-name="공지사항_클릭" class="link_official">
+                                                    <strong class="subject_official">
+                                                        <span class="ico_pin">
+                                                            <span class="ir_pm">고정 게시글</span>
+                                                        </span>
+                                                        <!---->
+                                                        교사와 학생 소통 공간인 '놀이터'를 소개합니다!
+                                                    </strong>
+                                                    <span class="tit_official">전체</span>
+                                                    <span class="date_official">
+                                                        <span class="screen_out">작성일</span>
+                                                        2023.09.10
+                                                    </span>
+                                                </a>
+                                            </intersection-observer>
+                                        </li>
+                                        <li data-tiara-layer="card">
+                                            <intersection-observer>
+                                                <a data-tiara-action-name="공지사항_클릭" class="link_official">
+                                                    <strong class="subject_official">
+                                                        교사와 학생 소통 공간인 '놀이터'의 과목별 문제 이용 안내
+                                                    </strong>
+                                                    <span class="tit_official">서비스 안내</span>
+                                                    <span class="date_official">
+                                                        <span class="screen_out">작성일</span>
+                                                        2023.09.11
+                                                    </span>
+                                                </a>
+                                            </intersection-observer>
+                                        </li></li>
+                                        <li data-tiara-layer="card">
+                                            <intersection-observer>
+                                                <a data-tiara-action-name="공지사항_클릭" class="link_official">
+                                                    <strong class="subject_official">
+                                                        교사와 학생 소통 공간인 '놀이터'의 게시판으로 소통해요💕
+                                                    </strong>
+                                                    <span class="tit_official">서비스 안내</span>
+                                                    <span class="date_official">
+                                                        <span class="screen_out">작성일</span>
+                                                        2023.09.13
+                                                    </span>
+                                                </a>
+                                            </intersection-observer>
+                                    </ul>
+<!--                                    리스트  더 보기 more-->
+                                    <div class="list_more">
+
+                                    </div>
+                                </div>
+                            </ng-component>
+                        </div>
+                    </div>
+                </ng-compoent>
+            </span>
+            <hr class="hide">
+<!--            하단 바-->
+            <together-footer>
+                <div id="dkFoot">
+                    <div class="d_footer">
+                        <div class="inner_footer">
+                            <a class="link_home">
+                                <span class="ir_pm">playground</span>
+                            </a>
+                            <p class="desc_footer">playground(놀이터)는 교사와 학생의 소통 공간입니다.</p>
+                            <div class="area_info">
+                                <ul class="list_menu">
+                                    <li>
+                                        <a target="_blank" class="link_menu">고객센터</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="link_menu">문의하기</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="link_menu">이용약관</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="link_menu link_policy">개인정보처리방침</a>
+                                    </li>
+                                </ul>
+                                <ul class="list_sns">
+                                    <li>
+                                        <a target="_blank" class="link_sns #together_yellow">
+                                            <span class="ico_svg ico_kakaotalk ir_pm">카카오톡</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="link_sns">
+                                            <span class="ico_svg ico_facebook ir_pm">페이스북 공유하기</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="link_sns">
+                                            <span class="ico_svg ico_instargram ir_pm">인스타그램 공유하기</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </together-footer>
+        </div>
+    </together-app>
+</body>
+</html>

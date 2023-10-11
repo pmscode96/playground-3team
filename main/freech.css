@@ -1,0 +1,555 @@
+element.style{
+    overflow: auto;
+}
+
+@media only screen and (min-width: 768px){
+body{
+    min-width: 1140px;
+}
+}
+
+body{
+    font-family: "KakaoBig Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    line-height: 1;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    display: block;
+}
+
+body{
+    vertical-align: baseline;
+}
+
+.two{
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0px, 0px, 0px, 0px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    color: transparent;
+}
+
+div{
+    display: block;
+}
+
+div{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+}
+
+div{
+    vertical-align: baseline;
+}
+
+.menu{
+    color: transparent;
+}
+
+a{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+a::-webkit-any-link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px){
+.nav-two {
+    height: 70px;
+}
+}
+
+.nav-two{
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 200;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    position: sticky;
+}
+
+header{
+    display: block;
+}
+
+header{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.nav-two::before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(238, 238, 238);
+}
+
+@media only screen and (min-width: 768px){
+.bar-two {
+    align-items: center;
+    width: 1120px;
+    height: 100%;
+    margin: 0px auto;
+}
+}
+
+.bar-two{
+    display: flex;
+    justify-content: space-between;
+    min-width: 280px;
+}
+
+@media only screen and (min-width: 768px){
+.gachi {
+    height: 70px;
+}
+}
+
+h1{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+h1{
+    display: block;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+@media only screen and (min-width: 768px){
+.small {
+    width: 115px;
+    background-image: url(//t1.kakaocdn.net/together_image/svg/logo_pc.svg);
+}
+}
+
+.small{
+    display: block;
+    height: 100%;
+    background: url(//t1.kakaocdn.net/together_image/svg/logo_mo.svg) center center / contain no-repeat;
+}
+
+span{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+@media only screen and (min-width: 768px){
+.mai-and {
+    justify-content: center;
+    flex: 1 0 auto;
+    height: 100%;
+}
+}
+
+.mai-and{
+    display: flex;
+    align-items: center;
+}
+
+nav{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+h2{
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+h2{
+    display: block;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.mai-and > ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.list-one{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul{
+    list-style: none;
+}
+
+ul{
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+ul{
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+@media only screen and (min-width: 768px){
+.menu-four {
+    margin: 0px 11px;
+}
+}
+
+.menu-four{
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    box-sizing: border-box;
+}
+
+.menu-two{
+    display: list-item;
+    position: relative;
+    font-size: 13px;
+    line-height: 1.54;
+    letter-spacing: -0.1px;
+}
+
+li{
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+li{
+    text-align:-webkit-match-parent;
+}
+
+ul{
+    list-style: none;
+}
+
+@media only screen and (min-width: 768px){
+.h-six{
+    padding: 0px 14px;
+    font-family: "KakaoBig Bold";
+    font-size: 16px;
+    color: rgb(68, 68, 68);
+}
+}
+
+.h-six{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+    letter-spacing: normal;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.h-five{
+    font-style: normal;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (min-width: 768px){
+.menu-five{
+    margin: 0px 11px;
+}
+}
+
+.menu-five{
+    height: 100%;
+    border-bottom: 2px solid rgb(57, 57, 57);
+    box-sizing: border-box;
+}
+
+.util-two{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.uall{
+    position: relative;
+    display: flex;
+}
+
+.hyp-two{
+    vertical-align: top;
+    font: inherit;
+    text-decoration: none;
+    color: inherit;
+}
+
+.hyp-five{
+    display: flex;
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+@media only screen and (min-width: 768px){
+.menu-five, .h-seven {
+    color: rgb(32, 32, 32);
+}
+}
+
+.ava-four{
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ava-three{
+    overflow: hidden;
+    position: relative;
+    background: url(//t1.kakaocdn.net/together_image/common/avatar/avatar.png) 50% 50% / cover no-repeat;
+}
+
+
+.ava-three::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    background-image: url(//t1.kakaocdn.net/together_image/common/bg_mask.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 768px){
+.search-two {
+    height: auto;
+    margin: 0px 11px 0px 19px;
+    padding: 8px;
+}
+}
+
+.search-two{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+@media only screen and (min-width: 768px){
+.svg-four {
+    width: 22px;
+    height: 22px;
+}
+}
+
+.svg-tw{
+    vertical-align: top;
+}
+
+svg:not(:root) {
+    overflow-clip-margin: content-box;
+    overflow: hidden;
+}
+
+:not(svg) {
+    transform-origin: 0px 0px;
+}
+
+.trans-five{
+    position: relative;
+}
+
+.trans{
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    margin: 0px;
+    font-family: "KakaoBig Bold";
+    line-height: 1.5;
+    letter-spacing: -0.1px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    cursor: pointer;
+    height: auto;
+    padding: 8px;
+    font-size: 12px;
+}
+
+button{
+    appearance: auto;
+    text-rendering: auto;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: center;
+    writing-mode: horizontal-tb !important;
+    padding-block: 1px;
+    padding-inline: 6px;
+}
+
+.liTurH{
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+}
+
+.direc-two{
+    overflow: hidden;
+    position: fixed;
+    inset: 0px;
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    clip: rect(0px, 0px, 0px, 0px);
+    clip-path: inset(50%);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.direc-four, .draw-contain{
+    max-width: 300px;
+    min-width: 280px;
+    padding: 30px;
+}
+
+.direc-two, .draw-contain{
+    height: 100%;
+    transform: translateX(120%);
+}
+
+.good-three{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    transition: transform 300ms ease 0s;
+}
+
+.wic{
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0px 0px 20px;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+button{
+    font-family: "KakaoBig Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+}
+
+.need{
+    flex-shrink: 0;
+}
+
+.made-hu{
+    overflow: hidden;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: url(//t1.kakaocdn.net/together_image/common/avatar/avatar.png) 50% 50% / cover no-repeat;
+}
+
+.made-hu::after{
+    content: "";
+    position: absolute;
+    inset: 0px;
+    background-image: url(//t1.kakaocdn.net/together_image/common/bg_mask.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.with-thr{
+    display: block;
+    overflow: hidden;
+    text-align: left;
+}
+
+.with{
+    padding-left: 12px;
+}
+
+.key-in{
+    color: rgb(32, 32, 32);
+    font-size: 16px;
+    font-style: normal;
+    font-family: "KakaoBig Bold", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.56;
+    letter-spacing: -0.1px;
+    font-weight: 600;
+}
+
+strong{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.gat-two{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    border-radius: 6px;
+    background-color: rgb(249, 249, 249);
+}
+
+.bad-two{
+    position: fixed;
+    inset: 0px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: opacity 300ms ease 0s;
+    opacity: 0;
+}

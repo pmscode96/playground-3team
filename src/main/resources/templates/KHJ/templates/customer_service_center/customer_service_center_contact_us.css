@@ -1,0 +1,1453 @@
+/* reset */
+._wt_kakao_envoy div,
+._wt_kakao_envoy p,
+._wt_kakao_envoy button {
+    margin: 0;
+    padding: 0;
+}
+._wt_kakao_envoy,
+._wt_kakao_envoy button {
+    line-height: 1.43;
+    font-family: 'Apple SD Gothic Neo', 'Apple SD 산돌고딕 Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-size: 14px;
+    color: #000;
+    letter-spacing: normal;
+}
+._wt_kakao_envoy button {
+    border: 0 none;
+    background-color: transparent;
+    cursor: pointer;
+}
+._wt_kakao_envoy ._wt_num_comm {
+    font-family: 'Helvetica Neue', Arial;
+}
+._wt_kakao_envoy .os_windows,
+._wt_kakao_envoy .os_windows button {
+    line-height: 1.46;
+    font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    font-size: 13px;
+    letter-spacing: -0.6px;
+}
+._wt_kakao_envoy .os_windows ._wt_num_comm {
+    font-family: Arial;
+}
+
+/* global */
+._wt_kakao_envoy ._wt_screen_out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+._wt_kakao_envoy ._wt_ico_webchat {
+    overflow: hidden;
+    display: inline-block;
+    line-height: 0;
+    font-size: 0;
+    background: url(https://t1.kakaocdn.net/kakaotalk_web/images/20211206_095349/ico_webchat.png) 0 0 no-repeat;
+    vertical-align: top;
+    text-indent: -9999px;
+}
+._wt_kakao_envoy ._wt_ico_kakaotalk {
+    width: 44px;
+    height: 44px;
+    background-position: 0 0;
+}
+._wt_kakao_envoy ._wt_ico_close {
+    width: 12px;
+    height: 12px;
+    background-position: 0 -50px;
+}
+._wt_kakao_envoy ._wt_ico_ryan {
+    width: 44px;
+    height: 44px;
+    background-position: -50px 0;
+}
+._wt_kakao_envoy ._wt_ico_apeach {
+    width: 44px;
+    height: 44px;
+    background-position: -100px 0;
+}
+._wt_kakao_envoy ._wt_ico_muzi {
+    width: 44px;
+    height: 44px;
+    background-position: -150px 0;
+}
+._wt_kakao_envoy ._wt_ico_con {
+    width: 44px;
+    height: 44px;
+    background-position: -200px 0;
+}
+
+/* webchat */
+._wt_kakao_envoy {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 16777271;
+}
+._wt_kakao_envoy ._wt_module_webchat {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 380px;
+}
+._wt_kakao_envoy ._wt_view_webchat {
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 80px;
+    width: 380px;
+    height: 600px;
+    border-radius: 10px;
+    background-color: #ddd;
+    box-shadow: 0 2px 16px 0 rgba(77, 79, 100, 0.16);
+}
+._wt_kakao_envoy ._wt_view_webchat ._wt_frame_chat {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0 none;
+}
+._wt_kakao_envoy ._wt_util_webchat {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    background-color: #fee500;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.08);
+    animation: scaleUp 0.3s cubic-bezier(0, 0, 0.75, 1.5);
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_btn_webchat {
+    display: block;
+    width: 60px;
+    height: 60px;
+    white-space: nowrap;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_btn_open {
+    padding: 8px;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_btn_open ._wt_ico_open {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    width: 44px;
+    height: 44px;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_btn_open ._wt_ico_webchat {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: top 0.3s, opacity 0.3s;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_btn_open ._wt_ico_guide {
+    top: -100%;
+    opacity: 0;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_btn_close {
+    display: none;
+    float: right;
+    padding: 20px;
+    text-align: right;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_btn_close ._wt_ico_close {
+    margin: 4px;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_btn_logout {
+    overflow: hidden;
+    display: none;
+    position: relative;
+    width: auto;
+    padding: 20px 0;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_btn_logout ._wt_txt_logout {
+    display: block;
+    width: 0;
+    line-height: 20px;
+    font-size: 15px;
+    color: #262626;
+    transition: width 200ms;
+    text-align: left;
+    text-indent: 20px;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_btn_logout ._wt_txt_logout::after {
+    position: absolute;
+    top: 23px;
+    right: 0;
+    width: 1px;
+    height: 14px;
+    background-color: #000;
+    vertical-align: top;
+    content: '';
+    opacity: 0.15;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_emph_new {
+    position: absolute;
+    top: 12px;
+    right: 6px;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.2s cubic-bezier(0, 0, 0.75, 1.75);
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_emph_new::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: #ff6229;
+    content: '';
+    transition: all 0.2s cubic-bezier(0, 0, 0.75, 1.75);
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_layer_tooltip {
+    display: none;
+    position: absolute;
+    right: 44px;
+    bottom: 44px;
+    white-space: nowrap;
+    transition: all 0.3s;
+    transform: scale(0, 0);
+    transform-origin: right bottom;
+    opacity: 0;
+}
+._wt_kakao_envoy ._wt_util_webchat ._wt_layer_on {
+    transform: scale(1, 1);
+    opacity: 1;
+}
+._wt_kakao_envoy ._wt_msg_on ._wt_emph_new {
+    top: 6px;
+    right: 0;
+    width: 12px;
+    height: 12px;
+}
+._wt_kakao_envoy ._wt_msg_on ._wt_emph_new::after {
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+}
+._wt_kakao_envoy ._wt_guide_on ._wt_btn_open ._wt_ico_kakaotalk {
+    top: 100%;
+    opacity: 0;
+}
+._wt_kakao_envoy ._wt_guide_on ._wt_btn_open ._wt_ico_guide {
+    top: 0;
+    opacity: 1;
+}
+._wt_kakao_envoy ._wt_guide_on ._wt_layer_tooltip {
+    display: block;
+}
+._wt_kakao_envoy ._wt_layer_tooltip {
+    padding: 7px 12px 5px;
+    border-radius: 16px;
+    background: url(https://t1.kakaocdn.net/kakaotalk_web/images/20211206_095349/bg_tooltip.png) 0 0 repeat;
+}
+._wt_kakao_envoy ._wt_layer_tooltip::after {
+    position: absolute;
+    right: 7px;
+    bottom: -4px;
+    width: 11px;
+    height: 13px;
+    background: url(https://t1.kakaocdn.net/kakaotalk_web/images/20211206_095349/ico_webchat.png) -20px -50px no-repeat;
+    content: '';
+}
+._wt_kakao_envoy ._wt_layer_tooltip p {
+    color: #fff;
+    opacity: 0.9;
+}
+._wt_kakao_envoy ._wt_chat_on ._wt_view_webchat {
+    display: block;
+}
+._wt_kakao_envoy ._wt_chat_on ._wt_btn_open {
+    display: none;
+}
+._wt_kakao_envoy ._wt_chat_on ._wt_btn_close {
+    display: block;
+}
+._wt_kakao_envoy ._wt_chat_on ._wt_btn_logout {
+    display: block;
+}
+._wt_kakao_envoy ._wt_chat_login ._wt_util_webchat:hover ._wt_btn_close {
+    padding-left: 0;
+}
+._wt_kakao_envoy ._wt_chat_login ._wt_util_webchat:hover ._wt_btn_close ._wt_ico_close {
+    width: auto;
+    height: auto;
+    margin: 0;
+    line-height: 20px;
+    font-size: 15px;
+    background: 0 none;
+    text-indent: 0;
+}
+._wt_kakao_envoy ._wt_chat_login ._wt_util_webchat:hover ._wt_btn_logout ._wt_txt_logout {
+    width: 87px;
+}
+._wt_kakao_envoy ._wt_chat_login ._wt_util_webchat ._wt_btn_logout:focus ._wt_txt_logout {
+    width: 87px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_ico_kakaotalk {
+    width: 34px;
+    height: 34px;
+    background-position: 0 -130px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_ico_ryan {
+    width: 34px;
+    height: 34px;
+    background-position: -40px -130px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_ico_apeach {
+    width: 34px;
+    height: 34px;
+    background-position: -80px -130px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_ico_muzi {
+    width: 34px;
+    height: 34px;
+    background-position: -120px -130px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_ico_con {
+    width: 34px;
+    height: 34px;
+    background-position: -160px -130px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_ico_close {
+    width: 12px;
+    height: 12px;
+    background-position: -80px -50px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_view_webchat {
+    bottom: 66px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_util_webchat ._wt_btn_webchat {
+    width: 46px;
+    height: 46px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_util_webchat ._wt_btn_open {
+    padding: 6px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_util_webchat ._wt_btn_open ._wt_ico_open {
+    width: 34px;
+    height: 34px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_util_webchat ._wt_btn_close {
+    padding: 14px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_util_webchat ._wt_btn_close ._wt_ico_close {
+    margin: 3px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_util_webchat ._wt_btn_logout {
+    width: auto;
+    padding: 14px 0;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_util_webchat ._wt_btn_logout ._wt_txt_logout {
+    font-size: 13px;
+    text-indent: 14px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_util_webchat ._wt_btn_logout ._wt_txt_logout::after {
+    top: 17px;
+    height: 11px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_util_webchat ._wt_layer_tooltip {
+    right: 33px;
+    bottom: 33px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_emph_new {
+    top: 9px;
+    right: 5px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_layer_tooltip {
+    padding: 6px 10px 4px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_layer_tooltip::after {
+    right: 5px;
+    bottom: -3px;
+    width: 8px;
+    height: 10px;
+    background-position: -100px -50px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_layer_tooltip p {
+    line-height: 15px;
+    font-size: 12px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_msg_on ._wt_emph_new {
+    top: 4px;
+    right: 0;
+    width: 10px;
+    height: 10px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_msg_on ._wt_emph_new::after {
+    top: 2px;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_chat_login ._wt_util_webchat:hover ._wt_btn_close ._wt_ico_close {
+    font-size: 13px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_chat_login ._wt_util_webchat:hover ._wt_btn_logout ._wt_txt_logout {
+    width: 70px;
+}
+._wt_kakao_envoy ._wt_view_small ._wt_chat_login ._wt_util_webchat ._wt_btn_logout:focus ._wt_txt_logout {
+    width: 70px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_ico_kakaotalk {
+    width: 58px;
+    height: 58px;
+    background-position: 0 -70px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_ico_ryan {
+    width: 58px;
+    height: 58px;
+    background-position: -60px -70px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_ico_apeach {
+    width: 58px;
+    height: 58px;
+    background-position: -120px -70px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_ico_muzi {
+    width: 58px;
+    height: 58px;
+    background-position: -180px -70px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_ico_con {
+    width: 58px;
+    height: 58px;
+    background-position: -240px -70px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_ico_close {
+    width: 18px;
+    height: 18px;
+    background-position: -40px -50px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_view_webchat {
+    bottom: 98px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_util_webchat {
+    border-radius: 39px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_util_webchat ._wt_btn_webchat {
+    width: 78px;
+    height: 78px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_util_webchat ._wt_btn_open {
+    padding: 10px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_util_webchat ._wt_btn_open ._wt_ico_open {
+    width: 58px;
+    height: 58px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_util_webchat ._wt_btn_close {
+    padding: 29px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_util_webchat ._wt_btn_close ._wt_ico_close {
+    margin: 1px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_util_webchat ._wt_btn_logout {
+    width: auto;
+    padding: 29px 0;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_util_webchat ._wt_btn_logout ._wt_txt_logout {
+    font-size: 17px;
+    text-indent: 30px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_util_webchat ._wt_btn_logout ._wt_txt_logout::after {
+    top: 30px;
+    height: 18px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_util_webchat ._wt_layer_tooltip {
+    right: 57px;
+    bottom: 57px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_emph_new {
+    top: 13px;
+    right: 8px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_layer_tooltip {
+    padding: 10px 15px 8px;
+    border-radius: 20px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_layer_tooltip::after {
+    right: 8px;
+    bottom: -5px;
+    width: 13px;
+    height: 16px;
+    background-position: -60px -50px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_layer_tooltip p {
+    line-height: 19px;
+    font-size: 16px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_msg_on ._wt_emph_new {
+    top: 8px;
+    right: 0;
+    width: 16px;
+    height: 16px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_msg_on ._wt_emph_new::after {
+    top: 3px;
+    left: 3px;
+    width: 10px;
+    height: 10px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_chat_login ._wt_util_webchat:hover ._wt_btn_close ._wt_ico_close {
+    font-size: 17px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_chat_login ._wt_util_webchat:hover ._wt_btn_logout ._wt_txt_logout {
+    width: 107px;
+}
+._wt_kakao_envoy ._wt_view_large ._wt_chat_login ._wt_util_webchat ._wt_btn_logout:focus ._wt_txt_logout {
+    width: 107px;
+}
+._wt_kakao_envoy ._wt_view_left ._wt_module_webchat {
+    right: auto;
+    left: 20px;
+}
+._wt_kakao_envoy ._wt_view_left ._wt_view_webchat {
+    right: auto;
+    left: 0;
+}
+._wt_kakao_envoy ._wt_view_left ._wt_util_webchat {
+    right: auto;
+    left: 0;
+}
+._wt_kakao_envoy ._wt_view_left ._wt_util_webchat ._wt_emph_new {
+    right: auto;
+    left: 6px;
+}
+._wt_kakao_envoy ._wt_view_left ._wt_util_webchat ._wt_layer_tooltip {
+    right: auto;
+    left: 44px;
+    transform-origin: left bottom;
+}
+._wt_kakao_envoy ._wt_view_left ._wt_layer_tooltip::after {
+    right: auto;
+    left: 7px;
+    background-position: -140px -50px;
+}
+._wt_kakao_envoy ._wt_view_left ._wt_msg_on ._wt_emph_new {
+    left: 0;
+}
+._wt_kakao_envoy ._wt_view_left._wt_view_small ._wt_util_webchat ._wt_emph_new {
+    left: 5px;
+}
+._wt_kakao_envoy ._wt_view_left._wt_view_small ._wt_util_webchat ._wt_layer_tooltip {
+    left: 33px;
+}
+._wt_kakao_envoy ._wt_view_left._wt_view_small ._wt_layer_tooltip::after {
+    left: 5px;
+    background-position: -120px -50px;
+}
+._wt_kakao_envoy ._wt_view_left._wt_view_small ._wt_msg_on ._wt_emph_new {
+    left: 0;
+}
+._wt_kakao_envoy ._wt_view_left._wt_view_large ._wt_util_webchat ._wt_emph_new {
+    left: 8px;
+}
+._wt_kakao_envoy ._wt_view_left._wt_view_large ._wt_util_webchat ._wt_layer_tooltip {
+    left: 57px;
+}
+._wt_kakao_envoy ._wt_view_left._wt_view_large ._wt_layer_tooltip::after {
+    left: 7px;
+    background-position: -160px -50px;
+}
+._wt_kakao_envoy ._wt_view_left._wt_view_large ._wt_msg_on ._wt_emph_new {
+    left: 0;
+}
+
+/** windows **/
+._wt_kakao_envoy .os_windows ._wt_layer_tooltip {
+    padding: 6px 12px;
+}
+._wt_kakao_envoy .os_windows ._wt_util_webchat ._wt_btn_logout ._wt_txt_logout {
+    margin-top: -2px;
+    font-size: 14px;
+}
+._wt_kakao_envoy .os_windows ._wt_chat_login ._wt_util_webchat:hover ._wt_btn_close ._wt_ico_close {
+    margin-top: -2px;
+    font-size: 14px;
+}
+._wt_kakao_envoy .os_windows._wt_view_small ._wt_layer_tooltip {
+    padding: 5px 10px;
+}
+._wt_kakao_envoy .os_windows._wt_view_small ._wt_layer_tooltip p {
+    font-size: 11px;
+}
+._wt_kakao_envoy .os_windows._wt_view_small ._wt_util_webchat ._wt_btn_logout ._wt_txt_logout {
+    font-size: 13px;
+}
+._wt_kakao_envoy .os_windows._wt_view_small ._wt_chat_login ._wt_util_webchat:hover ._wt_btn_close ._wt_ico_close {
+    font-size: 13px;
+}
+._wt_kakao_envoy .os_windows._wt_view_large ._wt_layer_tooltip {
+    padding: 9px 15px;
+}
+._wt_kakao_envoy .os_windows._wt_view_large ._wt_layer_tooltip p {
+    font-size: 15px;
+}
+._wt_kakao_envoy .os_windows._wt_view_large ._wt_util_webchat ._wt_btn_logout ._wt_txt_logout {
+    font-size: 16px;
+}
+._wt_kakao_envoy .os_windows._wt_view_large ._wt_chat_login ._wt_util_webchat:hover ._wt_btn_close ._wt_ico_close {
+    font-size: 16px;
+}
+
+/** mobile **/
+._wt_kakao_envoy ._wt_view_mobile ._wt_ico_kakaotalk {
+    width: 34px;
+    height: 34px;
+    background-position: -40px -170px;
+}
+._wt_kakao_envoy ._wt_view_mobile ._wt_module_webchat {
+    right: 16px;
+    bottom: 16px;
+}
+._wt_kakao_envoy ._wt_view_mobile ._wt_util_webchat {
+    border-radius: 25px;
+}
+._wt_kakao_envoy ._wt_view_mobile ._wt_util_webchat ._wt_btn_webchat {
+    width: 50px;
+    height: 50px;
+    outline: none;
+}
+._wt_kakao_envoy ._wt_view_mobile ._wt_util_webchat ._wt_btn_open {
+    padding: 8px;
+}
+._wt_kakao_envoy ._wt_view_mobile ._wt_util_webchat ._wt_btn_open ._wt_ico_open {
+    width: 34px;
+    height: 34px;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_small ._wt_ico_kakaotalk {
+    width: 26px;
+    height: 26px;
+    background-position: 0 -170px;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_small ._wt_util_webchat {
+    border-radius: 19px;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_small ._wt_util_webchat ._wt_btn_webchat {
+    width: 38px;
+    height: 38px;
+    outline: none;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_small ._wt_util_webchat ._wt_btn_open {
+    padding: 6px;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_small ._wt_util_webchat ._wt_btn_open ._wt_ico_open {
+    width: 26px;
+    height: 26px;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_large ._wt_ico_kakaotalk {
+    width: 45px;
+    height: 45px;
+    background-position: -80px -170px;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_large ._wt_util_webchat {
+    border-radius: 33px;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_large ._wt_util_webchat ._wt_btn_webchat {
+    width: 65px;
+    height: 65px;
+    outline: none;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_large ._wt_util_webchat ._wt_btn_open {
+    padding: 10px;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_large ._wt_util_webchat ._wt_btn_open ._wt_ico_open {
+    width: 45px;
+    height: 45px;
+}
+._wt_kakao_envoy ._wt_view_mobile._wt_view_left ._wt_module_webchat {
+    right: auto;
+    left: 16px;
+}
+
+/* animation */
+@keyframes scaleUp {
+    from {
+        transform: scale(0, 0);
+    }
+    to {
+        transform: scale(1, 1);
+    }
+}
+
+/* retina */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5),
+only screen and (min-resolution: 144dpi),
+only screen and (min-resolution: 1.5dppx) {
+    ._wt_kakao_envoy ._wt_ico_webchat {
+        background-image: url(https://t1.kakaocdn.net/kakaotalk_web/images/20211206_095349/rtn/ico_webchat.png);
+        background-size: 300px 220px;
+    }
+    ._wt_kakao_envoy ._wt_layer_tooltip::after {
+        background-image: url(https://t1.kakaocdn.net/kakaotalk_web/images/20211206_095349/rtn/ico_webchat.png);
+        background-size: 300px 220px;
+    }
+}
+
+/*리사이즈 관련 스타일*/
+
+.kakao_resize_top {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    height: 20px;
+    top: -10px;
+    left: 0;
+    cursor: row-resize;
+}
+
+.on_resize .kakao_resize_top {
+    height: 200%;
+    top: initial;
+    bottom: 0;
+    right: 0;
+}
+
+.on_resize .kakao_iframe {
+    pointer-events: none;
+}
+
+.view_webchat {
+    overflow: initial !important;
+}
+
+.view_webchat .frame_chat {
+    border-radius: 10px;
+}
+
+body, th, td, input, select, textarea, button {
+    font-size: 13px;
+    line-height: 1.5;
+    font-family: '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif, '돋움', dotum;
+    color: #1e1e1e;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6,
+pre, code, form, fieldset, legend, textarea, p, blockquote,
+th, td, input, select, button {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+}
+
+#playgroundIndex a {
+    overflow: hidden;
+    position: absolute;
+    left: -9999px;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #1e1e1e;
+    text-decoration: none;
+}
+
+#playgroundWrap {
+    min-width: 1020px;
+}
+
+#playgroundHead {
+    display: block;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.cs_head {
+    position: relative;
+    width: 990px;
+    height: 99px;
+    margin: 0 auto;
+    padding-top: 51px;
+}
+
+.cs_head .info_other {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+
+.info_other .wrap_lang {
+    float: left;
+    width: 70px;
+    position: relative;
+    text-align: right;
+}
+
+.info_other .link_lang {
+    display: inline-block;
+    line-height: 20px;
+}
+
+.screen_out {
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+
+.info_other .link_lang .ico_cs {
+    width: 7px;
+    height: 5px;
+    margin: 8px 0 0 9px;
+    background-position: 0 -40px;
+    vertical-align: top;
+}
+
+.ico_cs {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    background-image: url('https://cs.kakao.com/img/ico_cs_200120.png');
+    background-repeat: no-repeat;
+}
+
+.info_other .list_lang {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 66px;
+    padding: 3px 7px;
+    text-align: left;
+    border: 1px solid #1e1e1e;
+    background-color: #fff;
+    z-index: 10;
+}
+
+dl, ul, ol, menu, li {
+    list-style: none;
+}
+
+.info_other .list_lang li .link_item {
+    position: relative;
+    display: block;
+    padding-right: 19px;
+}
+
+.info_other .list_lang li {
+    line-height: 23px;
+}
+
+.info_other .link_login {
+    display: inline-block;
+    line-height: 20px;
+}
+
+.info_other .wrap_login {
+    float: left;
+    width: 50px;
+    position: relative;
+    text-align: right;
+}
+
+.cs_head .info_other::after {
+    display: block;
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    content: '';
+}
+
+.cs_head .tit_cs {
+    float: left;
+    margin: 5px 35px 0 0;
+}
+
+.cs_head .tit_cs #playgroundServiceLogo, .tit_cs .img_cs {
+    display: block;
+}
+
+.cs_head .tit_cs #playgroundServiceLogo, .tit_cs .img_cs {
+    display: block;
+}
+
+fieldset, img {
+    border: 0 none;
+}
+
+.wrap_search {
+    position: relative;
+    float: left;
+}
+
+.cs_head .box_searchbar {
+    position: relative;
+    border: 1px solid #1e1e1e;
+    color: #1e1e1e;
+    width: 478px;
+    height: 46px;
+}
+
+.cs_head .box_searchbar .lab_keyword {
+    position: absolute;
+    top: 2px;
+    left: 14px;
+    font-size: 15px;
+    line-height: 43px;
+    z-index: 5;
+}
+
+.cs_head .box_searchbar .tf_keyword {
+    position: absolute;
+    width: 429px;
+    height: 100%;
+    border: 0 none;
+    background-color: transparent;
+    z-index: 10;
+    font-size: 15px;
+    text-indent: 14px;
+    line-height: 43px;
+}
+
+.cs_head .box_searchbar .btn_search {
+    position: absolute;
+    top: 11px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    background-position: 0 0;
+}
+
+.ir_wa {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.cs_head .box_suggest {
+    display: none;
+    position: absolute;
+    top: 47px;
+    left: 0;
+    width: 478px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 2px 4px 15px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+.cs_head .list_suggest {
+    margin: 12px 0 14px;
+}
+
+.wrap_search .search_keyword {
+    position: absolute;
+    width: 478px;
+    margin-top: 15px;
+    left: 14px;
+}
+
+.wrap_search .search_keyword a {
+    margin-right: 10px;
+    color: #555555;
+}
+
+.cs_navi {
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid #e8e8e8;
+}
+
+.cs_navi .inner_navi {
+    overflow: hidden;
+    width: 990px;
+    margin: 12px auto;
+    font-size: 15px;
+}
+
+.cs_navi .list_path {
+    overflow: hidden;
+    padding: 5px 0 5px 0;
+}
+
+.cs_navi .list_path li {
+    float: left;
+    color: #777;
+}
+
+.cs_navi .list_path .link_path {
+    font-size: 15px;
+    color: #212121;
+    margin: 5px;
+}
+
+.cs_navi .list_path .ico_arr {
+    width: 5px;
+    height: 9px;
+    margin: 0 6px 0 2px;
+    background-position: -84px -24px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.hide {
+    display: none;
+}
+
+#playgroundContent {
+    display: block;
+    width: 990px;
+    margin: 0 auto;
+    min-height: 484px;
+}
+
+#cMain {
+    width: 990px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.dimmed_layer {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.1;
+    filter: alpha(opacity=10);
+}
+
+.basic_layer {
+    display: none;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 60;
+}
+
+.basic_layer .inner_basic_layer {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#mFeature {
+    float: left;
+    height: 100%;
+    width: 160px;
+    padding-right: 20px;
+}
+
+.tit_menu {
+    font-size: 21px;
+    margin-top: 50px;
+}
+
+#playgroundGnb .list_menu {
+    margin-top: 50px;
+}
+
+#playgroundGnb .list_menu li {
+    margin: 0 0 20px 5px;
+    font-size: 15px;
+}
+
+#playgroundGnb .list_menu .link_menu {
+    font-weight: bold;
+    color: #878787;
+}
+
+#playgroundGnb .list_menu .on .link_menu, #playgroundGnb .list_menu .link_menu:hover,
+#playgroundGnb .list_menu .link_menu:focus {
+    color: #1e1e1e;
+    text-decoration: underline;
+}
+
+#playgroundGnb .list_menu .link_menu {
+    font-weight: bold;
+    color: #878787;
+}
+
+.cont_public {
+    position: relative;
+    float: right;
+    border-left: 1px solid #e8e8e8;
+    width: 750px;
+    padding-left: 58px;
+    min-height: 700px;
+    padding-bottom: 60px;
+}
+
+.cont_public .tit_public {
+    font-size: 32px;
+    margin: 47px 0 45px;
+}
+
+.cont_public .wrap_cont {
+    padding-bottom: 30px;
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.cont_public .wrap_cont > .item_info:first-child {
+    margin-top: 30px;
+    border-top: 0 none;
+}
+
+.cont_public .wrap_cont > .item_info {
+    padding: 12px 0 16px;
+    overflow: hidden;
+}
+
+.cont_public .info_tit {
+    overflow: hidden;
+}
+
+.cont_public .wrap_cont .link_cont {
+    float: left;
+    width: 740px;
+    margin: 5px;
+}
+
+.cont_public .wrap_cont .num_info {
+    float: left;
+    width: 55px;
+    margin: 0;
+    font-size: 15px;
+}
+
+.cont_public .wrap_cont .tit_info {
+    float: left;
+    width: 540px;
+    font-size: 15px;
+    font-weight: normal;
+    margin-right: 40px;
+    margin-left: 5px;
+}
+
+.cont_public .wrap_cont .btn_arr {
+    float: right;
+    width: 16px;
+    height: 16px;
+    margin-right: 14px;
+}
+
+.cont_public .wrap_cont .ico_arr {
+    display: block;
+    width: 16px;
+    height: 10px;
+    margin-top: 3px;
+    background-position: -28px -52px;
+}
+
+.cont_public .wrap_cont > .item_info .info_cont {
+    display: none;
+    overflow: hidden;
+    width: 690px;
+    text-align: left;
+    margin: 15px 0 15px 60px;
+    font-size: 15px;
+    line-height: 27px;
+}
+
+.cont_public .wrap_cont > .item_info .info_cont * {
+    font-family: '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif, '돋움', dotum !important;
+    font-size: 15px !important;
+    line-height: 27px !important;
+}
+
+.basic_layer .wrap_cont {
+    display: table-cell;
+    padding: 60px 0;
+    vertical-align: middle;
+}
+
+basic_layer .cont_layer {
+    position: relative;
+    z-index: 55;
+    width: 428px;
+    height: auto;
+    padding: 50px 55px 55px;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.layer_head {
+    overflow: hidden;
+    width: 100%;
+}
+
+.layer_head .tit_layer {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 28px;
+}
+
+.layer_body {
+    width: 100%;
+    padding-bottom: 28px;
+}
+
+.layer_body .desc_txt {
+    margin-top: 3px;
+    line-height: 27px;
+    font-size: 15px;
+}
+
+.layer_foot {
+    display: inline-block;
+    overflow: hidden;
+    margin-right: 10px;
+    vertical-align: top;
+}
+
+.layer_foot .btn_layer {
+    float: left;
+    width: auto;
+    height: 42px;
+    margin-left: 10px;
+    padding: 0 30px;
+    color: #fff;
+    background-color: #1e1e1e;
+    line-height: 42px;
+}
+
+button {
+    border: 0 none;
+    cursor: pointer;
+}
+
+input, select, textarea, button {
+    vertical-align: middle;
+}
+
+.basic_layer .cont_layer {
+    position: relative;
+    z-index: 55;
+    width: 428px;
+    height: auto;
+    padding: 50px 55px 55px;
+    background-color: #fff;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/*문의하기*/
+.txt_required {
+    position: absolute;
+    top: 105px;
+    right: 0;
+}
+
+.info_question .wrap_phone {
+    width: 577px;
+}
+
+.info_question.fst {
+    border-top: 1px solid #1e1e1e;
+}
+
+.info_question {
+    float: left;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.info_question dt {
+    float: left;
+    width: 132px;
+    padding: 28px 0 28px 19px;
+    font-size: 15px;
+    letter-spacing: -1px;
+}
+
+.info_question .wrap_item {
+    float: left;
+    position: relative;
+    margin: 0;
+    border: 1px solid #919191;
+    height: 38px;
+    width: 577px;
+}
+
+.info_question .wrap_item .txt_placeholder {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-size: 15px;
+    z-index: 5;
+    color: #919191;
+}
+
+.info_question .wrap_item .inp_info {
+    width: 551px;
+    height: 100%;
+    border: none 0;
+    line-height: 36px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 13px;
+    background-color: transparent;
+    font-size: 15px;
+    z-index: 10;
+}
+
+.info_question .wrap_phone {
+    width: 441px;
+}
+
+.info_question.fst {
+    border-top: 1px solid #1e1e1e;
+}
+
+.info_question .wrap_select {
+    float: left;
+    position: relative;
+    margin: 0;
+    border: 1px solid #919191;
+    width: 282px;
+    height: 38px;
+}
+
+.info_question .wrap_select .link_select {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    right: 12px;
+    display: block;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.info_question .wrap_select .list_select {
+    display: none;
+    position: absolute;
+    z-index: 11;
+    top: 38px;
+    left: -1px;
+    width: 100%;
+    height: 114px;
+    padding: 15px 0;
+    background-color: #fff;
+    overflow-y: auto;
+    border: 1px solid #919191;
+    box-shadow: 1px 2px 1px 0 rgba(0,0,0,0.1);
+}
+
+.info_question .list_select li .link_opt {
+    display: block;
+    font-size: 15px;
+    padding: 0 17px;
+    line-height: 28px;
+}
+
+.info_agree .item_check {
+    display: inline-block;
+    position: relative;
+}
+
+.info_agree .item_check .inp_check {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    opacity: 0.01;
+}
+
+.info_agree .item_check .lab_check {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.info_agree .checked .ico_cs {
+    background-position: -28px -20px;
+}
+
+.info_agree .item_check .ico_cs {
+    position: absolute;
+    top: 4px;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    background-position: -28px 0;
+    cursor: pointer;
+}
+
+.ico_cs {
+    display: inline-block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+    background-image: url(https://cs.kakao.com/img/ico_cs_200120.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.cont_public .wrap_btn {
+    clear: both;
+    overflow: hidden;
+}
+
+.cont_public .btn_cs {
+    float: right;
+    margin: 50px 5px 5px 0;
+    font-weight: bold;
+}
+
+.btn_cs .btn_cs2 {
+    background-color: #eeeeee;
+}
+
+.warning-message {
+    color: red;
+    width: 551px;
+    height: 100%;
+    border: none 0;
+    line-height: 36px;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    right: 0;
+    padding: 0 13px;
+    background-color: transparent;
+    font-size: 15px;
+    z-index: 9;
+    display: none;
+}
+
+.chg-plchd::placeholder {
+    color: red;
+}
+
+.info_question .list_select li+li {
+    margin-top: 10px;
+}
+
+.open-ul .list_select {
+    display: block !important;
+}
+
+.checked .ico_cs {
+    background-position: -28px -20px !important;
+}

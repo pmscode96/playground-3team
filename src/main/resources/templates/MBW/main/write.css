@@ -1,0 +1,41 @@
+body {
+    font-family:'맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif, '돋움', Arial, sans-serif;
+    margin: 0;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-top: 50px;
+}
+h1 {
+    text-align: center;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    font-weight: bold;
+}
+input[type="text"],
+textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 30px;
+}
+textarea {
+    height: 200px;
+}
+.btn-submit {
+    background-color: #1e1e1e;
+    color: #ccc;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}

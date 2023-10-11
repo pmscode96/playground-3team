@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>공지사항</title>
+    <meta property="og:url" content="https://together.kakao.com/notices">
+    <meta property="og:image" content="https://together-mk.kakaocdn.net/dn/together/images/default_images/new_default_800x400.png">
+    <meta name="viewport" content="width=device-width, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+     <link rel="stylesheet" href="coustomer_notice_detail.css">
+    <style>[_nghost-eie-c22]{display:contents}</style>
+</head>
+
+<style>
+    @media (max-width: 1000px) {
+        .menu_side {
+            right: 0;
+            margin-right: 0;
+        }
+    }
+</style>
+<body>
+    <together-app ng-version="12.1.5">
+        <div id="dkIndex">
+            <a >본문 바로가기</a>
+            <a >메뉴 바로가기</a>
+        </div>
+<!--        전체 layer-->
+        <div id="dkWrap" scrollheaderfixed="" fixedreachedelementid="btnSearch" fixeddirection="bottom" fixedclass="header_fixed" class="together_top">
+<!--        상단바 header-->
+            <together-header>
+                <div id="dkHead">
+                    <div data-tiara-layer="gnb" class="d_head d_navigation">
+<!--                        로고(logo)-->
+                        <h1>
+                            <a reloadonduplicatedclick="" id="dkServiceLogo" data-tiara-layer="BI" data-tiara-action-name="BI_클릭" class="link_service">카카오같이가치</a>
+                        </h1>
+<!--                        메뉴들-->
+                        <div role="navigation" class="gnb_together">
+                            <h2 class="screen_out">메인메뉴</h2>
+                            <a reloadonduplicatedclick="" data-tiara-layer="home" data-tiara-action-name="홈_클릭" class="link_gnb link_home">
+                                <span class="txt_gnb">홈</span>
+                            </a>
+                            <a reloadonduplicatedclick="" data-tiara-layer="notice" data-tiara-action-name="공지사항_클릭" class="link_gnb link_ notice">
+                                <span class="txt_gnb">공지사항</span>
+                            </a>
+                            <a reloadonduplicatedclick="" data-tiara-layer="subject" data-tiara-action-name="과목별_예상문제_클릭" class="link_gnb link_subject">
+                                <span class="txt_gnb">과목별 예상문제</span>
+                            </a>
+                            <a reloadonduplicatedclick="" data-tiara-layer="mind" data-tiara-action-name="게시판_클릭" class="link_gnb link_board">
+                                <span class="txt_gnb">게시판</span>
+                            </a>
+                        </div>
+<!--                        상단 바 오른쪽 아이콘들(프로필, 돋보기)-->
+                        <div class="wrap_util">
+<!--                        프로필 쪽-->
+                            <gnb-profile>
+                                <button type="button" class="btn_profile">
+                                    <div class="box_avatar_squircle">
+                                        <img profileimagecheck="" width="30" height="30" alt="프로필사진" class="thumb_profile" src="//t1.kakaocdn.net/together_image/common/avatar/avatar.png">
+                                    </div>
+                                </button>
+                            </gnb-profile>
+<!--                            검색쪽 -->
+                            <gnb-search>
+                                <button type="button" id="btnSearch" data-tiara-layer="search" data-tiara-action-name="검색_클릭" class="btn_search" tabindex="0">
+                                    <span class="ico_together ico_search">검색</span>
+                                </button>
+                            </gnb-search>
+                        </div>
+<!--                        맨오른쪽 줄세개 아이콘-->
+                        <gnb-menu-notification _nghost-weo-c22="">
+                            <button _ngcontent-weo-c22="" type="button" data-tiara-layer="m_menu" data-tiara-action-name="메뉴펼치기_클릭" class="btn_side">
+                                <span _ngcontent-weo-c22="" class="screen_out">내 알림</span>
+                                <!----><span _ngcontent-weo-c22="" class="ico_together ico_menu">playgorund 메뉴 펼치기</span>
+                            </button>
+                        </gnb-menu-notification>
+                    </div>
+                    <div id="sideouter_layer" class="sideouter_layer" style="height: 100vh; z-index: 1000;" hidden=""></div>
+                    <div id="mFeature" data-tiara-layer="sidemenu" class="menu_side side_together #sidemenu">
+                        <div class="inner_side">
+<!--                            사이드 메뉴 쪽-->
+                            <h2 class="screen_out tit_sidemenu">playground 사이드 메뉴</h2>
+                            <div id="side_content" class="side_content" style="height: auto;">
+                                <div data-tiara-layer="profile" class="wrap_my">
+                                    <button type="button" data-tiara-layer="login" data-tiara-action-kind="Login" data-tiara-action-name="로그인_클릭" class="btn_profile">
+                                        <span class="box_avatar_squircle">
+                                            <img src="//t1.kakaocdn.net/together_image/common/avatar/avatar.png" alt="프로필사진" class="thumb_profile">
+                                        </span>
+                                        <span class="user_id">로그인하세요</span>
+                                    </button>
+                                    <ul class="my_util">
+                                        <li>
+                                            <a reloadonduplicatedclick="" data-tiara-layer="my_profile" data-tiara-action-name="사이드 메뉴 마이_클릭" class="link_util">
+                                                <i class="ico_svg ico_my"></i> MY
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a reloadonduplicatedclick="" data-tiara-layer="notifications" data-tiara-action-name="사이드 메뉴 알림_클릭" class="link_util">
+                                                <i class="ico_svg ico_alert"></i> 알림 <!---->
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h3 class="screen_out">playground 모바일사이드 메뉴</h3>
+                                <ul class="list_sidemenu">
+                                    <li>
+<!--                                        공지사항 사이드-->
+                                        <a reloadonduplicatedclick="" data-tiara-layer="notice" data-tiara-action-name="사이드 메뉴 공지사항_클릭" class="link_sidemenu">
+                                            <span class="ico_svg ico_notice"></span>
+                                            <span class="txt_sidemenu">공지사항</span>
+                                        </a>
+                                    </li>
+                                    <li>
+<!--                                        과목별 예상문제 사이드-->
+                                        <a data-tiara-layer="subject" data-tiara-action-name="사이드 메뉴 과목별예상문제_클릭" class="link_sidemenu">
+                                            <span class="ico_svg ico_subject"></span>
+                                            <span class="txt_sidemenu">과목별 예상문제</span>
+                                        </a>
+                                    </li>
+                                    <li>
+<!--                                        게시판 사이드-->
+                                        <a reloadonduplicatedclick="" data-tiara-layer="board" data-tiara-action-name="사이드 메뉴 게시판_클릭" class="link_sidemenu">
+                                            <span class="ico_svg ico_board"></span>
+                                            <span class="txt_sidemenu">게시판</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <modal>
+                    <div tabindex="-1" role="dialog" class="ngdialog-content" id="modalOFF" style="position: fixed; display: none; top: 25%; margin-left: -192px;">
+                        <modal-contant>
+                            <div class="inner_together_layer inner_together_layer2">
+                                <div class="layer_body">
+                                    <p class="desc_together">
+                                        <span class="txt_desc">로그인방법을 선택해주세요.</span>
+                                    </p>
+                                    <div class="wrap_btn wrap_btn_type">
+                                        <a login="" class="btn_set btn_type3">로그인 하기</a>
+                                    </div>
+                                </div>
+                                <div class="layer_foot">
+                                    <button type="button" class="btn_close">
+                                        <span class="ico_together">닫기</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </modal-contant>
+                    </div>
+                </modal>
+            </together-header>
+<!--            상단바 제외한 아래부분-->
+            <span id="rootContent">
+                <router-outlet></router-outlet>
+                <ng-compoent>
+                    <div id="dkContent" class="cont_join">
+                        <div id="mArticle">
+                            <h2 id="dkBody" class="screen_out">공지사항</h2>
+<!--                            상단바 바로 아래 바 부분-->
+                            <div class="wrap_tab">
+                                <h3 class="screen_out">공지사항 메뉴</h3>
+                                <ul class="list_tab tab_type4">
+<!--                              전체 공지사항-->
+                                    <li class="on">
+                                        <a class="link_tab">
+                                            <span class="txt_tab">전체</span>
+                                        </a>
+                                        <span class="screen_out">선택됨</span>
+                                    </li>
+                                    <li>
+<!--                                    서비스 안내-->
+                                        <a class="#tab_1 link_tab">
+                                            <span class="txt_tab">서비스안내</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <router-outlet></router-outlet>
+<!--                            본문 부분-->
+                           <ng-component>
+                               <div class="wrap_view notice_view">
+<!--                                   본문 제목-->
+                                   <h4 class="screen_out">서비스안내 상세</h4>
+                                   <div class="view_head">
+                                       <span class="tit_official">서비스 안내</span>
+                                        <strong class="subject_official">교사와 학생 소통 공간인 '놀이터'를 소개합니다!</strong>
+                                       <span class="date_official">2023.09.10</span>
+                                   </div>
+                                   <div class="view_body">
+<!--                                        본문 내용-->
+                                       <p>
+                                            <font face="Kakao Light">
+                                                <span style="font-size: 16px;">안녕하세요. playground(놀이터)입니다.&nbsp;</span>
+                                            </font>
+                                       </p>
+                                                                        <p>
+                                            <font face="Kakao Light">
+                                                <span style="font-size: 16px;">
+                                                    <br>
+                                                </span>
+                                            </font>
+                                       </p>
+                                       <p><font face="Kakao Light">
+                                           <span style="font-size: 16px;">우리 학교를 교사들과 학생들에게 더 잘 소개하고 싶은데...&nbsp;</span>
+                                       </font>
+                                           <span style="font-family: &quot;Kakao Light&quot;; font-size: 16px;">🤔</span>
+                                       </p>
+                                       <p>
+                                           <font face="Kakao Light">
+                                               <span style="font-size: 16px;">방법을 잘 모르겠고, 막연하게 느껴지시나요?</span>
+                                           </font>
+                                       </p>
+                                       <p>
+                                           <font face="Kakao Light">
+                                               <span style="font-size: 16px;">
+                                                   <br>
+                                               </span>
+                                           </font>
+                                       </p>
+                                       <p>
+                                           <font face="Kakao Light">
+                                               <span style="font-size: 16px;">여러분을 위해 playground(놀이터)에서는 매력적으로 학교홍보를 할 수 있는&nbsp;
+                                                   <span style="background-color: rgb(255, 239, 198);">'우리학교 소개 꿀팁'</span>
+                                                   을 준비했습니다.
+                                               </span>
+                                           </font>
+                                       </p>
+                                       <p>
+                                           <font face="Kakao Light">
+                                               <span style="font-size: 16px;">
+                                                   <br>
+                                               </span>
+                                           </font>
+                                       </p>
+                                       <p>
+                                           <font face="Kakao Light">
+                                               <span style="font-size: 16px;">'playground'는 그동안 학교에서 교사와 학생들간의 소통을 목적으로 만든 사이트입니다.&nbsp;</span>
+                                           </font>
+                                           <span style="font-family: &quot;Kakao Light&quot;; font-size: 16px;">playground(놀이터)는 각 학교마다 소통할 수 있는 공간부터, 우리학교를 소개하는 페이지,&nbsp;</span>
+                                           <span style="font-family: &quot;Kakao Light&quot;; font-size: 16px;">그리고 과목 별 문제를 풀 수 있는 공간까지 준비하였어요.</span>
+                                       </p>
+                                       <p>
+                                           <font face="Kakao Light">
+                                           <span style="font-size: 16px;">
+                                               <br>
+                                           </span>
+                                           </font>
+                                       </p>
+                                       <p>
+                                           <span style="font-family: &quot;Kakao Light&quot;; font-size: 16px;">교사분들이 올려주시는 문제들, 특히 각 학교마다의 소통, 교사들간, 학생간, 교사와 학생간의 소통이 활발해졌으면 좋겠어요!!&nbsp;</span>
+                                       </p>
+                                       <p>
+                                           <br>
+                                       </p>
+                                       <p>
+                                           <br>
+                                       </p>
+                                       <p>
+                                           <b style="color: rgb(51, 51, 51); font-family: &quot;Kakao Light&quot;; font-size: 18px;">
+                                               <span style="font-size: 17px;">⭐️&nbsp;&nbsp;</span>
+                                           </b>
+                                           <b style="color: rgb(51, 51, 51); font-family: &quot;Kakao Light&quot;; font-size: 18px;">
+                                               <span style="font-size: 17px;">playground(놀이터) 제안 꿀팁&nbsp;</span>
+                                           </b>
+                                           <b style="color: rgb(51, 51, 51); font-family: &quot;Kakao Light&quot;; font-size: 18px;">
+                                               <span style="font-size: 17px;">⭐️&nbsp;</span>
+                                           </b>
+                                       </p>
+                                       <p>
+                                           <b style="font-family: &quot;Kakao Light&quot;;">
+                                               <span style="color: rgb(51, 51, 51); font-size: 16px;">
+                                                   <br>
+                                               </span>
+                                           </b>
+                                       </p>
+                                       <p>
+                                           <span style="font-family: &quot;Kakao Light&quot;;">
+                                               <span style="color: rgb(51, 51, 51); font-size: 16px;">
+                                                   <b>1. 공지사항 확인하기&nbsp;</b>
+                                                   (<u><a href="">바로가기</a>)</u>
+                                               </span>
+                                           </span>
+                                       </p>
+                                       <p>
+                                           <span style="font-family: &quot;Kakao Light&quot;;">
+                                               <span style="font-size: 16px;">&nbsp; &nbsp;사이트 이용하실려면 사이트 이용전, 원활한 사이트 이용을 위해 공지사항에서 서비스 관련 공지를 반드시 확인하셔야해요!!&nbsp;</span>
+                                           </span>
+                                       </p>
+                                       <p>
+                                           <span style="font-family: &quot;Kakao Light&quot;;">
+                                               <span style="color: rgb(51, 51, 51); font-size: 16px;">
+                                                   <br>
+                                               </span>
+                                           </span>
+                                       </p>
+                                       <p>
+                                           <b style="color: rgb(51, 51, 51); font-family: &quot;Kakao Light&quot;; font-size: 16px;">2.&nbsp;</b>
+                                           <font color="#333333" face="Kakao Light">
+                                               <span style="font-size: 16px;">
+                                                   <b>자신의 학교에서 학생들과 소통하기</b>
+                                               </span>
+                                           </font>
+                                           <b style="color: rgb(51, 51, 51); font-family: &quot;Kakao Light&quot;; font-size: 16px;">&nbsp;
+                                           </b><font color="#333333" face="Kakao Light">
+                                           <span style="font-size: 16px;">
+                                               (</span></font><u style="color: rgb(51, 51, 51); font-family: &quot;Kakao Light&quot;; font-size: 16px;">
+                                           <a >바로가기</a>
+                                       </u><font color="#333333" face="Kakao Light">
+                                           <span style="font-size: 16px;">)</span>
+                                       </font>
+                                       </p>
+                                       <p>
+                                           <span style="font-family: &quot;Kakao Light&quot;;">
+                                               <span style="font-size: 16px;">&nbsp; &nbsp;일단 자신의 학교 커뮤니티에서 평소에 하지 못했던 말들이나 친해지고 싶은 친구에게 말을 걸거나, 선생님들과 친하게 지내보는 건 어떨까요??</span>
+                                           </span>
+                                       </p>
+                                       <p>
+                                           <span style="font-family: &quot;Kakao Light&quot;;">
+                                               <span style="color: rgb(51, 51, 51); font-size: 16px;">
+                                                   <br>
+                                               </span>
+                                           </span>
+                                       </p>
+                                       <p>
+                                           <span style="font-family: &quot;Kakao Light&quot;;">
+                                               <span style="color: rgb(51, 51, 51); font-size: 16px;">
+                                                   <b>3. 과목별 예상문제&nbsp;</b>
+                                                   (<a ><u>바로가기</u></a>)
+                                               </span>
+                                           </span>
+                                       </p>
+                                       <p>
+                                           <span style="font-family: &quot;Kakao Light&quot;;">
+                                               <span style="font-size: 16px;">&nbsp; &nbsp;과목 별 예상문제를 풀며 실력 향상을 노려봐요!!!&nbsp;</span>
+                                           </span>
+                                       </p>
+<!--                                       추가하려면 여기부터 추가하면 됨-->
+<!--                                       하단부분-->
+                                       <p>
+                                           <br>
+                                       </p>
+                                   </div>
+                                   <div class="view_foot">
+                                        <strong class="name_writer">by. 소통이 필요한 관리자가</strong>
+                                       <plus-friend-button data-tiara-layer="plusfriend notice" data-tiara-action-kind="AddTalkChannel" data-tiara-action-name="채널추가_클릭">
+                                           <div class="cont_plusfriend">
+                                               <span class="info_plusfriend">저희 같이<br>소통과 실력 두마리의 토끼를 잡아봐요!.</span>
+                                               <!---->
+                                               <!---->
+                                           </div>
+                                       </plus-friend-button>
+                                   </div>
+                               </div>
+                           </ng-component>
+                        </div>
+                    </div>
+                </ng-compoent>
+            </span>
+            <hr class="hide">
+<!--            하단 바-->
+            <together-footer>
+                <div id="dkFoot">
+                    <div class="d_footer">
+                        <div class="inner_footer">
+                            <a class="link_home">
+                                <span class="ir_pm">playground</span>
+                            </a>
+                            <p class="desc_footer">playground(놀이터)는 교사와 학생의 소통 공간입니다.</p>
+                            <div class="area_info">
+                                <ul class="list_menu">
+                                    <li>
+                                        <a target="_blank" class="link_menu">고객센터</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="link_menu">문의하기</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="link_menu">이용약관</a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="link_menu link_policy">개인정보처리방침</a>
+                                    </li>
+                                </ul>
+                                <ul class="list_sns">
+                                    <li>
+                                        <a target="_blank" class="link_sns #together_yellow">
+                                            <span class="ico_svg ico_kakaotalk ir_pm">카카오톡</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="link_sns">
+                                            <span class="ico_svg ico_facebook ir_pm">페이스북 공유하기</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a target="_blank" class="link_sns">
+                                            <span class="ico_svg ico_instargram ir_pm">인스타그램 공유하기</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </together-footer>
+        </div>
+    </together-app>
+</body>
+</html>

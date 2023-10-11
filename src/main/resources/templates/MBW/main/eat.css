@@ -1,0 +1,409 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75em;
+    font-family: 'Noto Sans Korean','Malgun Gothic', dotum, sans-serif;
+    background: #fff;
+    min-width: 280px;
+}
+
+body{
+    display: block;
+}
+
+#topID {
+    display: block;
+    position: absolute;
+    left: 0px;
+    top: 2px;
+}
+
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+#ctWrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 50px auto 100px;
+}
+
+div {
+    display: block;
+}
+
+#ctWrap::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#container {
+    float: right;
+    width: 75%;
+    min-height: 200px;
+    height: auto !important;
+    height: auto;
+    font-size: 1em;
+    zoom: 1;
+}
+
+#container::after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: "";
+}
+
+#bo_list {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#bo_list {
+    margin: 50px 0px 50px 20px;
+}
+
+style {
+    display: none;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    text-indent: initial;
+    border-color: gray;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+:-webkit-any(table, thead, tbody, tfoot, tr) > form:-internal-is-html {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#sideBar {
+    float: left;
+    width: 20%;
+}
+
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75em;
+    font-family: 'Noto Sans Korean','Malgun Gothic', dotum, sans-serif;
+    background: #fff;
+    min-width: 280px;
+}
+
+
+.sound_only {
+    display: inline-block !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0;
+    line-height: 0;
+    border: 0 !important;
+    overflow: hidden !important;
+}
+
+h2 {
+    font-size: 1em;
+    font-family: 'Noto Sans Korean','Malgun Gothic', dotum, sans-serif;
+}
+
+h2 {
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+#snb {
+    width: 100%;
+    margin-top: -50px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul {
+    display: contents;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+#snb > li.snb {
+    width: 100%;
+    display: none;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+#snb > li > h2 {
+    width: 100%;
+    background: #91cfcc;
+}
+
+h2{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+#snb > li > h2 a {
+    display: block;
+    background: #91cfcc;
+    text-align: center;
+    padding: 80px 10px;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+}
+
+#snb > li > h2 a sub {
+    display: block;
+    padding-top: 10px;
+    font-family: vardana;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    font-weight: normal;
+    opacity: 0.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+#snb > li > h2 a b {
+    display: block;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+b {
+    font-weight: bold;
+}
+
+sub {
+    vertical-align: sub;
+}
+
+#snb > li .snb2dDown {
+    display: none;
+}
+
+em {
+    font-style: italic;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+u {
+    text-decoration: underline;
+}
+
+ul ul {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
+
+
+
+#snb > li > ul > li {
+    border-bottom: 1px solid #ddd;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+#snb > li > ul > li a {
+    overflow: hidden;
+}
+
+#snb > li > ul > li a {
+    display: block;
+    padding: 15px;
+    color: #666;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+}
+
+#snb > li > ul > li a b {
+    font-size: 13px;
+}
+
+b{
+    font-weight: bold;
+}
+
+#snb > li.snb.active {
+    display: block !important;
+}
+
+#snb > li.snb {
+    width: 100%;
+}
+
+#snb > li > h2 {
+    width: 100%;
+    background: #91cfcc;
+}
+
+#snb > li > h2 a {
+    display: block;
+    background: #91cfcc;
+    text-align: center;
+    padding: 80px 10px;
+    color: #fff;
+}
+
+#snb > li > h2 a b {
+    display: block;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#snb > li > h2 a sub {
+    display: block;
+    padding-top: 10px;
+    font-family: vardana;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    font-weight: normal;
+    opacity: 0.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+sub {
+    vertical-align: sub;
+}
+
+#snb > li .snb2dDown {
+    display: none;
+}
+
+em {
+    font-style: italic;
+}
+
+u {
+    text-decoration: underline;
+}
+
+#snb > li > ul > li {
+    border-bottom: 1px solid #ddd;
+}
+
+#snb > li > ul > li.snb2d.active a {
+    background: #ddd;
+    color: #000;
+}
+
+#snb > li > ul > li a {
+    overflow: hidden;
+}
+
+#snb > li > ul > li a {
+    display: block;
+    padding: 15px;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+}
+
+#snb > li > ul > li.snb2d.active a {
+    color: #000;
+}
+
+#snb > li > ul > li a i {
+    float: right;
+}
+
+/* .fa-angle-right::before {
+    content: "\f105";
+} */
+
+#snb > li > ul > li {
+    border-bottom: 1px solid #ddd;
+}

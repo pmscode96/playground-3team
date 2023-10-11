@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TEACHERANDSTUDENTJOIN</title>
+    <link rel="stylesheet" href="./teacherANDstudentjoin.css">
+</head>
+<body>
+<div id="wrap">
+    <div class="div1">
+        <div class="div1_1">
+            <div class="div1_2">
+                <h3>놀이터</h3>
+            </div>
+        </div>
+        <div class="div1_2"></div>
+    </div>
+    <div class="div2">
+        <div class="div2_1">
+            <div class="div2_2">
+                <a href="" class="a1">
+                    <h5>교사 회원가입</h5>
+                    <span></span>
+                </a>
+                <a href="" class="a2">
+                    <h5>학생 회원가입</h5>
+                    <span></span>
+                </a>
+            </div>
+            <div class="div2_3">
+                <article class="article">
+                    <div class="article_div1">
+                        <div class="d1">1. 회원가입은 이용자가 약관의 내용에 대하여 동의를 하고, 회사가 제공하는 소정의 신청양식에 관련사항을 기재하여 회원가입을 신청한 후 회사가 이러한 신청에 대하여 승낙함으로써 체결됩니다.</div>
+                        <div class="d2">2. 전항의 신청양식에 이용자가 기재하는 모든 정보는 실제 데이터인 것으로 간주하며 실명이나 실제 정보를 입력하지 않은 사용자는 법적인 보호를 받을 수 없으며, 서비스 이용의 제한을 받을 수 있습니다.</div>
+                        <div class="d3">3. 회사는 본 조 제1항 이용자의 신청에 대하여 회원가입을 승낙함을 원칙으로 합니다. </div>
+                        <div class="d4">4. 회사는 서비스 관련 설비의 여유가 없거나, 기술상 또는 업무상 문제가 있는 경우에는 승낙을 유보할 수 있습니다.</div>
+                        <button type="button">다음</button>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    const underline = document.querySelector('#wrap .div2 .div2_1 .div2_2 .a1');
+    const h1 = document.querySelector('#wrap .div2 .div2_1 .div2_2 .a1 h5');
+    underline.addEventListener("mouseover", (e) => {
+        h1.style.textDecoration = 'underline';
+    })
+    underline.addEventListener("mouseout", (e) => {
+        h1.style.textDecoration = 'none';
+    })
+
+    const underline2 = document.querySelector('#wrap .div2 .div2_1 .div2_2 .a2');
+    const h2 = document.querySelector('#wrap .div2 .div2_1 .div2_2 .a2 h5');
+
+    underline2.addEventListener("mouseover", (e) => {
+        h2.style.textDecoration = 'underline';
+    })
+    underline2.addEventListener("mouseout", (e) => {
+        h2.style.textDecoration = 'none';
+    })
+
+    const bt = document.querySelector(".article .article_div1 button");
+    bt.addEventListener("mouseover", (e) =>{
+        e.target.style.backgroundColor = '#828282';
+    })
+    bt.addEventListener("mouseout", (e) =>{
+        e.target.style.backgroundColor = '#f0f0f0';
+    })
+
+
+    const teacher = document.querySelector("#wrap .div2 .div2_1 .div2_2 .a1");
+    const rule = document.querySelector("#wrap .div2 .div2_1 .div2_3");
+    teacher.addEventListener("mouseover", (e) => {
+        rule.style.display = 'block';
+    })
+
+    const student = document.querySelector("#wrap .div2 .div2_1 .div2_2 .a2");
+    student.addEventListener("mouseover", (e) => {
+        rule.style.display = 'block';
+    })
+</script>
+</html>

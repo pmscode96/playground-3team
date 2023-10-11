@@ -1,0 +1,631 @@
+@font-face {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/NotoSansKR-Bold.woff') format("woff"),
+    url("./fonts/NotoSansKR-Bold.woff") format("woff")
+}
+
+@font-face {
+    font-family: NotoSans;
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/NotoSansKR-Regular.woff') format("woff"),
+    url('./fonts/NotoSansKR-Regular.woff') format("woff")
+}
+
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/Roboto-Regular.woff') format("woff"),
+    url('./fonts/Roboto-Regular.woff') format("woff")
+}
+
+@font-face {
+    font-family: KakaoBig Bold;
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/KakaoBigBold (4).woff2') format("woff2"),
+    url("./fonts/KakaoBigBold (4).woff2") format("woff2")
+}
+
+@font-face {
+    font-family: KakaoBig Regular;
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/KakaoBigRegular (3).woff2') format("woff2"),
+    url('./fonts/KakaoBigRegular (3).woff2') format("woff2")
+}
+
+
+/*.main1_article1 .div1 .div2 .form1 .d3 .d3_1 label .span2.yellow{*/
+/*    margin: 0 8px 0 0;*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    display: inline-block;*/
+/*    overflow: hidden;*/
+/*    font-size: 1px;*/
+/*    line-height: 0;*/
+/*    color: transparent;*/
+/*    vertical-align: top;*/
+/*    background: url(카카오img.png) 0 0 no-repeat;*/
+/*    background-size: 300px auto;*/
+/*}*/
+
+/*.main1_article1 .div1 .div2 .form1 .d3 .d3_1 label .span2.show{*/
+/*    visibility: visible;*/
+/*}*/
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+
+body, html {
+    height: 100%;
+}
+
+body, button, input, select, td, textarea, th {
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: -apple-system,Roboto,NotoSans,AppleSDGothicNeo,Malgun Gothic,맑은 고딕,돋움,dotum,sans-serif;
+    color: #333;
+}
+
+body {
+    background: #fff;
+    -webkit-text-size-adjust: none;
+}
+
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+dl, li, menu, ol, ul {
+    list-style: none;
+}
+
+button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+
+    appearance: auto;
+    text-rendering: auto;
+    /*color: buttontext;*/
+    letter-spacing: normal;
+    word-spacing: normal;
+    /*line-height: normal;*/
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    /*cursor: default;*/
+    box-sizing: border-box;
+    /*background-color: buttonface;*/
+    writing-mode: horizontal-tb !important;
+    /*margin: 0em;*/
+    padding-block: 1px;
+    padding-inline: 6px;
+    /*border-width: 2px;*/
+    /*border-style: outset;*/
+    /*border-color: buttonborder;*/
+    /*border-image: initial;*/
+}
+
+
+label {
+    cursor: default;
+}
+
+input {
+    /*font-style: ;*/
+    /*font-variant-ligatures: ;*/
+    /*font-variant-caps: ;*/
+    /*font-variant-numeric: ;*/
+    /*font-variant-east-asian: ;*/
+    /*font-variant-alternates: ;*/
+    /*font-weight: ;*/
+    /*font-stretch: ;*/
+    /*font-size: ;*/
+    /*font-family: ;*/
+    /*font-optical-sizing: ;*/
+    /*font-kerning: ;*/
+    /*font-feature-settings: ;*/
+    /*font-variation-settings: ;*/
+    text-rendering: auto;
+    /*color: fieldtext;*/
+    /*letter-spacing: normal;*/
+    word-spacing: normal;
+    /*line-height: normal;*/
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    /*appearance: auto;*/
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    /*background-color: field;*/
+    /*margin: 0em;*/
+    /*padding: 1px 2px;*/
+    /*border-width: 2px;*/
+    /*border-style: inset;*/
+    /*border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));*/
+    /*border-image: initial;*/
+}
+
+button, input, select, textarea {
+    vertical-align: middle;
+    /*font-size: 100%;*/
+}
+
+input:not([type="range"]):not([type="color"]):not([type="button"]):not([type="reset"]):not([type="submit"]):not([type="file"]) {
+    writing-mode: horizontal-tb !important;
+}
+
+input[type="password" i] {
+    -webkit-text-security: disc !important;
+    padding: 1px 2px;
+}
+
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+label {
+    cursor: default;
+}
+
+
+#wrap{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#wrap .div1{
+    height: 100%;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#wrap .div1 .div2{
+    display: inline-block;
+    overflow-x: hidden;
+    width: 100%;
+    font-size: 12px;
+    vertical-align: middle;
+
+}
+#wrap .div1 .div2 .main1{
+    display: block;
+
+}
+#wrap .div1 .div2 .main1 .main1_div1{
+    padding-top: 50px;
+}
+#wrap .div1 .div2 .main1 .main1_div1 .h1{
+    display: block;
+}
+
+#wrap .div1 .div2 .main1 .main1_div1 .h1 .span1{
+    display: block;
+    width: 88px;
+    height: 27px;
+    margin: 0 auto;
+    background: #fff url(/images/pc/logo_kakao.png) no-repeat 0 0;
+    background-size: 100px 80px;
+    font-size: 25px;
+    line-height: 27px;
+    text-align: center;
+}
+#wrap .div1 .div2 .main1 .main1_div1 .h1 .span1 .span2{
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+
+    width: 88px;
+    height: 27px;
+}
+
+.main1_article1{
+    width: 580px;
+    height: 100%;
+    /*height: 491px;*/
+    margin: 40px auto 42px;
+    padding: 0 69px;
+    border: 1px solid rgba(0,0,0,.12);
+    font-size: 12px;
+    box-sizing: border-box;
+}
+.main1_article1 .div1{
+    word-wrap: break-word;
+    position: relative;
+    height: 100%;
+    padding: 55px 0 50px;
+    box-sizing: border-box;
+    display: block;
+
+}
+.main1_article1 .div1 .div2{
+}
+
+.main1_article1 .div1 .div2 .form1{
+    display: block;
+}
+.main1_article1 .div1 .div2 .form1 .d1{
+    margin-top: 4px;
+    position: relative;
+    /*margin-top: 5px;*/
+    padding-bottom: 3px;
+}
+.main1_article1 .div1 .div2 .form1 .d1 .d1_1{
+    position: relative;
+    border: solid #ccc;
+    border-width: 0 0 2px;
+
+
+    font-family: "KakaoBig Regular","KakaoBig Bold";
+}
+.main1_article1 .div1 .div2 .form1 .d1 .d1_1 label{
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    line-height: 0;
+    text-indent: -9999px;
+}
+.main1_article1 .div1 .div2 .form1 .d1 .d1_1 input{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 45px;
+    padding: 10px 0 8px;
+    border: 0;
+    font-size: 17px;
+    line-height: 25px;
+    color: #191919;
+    background-color: transparent;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    outline: 0 none;
+    caret-color: #191919;
+    opacity: 1;
+    -webkit-appearance: none;
+    /*border: 0;*/
+    border-radius: 0;
+}
+
+
+
+
+
+.main1_article1 .div1 .div2 .form1 .d2{
+    position: relative;
+    margin-top: 5px;
+    padding-bottom: 3px;
+}
+
+.main1_article1 .div1 .div2 .form1 .d2 .d2_1{
+    position: relative;
+    border: solid #ccc;
+    border-width: 0 0 2px;
+
+    font-family: "KakaoBig Regular","KakaoBig Bold";
+}
+.main1_article1 .div1 .div2 .form1 .d2 .d2_1 label{
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    line-height: 0;
+    text-indent: -9999px;
+}
+.main1_article1 .div1 .div2 .form1 .d2 .d2_1 input{
+    padding: 12px 0 8px;
+    font: small-caption;
+    font-size: 17px;
+    font-family: -apple-system,Roboto,NotoSans,AppleSDGothicNeo-Regular,맑은 고딕,Malgun Gothic,돋움,dotum,sans-serif;
+    letter-spacing: 0em;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 45px;
+    /*padding: 10px 0 8px;*/
+    border: 0;
+    /*font-size: 18px;*/
+    /*line-height: 25px;*/
+    color: #191919;
+    background-color: transparent;
+    /*letter-spacing: 0;*/
+    box-sizing: border-box;
+    outline: 0 none;
+    caret-color: #191919;
+    opacity: 1;
+}
+
+.main1_article1 .div1 .div2 .form1 .d3{
+    margin-top: 25px;
+
+}
+.main1_article1 .div1 .div2 .form1 .d3 .d3_1{
+    float: left;
+    padding-right: 0;
+    display: block;
+    position: relative;
+    vertical-align: top;
+
+
+
+}
+.main1_article1 .div1 .div2 .form1 .d3 .d3_1 input{
+    right: 24px;
+    width: auto;
+    top: 0;
+    position: absolute;
+    left: 0;
+    /*top: 0;*/
+    /*width: 100%;*/
+    height: 100%;
+    border: 0;
+    /*-webkit-appearance: none;*/
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    cursor: default;
+
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: -apple-system,Roboto,NotoSans,AppleSDGothicNeo,Malgun Gothic,맑은 고딕,돋움,dotum,sans-serif;
+    color: #333;
+
+}
+
+.main1_article1 .div1 .div2 .form1 .d3 .d3_1 label{
+    float: left;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(0,0,0,.7);
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    /*font-size: 16px;*/
+    /*line-height: 22px;*/
+    /*color: #191919;*/
+    cursor: pointer;
+}
+.main1_article1 .div1 .div2 .form1 .d3 .d3_1 label .span1{
+    margin: 0 8px 0 0;
+    /*background-position: 0 0;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent;
+    vertical-align: top;
+    background: url(카카오img.png) 0 0 no-repeat;
+    background-size: 300px auto;
+}
+
+
+.main1_article1 .div1 .div2 .form1 .d3 .d3_1 label .span2{
+    visibility: hidden;
+
+    margin: 0 8px 0 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent;
+    vertical-align: top;
+    background: url(카카오img.png) 0 0 no-repeat;
+    background-size: 300px auto;
+}
+
+
+.main1_article1 .div1 .div2 .form1 .d3 .d3_1 button{
+    float: left;
+    margin: 1px 0 0 6px;
+
+}
+.main1_article1 .div1 .div2 .form1 .d3 .d3_1 button span{
+    width: 18px;
+    height: 18px;
+    background-position: -120px -110px;
+    display: block;
+    overflow: hidden;
+    font-size: 1px;
+    line-height: 0;
+    color: transparent;
+    vertical-align: top;
+    background: url(카카오img.png) 0 0 no-repeat;
+    background-size: 300px auto;
+}
+
+.main1_article1 .div1 .div2 .form1 .d3_5{
+    display: none;
+
+    margin-top: 65px;
+    padding: 20px;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: #fafafa;
+}
+.main1_article1 .div1 .div2 .form1 .d3_5 p{
+    color: #e65f3e;
+}
+
+
+
+
+.main1_article1 .div1 .div2 .form1 .d4{
+    padding-top: 40px;
+    text-align: center;
+}
+.main1_article1 .div1 .div2 .form1 .d4 .bt1{
+    /*background-color: #fee500;*/
+    background-color: #191919;
+
+    font-style: normal;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    /*font-weight: 400;*/
+    font-size: 16px;
+    line-height: 51px;
+    /*color: #191919;*/
+    color: #FFFFFF;
+}
+
+.main1_article1 .div1 .div2 .form1 .d4 .sp1{
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 0;
+    line-height: 0;
+}
+.main1_article1 .div1 .div2 .form1 .d4 .sp1 .sp2{
+    display: inline-block;
+    width: 40px;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #828282;
+}
+.main1_article1 .div1 .div2 .form1 .d4 .bt2{
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 51px;
+    color: #191919;
+    background-color: #f0f0f0;
+}
+
+.main1_article1 .div1 .div2 .div3{
+    margin-top: 26px;
+}
+
+.main1_article1 .div1 .div2 .div3 .a1{
+    float: left;
+    font-size: 12px;
+    color: #191919;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.main1_article1 .div1 .div2 .div3 ul{
+    float: right;
+}
+
+.main1_article1 .div1 .div2 .div3 ul .li1{
+    float: left;
+}
+.main1_article1 .div1 .div2 .div3 ul .li1 .a2{
+    float: left;
+    font-size: 12px;
+    color: #191919;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.main1_article1 .div1 .div2 .div3 ul .li2{
+    float: left;
+}
+.main1_article1 .div1 .div2 .div3 ul .li2:before{
+    content: "";
+    float: left;
+    width: 1px;
+    height: 10px;
+    margin: 4px 10px;
+    background-color: rgba(0,0,0,.08);
+}
+
+
+.main1_article1 .div1 .div2 .div3 ul .li2 .a3{
+    float: left;
+    font-size: 12px;
+    color: #191919;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.main2{
+    display: block;
+    padding-bottom: 50px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.main2 strong{
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    line-height: 0;
+    text-indent: -9999px;
+    font-weight: bold;
+}
+
+.main2 div{
+
+}
+
+.main2 small{
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    line-height: 18px;
+    color: rgba(0,0,0,.5);
+}
+
+.main2 small a{
+    font-weight: 700;
+    color: rgba(0,0,0,.5);
+    cursor: pointer;
+    text-decoration: none;
+}

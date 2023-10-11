@@ -1,0 +1,162 @@
+.foot {
+  position: relative;
+}
+
+/* 하단 마진박스 */
+.footer-mg {
+  height: 180px;
+  padding: 40px 0 45px;
+  border-top: 1px solid #eee;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+}
+
+/* 하단 인박스 */
+.footer-ibx {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 1120px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.link_home {
+  display: block;
+  flex-shrink: 0;
+  width: 115px;
+  height: 18px;
+  background: url(//t1.kakaocdn.net/together_image/svg/footer_logo_black.svg) no-repeat 50%/contain;
+}
+
+.link_home_text {
+  display: block;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+.footer_home_content_text {
+  padding: 16px 0 18px;
+  color: #666;
+  font-size: 14px;
+  font-style: normal;
+  font-family: KakaoBig Regular;
+  word-wrap: break-word;
+  line-height: 1.57;
+  letter-spacing: -.1px;
+}
+
+.footer-info {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  grid-gap: 16px;
+  gap: 16px;
+  width: 100%;
+}
+
+.list_menu {
+  display: flex;
+  align-items: center;
+}
+
+.list_sns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 10px;
+  gap: 10px;
+}
+
+.list_menu li {
+  position: relative;
+  font-size: 13px;
+  line-height: 1.54;
+  letter-spacing: -.1px;
+}
+
+.footer-mg .list_menu li {
+  display: flex;
+  align-items: center;
+}
+
+.link_menu {
+  align-items: center;
+  display: flex;
+  vertical-align: top;
+  padding: 6px 0;
+  color: #444;
+  font-size: 14px;
+  font-style: normal;
+  font-family: KakaoBig Regular;
+  word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.57;
+  letter-spacing: -.1px;
+  text-decoration: none;
+}
+
+.link_menu:after {
+  content: "";
+  display: block;
+  width: 2px;
+  height: 2px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 100%;
+  background-color: #444;
+}
+
+.list_sns li {
+  display: list-item;
+  position: relative;
+  font-size: 13px;
+  line-height: 1.54;
+  letter-spacing: -.1px;
+}
+
+.link_sns {
+  display: inline-block;
+  width: 30px;
+  padding: 6px 0;
+  text-align: center;
+  color: #444;
+  font-size: 14px;
+  font-style: normal;
+  font-family: KakaoBig Regular;
+  word-wrap: break-word;
+  line-height: 1.57;
+  letter-spacing: -.1px;
+}
+
+.icon_svg {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+}
+
+.ir_pm {
+  overflow: hidden;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+.kakao-img {
+  background-image: url(//t1.kakaocdn.net/together_image/svg/footer_kakaotalk_gray80.svg);
+}
+
+.facebook-img {
+  background-image: url(//t1.kakaocdn.net/together_image/svg/footer_facebook_gray80.svg);
+}
+
+.instagram-img {
+  background-image: url(//t1.kakaocdn.net/together_image/svg/footer_instagram_gray80.svg);
+}

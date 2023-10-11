@@ -1,0 +1,82 @@
+body {
+  background: #fff;
+}
+
+body, html {
+  min-width: 1140px;
+  margin: 0;
+  padding: 0;
+}
+
+body, button, input, select, td, textarea, th {
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: KakaoBig Regular,Malgun Gothic,맑은 고딕,Apple SD Gothic Neo,dotum,돋움,sans-serif;
+  color: #444;
+}
+
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, ol, p, pre, select, td, textarea, th, ul {
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  display: block;
+}
+
+a, a:active, a:hover {
+  text-decoration: none;
+}
+
+a {
+  color: #444;
+}
+
+a {
+  cursor: pointer;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+button {
+  border: 0;
+  border-radius: 0;
+  background-color: initial;
+  cursor: pointer;
+}
+
+button, input, select, textarea {
+  vertical-align: middle;
+  font-size: 100%;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+dl, li, menu, ol, ul {
+  list-style: none;
+}
+
+/* 전체 div 안박스 */
+#wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
