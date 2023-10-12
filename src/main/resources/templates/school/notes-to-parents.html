@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학교별 게시판</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/post/info.css">
+</head>
+<body style>
+    <a id="topID"></a>
+
+    
+
+<!--  -->
+
+
+
+<!--  -->
+    <div id="ctWrap">
+        <div id="container">
+            <div style="margin:0px 6%;padding:15px;border:1px solid rgb(225,225,225);background-color:rgb(249,249,249);">
+                ◇ 개인정보 보호법 제59조 3호에 의해 다른 사람의 개인정보를 유출하는 자는 
+                5년 이하의 징역 또는 5천만원 이하의 벌금이 부과될 수 있으며, 
+                등록된 글에 대한 법적 책임은 글쓴이에게 있습니다. 
+                또한 파일 첨부시 반드시 개인정보 유무를 확인해 주시기 바랍니다.
+                <br>
+                <br>
+                ◇ <span style="color:rgb(255,0,0);font-weight:bold;">
+                    폰트파일
+                  </span>
+                    은 저작권법상 컴퓨터 프로그램 저작물로 저작권 보호를 받고 있어,
+                    <span style="color:rgb(255,0,0);"> 불법 복제 및 무단 이용 시</span>
+                    발생하는 민・형사상의 책임은 불법 행위를 한 본인에게 있습니다.
+            </div>
+
+            <div style="text-align:right;color:rgb(0,102,204);font-size:13px;font-weight:bold;margin-bottom:4px;">
+                <p style="color:rgb(0,0,255);margin-top:5px;margin-right:6%;">
+                    ◇게시글 보존년한은 5년 입니다.
+                </p>
+            </div>
+
+            <!-- 게시판 목록 시작 -->
+
+
+            <div id="bo_list" style="width:100%">
+
+
+                <!-- 게시판 페이지 정보 및 버튼 시작 { -->
+                <div id="bo_btn_top">
+                    <div id="bo_list_total">
+                        <span><i class="fa fa-file-o"></i> Total 561 /</span>
+                        1 page
+                    </div>
+            
+                        </div>
+                <!-- } 게시판 페이지 정보 및 버튼 끝 -->
+            
+                <!-- 게시판 카테고리 시작 { -->
+                    <!-- } 게시판 카테고리 끝 -->
+            
+                <form name="fboardlist" id="fboardlist" action="https://ewha.hs.kr/bbs/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
+                <input type="hidden" name="bo_table" value="0502">
+                <input type="hidden" name="sfl" value="">
+                <input type="hidden" name="stx" value="">
+                <input type="hidden" name="spt" value="">
+                <input type="hidden" name="sca" value="">
+                <input type="hidden" name="sst" value="wr_hit">
+                <input type="hidden" name="sod" value="desc">
+                <input type="hidden" name="page" value="1">
+                <input type="hidden" name="sw" value="">
+            
+                <h2 class="sound_only">가정통신문 목록</h2>
+                <div class="likeTbl">
+                    <ul>
+                    <li class="likeTblTr likeTblTh">
+                                    <div class="mvInlineN">번호</div>
+                        <div>제목</div>
+                        <div class="mvInlineN">작성자</div>
+                        <div class="mvInlineN td_num"><a href="/bbs/board.php?bo_table=0502&amp;sop=and&amp;sst=wr_hit&amp;sod=asc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">조회 <i class="fa fa-sort" aria-hidden="true"></i></a></div>
+                                                <div class="mvInlineN td_datetime"><a href="/bbs/board.php?bo_table=0502&amp;sop=and&amp;sst=wr_datetime&amp;sod=desc&amp;sfl=&amp;stx=&amp;sca=&amp;page=1">날짜  <i class="fa fa-sort" aria-hidden="true"></i></a></div>
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        561            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=21&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2015학년도 2분기 등록금 납부안내                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 7612</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 05-01</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        560            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=48&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2015학년도 4/4분기 등록금 안내 가정통신문                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 7560</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 11-13</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        559            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=23&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2015년 6~7월분 이화학사 기숙사비 인출 가정통신문                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 7043</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 05-19</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        558            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=33&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2015학년도 3분기 등록금 안내                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 6861</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 07-16</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        557            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=43&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2015 교원능력개발평가 가정통신문 (학생용, 학부모용)                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 6694</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 10-16</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        556            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=68&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2016년 1차 학교폭력 실태 조사 안내 가정통신문                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 6517</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 03-28</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        555            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=31&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2015 여름방학 가정통신문                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 6212</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 07-16</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        554            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=32&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2015학년도 수련활동-교육여행 참가비 인출 가정통신문                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 6112</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 07-16</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        553            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=30&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    여름방학 샘물 호스피스 봉사활동 가정통신문(학부모 동의서, 참가비 납부영수증)                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 6020</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 07-13</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        552            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=169&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    서울시교육청 수시 대비 특별진학상담센터 운영 안내(3학년 및 졸업생)                       
+                                    <em>
+                                        <span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 5963</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 07-11</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        551            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=51&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2015년 겨울방학 급식지원 신청 안내                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 5945</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 11-30</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        550            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=49&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    문화누리카드 발급 및 이용 안내                       
+                                    <em>
+                                        <span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 5925</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 11-13</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        549            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=35&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    교육급여 신규수급자 동의서 제출안내                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 5863</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 07-22</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        548            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=28&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2015년 여름 농촌봉사활동 가정통신문(학부모 동의서, 참가비 납부영수증)                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 5850</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 07-02</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        547            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=11&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    2015년 3~5월 이화학사 기숙사비 인출 가정통신문                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 5831</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 03-17</div>
+            
+                    </li>
+                            <li class=" likeTblTr likeTblTd">
+                                    <div class="mvInlineN td_num2">
+                        546            </div>
+            
+                        <div class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                
+                                <a href="https://ewha.hs.kr/bbs/board.php?bo_table=0502&amp;wr_id=5&amp;sst=wr_hit&amp;sod=desc&amp;sop=and&amp;page=1">
+                                                                                    교과서 비용 안내 가정통신문                       
+                                    <em>
+                                        <i class="fa fa-download" aria-hidden="true"></i><span class="hot_icon"><span class="sound_only">인기글</span></span>						</em>
+                                                        </a>
+                            </div>
+            
+                        </div>
+                        <span class="onlyMvV" style="padding-left:0px"></span>
+                        <div class="mvInlinev td_name sv_use"><span class="sv_member">관리자</span></div>
+                        <div class="mvInlinev td_num"><i class="fa fa-eye"></i> 5778</div>
+                                                <div class="mvInlinev td_datetime"><i class="fa fa-clock-o"></i> 03-09</div>
+            
+                    </li>
+                            </ul>
+                        </div>
+            
+                
+                </form>
+                 
+                   <!-- 게시판 검색 시작 { -->
+                <!-- <fieldset id="bo_sch">
+                    <legend>게시물 검색</legend>
+            
+                    <form name="fsearch" method="get">
+                    <input type="hidden" name="bo_table" value="0502">
+                    <input type="hidden" name="sca" value="">
+                    <input type="hidden" name="sop" value="and">
+                    <label for="sfl" class="sound_only">검색대상</label>
+                    <select name="sfl" id="sfl">
+                        <option value="wr_subject||wr_content">제목+내용</option>
+                        <option value="wr_subject">제목</option>
+                        <option value="wr_content">내용</option>
+                        <option value="mb_id,1">회원아이디</option> -->
+                        <!-- <option value="mb_id,0">회원아이디(코)</option> -->
+                        <!-- <option value="wr_name,1">작성자</option> -->
+                        <!-- <option value="wr_name,0">작성자(코)</option> -->
+                    <!-- </select>
+                    <label for="stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
+                    <input type="text" name="stx" value="" required="" id="stx" class="sch_input" size="25" maxlength="20" placeholder="검색어를 입력해주세요">
+                    <button type="submit" value="검색" class="sch_btn"><i class="fa fa-search" aria-hidden="true"></i><span class="sound_only">검색</span></button>
+                    </form>
+                </fieldset> -->
+                <!-- } 게시판 검색 끝 -->   
+            </div>
+
+
+
+</div>
+        <aside id="sideBar">
+            <h2 class="sound_only">사이트 전체메뉴</h2>
+    
+            <!-- SNB // -->
+            <ul id="snb">
+                <li class="snb bo_table0101 d1_bbsboardphpbotable0101 bo_table0101 bo_table0102 bo_table0103 bo_table0104 bo_table0105 bo_table0106 bo_table0107 bo_table0108 bo_table0109 bo_table0110 hide">
+                    <h2>
+                        <a href="/bbs/board.php?bo_table=0101" target="_self">
+                            <b>이화여고</b> 
+                            <sub>ewha.hs.kr</sub>
+                        </a>
+                    </h2>
+                    <em class="snb2dDown">
+                        <i class="fa fa-angle-down"></i>
+                        <u class="fa fa-angle-up"></u>
+                    </em>
+                    <ul class="snb2dul">
+                        <!-- <li class="snb2d snb2d_bo_table0101 d2_bbsboardphp">
+                            <a href="/bbs/board.php?bo_table=0101" target="_self">
+                                <b>
+                                    <i class="fa fa-angle-right"></i> 교장선생님
+                                </b>
+                            </a>
+                        </li> -->
+                        <!-- <li class="snb2d snb2d_bo_table0102 d2_bbsboardphp">
+                            <a href="/bbs/board.php?bo_table=0102" target="_self">
+                                <b>
+                                    <i class="fa fa-angle-right"></i> 교직원/부서소개</b>
+                            </a>
+                        </li>
+                        <li class="snb2d snb2d_bo_table0103 d2_bbsboardphp">
+                            <a href="/bbs/board.php?bo_table=0103" target="_self">
+                                <b>
+                                    <i class="fa fa-angle-right"></i> 역대교장선생님</b>
+                            </a>
+                        </li>
+                        <li class="snb2d snb2d_bo_table0104 d2_bbsboardphp">
+                            <a href="/bbs/board.php?bo_table=0104" target="_self">
+                                <b>
+                                    <i class="fa fa-angle-right"></i> 이화교육관
+                                </b>
+                            </a>
+                        </li>
+                        <li class="snb2d snb2d_bo_table0105 d2_bbsboardphp">
+                            <a href="/bbs/board.php?bo_table=0105" target="_self">
+                                <b>
+                                    <i class="fa fa-angle-right"></i> 교훈/교가/교화
+                                </b>
+                            </a>
+                        </li>
+                        <li class="snb2d snb2d_bo_table0106 d2_bbsboardphp">
+                            <a href="/bbs/board.php?bo_table=0106" target="_self">
+                                <b>
+                                    <i class="fa fa-angle-right"></i> 학교연혁
+                                </b>
+                            </a>
+                        </li>
+                        <li class="snb2d snb2d_bo_table0107 d2_bbsboardphp">
+                            <a href="/bbs/board.php?bo_table=0107" target="_self">
+                                <b>
+                                    <i class="fa fa-angle-right"></i> 이화백년사</b>
+                                </a>
+                        </li> -->
+                            <li class="snb2d snb2d_bo_table0501 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0501" target="_self"><b><i class="fa fa-angle-right"></i> 공지사항</b></a></li>
+                            <li class="snb2d snb2d_bo_table0502 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0502" target="_self"><b><i class="fa fa-angle-right"></i> 가정통신문</b></a></li>
+                            <li class="snb2d snb2d_bo_table0503 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0503" target="_self"><b><i class="fa fa-angle-right"></i> 학교자료방</b></a></li>
+                            <li class="snb2d snb2d_bo_table0507 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0507" target="_self"><b><i class="fa fa-angle-right"></i> 교내대회</b></a></li>
+                            <li class="snb2d snb2d_bo_table0504 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0504" target="_self"><b><i class="fa fa-angle-right"></i> 정보보안</b></a></li>
+                            <li class="snb2d snb2d_bo_table0505 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0505" target="_self"><b><i class="fa fa-angle-right"></i> 기숙사안내</b></a></li>
+                            <li class="snb2d snb2d_bo_table0506 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0506" target="_self"><b><i class="fa fa-angle-right"></i> 학사일정표</b></a></li>
+                        </ul>
+                    </li>
+                            <li class="snb bo_table0601 d1_bbsboardphpbotable0601 bo_table0601 bo_table0602 bo_table0603 bo_table0604 active show"><h2><a href="" target="_self"><b>학교별 페이지</b> <sub>놀이터</sub></a></h2>
+                                <em class="snb2dDown"><i class="fa fa-angle-down"></i><u class="fa fa-angle-up"></u></em>
+                                <ul class="snb2dul">
+                                    <li class="snb2d snb2d_bo_table0602 d2_bbsboardphp">
+                                        <a href="/bbs/board.php?bo_table=0602" target="_self">
+                                            <b>
+                                                <i class="fa fa-angle-right"></i> 급식메뉴
+                                            </b>
+                                        </a>
+                                    </li>
+                                    <li class="snb2d snb2d_bo_table0601 d2_bbsboardphp active show">
+                                        <a href="/bbs/board.php?bo_table=0601" target="_self">
+                                            <b>
+                                                <i class="fa fa-angle-right"></i> 가정통신문
+                                            </b>
+                                        </a>
+                                    </li>
+                                    <li class="snb2d snb2d_bo_table0603 d2_bbsboardphp">
+                                        <a href="/bbs/board.php?bo_table=0603" target="_self">
+                                            <b>
+                                                <i class="fa fa-angle-right"></i>학교일정
+                                            </b>
+                                        </a>
+                                    </li>
+                            </ul></li>
+    
+    <script>
+    $(function(){
+            $(".snb.bo_table0601, .snb .snb2d_bo_table0601").addClass("active");
+            $(".snb.d1_bbs, .snb .d2_bbs").addClass("active");
+    });
+    $(document).ready(function(){
+        if($("#snb > li").is(".snb.active")){
+            $(".loc1D").text($("#snb .bo_table0601 h2 a b, .d1_bbs h2 a b").text());
+            $(".loc2D").html($(".snb2d_bo_table0601 a b, .d2_bbs a b").html());
+            $(".faArr").html("<i class='fa fa-angle-right'></i>");
+            var a=$("#snb > li").index("#snb > li.active");
+            $("#page_title").addClass("subTopBg_0"+($("#snb > li.bo_table0601, #snb > li.d1_bbs").index()+1));
+        } else {
+            $(".loc1D").text("급식메뉴");
+            $(".noInfoPageTit").html("<h2><a><b>급식메뉴</b><sub>ewha.hs.kr</sub></a></h2>");
+            $(".noInfoPageTit").addClass("active");
+            $("#page_title").addClass("subTopBg_00");
+        }
+    });
+    $(function(){
+        $(".noInfoPageTit.none_bbs").addClass("displayNoneImportant");
+        $(".noInfoPageTit.none_bbs").removeClass("active");
+    });
+    </script>
+    <script>$(function(){ var a=$("#snb li.snb"); a.addClass("hide"); $("#snb li.active").removeClass("hide").addClass("show"); $("#snb li.active .snb2dul").show(); $(".snb2dDown").click(function(){ var b=$(this).parents("#snb li.snb"); if(b.hasClass("hide")){ a.addClass("hide").removeClass("show"); a.find(".snb2dul").slideUp("fast"); b.removeClass("hide").addClass("show"); b.find(".snb2dul").slideDown("fast"); } else { b.removeClass("show").addClass("hide"); b.find(".snb2dul").slideUp("fast"); } }) }); $(".snb").removeClass("d1_bbscontentphp"); $(".snb2d").removeClass("d2_bbscontentphp");</script>
+    
+            
+        </aside>
+    </div>
+
+</body>
+</html>
