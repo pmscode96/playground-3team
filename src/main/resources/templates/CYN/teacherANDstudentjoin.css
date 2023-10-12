@@ -2,39 +2,39 @@
     font-family: NotoSans;
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/NotoSansKR-Bold.woff') format("woff"),
-    url("./fonts/NotoSansKR-Bold.woff") format("woff")
+    src: url('../../static/font/NotoSansKR-Bold.woff') format("woff"),
+    url("../../static/font/NotoSansKR-Bold.woff") format("woff")
 }
 
 @font-face {
     font-family: NotoSans;
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/NotoSansKR-Regular.woff') format("woff"),
-    url('./fonts/NotoSansKR-Regular.woff') format("woff")
+    src: url('../../static/font/NotoSansKR-Regular.woff') format("woff"),
+    url('../../static/font/NotoSansKR-Regular.woff') format("woff")
 }
 
 @font-face {
     font-family: Roboto;
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/Roboto-Regular.woff') format("woff"),
-    url('./fonts/Roboto-Regular.woff') format("woff")
+    src: url('../../static/font/Roboto-Regular.woff') format("woff"),
+    url('../../static/font/Roboto-Regular.woff') format("woff")
 }
 @font-face {
     font-family: KakaoBig Bold;
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/KakaoBigBold (4).woff2') format("woff2"),
-    url("./fonts/KakaoBigBold (4).woff2") format("woff2")
+    src: url('../../static/font/KakaoBigBold (4).woff2') format("woff2"),
+    url("../../static/font/KakaoBigBold (4).woff2") format("woff2")
 }
 
 @font-face {
     font-family: KakaoBig Regular;
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/KakaoBigRegular (3).woff2') format("woff2"),
-    url('./fonts/KakaoBigRegular (3).woff2') format("woff2")
+    src: url('../../static/font/KakaoBigRegular (3).woff2') format("woff2"),
+    url('../../static/font/KakaoBigRegular (3).woff2') format("woff2")
 }
 
 button{
