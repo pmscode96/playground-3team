@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>놀이터</title>
+    <link rel="stylesheet" href="../../static/css/mypage/third-party-agreement.css">
+    <style>
+        @font-face {
+            font-family: 'SegoeUI_online_security';
+            src: url(chrome-extension://llbcnfanfmjhpedaedhbcnpgeepdnnok/segoe-ui.woff);
+        }
+        @font-face {
+            font-family: 'SegoeUI_bold_online_security';
+            src: url(chrome-extension://llbcnfanfmjhpedaedhbcnpgeepdnnok/segoe-ui-bold.woff);
+        }
+        @font-face {
+            font-family: 'KakaoBig Bold';
+            src: url(../../static/font/KakaoBigBold.woff2);
+        }
+        @font-face {
+            font-family: 'KakaoBig Regular';
+            src: url(../../static/font/KakaoBigRegular.woff2);
+        }
+    </style>
+</head>
+<body>
+<div id="page-container">
+    <div id="dkIndex">
+        <a href="">본문 바로가기</a>
+        <a href="">메뉴 바로가기</a>
+    </div>
+    <div id="dkWrap">
+        <header>
+            <!--상단 네비게이션-->
+            <div id="dkHead">
+                <div class="d_head d_navigation">
+                    <h1>
+                        <a href="" class="link_service">놀이터</a>
+                    </h1>
+                    <div class="navigation_list">
+                        <h2 class="screen_out">놀이터 메인메뉴</h2>
+                        <a href="" class="link_gnb link_home">
+                            <span class="txt_gnb">홈</span>
+                        </a>
+                        <a href="" class="link_gnb link_give">
+                            <span class="txt_gnb">같이기부</span>
+                        </a>
+                        <a href="" class="link_gnb link_action">
+                            <span class="txt_gnb">모두의행동</span>
+                        </a>
+                        <a href="" class="link_gnb link_mind">
+                            <span class="txt_gnb">마음날씨</span>
+                        </a>
+                        <a href="" class="link_gnb link_campaign">
+                            <span class="txt_gnb">캠페인</span>
+                        </a>
+                    </div>
+                    <div class="wrap_util">
+                        <gnb-profile>
+                            <button type="button" class="btn_profile">
+                                <div class="box_avatar_squircle">
+                                    <img profileimagecheck="" width="30" height="30" alt="프로필사진" class="thumb_profile" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar04.png">
+                                </div>
+                            </button>
+                        </gnb-profile>
+                        <gnb-search>
+                            <button type="button" routerlink="/search" id="btnSearch" data-tiara-layer="search" data-tiara-action-name="검색_클릭" class="btn_search" tabindex="0">
+                                <span class="ico_together ico_search">검색</span>
+                            </button>
+                        </gnb-search>
+                    </div>
+                    <!--사이드 메뉴나오는 버튼-->
+                    <div class="slide_menu_button">
+                        <button _ngcontent-qal-c22="" type="button" data-tiara-layer="m_menu" data-tiara-action-name="메뉴펼치기_클릭" class="btn_side">
+                            <span _ngcontent-qal-c22="" class="screen_out">내 알림</span>
+                            <span _ngcontent-qal-c22="" class="ico_together ico_menu">놀이터 메뉴 펼치기</span>
+                        </button>
+                    </div>
+                    <!--사이드 메뉴나오는 버튼-->
+                </div>
+                <!--상단 네비게이션-->
+                <!--사이드 메뉴-->
+                <div id="sideouter_layer" class="sideouter_layer" style="height: 963px; z-index: 1000;" hidden=""></div>
+                <div id="mFeature" data-tiara-layer="sidemenu" class="sidemenu" style="height: 988px;">
+                    <div class="inner_side">
+                        <h2 class="tit_sidemenu">놀이터 사이드메뉴</h2>
+                        <div id="side_content" class="side_content" style="height: 917px;">
+                            <div data-tiara-layer="profile" class="wrap_my">
+                                <button type="button" routerlink="/my" data-tiara-layer="profile" data-tiara-action-name="사이드 메뉴 프로필_클릭" class="side_btn_profile" tabindex="0">
+                                        <span class="side_box_avatar_squircle">
+                                            <img profileimagecheck="" alt="프로필사진" class="side_thumb_profile" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar04.png">
+                                        </span>
+                                    <span class="user_id">
+                                            <span class="user_id_screen_out">아이디</span>닉네임
+                                        </span>
+                                </button>
+                                <ul class="my_util">
+                                    <li>
+                                        <a href="/my" reloadonduplicatedclick="" data-tiara-layer="my_profile" data-tiara-action-name="사이드 메뉴 마이_클릭" class="link_util">
+                                            <i class="ico_svg ico_my"></i> MY
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/notifications" reloadonduplicatedclick="" data-tiara-layer="notifications" data-tiara-action-name="사이드 메뉴 알림_클릭" class="link_util">
+                                            <i class="ico_svg ico_alert"></i> 알림
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3 class="side_screen_out">놀이터 모바일사이드메뉴</h3>
+                            <ul class="list_sidemenu">
+                                <li>
+                                    <a href="/fundraisings/now" reloadonduplicatedclick="" data-tiara-layer="donations" data-tiara-action-name="사이드 메뉴 같이기부_클릭" class="link_sidemenu">
+                                        <span class="ico_svg ico_fundraising"></span>
+                                        <span class="txt_sidemenu">같이기부</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a reloadonduplicatedclick="" data-tiara-layer="actions" data-tiara-action-name="사이드 메뉴 모두의행동_클릭" href="/actions" class="link_sidemenu">
+                                        <span class="ico_svg ico_action"></span>
+                                        <span class="txt_sidemenu">모두의행동</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a routerlink="/hello" reloadonduplicatedclick="" data-tiara-layer="mind" data-tiara-action-name="사이드 메뉴 마음날씨_클릭" class="link_sidemenu" href="/hello">
+                                        <span class="ico_svg ico_weather"></span>
+                                        <span class="txt_sidemenu">마음날씨</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/boards/campaigns" reloadonduplicatedclick="" data-tiara-layer="campaign" data-tiara-action-name="사이드 메뉴 캠페인_클릭" class="link_sidemenu">
+                                        <span class="ico_svg ico_campaign"></span>
+                                        <span class="txt_sidemenu">캠페인</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="list_sidesub">
+                                <li>
+                                    <a routerlink="/auroville/together" reloadonduplicatedclick="" data-tiara-layer="together" data-tiara-action-name="사이드 메뉴 놀이터 소개_클릭" class="link_sidesub" href="/auroville/together">놀이터 소개</a>
+                                </li>
+                                <li>
+                                    <a routerlink="/magazines" reloadonduplicatedclick="" data-tiara-layer="magazine" data-tiara-action-name="사이드 메뉴 매거진_클릭" class="link_sidesub" href="/magazines">매거진</a>
+                                </li>
+                                <li>
+                                    <a routerlink="/notices" reloadonduplicatedclick="" data-tiara-layer="notices" data-tiara-action-name="사이드 메뉴 공지사항_클릭" class="link_sidesub" href="/notices">공지사항</a>
+                                </li>
+                                <li>
+                                    <a routerlink="/fundraisings/propose" reloadonduplicatedclick="" data-tiara-layer="propose" data-tiara-action-name="사이드 메뉴 제안하기_클릭" class="link_sidesub" href="/fundraisings/propose">제안하기</a>
+                                </li>
+                            </ul>
+                            <div class="cont_addition">
+                                <span class="info_addition"> 놀이터 소식을<br> 가장 먼저 받아보세요! </span>
+                                <button type="button" class="btn_addition">
+                                    <span class="ico_svg ico_addition"></span>
+                                    <span class="txt_addition">채널추가</span>
+                                </button>
+                            </div>
+                            <button type="button" data-tiara-layer="logout" data-tiara-action-name="로그아웃_클릭" class="btn_logout">
+                                <span class="txt_logout">로그아웃</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--사이드 메뉴-->
+            </div>
+            <!--모달창-->
+            <modal></modal>
+            <!--모달창-->
+        </header>
+        <!--메인 시작-->
+        <span id="rootContent">
+            <router-outlet></router-outlet>
+            <ng-component>
+                <div id="dkContent" class="cont_privacy">
+                    <div id="mArticle">
+                        <h2 id="dkBody" class="screen_out">개인정보 제공</h2>
+                        <div class="ppi_info">
+                            <h3 class="tit_ppi">개인정보 제 3자 제공 동의</h3>
+                            <p class="txt_ppi provide_none"> 현재, 회원님의 개인정보를 제 3자에게 제공하고 있지 않습니다. 서비스 이용 중 제 3자 정보 제공에 동의하신 경우에만 개인정보가 제공되며 본 메뉴를 통해 제공 중인 파트너사를 열람할 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </ng-component>
+        </span>
+        <!--메인 끝-->
+        <hr class="hide">
+        <!--푸터 시작-->
+        <together-footer>
+            <div id="dkFoot">
+                <div class="wrap_channel_banner">
+                    <div class="inner_wrap">
+                        <div class="cont_banner">
+                            <strong class="tit_banner">같이하면 더 가치있는 일, 카카오톡으로 받아보세요.</strong>
+                            <p class="desc_banner">놀이터 채널의 마케팅과 광고 메시지를 받아볼 수 있습니다.</p>
+                        </div>
+                        <button class="btn_talk">
+                            <i class="ico_channel"></i> 카카오톡으로 소식받기
+                        </button>
+                    </div>
+                </div>
+                <div class="d_footer">
+                    <div class="inner_footer">
+                        <a href="/static" class="link_home">
+                            <span class="ir_pm">놀이터</span>
+                        </a>
+                        <p class="desc_footer">놀이터는 카카오와 카카오임팩트가 함께합니다.</p>
+                        <div class="area_info">
+                            <ul class="list_menu">
+                                <li class="menu_corp">
+                                    <a href="https://www.kakaocorp.com/main" target="_blank" class="link_menu link_corp">© Kakao Corp.</a>
+                                </li>
+                                <li>
+                                    <a href="https://cs.kakao.com/helps?locale=ko&amp;service=72" target="_blank" class="link_menu">고객센터</a>
+                                </li>
+                                <li>
+                                    <a href="https://cs.kakao.com/requests?locale=ko&amp;service=72" target="_blank" class="link_menu">문의하기</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.kakao.com/policy/terms?type=a&amp;lang=ko" target="_blank" class="link_menu">이용약관</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.kakao.com/policy/privacy?type=p&amp;lang=ko" target="_blank" class="link_menu link_policy">개인정보처리방침</a>
+                                </li>
+                            </ul>
+                            <ul class="list_sns">
+                                <li>
+                                    <a href="https://pf.kakao.com/_NlxcxlM" target="_blank" class="link_sns #together_yellow">
+                                        <span class="ico_svg ico_kakaotalk ir_pm">카카오톡</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/kakao.together" target="_blank" class="link_sns">
+                                        <span class="ico_svg ico_facebook ir_pm">페이스북 공유하기</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/together_kakao" target="_blank" class="link_sns">
+                                        <span class="ico_svg ico_instargram ir_pm">인스타그램 공유하기</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <a href="http://www.kakaocorp.com/main" target="_blank" class="link_menu">
+                                <small class="txt_corp">© Kakao Corp.</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </together-footer>
+        <!--푸터 끝-->
+    </div>
+</div>
+</body>
+</html>

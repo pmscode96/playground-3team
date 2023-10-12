@@ -2,16 +2,16 @@
     font-family: KakaoBig Bold;
     font-style: normal;
     font-weight: 400;
-    src: url('../../fonts/KakaoBigBold.woff2') format("woff2"),
-    url("../../fonts/KakaoBigBold.woff2") format("woff2")
+    src: url('../../../../static/font/KakaoBigBold.woff2') format("woff2"),
+    url("../../../../static/font/KakaoBigBold.woff2") format("woff2")
 }
 
 @font-face {
     font-family: KakaoBig Regular;
     font-style: normal;
     font-weight: 400;
-    src: url('../../fonts/KakaoBigRegular.woff2') format("woff2"),
-    url('../../fonts/KakaoBigRegular.woff2') format("woff2")
+    src: url('../../../../static/font/KakaoBigRegular.woff2') format("woff2"),
+    url('../../../../static/font/KakaoBigRegular.woff2') format("woff2")
 }
 
 

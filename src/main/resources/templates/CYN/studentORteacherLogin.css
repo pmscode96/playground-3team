@@ -2,24 +2,24 @@
     font-family: NotoSans;
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/NotoSansKR-Bold.woff') format("woff"),
-    url("./fonts/NotoSansKR-Bold.woff") format("woff")
+    src: url('../../static/font/NotoSansKR-Bold.woff') format("woff"),
+    url("../../static/font/NotoSansKR-Bold.woff") format("woff")
 }
 
 @font-face {
     font-family: NotoSans;
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/NotoSansKR-Regular.woff') format("woff"),
-    url('./fonts/NotoSansKR-Regular.woff') format("woff")
+    src: url('../../static/font/NotoSansKR-Regular.woff') format("woff"),
+    url('../../static/font/NotoSansKR-Regular.woff') format("woff")
 }
 
 @font-face {
     font-family: Roboto;
     font-style: normal;
     font-weight: 400;
-    src: url('./fonts/Roboto-Regular.woff') format("woff"),
-    url('./fonts/Roboto-Regular.woff') format("woff")
+    src: url('../../static/font/Roboto-Regular.woff') format("woff"),
+    url('../../static/font/Roboto-Regular.woff') format("woff")
 }
 
 #wrap .div1 .div2 .main1 .main1_div1 .h1 .span1 .span2.weight1 {
