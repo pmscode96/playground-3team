@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 페이지</title>
+
+    <meta property="og:image" content="https://steadio-asset.s3.ap-northeast-2.amazonaws.com/static/images/steadio_thumbnail.png">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css">
+    <link rel="preload" href="https://steadio-asset.s3.ap-northeast-2.amazonaws.com/_next/static/css/87e703a61c4a1915.css" as="style">
+    <link rel="stylesheet" href="https://steadio-asset.s3.ap-northeast-2.amazonaws.com/_next/static/css/87e703a61c4a1915.css" data-n-g="">
+    <link rel="stylesheet" type="text/css" id="mce-u0" crossorigin="anonymous" referrerpolicy="origin" href="https://cdn.tiny.cloud/1/642kloaxprkdiwotc62kpdppm5zm6xgx1sut3sma8h87w63g/tinymce/6.6.2-27/skins/ui/oxide/skin.min.css">
+    <link rel="preload" as="image" imagesrcset="/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=3840&amp;q=75 3840w" imagesizes="100vw">
+    <link rel="stylesheet" href="../../static/css/administrator/administratorPageMainNoListQuestionManage.css">
+    <script src="https://steadio-asset.s3.ap-northeast-2.amazonaws.com/_next/static/chunks/framework-560765ab0625ba27.js" defer=""></script>
+    <script src="https://steadio-asset.s3.ap-northeast-2.amazonaws.com/_next/static/chunks/main-f82cef7d6a5937df.js" defer=""></script>
+    <style>
+        @media (min-width: 1024px) {
+            .lg\:px-\[32px\] {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            .lg\:h-\[58px\] {
+                height: 58px;
+            }
+
+            .lg\:hidden {
+                display: none;
+            }
+
+            .lg\:block {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="h-full">
+<div id="_next" data-reactroot>
+    <div class="flex flex-col h-screen">
+        <!--            상단바-->
+        <nav class="sticky top-0 left-0 surface_primary_inverse z-20 w-full h-[56px] px-[16px] shrink-0 flex items-center justify-between lg:px-[32px] lg:h-[58px]">
+            <div>
+                <div class="flex items-center">
+                    <a href="">
+                        <svg viewBox="0 0 32 16" xmlns="http://www.w3.org/2000/svg" class="lg:hidden w-[31px] content_primary_inverse">
+                            <path d="M21.96 15.796h9.232A15.592 15.592 0 0 0 .059 14.55c-.011.116-.019.234-.027.351v.105c-.013.21-.022.423-.022.637v.154h9.957c0-2.987-2.228-5.412-4.978-5.412a4.755 4.755 0 0 0-3.41 1.473c1.051-1.346 2.63-2.203 4.395-2.203 3.165 0 5.725 2.75 5.725 6.142h7.562v-.154c0-5.7-4.31-10.321-9.629-10.321a9.085 9.085 0 0 0-4.62 1.266 10.976 10.976 0 0 1 16.949 9.21v-.003Z"></path>
+                        </svg>
+                        <svg viewBox="0 0 115 16" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block w-[96px] content_primary_inverse">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M98.073 1.695a1.695 1.695 0 1 1 1.695 1.695 1.687 1.687 0 0 1-1.695-1.695Zm2.967 2.863v11.23h-2.539V4.556l2.539.002Zm-7.842 11.23h2.544V.102h-2.544v5.725h-.042a4.791 4.791 0 0 0-3.517-1.483c-2.925 0-5.214 2.332-5.214 5.828 0 3.496 2.29 5.827 5.214 5.827a4.79 4.79 0 0 0 3.517-1.483h.042v1.272Zm-3.054-2.162c-1.737 0-3.093-1.4-3.093-3.454 0-2.056 1.355-3.455 3.093-3.455 1.739 0 3.094 1.4 3.094 3.455s-1.356 3.454-3.094 3.454Zm-45.282 2.373c-3.709 0-6.167-1.867-6.336-4.978h2.925c.317 1.906 1.653 2.584 3.327 2.584 1.843 0 2.986-.847 2.986-1.927 0-1.376-1.604-1.75-3.542-2.202l-.462-.108C41.28 8.774 38.78 7.8 38.78 4.81c0-2.204 1.887-4.492 5.531-4.492 3.221 0 5.68 1.908 6.04 4.768h-2.884c-.296-1.292-1.207-2.374-3.094-2.374-1.674 0-2.839.827-2.839 1.93 0 1.49 1.468 1.83 3.482 2.298l.587.138c2.331.551 4.916 1.42 4.916 4.344 0 2.86-2.31 4.576-5.658 4.576Zm11.59-9.155v5.02c0 1.526.933 1.759 1.675 1.759.405.003.805-.091 1.166-.275v2.288c-.46.18-.948.272-1.441.276-2.14 0-3.942-1.06-3.942-4.108v-4.96h-2.328V4.556h2.33V1.32h2.543v3.236h2.843v2.288h-2.845Zm14.814 5.532h-2.739c-.516 1.113-1.329 1.377-2.516 1.377-1.441 0-2.712-.954-2.903-2.755h8.304c0-4.539-2.648-6.654-5.615-6.654-3.052 0-5.446 2.332-5.446 5.828 0 3.496 2.4 5.827 5.636 5.827 2.268 0 4.532-1.048 5.279-3.623Zm-2.67-3.328h-5.51c.277-1.415 1.42-2.437 2.756-2.437 1.335 0 2.479 1.018 2.754 2.437Zm14.135 6.74h-2.5a17.563 17.563 0 0 1-.063-1.442h-.044C79.107 15.597 77.837 16 76.564 16c-2.246 0-3.877-1.334-3.877-3.496 0-1.674 1.08-3.263 4.068-3.391 1.357-.064 3.327-.085 3.327-.085v-.571c0-1.378-1.144-2.035-2.331-2.035-1.188 0-2.097.657-2.24 1.695h-2.634c.125-2.395 2.098-3.772 4.895-3.772 2.819 0 4.854 1.76 4.854 4.408v3.39c0 2.035.02 2.946.105 3.645Zm-5.234-4.832c-1.59.085-2.183.678-2.183 1.505 0 .953.763 1.44 1.844 1.44 1.59 0 2.924-.975 2.924-2.628v-.423s-1.419.043-2.585.106Zm31.193-6.57c-3.242 0-5.742 2.522-5.742 5.807 0 3.289 2.498 5.805 5.741 5.805 3.243 0 5.744-2.521 5.744-5.805 0-3.285-2.501-5.808-5.743-5.808Zm.004 2.373c1.777 0 3.112 1.42 3.112 3.434 0 2.012-1.336 3.432-3.112 3.432s-3.111-1.419-3.111-3.432c0-2.014 1.334-3.434 3.111-3.434Z"></path>
+                            <path d="M21.96 15.796h9.232A15.592 15.592 0 0 0 .059 14.55c-.011.116-.019.234-.027.351v.105c-.013.21-.022.423-.022.637v.154h9.957c0-2.987-2.228-5.412-4.978-5.412a4.755 4.755 0 0 0-3.41 1.473c1.051-1.346 2.63-2.203 4.395-2.203 3.165 0 5.725 2.75 5.725 6.142h7.562v-.154c0-5.7-4.31-10.321-9.629-10.321a9.085 9.085 0 0 0-4.62 1.266 10.976 10.976 0 0 1 16.949 9.21v-.003Z"></path>
+                        </svg>
+                    </a>
+                    <div class="mx-[10px] font_body_regular_md content_primary_inverse">|</div>
+                    <div class="font_body_regular_lg content_primary_inverse flex items-center">
+                        <span>PlayGround</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center justify-end">
+                <div class="relative">
+                    <button class="relative w-[32px] h-[32px] rounded-full surface_primary_active">
+                            <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                <img alt="프로필 이미지" sizes="100vw"
+                                     srcset="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&w=1920&q=75" decoding="async" data-nimg="fill" class="rounded-full" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                            </span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!--            상단바 제외한 본문-->
+        <div class="flex h-full overflow-hidden">
+            <!--                왼쪽 리스트-->
+            <nav class="surface_secondary border border_primary basis-[260px] relative">
+                <div class="pt-[40px] pb-[28px] mx-[32px] border-b border_disabled">
+                    <div class="flex flex-col items-center">
+                        <!--                            프로필 이미지쪽-->
+                        <div class="mb-[12px]">
+                            <!--                                프로필 이미지-->
+                            <button class="relative w-full h-full rounded-full flex items-center justify-center" type="button" style="width: 68px; height: 68px;">
+                                    <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+<!--                                       이미지별 사이즈 적용 안됨-->
+                                        <img alt="프로필 이미지" sizes="100vw" srcset="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&w=1920&q=75"  decoding="async" data-nimg="fill" class="rounded-full" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                                    </span>
+                                <span class="absolute top-0 left-0 w-full h-full border border_black_opacity rounded-full"></span>
+                            </button>
+                        </div>
+                        <!--                            닉네임부분-->
+                        <h2 class="content_primary mb-[12px] font_title_bold_md text-center">김홍준(joon)</h2>
+                    </div>
+                </div>
+                <!--                    왼쪽 리스트 목록부분-->
+                <ul class="px-[24px] py-[32px]">
+                    <li class="h-[40px] mb-[8px] px-[12px] rounded-[8px] flex items-center false hover:surface_accent_light">
+                        <!--                            회원 관리-->
+                        <a class="flex items-center grow" href="">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-[24px] w-[24px] mr-[10px] content_secondary">
+                                <path d="M8.5 11.7h2a6.057 6.057 0 0 1 1.769.265 6.51 6.51 0 0 0-.888 1.335H8.5a4.4 4.4 0 0 0-4.4 4.4v1c0 .22.18.4.4.4h6.881c.295.59.677 1.129 1.129 1.6H4.5a2 2 0 0 1-2-2v-1a6 6 0 0 1 6-6Z"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10.2a3.502 3.502 0 0 1 0-7 3.5 3.5 0 1 1 0 7Zm1.9-3.5a1.9 1.9 0 1 1-3.8 0 1.9 1.9 0 0 1 3.8 0ZM13.945 13.147a.665.665 0 0 1 .306-.74l.833-.49a.665.665 0 0 1 .795.092l.46.437c.167.16.398.231.63.23a.892.892 0 0 0 .626-.24l.451-.445a.665.665 0 0 1 .794-.105l.84.476a.665.665 0 0 1 .32.735l-.15.616a.895.895 0 0 0 .116.66c.118.2.298.36.522.423l.61.168c.287.08.486.339.488.636l.008.965a.665.665 0 0 1-.477.644l-.608.179a.892.892 0 0 0-.513.43.898.898 0 0 0-.105.663l.159.614a.665.665 0 0 1-.307.74l-.832.49a.665.665 0 0 1-.795-.092l-.46-.437a.898.898 0 0 0-.63-.23.893.893 0 0 0-.626.24l-.452.445a.665.665 0 0 1-.794.105l-.84-.476a.665.665 0 0 1-.319-.735l.15-.617a.894.894 0 0 0-.117-.66.894.894 0 0 0-.52-.421l-.612-.17a.665.665 0 0 1-.488-.635l-.008-.965a.665.665 0 0 1 .477-.644l.608-.179a.892.892 0 0 0 .514-.43.898.898 0 0 0 .105-.663l-.159-.614Zm3.115 4.278a1.283 1.283 0 1 0 0-2.566 1.283 1.283 0 0 0 0 2.566Z"></path>
+                            </svg>
+                            <span class="block font_label_bold_xl content_primary">회원 관리
+                            </span>
+                        </a>
+                    </li>
+                    <!--                        게시글 관리-->
+                    <li class="h-[40px] mb-[8px] px-[12px] rounded-[8px] flex items-center false hover:surface_accent_light">
+                        <a class="flex items-center grow">
+                            <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-[24px] w-[24px] mr-[10px] content_secondary">
+                                <path d="M2 5.111C2 4.498 2.45 4 3.007 4h15.099c.556 0 1.006.498 1.006 1.111 0 .614-.45 1.112-1.006 1.112h-15.1C2.452 6.223 2 5.725 2 5.11ZM2 10.668c0-.614.45-1.111 1.007-1.111h10.946a6.53 6.53 0 0 0-2.418 2.223H3.007C2.45 11.78 2 11.282 2 10.668ZM10.503 15.114H3.007C2.45 15.114 2 15.61 2 16.225s.45 1.111 1.007 1.111h7.818a6.496 6.496 0 0 1-.322-2.222Z" fill="#333334"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M13.945 12.347a.665.665 0 0 1 .306-.74l.833-.49a.665.665 0 0 1 .795.092l.46.437c.167.16.398.231.63.23a.892.892 0 0 0 .626-.24l.451-.445a.665.665 0 0 1 .794-.105l.84.476a.665.665 0 0 1 .32.735l-.15.616a.895.895 0 0 0 .116.66c.118.2.298.36.522.423l.61.169c.287.079.486.338.488.635l.008.965a.665.665 0 0 1-.477.644l-.608.179a.892.892 0 0 0-.513.43.898.898 0 0 0-.105.663l.159.614a.665.665 0 0 1-.307.74l-.832.49a.665.665 0 0 1-.795-.092l-.46-.437a.898.898 0 0 0-.63-.23.893.893 0 0 0-.626.24l-.452.445a.665.665 0 0 1-.794.105l-.84-.476a.665.665 0 0 1-.319-.734l.15-.618a.894.894 0 0 0-.117-.66.894.894 0 0 0-.52-.421l-.612-.17a.665.665 0 0 1-.488-.635l-.008-.965a.665.665 0 0 1 .477-.643l.608-.18a.892.892 0 0 0 .514-.43.898.898 0 0 0 .105-.663l-.159-.614Zm3.115 4.279a1.283 1.283 0 1 0 0-2.567 1.283 1.283 0 0 0 0 2.567Z" fill="#333334"></path>
+                            </svg>
+                            <span class="block font_label_bold_xl content_secondary">게시글 관리</span>
+                        </a>
+                    </li>
+                    <!--                        학교 관리-->
+                    <li class="h-[40px] mb-[8px] px-[12px] rounded-[8px] flex items-center false hover:surface_accent_light">
+                        <a class="flex items-center grow" >
+                            <img src="/icon/school.svg" class="h-[24px] w-[24px] mr-[10px] content_secondary">
+                            <span class="block font_label_bold_xl content_secondary">학교 관리</span>
+                        </a>
+                    </li>
+                    <!--                        문의 목록-->
+                    <li class="h-[40px] mb-[8px] px-[12px] rounded-[8px] flex items-center surface_accent_light hover:surface_accent_light">
+                        <a class="flex items-center grow">
+                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-[24px] w-[24px] mr-[10px] content_accent_active">
+                                <path d="M5.5 7.8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM5.5 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM7 17.7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM10 5.4a1 1 0 0 0 0 2h10a1 1 0 1 0 0-2H10ZM9 12a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H10a1 1 0 0 1-1-1ZM10 16.6a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H10Z"></path>
+                            </svg>
+                            <span class="block font_label_bold_xl content_secondary">문의 목록</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="basis-0 grow shrink-0 overflow-x-auto question" style="display: block">
+                <!--                문의 목록 오른쪽 부분-->
+                <div class="grid grid-cols-12 gap-x-[16px] gap-y-0 w-desktop-grid mx-auto pb-[64px]">
+                    <div class="col-span-full mb-[24px]">
+                        <!--                            문의 목록 헤더-->
+                        <div class="sticky top-0 z-10 surface_primary">
+                            <!--                                상단부분-->
+                            <header class="pt-[40px] flex justify-between items-center">
+                                <h1 class="font_headline_bold_lg content_primary">문의 목록</h1>
+                                <div>
+                                    <div class="w-[248px]">
+                                        <label class="w-full px-[20px] py-[10px] h-[40px] border border_black_opacity focus-within:border-2 focus-within:border_accent focus-within:px-[19px] rounded-[20px] flex items-center justify-between">
+                                            <div class="flex">
+                                                <div class="min-w-[76px]">
+                                                    <div class="relative">
+                                                        <button type="button" class="surface_primary false border_black_opacity rounded-[16px] flex items-center max-w-[164px] outline-none">
+                                                            <span class="content_secondary font_label_medium_lg text-ellipsis overflow-hidden whitespace-nowrap">문의</span>
+                                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="shrink-0 ml-[4px] w-[10px] h-[10px]">
+                                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>
+                                                            </svg>
+                                                        </button>
+
+                                                        <div class="absolute top-[42px] right-0 z-10 w-[93px]" style="display: none;">
+                                                            <ul class="rounded-[8px] p-[8px] surface_primary shadow-menu max-h-[228px] overflow-auto">
+                                                                <li tabindex="-1" data-option-value="POST" class="undefined">
+                                                                    <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="POST">문의</button>
+                                                                </li>
+                                                                <li tabindex="-1" data-option-value="NAME" class="undefined">
+                                                                    <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="NAME">구분</button>
+                                                                </li>
+                                                                <li tabindex="-1" data-option-value="NAME" class="undefined">
+                                                                    <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="NAME">제목</button>
+                                                                </li>
+                                                                <li tabindex="-1" data-option-value="NAME" class="undefined">
+                                                                    <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="NAME">내용</button>
+                                                                </li>
+                                                                <li tabindex="-1" data-option-value="NAME" class="undefined">
+                                                                    <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="NAME">작성자</button>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="border-r pr-[10px] h-[18px] ml-[-26px] mr-[12px]"></div>
+                                            </div>
+                                            <input type="search" class="outline-none content_secondary font_body_regular_md content-none w-full" value="">
+                                            <button type="button" class="ml-[10px]">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-[20px] h-[20px] content_primary">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M15.83 16.561a7.8 7.8 0 1 1 1.233-1.312l3.465 3.465a.9.9 0 1 1-1.272 1.273L15.83 16.56Zm1.13-5.961a6.16 6.16 0 1 1-12.32 0 6.16 6.16 0 0 1 12.32 0Z"></path>
+                                                </svg>
+                                            </button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </header>
+                            <!--                                중간부분-->
+                            <div class="mt-[32px] flex justify-between items-center">
+                                <div class="font_label_bold_xl">
+                                    <!--                                        전체-->
+                                    <span class="content_primary">전체</span>
+                                    <!--                                        글 갯수-->
+                                    <span class="ml-[4px] content_accent">0</span>
+                                </div>
+                                <div class="flex items-center gap-x-[12px]">
+                                    <!--                                        게시글 전체 조회-->
+                                    <div class="shrink-0">
+                                        <div class="relative">
+                                            <button type="button" class="surface_primary border px-[16px] h-[32px] py-[8px] border_black_opacity rounded-[16px] flex items-center max-w-[164px] outline-none">
+                                                <span class="content_secondary font_label_medium_lg text-ellipsis overflow-hidden whitespace-nowrap">문의 전체</span>
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="shrink-0 ml-[4px] w-[10px] h-[10px]">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>
+                                                </svg>
+                                            </button>
+                                            <!--                                                            리스트 박스-->
+                                            <div class="absolute_top1" >
+                                                <ul class="rounded-[8px] p-[8px] surface_primary shadow-menu max-h-[228px] overflow-auto">
+                                                    <li tabindex="-1" data-option-value="POST" class="undefined">
+                                                        <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="POST">전체</button>
+                                                    </li>
+                                                    <li tabindex="-1" data-option-value="NAME" class="undefined">
+                                                        <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="NAME">제목</button>
+                                                    </li>
+                                                    <li tabindex="-1" data-option-value="NAME" class="undefined">
+                                                        <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="NAME">내용</button>
+                                                    </li>
+                                                    <li tabindex="-1" data-option-value="NAME" class="undefined">
+                                                        <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="NAME">작성자</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--                                        게시글 조회-->
+                                    <div class="shrink-0">
+                                        <div class="relative">
+                                            <button type="button" class="surface_primary border px-[16px] h-[32px] py-[8px] border_black_opacity rounded-[16px] flex items-center max-w-[164px] outline-none">
+                                                <span class="content_secondary font_label_medium_lg text-ellipsis overflow-hidden whitespace-nowrap">구분 전체</span>
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="shrink-0 ml-[4px] w-[10px] h-[10px]">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>
+                                                </svg>
+                                            </button>
+                                            <!--                                                            리스트 박스-->
+                                            <div class="absolute_top2">
+                                                <ul class="rounded-[8px] p-[8px] surface_primary shadow-menu max-h-[228px] overflow-auto">
+                                                    <li tabindex="-1" data-option-value="POST" class="undefined">
+                                                        <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="POST">전체</button>
+                                                    </li>
+                                                    <li tabindex="-1" data-option-value="NAME" class="undefined">
+                                                        <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="NAME">교사</button>
+                                                    </li>
+                                                    <li tabindex="-1" data-option-value="NAME" class="undefined">
+                                                        <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="NAME">학생</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--                                        리스트 csv로 다운로드 버튼-->
+                                    <button type="button" disabled="" class="relative flex justify-center items-center font_button_bold_md  h-[32px] rounded-[16px] content_secondary surface_primary border border-solid border_black_opacity hover:surface_tertiary hover:border_secondary active:surface_tertiary active:border_secondary disabled:surface_primary disabled:border_black_opacity disabled:border disabled:border-solid px-[15px]  false disabled:content_disabled">CSV 다운로드</button>
+                                </div>
+                            </div>
+                            <!--                                하단 부분-->
+                            <div id="bottom_id1" class="mt-[20px] border-y border_primary px-[8px] py-[9px] flex items-center gap-x-[24px]">
+                                <button type="button">
+                                    <div id="bottom_id2" class="shrink-0 flex items-center font_label_medium_md content_primary justify-end" style="width: 62px;">
+                                        <span class="mr-[8px]">구분</span>
+                                        <svg style="width: 10px; height: 15px" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[6px] h-[10px]">
+                                            <path d="m3 0 3 4H0l3-4Z" fill="#333334" class="path1"></path>
+                                            <path d="M3 10 0 6h6l-3 4Z" fill="#B9B9BB" class="path2"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <div class="shrink-0 flex items-center font_label_medium_md content_primary justify-end" style="width: 78px;">제목</div>
+                                <div class="shrink-0 flex items-center font_label_medium_md content_primary justify-end" style="width: 240px;">내용</div>
+                                <button type="button">
+                                    <div id="bottom_id3" class="shrink-0 flex items-center font_label_medium_md content_primary justify-end" style="width: 270px;">
+                                        <span class="mr-[8px]">학교</span>
+                                        <svg style="width: 10px; height: 15px" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[6px] h-[10px]">
+<!--                                            <path d="m3 0 3 4H0l3-4ZM3 10 0 6h6l-3 4Z" fill="#B9B9BB"></path>-->
+                                            <path d="m3 0 3 4H0l3-4Z" fill="#333334" class="path1"></path>
+                                            <path d="M3 10 0 6h6l-3 4Z" fill="#B9B9BB" class="path2"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <button type="button">
+                                    <div id="bottom_id4" class="shrink-0 flex items-center font_label_medium_md content_primary justify-end" style="width: 83px;">
+                                        <span class="mr-[8px]">작성자</span>
+                                        <svg style="width: 10px; height: 15px" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[6px] h-[10px]">
+<!--                                            <path d="m3 0 3 4H0l3-4ZM3 10 0 6h6l-3 4Z" fill="#B9B9BB"></path>-->
+                                            <path d="m3 0 3 4H0l3-4Z" fill="#333334" class="path1"></path>
+                                            <path d="M3 10 0 6h6l-3 4Z" fill="#B9B9BB" class="path2"></path>
+                                        </svg>
+                                    </div>
+                                </button>
+                                <div class="shrink-0 flex items-center font_label_medium_md content_primary justify-end" style="width: 56px;">삭제</div>
+                            </div>
+                        </div>
+                        <!--                            학교 목록-->
+                        <div>
+                            <ul class="pt-[4px]">
+                                <div class="mt-[100px] flex flex-col justify-center items-center">
+                                    <svg width="154" height="104" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#ImgEmptyPostPublished_svg__a)">
+                                            <rect x="66.99" y="12.34" width="48" height="48" rx="6" transform="rotate(-14.897 66.99 12.34)" fill="#EDEDED"></rect>
+                                            <rect x="106.234" y="33.541" width="48" height="48" rx="6" transform="rotate(19.995 106.234 33.541)" fill="#C1B6FF"></rect>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M132.471 56c-2.147.1-3.034 1.232-2.535 3.732.501 1.5 2.583 1.675 3.501 1 2.024-1.488 1.5-4.5-.966-4.732Zm-28.243 13.991c.631-.451 3.302-2.039 6.037-3.325 1.365-.642 2.698-1.186 3.77-1.477.539-.146.966-.216 1.274-.22a.971.971 0 0 1 .323.033c.935.848 1.494 2.433 1.805 4.018.151.766.234 1.474.284 1.997l.041.465a13.197 13.197 0 0 0 .038.391c.003.027.012.09.029.158.007.026.03.114.08.215a1.002 1.002 0 0 0 .898.554h.217l.198-.09c1.224-.558 2.28-1.073 3.237-1.54 1.321-.643 2.453-1.195 3.582-1.645 1.733-.69 3.318-1.071 5.258-1.016v.018c-.019.483-.174 1.212-.43 2.073-.508 1.702-1.317 3.606-1.751 4.422a1 1 0 0 0 1.766.94c.502-.945 1.36-2.975 1.901-4.79.268-.898.483-1.824.512-2.567.014-.36-.009-.795-.181-1.183a1.515 1.515 0 0 0-.469-.604 1.436 1.436 0 0 0-.786-.286c-2.505-.152-4.494.313-6.559 1.135-1.175.468-2.434 1.08-3.831 1.76a188.7 188.7 0 0 1-1.815.874 21.337 21.337 0 0 0-.256-1.667c-.324-1.646-.983-3.832-2.461-5.146-.492-.437-1.137-.526-1.656-.519-.546.007-1.156.122-1.772.29-1.239.337-2.695.937-4.098 1.597-2.801 1.317-5.586 2.964-6.348 3.508a1 1 0 0 0 1.163 1.627Z" fill="#000"></path>
+                                            <path d="M83.39 23.389a1 1 0 0 0 .514 1.933c3.087-.822 6.194-1.565 9.314-2.3.005.05.015.099.028.148.667 2.509 1.023 5.098 1.385 7.749l.008.061c.356 2.61.72 5.282 1.41 7.87a1 1 0 0 0 1.932-.514c-.656-2.467-1.007-5.035-1.369-7.688-.359-2.63-.729-5.343-1.433-7.992a1.003 1.003 0 0 0-.028-.088c3.528-.828 7.072-1.664 10.597-2.601a1 1 0 1 0-.514-1.933c-3.611.96-7.246 1.814-10.897 2.671l-.01.003c-3.643.855-7.301 1.714-10.937 2.68Z" fill="#000"></path>
+                                            <rect x="59.908" y="26.256" width="48" height="48" rx="6" transform="rotate(103.548 59.908 26.256)" fill="#F2F0FF"></rect>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M39.748 49.269a1 1 0 0 1-.659-1.252c1.459-4.699-.83-9.201-4.433-11.493-1.793-1.14-3.867-1.7-5.902-1.475-2.018.223-4.07 1.225-5.837 3.338-1.893 2.262-3.15 5.05-3.262 7.698-.111 2.598.868 5.11 3.562 7 1.804 1.265 4.912 2.05 7.806 1.787 2.891-.262 5.22-1.517 6.004-3.956a1 1 0 0 1 1.904.613c-1.136 3.529-4.446 5.037-7.727 5.335-3.28.298-6.88-.56-9.136-2.142-3.284-2.304-4.55-5.483-4.411-8.722.136-3.188 1.622-6.382 3.726-8.897 2.078-2.483 4.59-3.759 7.152-4.042 2.546-.281 5.07.425 7.194 1.775 4.228 2.69 7.042 8.068 5.27 13.774a1 1 0 0 1-1.251.659Z" fill="#000"></path>
+                                            <path d="M32.748 47.864c-1.134.339-2.652.49-4.137.732-.384.062-.716-.315-.614-.69.424-1.565.98-4.22 1.212-5.263.055-.25.26-.322.427-.128.777.903 2.588 3.535 3.344 4.645.177.26.07.614-.231.704Z" fill="#000"></path>
+                                            <rect x="30.004" y="51.295" width="48" height="48" rx="6" transform="rotate(-16.873 30.004 51.295)" fill="#A7EEFF"></rect>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M63.077 58.445c-1.404-1.634-3.23-2.675-5.588-2.492-1.927.15-3.32.634-4.315 1.3a5.319 5.319 0 0 0-2.038 2.554c-.801 2.05-.6 4.736.142 7.4 1.031-.391 2.013.247 2.356 1.081a130.623 130.623 0 0 1 3.452 9.487c.243.761.019 1.81-.95 2.233-1.228.536-2.87.643-4.291.523a10.887 10.887 0 0 1-2.059-.362c-.584-.168-1.17-.408-1.608-.75-2.487-1.7-2.616-4.49-1.778-6.805.605-1.672 1.762-3.282 3.154-4.38a.997.997 0 0 1-.153-.314c-.824-2.873-1.182-6.144-.128-8.84.536-1.372 1.435-2.584 2.79-3.49 1.346-.9 3.09-1.462 5.271-1.631 3.145-.245 5.551 1.193 7.26 3.183 1.574 1.831 2.594 4.163 3.158 6.231 1.444.02 2.938.363 4.21.976 2.218 1.07 4.076 3.155 3.486 6.11-.074.55-.325 1.13-.626 1.66-.32.562-.742 1.147-1.218 1.698-.933 1.079-2.182 2.15-3.435 2.626-.988.374-1.881-.219-2.24-.933a130.602 130.602 0 0 1-4.164-9.197c-.346-.856-.07-2.034 1.004-2.45.306-.119.628-.216.96-.29-.523-1.778-1.401-3.672-2.652-5.128ZM51.827 69.15c-1.448.692-2.893 2.34-3.546 4.145-.669 1.846-.418 3.5 1.048 4.488l.037.025.034.028c.137.111.441.267.939.41.476.137 1.055.24 1.673.293 1.167.097 2.33 0 3.127-.286a128.89 128.89 0 0 0-3.313-9.103Zm19.266-3c-1.729-.833-3.914-1.001-5.433-.484a128.888 128.888 0 0 0 3.996 8.825c.77-.353 1.669-1.096 2.435-1.982a8.89 8.89 0 0 0 .992-1.379c.256-.45.364-.774.384-.95l.005-.043.01-.043c.357-1.732-.62-3.09-2.389-3.943Z" fill="#000"></path>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="ImgEmptyPostPublished_svg__a">
+                                                <path fill="#fff" d="M0 0h154v104H0z"></path>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <p class="mt-[23px] font_body_regular_lg content_quaternary">문의 글이 없습니다.</p>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    <!--    상단 게시글 검색 리스트 박스-->
+    const questionlistSearch = document.querySelector("#_next > div > div > div > div > div > div.sticky.top-0.z-10.surface_primary > header > div > div > label > div");
+    const questionlistSearchlistbox = document.querySelector("#_next > div > div > div > div > div > div.sticky.top-0.z-10.surface_primary > header > div > div > label > div > div.min-w-\\[76px\\] > div > div");
+    questionlistSearch.addEventListener("click", (e) => {
+
+        if(questionlistSearchlistbox.style.display === 'none'){
+            questionlistSearchlistbox.style.display = 'block';
+        }else {
+            questionlistSearchlistbox.style.display = 'none';
+        }
+    })
+    // 게시글 리스트 박스 글자 있는 부분
+    const questionlistVal = document.querySelector("#_next > div > div > div > div > div > div.sticky.top-0.z-10.surface_primary > header > div > div > label > div > div.min-w-\\[76px\\] > div > button > span");
+    // 상단 게시글 리스트 박스 선택 시 나타내기
+    questionlistSearchlistbox.addEventListener("click", (e) => {
+        const targetText = e.target.innerText;
+        // 선택박스 글자 초기화
+        // postlistVal.innerText = "게시글";
+
+        questionlistVal.innerText = targetText;
+    })
+
+    // <!--    문의 전체 검색 리스트 박스-->
+    const questionlistAllSearch = document.querySelector("#_next > div > div > div > div > div > div.sticky.top-0.z-10.surface_primary > div.mt-\\[32px\\].flex.justify-between.items-center > div.flex.items-center.gap-x-\\[12px\\] > div:nth-child(1)");
+    const questionlistAllSearchlistbox = document.querySelector("#_next > div > div > div > div > div > div.sticky.top-0.z-10.surface_primary > div.mt-\\[32px\\].flex.justify-between.items-center > div.flex.items-center.gap-x-\\[12px\\] > div:nth-child(1) > div > div");
+    questionlistAllSearch.addEventListener("click", (e) => {
+
+        if(questionlistAllSearchlistbox.style.display === 'none'){
+            questionlistAllSearchlistbox.style.display = 'block';
+        }else {
+            questionlistAllSearchlistbox.style.display = 'none';
+        }
+    })
+    // 문의 전체 리스트 박스 글자 있는 부분
+    const questionlistAllVal = document.querySelector("#_next > div > div > div > div > div > div.sticky.top-0.z-10.surface_primary > div.mt-\\[32px\\].flex.justify-between.items-center > div.flex.items-center.gap-x-\\[12px\\] > div:nth-child(1) > div > button > span");
+    // 문의 전체 리스트 박스 선택 시 나타내기
+    questionlistAllSearchlistbox.addEventListener("click", (e) => {
+        const targetText = e.target.innerText;
+        // 선택박스 글자 초기화
+        // postlistVal.innerText = "게시글";
+
+        questionlistAllVal.innerText = targetText;
+    })
+
+    // <!--    구분 전체 검색 리스트 박스-->
+    const whoquestionlistAllSearch = document.querySelector("#_next > div > div > div > div > div > div.sticky.top-0.z-10.surface_primary > div.mt-\\[32px\\].flex.justify-between.items-center > div.flex.items-center.gap-x-\\[12px\\] > div:nth-child(2)");
+    const whoquestionlistAllSearchlistbox = document.querySelector("#_next > div > div > div > div > div > div.sticky.top-0.z-10.surface_primary > div.mt-\\[32px\\].flex.justify-between.items-center > div.flex.items-center.gap-x-\\[12px\\] > div:nth-child(2) > div > div");
+    whoquestionlistAllSearch.addEventListener("click", (e) => {
+
+        if(whoquestionlistAllSearchlistbox.style.display === 'none'){
+            whoquestionlistAllSearchlistbox.style.display = 'block';
+        }else {
+            whoquestionlistAllSearchlistbox.style.display = 'none';
+        }
+    })
+    // 구분 전체 리스트 박스 글자 있는 부분
+    const whoquestionlistAllVal = document.querySelector("#_next > div > div > div > div > div > div.sticky.top-0.z-10.surface_primary > div.mt-\\[32px\\].flex.justify-between.items-center > div.flex.items-center.gap-x-\\[12px\\] > div:nth-child(2) > div > button > span");
+    // 구분 전체 리스트 박스 선택 시 나타내기
+    whoquestionlistAllSearchlistbox.addEventListener("click", (e) => {
+        const targetText = e.target.innerText;
+        // 선택박스 글자 초기화
+        // postlistVal.innerText = "게시글";
+
+        whoquestionlistAllVal.innerText = targetText;
+    })
+
+
+    const up = document.querySelector("#bottom_id1 #bottom_id2 .path1");
+    const down = document.querySelector("#bottom_id1 #bottom_id2 .path2");
+    down.addEventListener("click", (e) => {
+
+        if(up.style.fill !== '#B9B9BB'){
+            up.style.fill = '#B9B9BB';
+            e.target.style.fill = '#333334';
+        }else{
+        }
+    })
+
+
+    up.addEventListener("click", (e) => {
+
+        if(down.style.fill !== '#B9B9BB'){
+            down.style.fill = '#B9B9BB';
+            e.target.style.fill = '#333334';
+        }else{
+        }
+    })
+
+
+
+    const up1 = document.querySelector("#bottom_id1 #bottom_id3 .path1");
+    const down1 = document.querySelector("#bottom_id1 #bottom_id3 .path2");
+    down1.addEventListener("click", (e) => {
+
+        if(up1.style.fill !== '#B9B9BB'){
+            up1.style.fill = '#B9B9BB';
+            e.target.style.fill = '#333334';
+        }else{
+        }
+    })
+
+
+    up1.addEventListener("click", (e) => {
+
+        if(down1.style.fill !== '#B9B9BB'){
+            down1.style.fill = '#B9B9BB';
+            e.target.style.fill = '#333334';
+        }else{
+        }
+    })
+
+
+    const up3 = document.querySelector("#bottom_id1 #bottom_id4 .path1");
+    const down3 = document.querySelector("#bottom_id1 #bottom_id4 .path2");
+    down3.addEventListener("click", (e) => {
+
+        if(up3.style.fill !== '#B9B9BB'){
+            up3.style.fill = '#B9B9BB';
+            e.target.style.fill = '#333334';
+        }else{
+        }
+    })
+
+
+    up3.addEventListener("click", (e) => {
+
+        if(down3.style.fill !== '#B9B9BB'){
+            down3.style.fill = '#B9B9BB';
+            e.target.style.fill = '#333334';
+        }else{
+        }
+    })
+</script>
+</html>
