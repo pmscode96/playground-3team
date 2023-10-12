@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>관리자 페이지</title>
+
+    <meta property="og:image" content="https://steadio-asset.s3.ap-northeast-2.amazonaws.com/static/images/steadio_thumbnail.png">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css">
+    <link rel="preload" href="https://steadio-asset.s3.ap-northeast-2.amazonaws.com/_next/static/css/87e703a61c4a1915.css" as="style">
+    <link rel="stylesheet" href="https://steadio-asset.s3.ap-northeast-2.amazonaws.com/_next/static/css/87e703a61c4a1915.css" data-n-g="">
+    <link rel="stylesheet" type="text/css" id="mce-u0" crossorigin="anonymous" referrerpolicy="origin" href="https://cdn.tiny.cloud/1/642kloaxprkdiwotc62kpdppm5zm6xgx1sut3sma8h87w63g/tinymce/6.6.2-27/skins/ui/oxide/skin.min.css">
+    <link rel="preload" as="image" imagesrcset="/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=3840&amp;q=75 3840w" imagesizes="100vw">
+    <link rel="stylesheet" href="../../static/css/administrator/administratorPagePostDetail.css">
+    <script src="https://steadio-asset.s3.ap-northeast-2.amazonaws.com/_next/static/chunks/framework-560765ab0625ba27.js" defer=""></script>
+    <script src="https://steadio-asset.s3.ap-northeast-2.amazonaws.com/_next/static/chunks/main-f82cef7d6a5937df.js" defer=""></script>
+    <script src="../../static/js/administrator/administrator_page_post_detail-change-btn.js"></script>
+    <style>
+        @media (min-width: 1024px) {
+            .lg\:px-\[32px\] {
+                padding-left: 32px;
+                padding-right: 32px;
+            }
+
+            .lg\:h-\[58px\] {
+                height: 58px;
+            }
+
+            .lg\:hidden {
+                display: none;
+            }
+
+            .lg\:block {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="h-full overflow-x-hidden">
+    <div id="_next" data-reactroot>
+        <div>
+<!--            상단바-->
+            <div class="sticky top-0 left-0 z-20 w-full h-[56px] shadow-[0px_0px_4px_rgba(0,0,0,0.6)]">
+                <nav class="sticky top-0 left-0 surface_primary z-20 w-full h-[56px] px-[16px] shrink-0 flex items-center justify-between lg:px-[32px] lg:h-[58px]">
+                    <div>
+                        <div class="flex items-center">
+                            <a href="/src/main/resources/static">
+                                <svg viewBox="0 0 32 16" xmlns="http://www.w3.org/2000/svg" class="lg:hidden w-[31px] content_primary">
+                                    <path d="M21.96 15.796h9.232A15.592 15.592 0 0 0 .059 14.55c-.011.116-.019.234-.027.351v.105c-.013.21-.022.423-.022.637v.154h9.957c0-2.987-2.228-5.412-4.978-5.412a4.755 4.755 0 0 0-3.41 1.473c1.051-1.346 2.63-2.203 4.395-2.203 3.165 0 5.725 2.75 5.725 6.142h7.562v-.154c0-5.7-4.31-10.321-9.629-10.321a9.085 9.085 0 0 0-4.62 1.266 10.976 10.976 0 0 1 16.949 9.21v-.003Z"></path>
+                                </svg>
+                                <svg viewBox="0 0 115 16" xmlns="http://www.w3.org/2000/svg" class="hidden lg:block w-[96px] content_primary">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M98.073 1.695a1.695 1.695 0 1 1 1.695 1.695 1.687 1.687 0 0 1-1.695-1.695Zm2.967 2.863v11.23h-2.539V4.556l2.539.002Zm-7.842 11.23h2.544V.102h-2.544v5.725h-.042a4.791 4.791 0 0 0-3.517-1.483c-2.925 0-5.214 2.332-5.214 5.828 0 3.496 2.29 5.827 5.214 5.827a4.79 4.79 0 0 0 3.517-1.483h.042v1.272Zm-3.054-2.162c-1.737 0-3.093-1.4-3.093-3.454 0-2.056 1.355-3.455 3.093-3.455 1.739 0 3.094 1.4 3.094 3.455s-1.356 3.454-3.094 3.454Zm-45.282 2.373c-3.709 0-6.167-1.867-6.336-4.978h2.925c.317 1.906 1.653 2.584 3.327 2.584 1.843 0 2.986-.847 2.986-1.927 0-1.376-1.604-1.75-3.542-2.202l-.462-.108C41.28 8.774 38.78 7.8 38.78 4.81c0-2.204 1.887-4.492 5.531-4.492 3.221 0 5.68 1.908 6.04 4.768h-2.884c-.296-1.292-1.207-2.374-3.094-2.374-1.674 0-2.839.827-2.839 1.93 0 1.49 1.468 1.83 3.482 2.298l.587.138c2.331.551 4.916 1.42 4.916 4.344 0 2.86-2.31 4.576-5.658 4.576Zm11.59-9.155v5.02c0 1.526.933 1.759 1.675 1.759.405.003.805-.091 1.166-.275v2.288c-.46.18-.948.272-1.441.276-2.14 0-3.942-1.06-3.942-4.108v-4.96h-2.328V4.556h2.33V1.32h2.543v3.236h2.843v2.288h-2.845Zm14.814 5.532h-2.739c-.516 1.113-1.329 1.377-2.516 1.377-1.441 0-2.712-.954-2.903-2.755h8.304c0-4.539-2.648-6.654-5.615-6.654-3.052 0-5.446 2.332-5.446 5.828 0 3.496 2.4 5.827 5.636 5.827 2.268 0 4.532-1.048 5.279-3.623Zm-2.67-3.328h-5.51c.277-1.415 1.42-2.437 2.756-2.437 1.335 0 2.479 1.018 2.754 2.437Zm14.135 6.74h-2.5a17.563 17.563 0 0 1-.063-1.442h-.044C79.107 15.597 77.837 16 76.564 16c-2.246 0-3.877-1.334-3.877-3.496 0-1.674 1.08-3.263 4.068-3.391 1.357-.064 3.327-.085 3.327-.085v-.571c0-1.378-1.144-2.035-2.331-2.035-1.188 0-2.097.657-2.24 1.695h-2.634c.125-2.395 2.098-3.772 4.895-3.772 2.819 0 4.854 1.76 4.854 4.408v3.39c0 2.035.02 2.946.105 3.645Zm-5.234-4.832c-1.59.085-2.183.678-2.183 1.505 0 .953.763 1.44 1.844 1.44 1.59 0 2.924-.975 2.924-2.628v-.423s-1.419.043-2.585.106Zm31.193-6.57c-3.242 0-5.742 2.522-5.742 5.807 0 3.289 2.498 5.805 5.741 5.805 3.243 0 5.744-2.521 5.744-5.805 0-3.285-2.501-5.808-5.743-5.808Zm.004 2.373c1.777 0 3.112 1.42 3.112 3.434 0 2.012-1.336 3.432-3.112 3.432s-3.111-1.419-3.111-3.432c0-2.014 1.334-3.434 3.111-3.434Z"></path>
+                                    <path d="M21.96 15.796h9.232A15.592 15.592 0 0 0 .059 14.55c-.011.116-.019.234-.027.351v.105c-.013.21-.022.423-.022.637v.154h9.957c0-2.987-2.228-5.412-4.978-5.412a4.755 4.755 0 0 0-3.41 1.473c1.051-1.346 2.63-2.203 4.395-2.203 3.165 0 5.725 2.75 5.725 6.142h7.562v-.154c0-5.7-4.31-10.321-9.629-10.321a9.085 9.085 0 0 0-4.62 1.266 10.976 10.976 0 0 1 16.949 9.21v-.003Z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-end">
+                        <div class="relative">
+                            <button class="relative w-[32px] h-[32px] rounded-full surface_primary_active">
+                                <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                    <img alt="프로필 이미지" sizes="100vw" srcset="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&w=1920&q=75" decoding="async" data-nimg="fill" class="rounded-full" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+<!--            상단바 제외한 본문-->
+            <div class="py-[16px] px-[16px]">
+                <main class="flex flex-col relative max-w-main min-w-screen min-w-[320px] w-full mx-auto surface_primary">
+<!--                   카테고리(교사 또는 학생 선택)-->
+                    <div>
+                        <button class="font_label_bold_lg content_accent text-left" type="button">학생</button>
+                    </div>
+                    <div style="height: 8px;"></div>
+<!--                    제목-->
+                    <h3 class="font_headline_bold_md content_primary mb-[18px]">[고2 수학]선생님에게 질문이 있어요</h3>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-x-[10px] whitespace-nowrap"><div>
+                            <a>
+                                <div class="relative shrink-0 rounded-full shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)]" style="width: 34px; height: 34px; background: url(&quot;https://steadio.imgix.net/profiles/8624e861-d6ba-43a1-a654-9d2dab0cd70c/profileImage/224cd923-9f9e-4957-962c-3834a344eb0a.jpg?auto=format%2Ccompress&amp;h=300&amp;lossless=true&amp;w=300&quot;) center center / cover no-repeat, rgb(255, 255, 255);"></div>
+                            </a>
+                        </div>
+                            <div>
+<!--                                작성자-->
+                                <div>
+                                    <a class="font_label_bold_md content_secondary" >홍길동</a>
+                                </div>
+                                <div class="mt-[2px] flex items-center">
+                                    <div class="relative">
+<!--                                        자물쇠 아이콘-->
+                                        <button type="button" class="flex items-center gap-x-[2px] outline-none">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-[12px] h-[12px] content_accent">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M4 12.9a3.6 3.6 0 0 1 3.3-3.588V7.4a4.7 4.7 0 0 1 9.4 0v1.912a3.6 3.6 0 0 1 3.3 3.587v4.8a3.6 3.6 0 0 1-3.6 3.6H7.6A3.6 3.6 0 0 1 4 17.7v-4.8Zm10.9-5.5v1.9H9.1V7.4a2.9 2.9 0 0 1 5.8 0Zm-2.1 7a.8.8 0 0 0-1.6 0v1.4a.8.8 0 0 0 1.6 0v-1.4Z"></path>
+                                            </svg>
+<!--                                            누구에게 공개할지 여부-->
+                                            <p class="content_quaternary font_label_medium_sm">교사 공개</p>
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-[8px] h-[8px] content_disabled">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.27 8.42a1.076 1.076 0 0 1 1.587-.13L12 14.832l7.143-6.544a1.076 1.076 0 0 1 1.586.13 1.26 1.26 0 0 1-.122 1.696L12 18l-8.607-7.885A1.26 1.26 0 0 1 3.27 8.42Z"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="mx-[4px] w-[8px] h-[8px] content_disabled">
+                                        <circle cx="12" cy="12" r="4"></circle>
+                                    </svg>
+                                    <a class="font_label_regular_sm content_quaternary flex items-center" >
+<!--                                        올린지 얼마나 되었는지 시간으로 표시-->
+                                        <span>5시간 전</span>
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="mx-[2px] w-[8px] h-[8px] content_disabled">
+                                            <circle cx="12" cy="12" r="4"></circle>
+                                        </svg>
+<!--                                        조회수-->
+                                        <span>조회수 24</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-[12px]">
+                            <div class="relative flex items-center">
+                                <button type="button" class="">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-[24px] h-[24px] content_quaternary">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6a3 3 0 0 1-5.022 2.216l-5.01 3.34c.018.127.029.255.031.385l4.84 2.978a3 3 0 1 1-.83 1.838l-4.672-2.876a3 3 0 1 1-.315-4.098l5.01-3.34A3 3 0 1 1 20 6Z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="relative flex items-center">
+                                <div class="relative flex items-center">
+                                    <button type="button">
+                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-[24px] h-[24px] content_quaternary">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2Zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2Zm-2 8c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2Z"></path>
+                                        </svg>
+                                    </button>
+<!--                                점 세개 클릭 시 나오는 리스트 박스-->
+                                    <div class="absolute right-0 z-20 min-w-[204px]" style="top: 36px; display: none;" >
+                                        <ul class="rounded-[8px] p-[8px] surface_primary shadow-menu undefined">
+                                            <li tabindex="-1" data-option-value="" class="undefined">
+                                                <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="">수정</button>
+                                            </li>
+                                            <li tabindex="-1" data-option-value="" class="undefined">
+                                                <button type="button" class="w-full py-[12px] px-[20px] rounded-[8px] text-left content_primary font_label_regular_lg surface_primary hover:surface_tertiary text-ellipsis overflow-hidden whitespace-nowrap" data-option-value="">삭제</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!--                    텍스트 박스 내용-->
+                    <div class="mt-[24px] pt-[32px] border-t border_secondary">
+                        <div>
+<!--                            내용 부분-->
+                            <div class="steadio-post steadio-post-detail">
+                                <p>안녕하세요 선생님 2학년 홍길동입니다. <br> 고2 수학의 48페이지의 12번 문제 풀이를 올렸는데 맞는지 확인 해주세요~!! <br> 감사합니다</p>
+                            </div>
+                            <div style="height: 32px;"></div>
+                        </div>
+<!--                        첨부 파일 부분-->
+                        <div class="md:w-[380px]">
+                            <div style="height: 12px;"></div>
+                            <ul class="flex flex-col gap-y-[8px] cusp">
+                                <li class="h-[76px] flex items-center justify-between border border_primary rounded-[8px] p-[12px] pr-[24px]">
+                                    <div class="flex items-center gap-x-[12px]">
+                                        <div class="flex justify-center items-center w-[40px] h-[40px] rounded-[8px] surface_tertiary">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-[24px] h-[24px] content_quaternary">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.6 4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V8.961a2 2 0 0 0-.751-1.561l-3.702-2.962A2 2 0 0 0 13.898 4H6.6Zm11 15.2h-11a.2.2 0 0 1-.2-.2V6c0-.11.09-.2.2-.2h7V8a1 1 0 0 0 1 1h3.2v10a.2.2 0 0 1-.2.2Z"></path>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.1 12a.9.9 0 0 1 .9-.9h6a.9.9 0 1 1 0 1.8H9a.9.9 0 0 1-.9-.9ZM8.1 15a.9.9 0 0 1 .9-.9h6a.9.9 0 1 1 0 1.8H9a.9.9 0 0 1-.9-.9Z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="flex flex-col pr-[20px]">
+<!--                                            파일 명-->
+                                            <p class="font_label_regular_md content_secondary break-all">수학_48페이지_12번_문제.png</p>
+<!--                                            파일 용량-->
+                                            <span class="font_label_regular_sm content_disabled">1.7KB</span>
+                                        </div>
+                                    </div>
+<!--                                    다운로드 아이콘 부분-->
+                                    <a target="_blank" rel="noreferrer">
+                                        <svg viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[17px] content_accent_active">
+                                            <path d="M2 12a1 1 0 1 0-2 0v6h16v-6a1 1 0 1 0-2 0v4H2v-4Z"></path>
+                                            <path d="M8 12.9 3.293 8.193a1 1 0 0 1 1.414-1.415L7 9.071V1.586a1 1 0 1 1 2 0V9.07l2.293-2.293a1 1 0 1 1 1.414 1.415L8 12.9Z"></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div style="height: 52px;"></div>
+                        </div>
+                    </div>
+<!--                    프로필 부분-->
+<!--                    <section class="flex flex-col flex-wrap gap-[12px] items-center border_secondary border-t-[1px] py-[32px] relative">-->
+<!--                        <div>-->
+<!--                            <button class="border_black_opacity box-border border-[0.8px] w-[60px] h-[60px] rounded-full overflow-hidden shadow-[inset_0_0_0_1px_rgba(0,0,0,0.1)] relative">-->
+<!--                                <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">-->
+<!--                                    <img alt="프로필 이미지" src="/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=3840&amp;q=75" decoding="async" data-nimg="fill" sizes="100vw" srcset="/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=640&amp;q=75 640w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=750&amp;q=75 750w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=828&amp;q=75 828w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1080&amp;q=75 1080w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1200&amp;q=75 1200w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1920&amp;q=75 1920w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=2048&amp;q=75 2048w, /_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=3840&amp;q=75 3840w" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">-->
+<!--                                    <noscript></noscript>-->
+<!--                                </span>-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <div class="flex flex-col gap-[4px] px-[40px]">-->
+<!--                                <button class="font_title_bold_lg text-center">홍길동</button>-->
+<!--                                <p class="md:w-[404px] text-center font_label_regular_md content_quaternary break-all">잘 부탁드립니다</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </section>-->
+
+                    <div>
+                        <h4 class="font_headline_bold_sm content_secondary">댓글
+                            <span>2</span>
+                        </h4>
+                        <div style="height: 24px;"></div>
+<!--                        댓글 작성 부분-->
+                        <div class="border border_primary rounded-[8px]">
+<!--                         댓글 버튼 클릭 전   -->
+                            <button type="button" class="w-full p-[12px] flex items-center gap-[16px] reply-small">
+                                <div class="relative w-full h-full rounded-full flex items-center justify-center" type="button" style="width: 32px; height: 32px;">
+<!--                                    댓글 작성자 프로필이미지-->
+                                    <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                       <img alt="프로필 이미지" sizes="100vw" srcset="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1920&amp;q=75" decoding="async" data-nimg="fill" class="rounded-full" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                                    </span
+                                    ><span class="absolute top-0 left-0 w-full h-full border border_black_opacity rounded-full"></span>
+                                </div>
+                                <span class="font_label_regular_lg content_disabled">댓글을 작성해주세요...</span>
+                            </button>
+<!--                            댓글 버튼 클릭 후-->
+                            <div class="p-[16px] reply_detail" style="display: none;">
+                                <div class="flex gap-[10px]">
+                                    <button class="relative w-full h-full rounded-full flex items-center justify-center" type="button" style="width: 32px; height: 32px;">
+                                        <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                            <img alt="프로필 이미지" sizes="100vw" srcset="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1920&amp;q=75" decoding="async" data-nimg="fill" class="rounded-full" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;"></span>
+                                        <span class="absolute top-0 left-0 w-full h-full border border_black_opacity rounded-full"></span>
+                                    </button>
+                                    <div class="flex gap-[4px] items-center">
+                                        <div class="font_label_bold_lg content_primary">홍길동</div>
+                                    </div>
+                                </div>
+                                <div style="height: 12px;"></div>
+                                <div class="h-full flex flex-col">
+                                    <label class="flex flex-grow shrink-0 ">
+                                        <textarea placeholder="댓글을 작성해주세요..." class="w-full h-[48px] max-h-[88px] px-[20px] py-[14px] reply-inp
+          rounded-[8px] border-solid outline-none font_body_regular_md
+          content_secondary placeholder:font_body_regular_md placeholder:content_disabled
+          disabled:surface_tertiary disabled:border_black_opacity
+          px-[20px] border-[2px] border_black_opacity focus:border_accent_active surface_primary disabled:content_disabled" style="height: 48px;"></textarea>
+                                    </label>
+                                </div>
+                                <div style="height: 18px;"></div>
+                                <div class="flex justify-end gap-[10px]">
+                                    <button type="button" class="reply_detail2 relative flex justify-center items-center font_button_bold_md  h-[32px] rounded-[16px] content_secondary surface_primary border border-solid border_black_opacity hover:surface_tertiary hover:border_secondary active:surface_tertiary active:border_secondary disabled:surface_primary disabled:border_black_opacity disabled:border disabled:border-solid px-[15px]  false disabled:content_disabled">취소</button>
+                                    <button type="button" disabled="" class="upload-btn22 relative flex justify-center items-center font_button_bold_md  h-[32px] rounded-[16px] content_primary_inverse surface_accent hover:surface_accent_active active:surface_accent_active disabled:surface_disabled px-[16px]  false disabled:content_disabled">등록</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height: 33px;"></div>
+                        <div>
+                            <ul>
+                                <li class="py-[23px] last:pb-0 border-t-[1px] first:pt-0 first:border-t-0 border_secondary">
+                                    <div class=" flex gap-[10px]">
+                                        <div class="shrink-0"><div>
+                                            <button class="relative w-full h-full rounded-full flex items-center justify-center" type="button" style="width: 32px; height: 32px;">
+                                                <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                                    <img alt="프로필 이미지" sizes="100vw" srcset="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1920&amp;q=75" decoding="async" data-nimg="fill" class="rounded-full" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                                                    <noscript></noscript>
+                                                </span>
+                                                <span class="absolute top-0 left-0 w-full h-full border border_black_opacity rounded-full"></span>
+                                            </button>
+                                        </div>
+                                        </div>
+                                        <div class="w-full"><div class="flex justify-between items-center">
+                                            <div class="flex gap-[4px] items-center">
+                                                <div class="font_label_bold_lg content_primary">최Bell</div>
+                                            </div>
+                                            <button type="button" value="8484d035-3190-406c-a336-85f4c7ce329c">
+                                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-[20px] h-[20px] content_quaternary_inverse">
+                                                    <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                            <div style="height: 5px;"></div>
+                                            <div class="font_label_regular_lg whitespace-pre-wrap break-all content_secondary" style="display: flex; width: 651px">
+                                                <p style="display: flex">
+                                                    <span>안녕하세요 홍길동 학생 올려준 문제 잘 봤습니다. 풀이과정 중에 3번째 줄 x = y + 3 * 2이쪽 부분이 틀렸네요 다시 확인해보세요 궁금한거 있으면 댓글 달아주세요~!! 아니면 2층 교무실로 오셔서 최무일 선생님을 찾으면 친철히 설명해드릴께요~~</span>
+                                                </p>
+                                            </div>
+                                            <div style="height: 8px;"></div>
+                                            <div class="flex gap-[13px]">
+                                                <div class="flex items-center">
+                                                    <span class="font_label_regular_sm content_quaternary">6시간 전</span>
+                                                </div>
+                                                <button class="font_label_bold_sm content_quaternary" type="button">답글달기
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+<!--                                    답글-->
+                                    <div class="pl-[41px]">
+                                        <div>
+                                            <ul>
+<!--                                                윗글과 겹치치 않게 5px 정도 떨어뜨림-->
+                                                <div style="height: 5px;"></div>
+                                                <li class="py-[10px] last:pb-[20px] first:pt-0 first:border-t-0 border_secondary">
+                                                    <div class=" flex gap-[10px]">
+                                                        <div class="shrink-0">
+                                                            <div>
+                                                                <button class="relative w-full h-full rounded-full flex items-center justify-center" type="button" style="width: 32px; height: 32px;">
+                                                                    <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                                                      <img alt="프로필 이미지" sizes="100vw" srcset="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1920&amp;q=75" decoding="async" data-nimg="fill" class="rounded-full" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                                                                    <span class="absolute top-0 left-0 w-full h-full border border_black_opacity rounded-full"></span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="w-full">
+                                                            <div class="flex justify-between items-center">
+                                                                <div class="flex gap-[4px] items-center">
+                                                                    <div class="font_label_bold_lg content_primary">홍길동</div>
+                                                                </div>
+                                                                <button type="button" value="fe921567-3b32-4161-aab0-63c053784647">
+                                                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-[20px] h-[20px] content_quaternary_inverse">
+                                                                        <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
+                                                            <div style="height: 5px;"></div>
+                                                            <div class="font_label_regular_lg whitespace-pre-wrap break-all content_secondary" style="display: flex; width: 621px">
+                                                                <p style="display: flex">
+                                                                    <span>아....감사합니다! 제가 이해를 정확히 못해서 그런데 내일쯤 오후 3시 30분 이후에 교무실로 찾아가겠습니다 감사합니다!</span>
+                                                                </p>
+                                                            </div>
+                                                            <div style="height: 8px;"></div>
+                                                            <div class="flex gap-[13px]">
+                                                                <div class="flex items-center">
+                                                                    <span class="font_label_regular_sm content_quaternary">몇 초 전</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="border border_primary rounded-[8px]">
+                                                <div class="p-[16px]">
+                                                    <div class="flex gap-[10px]">
+                                                        <button class="relative w-full h-full rounded-full flex items-center justify-center" type="button" style="width: 32px; height: 32px;">
+                                                            <span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;">
+                                                                <img alt="프로필 이미지" sizes="100vw" srcset="https://steadio.co/_next/image?url=https%3A%2F%2Fsteadio.imgix.net%2Fprofiles%2F8624e861-d6ba-43a1-a654-9d2dab0cd70c%2FprofileImage%2F224cd923-9f9e-4957-962c-3834a344eb0a.jpg%3Fauto%3Dformat%252Ccompress%26h%3D300%26lossless%3Dtrue%26w%3D300&amp;w=1920&amp;q=75" decoding="async" data-nimg="fill" class="rounded-full" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover; object-position: center center;">
+                                                            <span class="absolute top-0 left-0 w-full h-full border border_black_opacity rounded-full"></span>
+                                                        </button>
+                                                        <div class="flex gap-[4px] items-center">
+                                                            <div class="font_label_bold_lg content_primary">김홍준(joon)</div>
+                                                        </div>
+                                                    </div>
+<!--                                                    답글 달때마다 class="font_label_regular_lg whitespace-pre-wrap break-all content_secondary"의 width값은 30xp씩 줄어든다 -->
+                                                    <div style="height: 12px;"></div>
+                                                    <div class="h-full flex flex-col">
+                                                        <label class="flex flex-grow shrink-0 ">
+                                                            <textarea placeholder="답글을 작성해주세요..." class="w-full h-[48px] max-h-[88px] px-[20px] py-[14px] rounded-[8px] border-solid outline-none font_body_regular_md content_secondary placeholder:font_body_regular_md placeholder:content_disabled disabled:surface_tertiary disabled:border_black_opacity px-[20px] border-[2px] border_black_opacity focus:border_accent_active surface_primary disabled:content_disabled" style="height: 48px;"></textarea>
+                                                        </label>
+                                                    </div>
+                                                    <div style="height: 18px;"></div>
+                                                    <div class="flex justify-end gap-[10px]">
+                                                        <button type="button" class="relative flex justify-center items-center font_button_bold_md  h-[32px] rounded-[16px] content_secondary surface_primary border border-solid border_black_opacity hover:surface_tertiary hover:border_secondary active:surface_tertiary active:border_secondary disabled:surface_primary disabled:border_black_opacity disabled:border disabled:border-solid px-[15px]  false disabled:content_disabled">취소</button>
+                                                        <button type="button" class="relative flex justify-center items-center font_button_bold_md  h-[32px] rounded-[16px] content_primary_inverse surface_accent hover:surface_accent_active active:surface_accent_active disabled:surface_disabled px-[16px]  false disabled:content_disabled" disabled="">등록</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                    </div>
+                    <div style="height: 40px;"></div>
+                    <div class="border-t border_primary"></div>
+                    <div style="height: 28px;"></div>
+                    </div>
+                </main>
+            </div>
+        </div>
+<!--        공유링크 클릭 시-->
+        <div class="z-0" style="display: none;">
+            <div class="z-[9999] fixed top-1/2 left-1/2 -translate-x-1/2
+                      -translate-y-1/2 overflow-x-hidden
+                      mobile:w-max mobile:h-auto
+                      border border_primary mobile:rounded-[16px]
+                      shadow-s surface_primary overflow-y-auto
+                      mobile:overflow-hidden mobile:justify-center
+                      flex flex-col items-center
+                      px-[24px] rounded-2xl">
+                <div class="w-full py-[28px] px-[4px] md:py-[32px] md:px-[8px]">
+                    <div class="relative">
+                        <h4 class="font_headline_bold_md content_primary mb-[24px]
+      flex justify-center">공유하기</h4>
+                        <div class="absolute right-0 top-0">
+                            <button type="button" class="flex items-center justify-center w-[32px] h-[32px] rounded-[50%] surface_tertiary">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-[24px] h-[24px] mobile:w-[20px] mobile:h-[20px] mobile:content_primary">
+                                    <path d="M5.707 5.707a1 1 0 0 0 0 1.414l4.95 4.95-4.95 4.95a1 1 0 1 0 1.414 1.414l4.95-4.95 4.95 4.95a1 1 0 0 0 1.414-1.414l-4.95-4.95 4.95-4.95a1 1 0 1 0-1.414-1.414l-4.95 4.95-4.95-4.95a1 1 0 0 0-1.414 0Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div style="height: 4px;"></div>
+                    <div class="px-[12px] md:px-[28px]">
+                        <div class="font_body_regular_lg content_secondary">
+                            <div class="flex justify-between gap-[24px]">
+                                <button class="flex flex-col gap-[8px] items-center font_label_medium_md content_tertiary">
+                                    <svg width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="32" cy="32" r="31.5" stroke="#E6E6E7"></circle>
+                                        <g clip-path="url(#Twitter_svg__a)">
+                                            <path d="M44.639 26.058c.019.28.019.562.019.846 0 8.647-6.555 18.62-18.54 18.62v-.006a18.39 18.39 0 0 1-9.99-2.933 13.05 13.05 0 0 0 9.644-2.712 6.528 6.528 0 0 1-6.087-4.545 6.47 6.47 0 0 0 2.942-.113 6.538 6.538 0 0 1-5.227-6.414v-.083c.906.507 1.92.788 2.957.819-2.863-1.922-3.745-5.747-2.017-8.738a18.468 18.468 0 0 0 13.43 6.837 6.566 6.566 0 0 1 1.885-6.252 6.504 6.504 0 0 1 9.22.284 13.044 13.044 0 0 0 4.138-1.59 6.564 6.564 0 0 1-2.865 3.62c1.292-.153 2.554-.5 3.742-1.03a13.269 13.269 0 0 1-3.251 3.39Z" fill="#1D9BF0"></path>
+                                        </g>
+                                        <defs>
+                                            <clipPath id="Twitter_svg__a">
+                                                <path fill="#fff" transform="translate(16 19.412)" d="M0 0h32v26.435H0z"></path>
+                                            </clipPath>
+                                        </defs>
+                                    </svg>트위터
+                                </button>
+                                <button class="flex flex-col gap-[8px] items-center font_label_medium_md content_tertiary">
+                                    <svg width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="32" cy="32" r="31.5" stroke="#E6E6E7"></circle>
+                                        <path d="M31.762 16.762c-9.126 0-16.524 5.833-16.524 13.028 0 4.652 3.093 8.734 7.745 11.039-.253.873-1.626 5.615-1.68 5.988 0 0-.034.28.148.387.181.106.394.023.394.023.52-.072 6.029-3.941 6.982-4.613.953.134 1.933.205 2.935.205 9.126 0 16.524-5.833 16.524-13.029 0-7.195-7.398-13.028-16.524-13.028Z" fill="#3B1F1E"></path>
+                                        <path d="M22.626 34.339c-.526 0-.953-.409-.953-.91v-5.664h-1.487a.936.936 0 0 1-.936-.934c0-.514.42-.933.936-.933h4.881c.516 0 .936.419.936.933 0 .515-.42.934-.936.934H23.58v5.663c0 .502-.428.91-.954.91Zm8.36-.013c-.398 0-.702-.161-.794-.42l-.472-1.237h-2.907l-.472 1.237c-.092.259-.396.42-.793.42-.21 0-.416-.044-.606-.131-.263-.122-.515-.455-.226-1.354l2.28-6.002c.161-.456.649-.927 1.27-.94.623.013 1.11.483 1.271.941l2.28 6c.29.9.037 1.234-.226 1.355-.19.087-.396.131-.606.131Zm-1.767-3.345-.952-2.705-.953 2.705h1.905ZM33.35 34.2c-.504 0-.914-.393-.914-.874V26.85c0-.525.437-.953.973-.953.537 0 .974.428.974.953v5.6h2.025c.504 0 .914.393.914.875 0 .481-.41.874-.914.874h-3.058Zm5.296.126a.954.954 0 0 1-.953-.953V26.85a.954.954 0 0 1 1.906 0v2.05l2.66-2.66a.74.74 0 0 1 .529-.213.94.94 0 0 1 .656.282.94.94 0 0 1 .28.604.743.743 0 0 1-.21.58l-2.173 2.173 2.347 3.108a.946.946 0 0 1 .183.707.947.947 0 0 1-.37.628.943.943 0 0 1-.573.193.945.945 0 0 1-.762-.38l-2.236-2.961-.33.33v2.08a.955.955 0 0 1-.954.954Z" fill="#FFE812"></path>
+                                    </svg>카카오톡
+                                </button>
+                                <button class="flex flex-col gap-[8px] items-center font_label_medium_md content_tertiary">
+                                    <svg width="64" height="64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="32" cy="32" r="31.5" stroke="#E6E6E7"></circle>
+                                        <path d="M27.23 29.065a1.038 1.038 0 0 0-1.468 0l-2.935 2.936A6.486 6.486 0 1 0 32 41.174l2.936-2.935a1.038 1.038 0 1 0-1.468-1.468l-2.936 2.935a4.41 4.41 0 0 1-6.237-6.238l2.935-2.935a1.038 1.038 0 0 0 0-1.468ZM36.77 34.936a1.038 1.038 0 0 1 0-1.468l2.936-2.935a4.41 4.41 0 0 0-6.238-6.238l-2.936 2.936a1.038 1.038 0 1 1-1.467-1.468L32 22.827a6.487 6.487 0 0 1 9.173 9.174l-2.935 2.935a1.038 1.038 0 0 1-1.468 0Z" fill="#666667"></path>
+                                        <path d="M28.293 35.892a1.038 1.038 0 0 1 0-1.468l6.626-6.626a1.038 1.038 0 1 1 1.468 1.467l-6.627 6.627a1.038 1.038 0 0 1-1.468 0Z" fill="#666667"></path>
+                                    </svg>링크 복사
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="z-10 fixed mobile:block top-0 left-0 w-full h-full dimmed_40"></div>
+        </div>
+    </div>
+</body>
+<script>
+<!--    공유링크 클릭 시-->
+const clickshareicon = document.querySelector("#_next > div > div.py-\\[16px\\].px-\\[16px\\] > main > div.flex.items-center.justify-between > div.flex.gap-\\[12px\\] > div:nth-child(1)");
+// modal창
+const modalshare = document.querySelector("#_next > div.z-0");
+
+clickshareicon.addEventListener("click", (e) => {
+    if(modalshare.style.display == 'block'){
+        modalshare.style.display = 'none';
+    }else {
+        modalshare.style.display = 'block';
+    }
+})
+
+// x버튼 클릭 시
+const xbutton = document.querySelector("#_next > div.z-0 > div.z-\\[9999\\].fixed.top-1\\/2.left-1\\/2.-translate-x-1\\/2.-translate-y-1\\/2.overflow-x-hidden.mobile\\:w-max.mobile\\:h-auto.border.border_primary.mobile\\:rounded-\\[16px\\].shadow-s.surface_primary.overflow-y-auto.mobile\\:overflow-hidden.mobile\\:justify-center.flex.flex-col.items-center.px-\\[24px\\].rounded-2xl > div > div.relative > div");
+
+xbutton.addEventListener("click", (e) => {
+    modalshare.style.display = 'none';
+})
+
+// 점 세개 버튼 클릭 시
+const clickthreedoticon = document.querySelector("#_next > div:nth-child(1) > div.py-\\[16px\\].px-\\[16px\\] > main > div.flex.items-center.justify-between > div.flex.gap-\\[12px\\] > div:nth-child(2) > div");
+// 리스트 박스
+const threedotlistbox = document.querySelector("#_next > div:nth-child(1) > div.py-\\[16px\\].px-\\[16px\\] > main > div.flex.items-center.justify-between > div.flex.gap-\\[12px\\] > div:nth-child(2) > div > div");
+clickthreedoticon.addEventListener("click", (e) => {
+    if(threedotlistbox.style.display =='block'){
+        threedotlistbox.style.display = 'none';
+    }else {
+        threedotlistbox.style.display = 'block';
+    }
+})
+// 다른 영역 클릭 시 창 닫기 -> 아직 못함
+// const body = document.querySelector("body");
+// body.addEventListener("click", (e) => {
+//     const target = e.target;
+//     if(threedotlistbox.style.display == 'block' && !threedotlistbox == target ){
+//         threedotlistbox.style.display = 'none';
+//         target.focus();
+//     }
+// })
+
+
+// 댓글 창 클릭 시
+const commentview = document.querySelector("#_next > div:nth-child(1) > div.py-\\[16px\\].px-\\[16px\\] > main > div:nth-child(6) > div.border.border_primary.rounded-\\[8px\\] > button");
+const commetviewinputtextarea = document.querySelector("#_next > div:nth-child(1) > div.py-\\[16px\\].px-\\[16px\\] > main > div:nth-child(6) > div.border.border_primary.rounded-\\[8px\\] > div");
+commentview.addEventListener("click", (e) => {
+    commetviewinputtextarea.style.display = 'block';
+    commentview.style.display = 'none';
+})
+
+// // 댓글 취소 버튼 클릭 시
+// const commentcancel = document.querySelector("#_next > div:nth-child(1) > div.py-\\[16px\\].px-\\[16px\\] > main > div:nth-child(6) > div.border.border_primary.rounded-\\[8px\\] > div > div.flex.justify-end.gap-\\[10px\\] > button.relative.flex.justify-center.items-center.font_button_bold_md.h-\\[32px\\].rounded-\\[16px\\].content_secondary.surface_primary.border.border-solid.border_black_opacity.hover\\:surface_tertiary.hover\\:border_secondary.active\\:surface_tertiary.active\\:border_secondary.disabled\\:surface_primary.disabled\\:border_black_opacity.disabled\\:border.disabled\\:border-solid.px-\\[15px\\].false.disabled\\:content_disabled");
+// commentcancel.addEventListener("click", (e) => {
+//     commetviewinputtextarea.style.display = 'none';
+//     commentview.style.display = 'block';
+
+//     if(commentview.style.display == 'block'){
+//         commentview.style.display = 'none';
+//     }
+
+// })
+
+// reply_detail 클래스 요소를 클릭했을 때 이벤트 처리
+document.querySelector(".reply_detail2").addEventListener("click", function () {
+    var replyDetail = document.querySelector(".reply_detail");
+    var replySmall = document.querySelector(".reply-small");
+
+    replySmall.style.display = "flex";
+    replyDetail.style.display = "none";
+
+});
+
+
+</script>
+</html>
