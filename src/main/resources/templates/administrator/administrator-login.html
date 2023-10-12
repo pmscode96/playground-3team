@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="/css/administrator/administratorLogin.css">
+</head>
+<body>
+<div id="wrap">
+    <div class="div1">
+        <div class="div2">
+            <main class="main1">
+                <div class="main1_div1" style="padding-top: 50px">
+                    <h1 class="h1">
+                            <span class="span1">
+                                <span class="span2" >놀이터</span>
+                            </span>
+                    </h1>
+                </div>
+                <article class="main1_article1">
+                    <div class="div1" style="height: 100%; padding: 55px 0 50px;">
+                        <div class="div2">
+                            <form action="" class="form1">
+                                <div class="d1">
+                                    <div class="d1_1">
+                                        <label for="">계정정보 입력</label>
+                                        <input type="text" placeholder="놀이터메일 아이디">
+                                    </div>
+                                    <p class="d1_p"></p>
+                                </div>
+                                <div class="d2">
+                                    <div class="d2_1">
+                                        <label for="">비밀번호 입력</label>
+                                        <input type="password" placeholder="비밀번호">
+                                        <div class="d2_2"></div>
+                                    </div>
+                                </div>
+                                <div class="d3">
+                                    <div class="d3_1">
+                                        <input type="checkbox" name="in">
+                                        <label class="label1" onclick="inp()">
+                                            <span style="background-position: 0 0;" class="span1"></span>
+                                            <span style="background-position: -25px 0;" class="span2" ></span>
+                                            간편로그인 정보 저장
+                                        </label>
+                                        <button>
+                                            <span style="background-position: -120px -110px;">도움말 보기</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="d3_5" role="alert">
+                                    <p>
+                                        놀이터계정을 입력해 주세요.
+                                        <br>
+                                    </p>
+                                </div>
+                                <div class="d4">
+                                    <button type="submit" class="bt1">로그인</button>
+                                    <span class="sp1">
+                                            <span class="sp2">또는</span>
+                                        </span>
+                                    <button type="button" class="bt2">소셜 로그인</button>
+                                </div>
+                            </form>
+                            <div class="div3">
+                                <a href="" class="a1">회원가입</a>
+                                <ul>
+                                    <li class="li1">
+                                        <a href="" class="a2">아이디 찾기</a>
+                                    </li>
+                                    <li class="li2">
+                                        <a href="" class="a3">비밀번호 찾기</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+            <footer class="main2">
+                <strong>서비스 이용정보</strong>
+                <div>
+                    <!--                        여기도 채워야함...-->
+                </div>
+                <small>
+                    Copyright ©
+                    <a class="" href="">Kakao Corp.</a>
+                    All rights reserved.
+                </small>
+            </footer>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+    function inp(){
+        const input = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3 .d3_1 input[name=in]");
+        const span1 = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3 .d3_1 .label1 .span1");
+        const span2 = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3 .d3_1 .label1 .span2");
+
+
+        if(span2.style.visibility === 'visible') {
+            span2.style.visibility = 'hidden';
+        }
+        else{
+            span2.style.visibility = 'visible';
+        }
+    }
+
+    // const button = document.querySelector(".main1_article1 .div1 .div2 .form1 .d4 .bt1");
+    // button.addEventListener("click", (e) => {
+    //     const input1 = document.querySelector(".main1_article1 .div1 .div2 .form1 .d1 .d1_1 input");
+    //     const alert = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3_5");
+    //     if(input1.value === ""){
+    //         alert.style.display = 'block';
+    //     }
+    // })
+
+
+
+</script>
+</html>

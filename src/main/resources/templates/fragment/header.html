@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>놀이터</title>
+    <link rel="stylesheet" href="/css/fragment/header.css">
+    <style>
+        @font-face {
+            font-family: 'KakaoBig Bold';
+            src: url(/font/KakaoBigBold.woff2);
+        }
+
+        @font-face {
+            font-family: 'KakaoBig Regular';
+            src: url(/font/KakaoBigRegular.woff2);
+        }
+    </style>
+</head>
+<body>
+<div id="page-container">
+    <div id="dkIndex">
+        <a href="">본문 바로가기</a>
+        <a href="">메뉴 바로가기</a>
+    </div>
+    <div id="dkWrap">
+        <header>
+            <!--상단 네비게이션-->
+            <div id="dkHead">
+                <div class="d_head d_navigation">
+                    <h1>
+                        <a href="" class="link_service">놀이터</a>
+                    </h1>
+                    <div class="navigation_list">
+                        <h2 class="screen_out">놀이터 메인메뉴</h2>
+                        <a href="" class="link_gnb link_home">
+                            <span class="txt_gnb">홈</span>
+                        </a>
+                        <a href="" class="link_gnb link_give">
+                            <span class="txt_gnb">공지사항</span>
+                        </a>
+                        <a href="" class="link_gnb link_action">
+                            <span class="txt_gnb">과목별 예상문제</span>
+                        </a>
+                        <a href="" class="link_gnb link_mind">
+                            <span class="txt_gnb">게시판</span>
+                        </a>
+                        <a href="" class="link_gnb link_mind">
+                            <span class="txt_gnb">추천글</span>
+                        </a>
+                    </div>
+                    <div class="wrap_util">
+                        <gnb-profile>
+                            <button type="button" class="btn_profile">
+                                <div class="box_avatar_squircle">
+                                    <img profileimagecheck="" width="30" height="30" alt="프로필사진" class="thumb_profile" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar04.png">
+                                </div>
+                            </button>
+                        </gnb-profile>
+                        <gnb-search>
+                            <button type="button" routerlink="/search" id="btnSearch" data-tiara-layer="search" data-tiara-action-name="검색_클릭" class="btn_search" tabindex="0">
+                                <span class="ico_together ico_search">검색</span>
+                            </button>
+                        </gnb-search>
+                    </div>
+                    <!--사이드 메뉴나오는 버튼-->
+                </div>
+                <!--상단 네비게이션-->
+            </div>
+        </header>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학교별 게시판</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/post/eat.css">
+</head>
+<body style>
+    <a id="topID"></a>
+
+    
+
+<!--  -->
+
+
+
+<!--  -->
+    <div id="ctWrap">
+        <div id="container">
+            <div style="margin:0px 6%;padding:15px;border:1px solid rgb(225,225,225);background-color:rgb(249,249,249);">
+                ◇ 개인정보 보호법 제59조 3호에 의해 다른 사람의 개인정보를 유출하는 자는 
+                5년 이하의 징역 또는 5천만원 이하의 벌금이 부과될 수 있으며, 
+                등록된 글에 대한 법적 책임은 글쓴이에게 있습니다. 
+                또한 파일 첨부시 반드시 개인정보 유무를 확인해 주시기 바랍니다.
+                <br>
+                <br>
+                ◇ <span style="color:rgb(255,0,0);font-weight:bold;">
+                    폰트파일
+                  </span>
+                    은 저작권법상 컴퓨터 프로그램 저작물로 저작권 보호를 받고 있어,
+                    <span style="color:rgb(255,0,0);"> 불법 복제 및 무단 이용 시</span>
+                    발생하는 민・형사상의 책임은 불법 행위를 한 본인에게 있습니다.
+            </div>
+
+            <div style="text-align:right;color:rgb(0,102,204);font-size:13px;font-weight:bold;margin-bottom:4px;">
+                <p style="color:rgb(0,0,255);margin-top:5px;margin-right:6%;">
+                    ◇게시글 보존년한은 5년 입니다.
+                </p>
+            </div>
+
+            <!-- 게시판 목록 시작 -->
+
+            <div id="bo_list" style="width: 100%;">
+                <style> 
+                    /*a:link{color:#828282;text-decoration:none;} 
+                   a:visited{color:#828282;text-decoration:none;} 
+                   a:active{color:#828282;text-decoration:none;} 
+                   a:hover{color:#ff0000;text-decoration:underline} 
+                  body , td { font-family:Tahoma;}*/
+               </style>
+            <div align="center">
+                <table border="0" width="100%" height="250" cellspacing="1" cellpadding="0" bgcolor="#dddddd">
+                        <tbody><tr height="20"><td colspan="13" align="center" width="100%">
+                            <table cellpadding="5" cellspacing="5" width="80%">
+                                <form name="Yform" method="post"></form>
+                                <input type="hidden" name="curM" value="09">
+                                <input type="hidden" name="curD" value="4">
+                                    <tbody><tr>
+                                        <td><select name="curY" onchange="javascript:document.Yform.submit();"><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option><option value="2018">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023" selected="">2023</option></select></td>
+                                    <td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=01&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">1월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=02&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">2월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=03&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">3월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=04&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">4월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=05&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">5월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=06&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">6월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=07&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">7월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=08&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">8월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=4'" style="color:#ff6600;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">9월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=10&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">10월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=11&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">11월</td><td onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=12&amp;curD=4'" style="color:#000000;cursor:pointer; border:1 solid #cccccc; background:#ffffff;font-size:9pt" align="center">12월</td>
+                                    </tr>
+                                
+                            </tbody></table>
+                        </td></tr><tr bgcolor="#FFFFFF"><td height="20" width="12%" align="center" style="font-size:10pt;font-weight:bold"><font face="arial black"><font color="black"><font color="red">SUN</font><br></font></font></td><td height="20" width="15%" align="center" style="font-size:10pt;font-weight:bold"><font face="arial black"><font color="black">MON</font><br></font></td><td height="20" width="15%" align="center" style="font-size:10pt;font-weight:bold"><font face="arial black"><font color="black">TUE</font><br></font></td><td height="20" width="15%" align="center" style="font-size:10pt;font-weight:bold"><font face="arial black"><font color="black">WED</font><br></font></td><td height="20" width="15%" align="center" style="font-size:10pt;font-weight:bold"><font face="arial black"><font color="black">THU</font><br></font></td><td height="20" width="15%" align="center" style="font-size:10pt;font-weight:bold"><font face="arial black"><font color="black">FRI</font><br></font></td><td height="20" width="13%" align="center" style="font-size:10pt;font-weight:bold"><font face="arial black"><font color="black"><font color="blue">SAT</font><br></font></font></td></tr><tr bgcolor="#FFFFFF"><td valign="top"> </td><td valign="top"> </td><td valign="top"> </td><td valign="top"> </td><td valign="top"> </td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=1&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-01&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">1</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;중</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=2&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-02&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:blue;font-size:9pt;font-weight:bold">2</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td></tr><tr bgcolor="#FFFFFF"><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=3&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-03&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:red;font-size:9pt;font-weight:bold">3</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#CFE8F2" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=4&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-04&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">4</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=5&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-05&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">5</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=6&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-06&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">6</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=7&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-07&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">7</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=8&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-08&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">8</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=9&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-09&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:blue;font-size:9pt;font-weight:bold">9</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td></tr><tr bgcolor="#FFFFFF"><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=10&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-10&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:red;font-size:9pt;font-weight:bold">10</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=11&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-11&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">11</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=12&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-12&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">12</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=13&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-13&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">13</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=14&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-14&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">14</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=15&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-15&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">15</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=16&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-16&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:blue;font-size:9pt;font-weight:bold">16</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td></tr><tr bgcolor="#FFFFFF"><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=17&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-17&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:red;font-size:9pt;font-weight:bold">17</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=18&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-18&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">18</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=19&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-19&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">19</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=20&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-20&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">20</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=21&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-21&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">21</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조 중 석</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=22&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-22&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">22</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;조</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=23&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-23&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:blue;font-size:9pt;font-weight:bold">23</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td></tr><tr bgcolor="#FFFFFF"><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=24&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-24&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:red;font-size:9pt;font-weight:bold">24</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=25&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-25&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">25</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=26&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-26&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">26</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=27&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-27&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">27</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=28&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-28&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">28</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=29&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-29&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:black;font-size:9pt;font-weight:">29</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td><td valign="top">
+                                <table border="0" height="100%" bgcolor="#ffffff" width="100%" cellspacing="0" cellpadding="2">
+                                    <tbody><tr>
+                                        <td valign="top" style="cursor:pointer" onclick="location.href='/bbs/board.php?bo_table=0601&amp;curY=2023&amp;curM=09&amp;curD=30&amp;sca=&amp;sfl=wr_1&amp;stx=2023-09-30&amp;sop=and'" height="30">
+                                            <table border="0" cellspacing="0" cellpadding="2">
+                                                <tbody><tr>
+                                                    <td style="color:blue;font-size:9pt;font-weight:bold">30</td>
+                                                
+                                                <td colspan="2" align="right"><font size="2">&nbsp;&nbsp;</font></td>										
+                                                </tr>
+
+                                            </tbody></table>
+                                        
+                                    </td></tr>
+                                </tbody></table></td></tr><tr bgcolor="#FFFFFF"><td valign="top"> </td><td valign="top"> </td><td valign="top"> </td><td valign="top"> </td><td valign="top"> </td><td valign="top"> </td><td valign="top"> </td></tr></tbody></table></div>
+                            <br>
+                                <!-- 메뉴 이미지 -->
+
+                            <form name="fboardlist" id="fboardlist" action="https://ewha.hs.kr/bbs/board_list_update.php" onsubmit="return fboardlist_submit(this);" method="post">
+    
+                                <input type="hidden" name="bo_table" value="0601">
+                                <input type="hidden" name="sfl" value="wr_1">
+                                <input type="hidden" name="stx" value="2023-09-04">
+                                <input type="hidden" name="spt" value="-4692">
+                                <input type="hidden" name="sca" value="">
+                                <input type="hidden" name="sst" value="wr_num, wr_reply">
+                                <input type="hidden" name="sod" value="">
+                                <input type="hidden" name="page" value="1">
+                                <input type="hidden" name="sw" value="">
+                            
+                                <!-- 게시판 페이지 정보 및 버튼 시작 { -->
+                                <div id="bo_btn_top" style="width:100%">
+                                    <!--
+                                    <div id="bo_list_total">
+                                        <span>Total 3건</span>
+                                        1 페이지
+                                    </div>
+                                    -->
+                            
+                                        </div>
+                                <!-- } 게시판 페이지 정보 및 버튼 끝 -->
+                                        
+                                <div class="tbl_head01 tbl_wrap">
+                                    <!-- <div class="td_chk">
+                                            <label for="chkall" class="sound_only">현재 페이지 게시물 전체</label>
+                                            <input type="checkbox" id="chkall" onclick="if (this.checked) all_checked(true); else all_checked(false);">
+                                        </div> -->
+                                        
+                                        <table>
+                                     
+                                            <colgroup><col width="200">
+                                    <col>
+                                    </colgroup><caption>급식메뉴 목록</caption>
+                                    <tbody>
+                                            <tr class=" even">
+                                                    <td><img src="https://ewha.hs.kr/data/file/0601/2156317516_jZb8i9Lx_8458e6195abb72d677029b9854df130f1c199e0e.jpg" width="90%"></td>
+                                        <td class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                                <a href="">
+                                                                                                    9월4일 석식						<br>비빔쫄면, 두부무국, 숯불장각구이, 석박지, 꺽어먹는요거톡, 추가밥                    </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                            <tr class=" ">
+                                                    <td><img src="https://ewha.hs.kr/data/file/0601/2156317516_hmRIKvtj_7840f1c5a10f031a7faf39008334932bca039b68.jpg" width="90%"></td>
+                                        <td class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                                <a href="">
+                                                                                                    9월 4일 중식						<br>흑미밥, 차돌박이된장찌개, 치즈닭갈비, 부들어묵튀김, 오이부추무침, 포기김치, 멜론                    </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                            <tr class=" even">
+                                                    <td><img src="https://ewha.hs.kr/data/file/0601/2156317516_6eaxkQ5r_cddccdd29a1e8d21ce23bc759a0cc86fdeb95a43.jpg" width="90%"></td>
+                                        <td class="td_subject" style="padding-left:0px">
+                                            <div class="bo_tit">
+                                                <a href="">
+                                                                                                    9월 4일 조식						<br>혼합잡곡밥,설렁탕*소면,오삼불고기,파인애플샐러드,석박지,씨리얼&amp;우유                    </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                                    </tbody>
+                                    </table>
+                                </div>
+                                <!-- 페이지 -->
+                                    <!-- 페이지 -->
+                                
+                                    <div class="bo_fx">
+                                            <ul class="btn_bo_user">
+                                            </ul>	
+                                    </div>
+                                
+                                <!-- 여기부터 하면 된다 -->
+
+                                
+                        </form>
+
+                        
+            </div>
+
+            
+        </div>
+
+        <aside id="sideBar">
+            <h2 class="sound_only">사이트 전체메뉴</h2>
+    
+            <!-- SNB // -->
+            <ul id="snb">
+                <li class="snb bo_table0101 d1_bbsboardphpbotable0101 bo_table0101 bo_table0102 bo_table0103 bo_table0104 bo_table0105 bo_table0106 bo_table0107 bo_table0108 bo_table0109 bo_table0110 hide">
+                    <h2>
+                        <a href="/bbs/board.php?bo_table=0101" target="_self">
+                            <b>이화여고</b> 
+                            <sub>ewha.hs.kr</sub>
+                        </a>
+                    </h2>
+                    <em class="snb2dDown">
+                        <i class="fa fa-angle-down"></i>
+                        <u class="fa fa-angle-up"></u>
+                    </em>
+                    <ul class="snb2dul">
+                        <!-- <li class="snb2d snb2d_bo_table0101 d2_bbsboardphp">
+                            <a href="/bbs/board.php?bo_table=0101" target="_self">
+                                <b>
+                                    <i class="fa fa-angle-right"></i> 교장선생님
+                                </b>
+                            </a>
+                        </li> -->
+                        <li class="snb2d snb2d_bo_table0102 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0102" target="_self"><b><i class="fa fa-angle-right"></i> 교직원/부서소개</b></a></li><li class="snb2d snb2d_bo_table0103 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0103" target="_self"><b><i class="fa fa-angle-right"></i> 역대교장선생님</b></a></li><li class="snb2d snb2d_bo_table0104 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0104" target="_self"><b><i class="fa fa-angle-right"></i> 이화교육관</b></a></li><li class="snb2d snb2d_bo_table0105 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0105" target="_self"><b><i class="fa fa-angle-right"></i> 교훈/교가/교화</b></a></li><li class="snb2d snb2d_bo_table0106 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0106" target="_self"><b><i class="fa fa-angle-right"></i> 학교연혁</b></a></li><li class="snb2d snb2d_bo_table0107 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0107" target="_self"><b><i class="fa fa-angle-right"></i> 이화백년사</b></a></li><li class="snb2d snb2d_bo_table0108 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0108" target="_self"><b><i class="fa fa-angle-right"></i> 시설소개</b></a></li><li class="snb2d snb2d_bo_table0109 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0109" target="_self"><b><i class="fa fa-angle-right"></i> 오시는길</b></a></li><li class="snb2d snb2d_bo_table0110 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0110" target="_self"><b><i class="fa fa-angle-right"></i> 주변교육환경</b></a></li></ul></li><li class="snb bo_table0201 d1_bbsboardphpbotable0201 bo_table0201 bo_table0205 bo_table0206 bo_table0208 bo_table0207 bo_table0204 bo_table0202 bo_table0203 hide"><h2><a href="/bbs/board.php?bo_table=0201" target="_self"><b>입학안내</b> <sub>ewha.hs.kr</sub></a></h2><em class="snb2dDown"><i class="fa fa-angle-down"></i><u class="fa fa-angle-up"></u></em><ul class="snb2dul"><li class="snb2d snb2d_bo_table0201 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0201" target="_self"><b><i class="fa fa-angle-right"></i> 입학설명회</b></a></li><li class="snb2d snb2d_bo_table0205 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0205" target="_self"><b><i class="fa fa-angle-right"></i> 입학전형요강</b></a></li><li class="snb2d snb2d_bo_table0206 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0206" target="_self"><b><i class="fa fa-angle-right"></i> 이화특색프로그램</b></a></li><li class="snb2d snb2d_bo_table0208 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0208" target="_self"><b><i class="fa fa-angle-right"></i> 이화장학제도</b></a></li><li class="snb2d snb2d_bo_table0207 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0207" target="_self"><b><i class="fa fa-angle-right"></i> AI교육프로그램</b></a></li><li class="snb2d snb2d_bo_table0204 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0204" target="_self"><b><i class="fa fa-angle-right"></i> 이화홍보영상</b></a></li><li class="snb2d snb2d_bo_table0202 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0202" target="_self"><b><i class="fa fa-angle-right"></i> 신입생안내</b></a></li><li class="snb2d snb2d_bo_table0203 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0203" target="_self"><b><i class="fa fa-angle-right"></i> 전편입전형안내</b></a></li></ul></li><li class="snb bo_table0401 d1_bbsboardphpbotable0401 bo_table0401 bo_table0402 bo_table0403 bo_table0407 bo_table0404 bo_table0410 bo_table0405 bo_table0406 hide"><h2><a href="/bbs/board.php?bo_table=0401" target="_self"><b>이화마당</b> <sub>ewha.hs.kr</sub></a></h2><em class="snb2dDown"><i class="fa fa-angle-down"></i><u class="fa fa-angle-up"></u></em><ul class="snb2dul"><li class="snb2d snb2d_bo_table0401 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0401" target="_self"><b><i class="fa fa-angle-right"></i> 학생회</b></a></li><li class="snb2d snb2d_bo_table0402 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0402" target="_self"><b><i class="fa fa-angle-right"></i> 동아리</b></a></li><li class="snb2d snb2d_bo_table0403 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0403" target="_self"><b><i class="fa fa-angle-right"></i> 사진갤러리</b></a></li><li class="snb2d snb2d_bo_table0407 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0407" target="_self"><b><i class="fa fa-angle-right"></i> 이화NEWS</b></a></li><li class="snb2d snb2d_bo_table0404 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0404" target="_self"><b><i class="fa fa-angle-right"></i> 진로진학자료</b></a></li><li class="snb2d snb2d_bo_table0410 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0410" target="_self"><b><i class="fa fa-angle-right"></i> 이화여자고등학교 도서관</b></a></li><li class="snb2d snb2d_bo_table0405 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0405" target="_self"><b><i class="fa fa-angle-right"></i> 교목실</b></a></li><li class="snb2d snb2d_bo_table0406 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0406" target="_self"><b><i class="fa fa-angle-right"></i> 이화교복변천사</b></a></li></ul></li><li class="snb bo_table0301 d1_bbsboardphpbotable0301 bo_table0301 bo_table0302 bo_table0303 bo_table0304 bo_table0305 bo_table0306 bo_table0307 bo_table0308 bo_table0309 bo_table0310 bo_table0311 hide"><h2><a href="/bbs/board.php?bo_table=0301" target="_self"><b>학습마당</b> <sub>ewha.hs.kr</sub></a></h2><em class="snb2dDown"><i class="fa fa-angle-down"></i><u class="fa fa-angle-up"></u></em><ul class="snb2dul"><li class="snb2d snb2d_bo_table0301 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0301" target="_self"><b><i class="fa fa-angle-right"></i> 국어</b></a></li><li class="snb2d snb2d_bo_table0302 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0302" target="_self"><b><i class="fa fa-angle-right"></i> 윤리</b></a></li><li class="snb2d snb2d_bo_table0303 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0303" target="_self"><b><i class="fa fa-angle-right"></i> 사회</b></a></li><li class="snb2d snb2d_bo_table0304 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0304" target="_self"><b><i class="fa fa-angle-right"></i> 수학</b></a></li><li class="snb2d snb2d_bo_table0305 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0305" target="_self"><b><i class="fa fa-angle-right"></i> 과학</b></a></li><li class="snb2d snb2d_bo_table0306 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0306" target="_self"><b><i class="fa fa-angle-right"></i> 기술가정</b></a></li><li class="snb2d snb2d_bo_table0307 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0307" target="_self"><b><i class="fa fa-angle-right"></i> 체육/음악/미술</b></a></li><li class="snb2d snb2d_bo_table0308 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0308" target="_self"><b><i class="fa fa-angle-right"></i> 영어</b></a></li><li class="snb2d snb2d_bo_table0309 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0309" target="_self"><b><i class="fa fa-angle-right"></i> 제2외국어</b></a></li><li class="snb2d snb2d_bo_table0310 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0310" target="_self"><b><i class="fa fa-angle-right"></i> 한문</b></a></li><li class="snb2d snb2d_bo_table0311 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0311" target="_self"><b><i class="fa fa-angle-right"></i> 기출문제</b></a></li></ul></li><li class="snb bo_table0501 d1_bbsboardphpbotable0501 bo_table0501 bo_table0502 bo_table0503 bo_table0507 bo_table0504 bo_table0505 bo_table0506 hide"><h2><a href="/bbs/board.php?bo_table=0501" target="_self"><b>정보광장</b> <sub>ewha.hs.kr</sub></a></h2><em class="snb2dDown"><i class="fa fa-angle-down"></i><u class="fa fa-angle-up"></u></em><ul class="snb2dul"><li class="snb2d snb2d_bo_table0501 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0501" target="_self"><b><i class="fa fa-angle-right"></i> 공지사항</b></a></li><li class="snb2d snb2d_bo_table0502 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0502" target="_self"><b><i class="fa fa-angle-right"></i> 가정통신문</b></a></li><li class="snb2d snb2d_bo_table0503 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0503" target="_self"><b><i class="fa fa-angle-right"></i> 학교자료방</b></a></li><li class="snb2d snb2d_bo_table0507 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0507" target="_self"><b><i class="fa fa-angle-right"></i> 교내대회</b></a></li><li class="snb2d snb2d_bo_table0504 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0504" target="_self"><b><i class="fa fa-angle-right"></i> 정보보안</b></a></li><li class="snb2d snb2d_bo_table0505 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0505" target="_self"><b><i class="fa fa-angle-right"></i> 기숙사안내</b></a></li><li class="snb2d snb2d_bo_table0506 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0506" target="_self"><b><i class="fa fa-angle-right"></i> 학사일정표</b></a></li></ul></li><li class="snb bo_table0601 d1_bbsboardphpbotable0601 bo_table0601 bo_table0602 bo_table0603 bo_table0604 active show"><h2><a href="" target="_self"><b>학교별 페이지</b> <sub>놀이터</sub></a></h2><em class="snb2dDown"><i class="fa fa-angle-down"></i><u class="fa fa-angle-up"></u></em><ul class="snb2dul"><li class="snb2d snb2d_bo_table0601 d2_bbsboardphp active show"><a href="/bbs/board.php?bo_table=0601" target="_self"><b><i class="fa fa-angle-right"></i> 급식메뉴</b></a></li><li class="snb2d snb2d_bo_table0602 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0602" target="_self"><b><i class="fa fa-angle-right"></i> 가정통신문</b></a></li><li class="snb2d snb2d_bo_table0603 d2_bbsboardphp"><a href="/bbs/board.php?bo_table=0603" target="_self"><b><i class="fa fa-angle-right"></i>학교일정</b></a></li>
+                            </ul></li>
+    
+    <script>
+    $(function(){
+            $(".snb.bo_table0601, .snb .snb2d_bo_table0601").addClass("active");
+            $(".snb.d1_bbs, .snb .d2_bbs").addClass("active");
+    });
+    $(document).ready(function(){
+        if($("#snb > li").is(".snb.active")){
+            $(".loc1D").text($("#snb .bo_table0601 h2 a b, .d1_bbs h2 a b").text());
+            $(".loc2D").html($(".snb2d_bo_table0601 a b, .d2_bbs a b").html());
+            $(".faArr").html("<i class='fa fa-angle-right'></i>");
+            var a=$("#snb > li").index("#snb > li.active");
+            $("#page_title").addClass("subTopBg_0"+($("#snb > li.bo_table0601, #snb > li.d1_bbs").index()+1));
+        } else {
+            $(".loc1D").text("급식메뉴");
+            $(".noInfoPageTit").html("<h2><a><b>급식메뉴</b><sub>ewha.hs.kr</sub></a></h2>");
+            $(".noInfoPageTit").addClass("active");
+            $("#page_title").addClass("subTopBg_00");
+        }
+    });
+    $(function(){
+        $(".noInfoPageTit.none_bbs").addClass("displayNoneImportant");
+        $(".noInfoPageTit.none_bbs").removeClass("active");
+    });
+    </script>
+    <script>$(function(){ var a=$("#snb li.snb"); a.addClass("hide"); $("#snb li.active").removeClass("hide").addClass("show"); $("#snb li.active .snb2dul").show(); $(".snb2dDown").click(function(){ var b=$(this).parents("#snb li.snb"); if(b.hasClass("hide")){ a.addClass("hide").removeClass("show"); a.find(".snb2dul").slideUp("fast"); b.removeClass("hide").addClass("show"); b.find(".snb2dul").slideDown("fast"); } else { b.removeClass("show").addClass("hide"); b.find(".snb2dul").slideUp("fast"); } }) }); $(".snb").removeClass("d1_bbscontentphp"); $(".snb2d").removeClass("d2_bbscontentphp");</script>
+    
+            
+        </aside>
+    </div>
+
+</body>
+</html>
