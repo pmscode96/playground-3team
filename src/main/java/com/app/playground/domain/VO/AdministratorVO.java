@@ -16,7 +16,7 @@ public class AdministratorVO {
 //    not null
     private String administratorId;
 
-//    관리자 비밃너호
+//    관리자 비밃번호
 //    not null
     private String administratorPassword;
 

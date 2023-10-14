@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.playground.mapper.AdministratorMapper">
+    <insert id="insert">
+        INSERT INTO TBL_ADMINISTRATOR (ID, ADMINISTRATOR_ID, ADMINISTRATOR_PASSWORD)
+        VALUES (SEQ_ADMINISTRATOR.NEXTVAL,#{administratorId},#{administratorPassword})
+    </insert>
 
+    <select id="selectAdministrator" resultType="administratorVO">
+        SELECT ID, ADMINISTRATOR_ID, ADMINISTRATOR_PASSWORD, ADMINISTRATOR_LOGIN_TIME, ADMINISTRATOR_LOGOUT_TIME,CREATE_DATE, UPDATE_DATE
+        FROM TBL_ADMINISTRATOR
+        WHERE ID = #{id}
+     </select>
+
+    <select id="selectAdministratorLogin" resultType="administratorVO">
+        SELECT ID, ADMINISTRATOR_ID, ADMINISTRATOR_PASSWORD, ADMINISTRATOR_LOGIN_TIME, ADMINISTRATOR_LOGOUT_TIME,CREATE_DATE, UPDATE_DATE
+        FROM TBL_ADMINISTRATOR
+        WHERE ADMINISTRATOR_ID = #{administratorId} AND ADMINISTRATOR_PASSWORD = #{administratorPassword}
+    </select>
+
+    <delete id="deleteAdministrator">
+        DELETE FROM TBL_ADMINISTRATOR
+        WHERE ID = #{id}
+    </delete>
 </mapper>
