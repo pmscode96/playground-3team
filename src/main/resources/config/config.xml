@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0/EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <settings>
+        <setting name="jdbcTypeForNull" value="NULL"/>
+    </settings>
+    <typeAliases>
 
+
+        <!--    VO-->
+        <typeAlias type="com.app.playground.domain.VO.AdministratorVO" alias="administratorVO" />
+        <typeAlias type="com.app.playground.domain.VO.ConsultingPostAttachmentVO" alias="consultingPostAttachmentVO" />
+        <typeAlias type="com.app.playground.domain.VO.ConsultingPostReplyVO" alias="consultingPostReplyVO" />
+        <typeAlias type="com.app.playground.domain.VO.ConsultingPostVO" alias="consultingPostVO" />
+        <typeAlias type="com.app.playground.domain.VO.ExpectedProblemReplyVO" alias="expectedProblemReplyVO" />
+        <typeAlias type="com.app.playground.domain.VO.ExpectedProblemVO" alias="expectedProblemVO" />
+        <typeAlias type="com.app.playground.domain.VO.FreePostAttachmentVO" alias="freePostAttachmentVO" />
+        <typeAlias type="com.app.playground.domain.VO.FreePostReplyVO" alias="freePostReplyVO" />
+        <typeAlias type="com.app.playground.domain.VO.FreePostVO" alias="freePostVO" />
+        <typeAlias type="com.app.playground.domain.VO.HomeNoticeAttachmentVO" alias="homeNoticeAttachmentVO" />
+        <typeAlias type="com.app.playground.domain.VO.HomeNoticeVO" alias="homeNoticeVO" />
+        <typeAlias type="com.app.playground.domain.VO.InquirePostReplyVO" alias="inquirePostReplyVO" />
+        <typeAlias type="com.app.playground.domain.VO.InquirePostVO" alias="inquirePostVO" />
+        <typeAlias type="com.app.playground.domain.VO.InquiryPostAttachmentVO" alias="inquiryPostAttachmentVO" />
+        <typeAlias type="com.app.playground.domain.VO.NoticeVO" alias="noticeVO" />
+        <typeAlias type="com.app.playground.domain.VO.ProfileVO" alias="profileVO" />
+        <typeAlias type="com.app.playground.domain.VO.SchoolMealPictureVO" alias="schoolMealPictureVO" />
+        <typeAlias type="com.app.playground.domain.VO.SchoolMealVO" alias="schoolMealVO" />
+        <typeAlias type="com.app.playground.domain.VO.SchoolScheduleAttachmentVO" alias="schoolScheduleAttachmentVO" />
+        <typeAlias type="com.app.playground.domain.VO.SchoolScheduleVO" alias="schoolScheduleVO" />
+        <typeAlias type="com.app.playground.domain.VO.SchoolVO" alias="schoolVO" />
+        <typeAlias type="com.app.playground.domain.VO.UserVO" alias="userVO" />
+    </typeAliases>
 </configuration>
