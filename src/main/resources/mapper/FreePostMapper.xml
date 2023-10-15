@@ -5,6 +5,12 @@
         INSERT INTO TBL_FREE_POST (ID, FREE_POST_TITLE, FREE_POST_CONTENT, FREE_POST_CREATE_DATE, CREATE_DATE, UPDATE_DATE, USER_ID)
         VALUES (SEQ_FREE_POST.NEXTVAL, #{freePostTitle}, #{freePostContent}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{userId})
     </insert>
+    
+    <select id="select" resultType="FreePostVO">
+        SELECT ID, FREE_POST_TITLE, FREE_POST_CONTENT, FREE_POST_CREATE_DATE, LIKE_COUNT, REPLY_COUNT, CREATE_DATE, UPDATE_DATE, USER_ID
+        FROM TBL_FREE_POST
+        WHERE ID = #{id}
+    </select>
 
     <select id="selectAll" resultType="freePostVO">
         SELECT ROWNUM, ID, FREE_POST_TITLE, FREE_POST_CONTENT, FREE_POST_CREATE_DATE, LIKE_COUNT, REPLY_COUNT, CREATE_DATE, UPDATE_DATE, USER_ID FROM
@@ -52,4 +58,64 @@
     <select id="prevPost" resultType="Integer">
         SELECT MAX(ID) AS PREVIOUS_SEQUENCE FROM TBL_EVENT WHERE #{id} > ID
     </select>
+
+    <update id="update">
+        UPDATE TBL_FREE_POST
+        SET FREE_POST_TITLE = #{freePostTitle}, FREE_POST_CONTENT = #{freePostContent} , UPDATE_DATE = TO_DATE(CURRENT_DATE)
+        WHERE ID = #{id}
+    </update>
+
+    <update id="likeCountUp">
+        UPDATE TBL_FREE_POST
+        SET LIKE_COUNT = LIKE_COUNT + 1
+        WHERE ID = #{id}
+    </update>
+
+    <update id="likeCountDown">
+        UPDATE TBL_FREE_POST
+        SET LIKE_COUNT = LIKE_COUNT - 1
+        WHERE ID = #{id}
+    </update>
+
+    <insert id="replyInsert">
+        INSERT INTO TBL_FREE_POST_REPLY (ID, F_POST_REPLY_CONTENT, F_POST_REPLY_CREATE_DATE, CREATE_DATE, UPDATE_DATE, USER_ID, FREE_POST_ID)
+        VALUES (SEQ_FREE_POST_REPLY.NEXTVAL, #{freePostReplyContent}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{userId}, #{freePostId})
+    </insert>
+
+    <update id="replyCountUp">
+        UPDATE TBL_FREE_POST
+        SET REPLY_COUNT = REPLY_COUNT + 1
+        WHERE ID = #{id}
+    </update>
+
+    <update id="replyCountDown">
+        UPDATE TBL_FREE_POST
+        SET REPLY_COUNT = REPLY_COUNT - 1
+        WHERE ID = #{id}
+    </update>
+
+    <update id="replyUpdate">
+        UPDATE TBL_FREE_POST_REPLY
+        SET F_POST_REPLY_CONTENT = #{freePostReplyContent}, UPDATE_DATE = CURRENT_TIMESTAMP
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="replyDelete">
+        DELETE TBL_FREE_POST_REPLY
+        WHERE ID = #{id}
+    </delete>
+
+    <update id="replyLikeCountUp">
+        UPDATE TBL_FREE_POST
+        SET LIKE_COUNT = LIKE_COUNT + 1
+        WHERE ID = #{id}
+    </update>
+
+    <update id="replyLikeCountDown">
+        UPDATE TBL_FREE_POST
+        SET LIKE_COUNT = LIKE_COUNT - 1
+        WHERE ID = #{id}
+    </update>
+
+
 </mapper>

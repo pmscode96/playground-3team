@@ -16,8 +16,8 @@ public class test {
     @Test
     public void freePostInsertTest(){
         FreePostVO freePostVO =new FreePostVO();
-        freePostVO.setFreePostTitle("테스트 제목 1번");
-        freePostVO.setFreePostContent("테스트 내용 1번");
+        freePostVO.setFreePostTitle("테스트 제목 2번");
+        freePostVO.setFreePostContent("테스트 내용 2번");
         freePostVO.setUserId(1L);
 
         freePostMapper.insert(freePostVO);
