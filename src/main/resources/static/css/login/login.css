@@ -200,6 +200,10 @@ label {
     cursor: default;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 #wrap{
     margin: 0;
@@ -516,6 +520,24 @@ label {
     line-height: 51px;
     /*color: #191919;*/
     color: #FFFFFF;
+}
+
+.main1_article1 .div1 .div2 .form1 .kakao .bt1{
+    /*background-color: #fee500;*/
+    background-color: #fee500;
+
+    font-style: normal;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    /*font-weight: 400;*/
+    font-size: 16px;
+    line-height: 51px;
+    /*color: #191919;*/
+    margin-top: 20px;
+    color: #191919;
 }
 
 .main1_article1 .div1 .div2 .form1 .d4 .sp1{

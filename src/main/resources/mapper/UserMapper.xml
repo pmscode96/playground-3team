@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.app.playground.mapper.EventMapper">
+<mapper namespace="com.app.playground.mapper.UserMapper">
+    <insert id="insert">
+        <selectKey keyProperty="id" order="BEFORE" resultType="Long">
+            SELECT SEQ_USER.NEXTVAL FROM DUAL
+        </selectKey>
+        <choose>
+            <when test="userPassword == null">
+                INSERT INTO TBL_USER (ID, USER_NAME, USER_EMAIL, USER_PHONE, USER_SCHOOL, USER_AGE, CREATE_DATE, UPDATE_DATE, USER_LOGIN_CODE, USER_PROFILE_NAME)
+                VALUES (#{id}, #{userName}, #{userEmail}, #{userPhone}, #{userSchool}, #{userAge}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{userLoginCode}, #{userProfileName})
+            </when>
+            <otherwise>
+                INSERT INTO TBL_USER (ID, USER_NAME, USER_EMAIL, USER_PASSWORD, USER_PHONE, USER_SCHOOL, USER_AGE, CREATE_DATE, UPDATE_DATE, USER_LOGIN_CODE)
+                VALUES (#{id}, #{userName}, #{userEmail}, #{userPassword}, #{userPhone}, #{userSchool}, #{userAge}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{userLoginCode})
+            </otherwise>
+        </choose>
 
+    </insert>
+
+    <select id="select" resultType="userVO">
+        SELECT ID, USER_NAME, USER_EMAIL, USER_PASSWORD, USER_PHONE, USER_SCHOOL, USER_DIVISION, USER_POSITION, USER_SNS, TEACHER_EXSIT, USER_GENDER, USER_AGE, CREATE_DATE, UPDATE_DATE, USER_PROFILE_NAME, USER_PROFILE_PATH, USER_STATUS, USER_LOGIN_CODE
+        FROM TBL_USER
+        WHERE USER_EMAIL = #{userEmail}
+    </select>
+
+    <update id="updateKakoProfile">
+        UPDATE TBL_USER
+        SET USER_PROFILE_NAME = #{userProfileName}
+        WHERE USER_EMAIL = #{userEmail}
+    </update>
 </mapper>

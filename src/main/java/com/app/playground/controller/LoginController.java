@@ -1,16 +1,21 @@
 package com.app.playground.controller;
 
+import com.app.playground.domain.VO.UserVO;
+import com.app.playground.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/login/*")
 public class LoginController {
+    private final UserService userService;
 
     @GetMapping("/id-find")
     public void goToIdFind(){;}
@@ -19,7 +24,13 @@ public class LoginController {
     public void goToIdFindSuccess(){;}
 
     @GetMapping("/join")
-    public void goToJoinForm(){;}
+    public void goToJoinForm(UserVO userVO){;}
+
+    @PostMapping("join")
+    public RedirectView join(UserVO userVO){
+        userService.join(userVO);
+        return new RedirectView("/login/login");
+    }
 
 //    @GetMapping("/kakao")
 //    public void goToKakao(){;}

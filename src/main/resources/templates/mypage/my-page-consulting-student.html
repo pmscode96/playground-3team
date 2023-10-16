@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -183,7 +183,7 @@
                                     <div class="link_myprofile">
                                         <strong class="txt_nick">학생</strong>
                                         <div class="box_name">
-                                            <strong class="txt_name"> 닉네임 </strong>
+                                            <strong class="txt_name" th:text="${user.userNickname.get()}"> 닉네임 </strong>
                                         </div>
                                     </div>
                                 </div>
