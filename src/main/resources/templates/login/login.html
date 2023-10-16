@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -60,9 +60,12 @@
                                     <div class="d4">
                                         <button type="submit" class="bt1">로그인</button>
                                     </div>
+                                    <a class="kakao" href="https://kauth.kakao.com/oauth/authorize?client_id=cdf63dee9a5bfba12afcdf5841267c52&redirect_uri=http://localhost:10000/kakao/login&response_type=code">
+                                        <button type="button" class="bt1">카카오로 로그인 하기</button>
+                                    </a>
                                 </form>
                                 <div class="div3">
-                                    <a href="" class="a1">회원가입</a>
+                                    <a href="teacher-and-student-join" class="a1">회원가입</a>
                                     <ul>
                                         <li class="li1">
                                             <a href="" class="a2">아이디 찾기</a>

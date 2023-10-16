@@ -55,4 +55,27 @@ public class UserVO {
 //        업데이트 날짜
 //     삭제 후 재생성이 디폴트이므로 업데이트타임은 필요없음
     private LocalDateTime updateDate;
+
+    private String userProfileName;
+
+    private String userProfilePath;
+
+    private boolean userStatus;
+
+    private String  userLoginCode;
+
+    private String KakaoEmail;
+
+    private String UserPasswordCheck;
+
+    //    SNS 로그인상태
+//    기본 값 : 0
+//    옵션 : 0 - 미사용, 1 - 카카오 로그인
+    private Integer UserSnsLoginStatus;
+
+    //  회원 프로필
+//  not null
+    private  String UserProfile;
+
+    private String UserNickName;
 }
