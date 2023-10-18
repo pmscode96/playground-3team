@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
@@ -15,26 +15,26 @@
       <main class="main1">
         <div class="main1_div1" style="padding-top: 50px">
           <h1 class="h1">
-                            <span class="span1">
-                                <span class="span2" >놀이터</span>
-                            </span>
+            <span class="span1">
+                <span class="span2" >놀이터</span>
+            </span>
           </h1>
         </div>
         <article class="main1_article1">
           <div class="div1" style="height: 100%; padding: 55px 0 50px;">
             <div class="div2">
-              <form action="" class="form1">
+              <form action="" class="form1" th:action="@{/login/login}" method="post">
                 <div class="d1">
                   <div class="d1_1">
-                    <label for="">계정정보 입력</label>
-                    <input type="text" placeholder="놀이터메일 아이디">
+                    <label>계정정보 입력</label>
+                    <input type="text" placeholder="놀이터메일 아이디" name="userEmail">
                   </div>
                   <p class="d1_p"></p>
                 </div>
                 <div class="d2">
                   <div class="d2_1">
-                    <label for="">비밀번호 입력</label>
-                    <input type="password" placeholder="비밀번호">
+                    <label>비밀번호 입력</label>
+                    <input type="password" placeholder="비밀번호" name="userPassword">
                     <div class="d2_2"></div>
                   </div>
                 </div>
@@ -66,13 +66,13 @@
                 </div>
               </form>
               <div class="div3">
-                <a href="" class="a1">회원가입</a>
+                <a href="teacher-and-student-join" class="a1">회원가입</a>
                 <ul>
                   <li class="li1">
-                    <a href="" class="a2">아이디 찾기</a>
+                    <a href="id-find" class="a2">아이디 찾기</a>
                   </li>
                   <li class="li2">
-                    <a href="" class="a3">비밀번호 찾기</a>
+                    <a href="password-find" class="a3">비밀번호 찾기</a>
                   </li>
                 </ul>
               </div>
@@ -87,7 +87,7 @@
         </div>
         <small>
           Copyright ©
-          <a class="link_kakaocorp" href="http://kakaocorp.com/">Kakao Corp.</a>
+          <a class="link_kakaocorp" href="">Playground Corp.</a>
           All rights reserved.
         </small>
       </footer>

@@ -3,11 +3,12 @@ package com.app.playground.domain.VO;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Component
 @Data
-public class UserVO {
+public class UserVO implements Serializable {
 //    유저 고유번호
 //    not null
     private Long id;
@@ -37,6 +38,7 @@ public class UserVO {
     private Integer userDivision;
 
 //    유저 직위
+    private Integer userPosition;
 
 //    유저 SNS구분
     private  Integer userSns;
@@ -55,4 +57,27 @@ public class UserVO {
 //        업데이트 날짜
 //     삭제 후 재생성이 디폴트이므로 업데이트타임은 필요없음
     private LocalDateTime updateDate;
+
+    private String userProfileName;
+
+    private String userProfilePath;
+
+    private boolean userStatus;
+
+    private String  userLoginCode;
+
+    private String KakaoEmail;
+
+    private String UserPasswordCheck;
+
+    //    SNS 로그인상태
+//    기본 값 : 0
+//    옵션 : 0 - 미사용, 1 - 카카오 로그인
+    private Integer UserSnsLoginStatus;
+
+    //  회원 프로필
+//  not null
+    private  String UserProfile;
+
+    private String UserNickName;
 }

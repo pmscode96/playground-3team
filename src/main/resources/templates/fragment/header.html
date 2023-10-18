@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>놀이터</title>
     <link rel="stylesheet" href="/css/fragment/header.css">
+    <th:block th:fragment="style">
     <style>
+        @font-face {
+            font-family: 'SegoeUI_online_security';
+            src: url(chrome-extension://llbcnfanfmjhpedaedhbcnpgeepdnnok/segoe-ui.woff);
+        }
+
+        @font-face {
+            font-family: 'SegoeUI_bold_online_security';
+            src: url(chrome-extension://llbcnfanfmjhpedaedhbcnpgeepdnnok/segoe-ui-bold.woff);
+        }
         @font-face {
             font-family: 'KakaoBig Bold';
             src: url(/font/KakaoBigBold.woff2);
@@ -14,17 +24,20 @@
 
         @font-face {
             font-family: 'KakaoBig Regular';
-            src: url(/font/KakaoBigRegular.woff2);
+            src: url(/font/KakaoBigBold.woff2);
         }
     </style>
+    </th:block>
 </head>
 <body>
+
 <div id="page-container">
     <div id="dkIndex">
         <a href="">본문 바로가기</a>
         <a href="">메뉴 바로가기</a>
     </div>
     <div id="dkWrap">
+        <th:block th:fragment="header">
         <header>
             <!--상단 네비게이션-->
             <div id="dkHead">
@@ -34,19 +47,19 @@
                     </h1>
                     <div class="navigation_list">
                         <h2 class="screen_out">놀이터 메인메뉴</h2>
-                        <a href="" class="link_gnb link_home">
+                        <a href="/" class="link_gnb link_home">
                             <span class="txt_gnb">홈</span>
                         </a>
-                        <a href="" class="link_gnb link_give">
+                        <a href="/customer-notice/customer-notice" class="link_gnb link_give">
                             <span class="txt_gnb">공지사항</span>
                         </a>
-                        <a href="" class="link_gnb link_action">
+                        <a href="/post/expected-problem" class="link_gnb link_action">
                             <span class="txt_gnb">과목별 예상문제</span>
                         </a>
-                        <a href="" class="link_gnb link_mind">
+                        <a href="/post/post" class="link_gnb link_mind">
                             <span class="txt_gnb">게시판</span>
                         </a>
-                        <a href="" class="link_gnb link_mind">
+                        <a href="/post/most-recommended-posts" class="link_gnb link_mind">
                             <span class="txt_gnb">추천글</span>
                         </a>
                     </div>
@@ -54,12 +67,12 @@
                         <gnb-profile>
                             <button type="button" class="btn_profile">
                                 <div class="box_avatar_squircle">
-                                    <img profileimagecheck="" width="30" height="30" alt="프로필사진" class="thumb_profile" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar04.png">
+                                    <img  width="30" height="30" alt="프로필사진" class="thumb_profile" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar.png">
                                 </div>
                             </button>
                         </gnb-profile>
                         <gnb-search>
-                            <button type="button" routerlink="/search" id="btnSearch" data-tiara-layer="search" data-tiara-action-name="검색_클릭" class="btn_search" tabindex="0">
+                            <button type="button"  id="btnSearch"  class="btn_search" tabindex="0">
                                 <span class="ico_together ico_search">검색</span>
                             </button>
                         </gnb-search>
@@ -69,7 +82,9 @@
                 <!--상단 네비게이션-->
             </div>
         </header>
+        </th:block>
     </div>
 </div>
+
 </body>
 </html>

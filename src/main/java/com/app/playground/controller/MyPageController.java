@@ -1,16 +1,22 @@
 package com.app.playground.controller;
 
+import com.app.playground.domain.VO.UserVO;
+import com.app.playground.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/mypage/*")
 public class MyPageController {
+    private final UserService userService;
 
     @GetMapping("/edit-profile")
     public void goToEditProfile(){
@@ -21,7 +27,11 @@ public class MyPageController {
     public void goToInquiry(){;}
 
     @GetMapping("/my-page")
-    public void goToMyPage(){;}
+    public void goToMyPage(String userEmail, Model model, HttpSession session){;
+        model.addAttribute("user",userService.getUser(userEmail).get());
+    }
+
+
 
     @GetMapping("/preferences")
     public void goToPreferences(){;}

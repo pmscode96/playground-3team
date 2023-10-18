@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>놀이터</title>
-    <link rel="stylesheet" href="/css/mypage/my-page-consulting.css">
+    <link rel="stylesheet" href="/css/mypage/my-page.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <style>
         @font-face {
@@ -183,7 +183,7 @@
                                     <div class="link_myprofile">
                                         <strong class="txt_nick">학생</strong>
                                         <div class="box_name">
-                                            <strong class="txt_name"> 닉네임 </strong>
+                                            <strong class="txt_name" th:text="${user.userNickname.get()}"> 닉네임 </strong>
                                         </div>
                                     </div>
                                 </div>

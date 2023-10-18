@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -21,84 +21,84 @@
                     </h1>
                 </div>
                 <article class="main1_article1">
-                    <div class="div1" style="height: 100%; padding: 55px 0 50px;">
-                        <div class="name">
-                            <label for="">
-                                <span>이름</span>
-                            </label>
-                            <div class="name_div1">
-                                <input type="text">
+                    <form th:action="@{/login/join}" method="post" th:object="${userVO}">
+                        <input type="hidden" th:value="${userVO.userSchool}" name="userSchool">
+                        <input type="hidden" th:value="${userVO.userDivision}" name="userDivision">
+                        <input type="hidden" th:value="${userVO.userPosition}" name="userPosition">
+                        <div class="div1" style="height: 100%; padding: 55px 0 50px;">
+                            <div class="name">
+                                <label>
+                                    <span>이름</span>
+                                </label>
+                                <div class="name_div1">
+                                    <input type="text" th:field="*{userName}">
+                                </div>
                             </div>
-                        </div>
-                        <div class="id" style="margin-top: 24px">
-                            <label for="">
-                                <span>아이디</span>
-                            </label>
-                            <div class="id_div1">
-                                <input type="text">
+                            <div class="id" style="margin-top: 24px">
+                                <label>
+                                    <span>아이디</span>
+                                </label>
+                                <div class="id_div1">
+                                    <input type="text" th:field="*{userEmail}" placeholder="'@' 를 포함한 이메일 형태">
+                                </div>
                             </div>
-                        </div>
-                        <div class="password" style="margin-top: 24px">
-                            <label for="">
-                                <span>비밀번호</span>
-                            </label>
-                            <div class="password_div1">
-                                <input type="password">
+                            <div class="password" style="margin-top: 24px">
+                                <label>
+                                    <span>비밀번호</span>
+                                </label>
+                                <div class="password_div1">
+                                    <input type="password" th:field="*{userPassword}">
+                                </div>
                             </div>
-                        </div>
-                        <div class="passwordCheck" style="margin-top: 24px">
-                            <label for="">
-                                <span>비밀번호 확인</span>
-                            </label>
-                            <div class="passwordCheck_div1">
-                                <input type="password">
+                            <div class="passwordCheck" style="margin-top: 24px">
+                                <label>
+                                    <span>비밀번호 확인</span>
+                                </label>
+                                <div class="passwordCheck_div1">
+                                    <input type="password">
+                                </div>
                             </div>
-                        </div>
-                        <div class="phone" style="margin-top: 24px">
-                            <label for="">
-                                <span>휴대폰 번호</span>
-                            </label>
-                            <div class="phone_div1">
-                                <div class="phone_div2">
-                                    <div class="phone_div3">
+                            <div class="phone" style="margin-top: 24px">
+                                <label>
+                                    <span>휴대폰 번호</span>
+                                </label>
+                                <div class="phone_div1">
+                                    <div class="phone_div2">
+                                        <div class="phone_div3">
+                                            <input type="text" th:field="*{userPhone}" placeholder="010-0000-0000">
+                                        </div>
+                                    </div>
+                                    <button class="phone_b1">
+                                        인증번호 발송
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="phonecheck" style="margin-top: 24px">
+                                <label>
+                                    <span>인증번호</span>
+                                </label>
+                                <div class="phonecheck_div1">
+                                    <div class="phonecheck_div2">
                                         <input type="text">
                                     </div>
+                                    <button class="phonecheck_b1">
+                                        인증하기
+                                    </button>
                                 </div>
-                                <button class="phone_b1">
-                                    인증번호 발송
-                                </button>
+                            </div>
+<!--                            <div class="email" style="margin-top: 24px">-->
+<!--                                <label>-->
+<!--                                    <span>학교</span>-->
+<!--                                </label>-->
+<!--                                <div class="email_div1">-->
+<!--                                    <input th:field="*{userSchool}">-->
+<!--                                </div>-->
+<!--                            </div>-->
+                            <div class="join" style="margin-top: 24px">
+                                <button>가입하기</button>
                             </div>
                         </div>
-
-                        <div class="phonecheck" style="margin-top: 24px">
-                            <label for="">
-                                <span>인증번호</span>
-                            </label>
-                            <div class="phonecheck_div1">
-                                <div class="phonecheck_div2">
-                                    <input type="text">
-                                </div>
-                                <button class="phonecheck_b1">
-                                    인증하기
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="email" style="margin-top: 24px">
-                            <label for="">
-                                <span>이메일</span>
-                            </label>
-                            <div class="email_div1">
-                                <input placeholder="'@' 를 포함한 이메일 형태">
-                            </div>
-                        </div>
-
-
-
-                        <div class="join" style="margin-top: 24px">
-                            <button>가입하기</button>
-                        </div>
-                    </div>
+                    </form>
                 </article>
             </main>
             <footer class="main2">

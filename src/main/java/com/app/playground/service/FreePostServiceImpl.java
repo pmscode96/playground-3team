@@ -3,12 +3,14 @@ package com.app.playground.service;
 import com.app.playground.domain.FreePostSearchDTO;
 import com.app.playground.domain.Pagination;
 import com.app.playground.domain.Search;
+import com.app.playground.domain.VO.FreePostReplyVO;
 import com.app.playground.domain.VO.FreePostVO;
 import com.app.playground.repository.FreePostDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -19,7 +21,12 @@ public class FreePostServiceImpl implements FreePostService {
     @Override
     public void create(FreePostVO freePostVO) {freePostDAO.save(freePostVO);}
 
-//    게시물 전체 리스트
+    @Override
+    public Optional<FreePostVO> detail(Long id) {
+        return freePostDAO.selectByPostId(id);
+    }
+
+    //    게시물 전체 리스트
     @Override
     public List<FreePostVO> list(Pagination pagination, Search Search, String keyword) {
         return freePostDAO.list(pagination, Search, keyword);
@@ -51,6 +58,57 @@ public class FreePostServiceImpl implements FreePostService {
     public Integer prevPost(Integer id) {
         return freePostDAO.prevPost(id);
     }
+
+//    게시물 수정
+    @Override
+    public void update(FreePostVO freePostVO) {
+        freePostDAO.update(freePostVO);
+    }
+
+//    게시물 좋아요 증가
+    @Override
+    public void likeCountUp(Long id) {
+        freePostDAO.likeCountUp(id);
+    }
+
+//    게시물 좋아요 감소
+    @Override
+    public void likeCountDown(Long id) {
+        freePostDAO.likeCountDown(id);
+    }
+
+//    게시물 댓글 추가
+    @Override
+    public void replyInsert(FreePostReplyVO freePostReplyVO) {
+        freePostDAO.replyInsert(freePostReplyVO);
+        freePostDAO.replyCountUp(freePostReplyVO.getPostId());
+    }
+
+//    댓글 삭제
+    @Override
+    public void replyDelete(FreePostReplyVO freePostReplyVO) {
+        freePostDAO.replyDelete(freePostReplyVO.getId());
+        freePostDAO.replyCountDown(freePostReplyVO.getPostId());
+    }
+
+    //    게시물 댓글 수정
+    @Override
+    public void replyUpdate(FreePostReplyVO freePostReplyVO) {
+        freePostDAO.replyUpdate(freePostReplyVO);
+    }
+
+//    댓글 좋아요 증가
+    @Override
+    public void replyLikeCountUp(Long id) {
+        freePostDAO.replyLikeCountUp(id);
+    }
+
+//    댓글 좋아요 감소
+    @Override
+    public void replyLikeCountDown(Long id) {
+        freePostDAO.replyLikeCountDown(id);
+    }
+
 
 
 }
