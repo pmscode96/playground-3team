@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.playground.mapper.AdministratorMapper">
+    <insert id="insert">
+        INSERT INTO TBL_ADMINISTRATOR (ID, ADMINISTRATOR_ID, ADMINISTRATOR_PASSWORD)
+        VALUES (SEQ_ADMINISTRATOR.NEXTVAL,#{administratorId},#{administratorPassword})
+    </insert>
 
+    <select id="selectAdministratorId" resultType="administratorVO">
+        SELECT ID, ADMINISTRATOR_ID, ADMINISTRATOR_PASSWORD
+        FROM TBL_ADMINISTRATOR
+        WHERE ADMINISTRATOR_ID = #{administratorId}
+     </select>
+
+    <select id="selectAdministratorPassword" resultType="administratorVO">
+        SELECT ID, ADMINISTRATOR_ID, ADMINISTRATOR_PASSWORD
+        FROM TBL_ADMINISTATOR
+        WHERE ADMINISTRATOR_PASSWORD = #{administratorPassword}
+    </select>
+
+    <select id="selectAdministratorPasswordCheck" resultType="administratorVO">
+        SELECT ID, ADMINISTRATOR_ID, ADMINISTRATOR_PASSWORD, ADMINISTRATOR_PASSWORD_CHECK
+        FROM TBL_ADMINISTRATOR
+        WHERE ADMINISTRATOR_PASSWORD_CHECK = #{administratorPasswordCheck}
+    </select>
+
+    <select id="selectLogin" resultType="administratorVO">
+        SELECT ID, ADMINISTRATOR_ID, ADMINISTRATOR_PASSWORD, ADMINISTRATOR_LOGIN_TIME, ADMINISTRATOR_LOGOUT_TIME,CREATE_DATE, UPDATE_DATE
+        FROM TBL_ADMINISTRATOR
+        WHERE ADMINISTRATOR_ID = #{administratorId} AND ADMINISTRATOR_PASSWORD = #{administratorPassword}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM TBL_ADMINISTRATOR
+        WHERE ID = #{id}
+    </delete>
 </mapper>

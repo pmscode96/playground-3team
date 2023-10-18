@@ -15,7 +15,7 @@ public class NoticeVO {
 
     private String noticeContent;
 
-    private Integer noticeDivision;
+    private String noticeDivision;
 
     private LocalDateTime noticeCreateDate;
 
