@@ -68,6 +68,7 @@ public class PlaygroundAdministratorController {
             attributes.addFlashAttribute("administratorLoginCheck", true);
             session.setAttribute("loginId", administratorVO.getAdministratorId());
             session.setAttribute("Id", String.valueOf(foundAdministrator.get().getId()));
+            log.info(String.valueOf(foundAdministrator));
             return new RedirectView("/administrator/administrator-page-main-no-list-post-manage");
         }else{
             attributes.addFlashAttribute("administratorLoginCheck", false);
@@ -88,7 +89,7 @@ public class PlaygroundAdministratorController {
       }else {
           session.setAttribute("loginId",loginId);
           session.setAttribute("Id",Id);
-          noticeService.create(noticeVO);
+//          noticeService.create(noticeVO);
           return ;
       }
     }
@@ -124,17 +125,19 @@ public class PlaygroundAdministratorController {
     public void Move_administratorPagePostDetailNoComment(AdministratorVO administratorVO, HttpSession session, RedirectAttributes attributes){;}
 
     @PostMapping("administrator-page-post-register")
-    public void Move_NoticePostRegister(NoticeVO noticeVO,HttpSession session, RedirectAttributes attributes){
+    public RedirectView Move_NoticePostRegister(NoticeVO noticeVO,HttpSession session, RedirectAttributes attributes){
         String loginId = (String) session.getAttribute("loginId");
         String Id = (String) session.getAttribute("Id");
         log.info((String) session.getAttribute("loginId"));
         log.info((String) session.getAttribute("Id"));
         if(loginId.isEmpty()){
-            return;
+            return null;
         }else {
             session.setAttribute("loginId",loginId);
             session.setAttribute("Id",Id);
-            return ;
+            noticeService.create(noticeVO);
+            return new RedirectView("/administrator/administrator-page-main-no-list-post-manage");
+
         }
     }
 
