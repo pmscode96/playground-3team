@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class AdministratorVO {
 //    유저 고유번호
 //    not null
-    private Long id;
+    private Integer id;
 
 //    관리자 아이디
 //    not null
@@ -33,4 +33,12 @@ public class AdministratorVO {
 //        업데이트 날짜
 //     삭제 후 재생성이 디폴트이므로 업데이트타임은 필요없음
     private LocalDateTime updateDate;
+
+//    관리자 패스워드 체크
+//    null 허용
+    private String administratorPasswordCheck;
+
+//    관리자 이메일
+//    null 허용
+    private String administratorEmail;
 }

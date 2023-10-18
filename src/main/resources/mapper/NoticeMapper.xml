@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.app.playground.mapper.EventMapper">
+<mapper namespace="com.app.playground.mapper.NoticeMapper">
+<insert id="insert">
+    INSERT INTO TBL_NOTICE (ID, NOTICE_TITLE, NOTICE_CONTENT,NOTICE_CREATE_DATE,ADMINISTRATOR_ID)
+    VALUES (SEQ_NOTICE.NEXTVAL,#{noticeTitle}, #{noticeContent},CURRENT_TIMESTAMP,#{administratorId})
+</insert>
 
 </mapper>

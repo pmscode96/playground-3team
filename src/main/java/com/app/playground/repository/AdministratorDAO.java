@@ -16,14 +16,20 @@ public class AdministratorDAO {
     private final AdministratorMapper administratorMapper;
 
 //    관리자 가입
-    public void saveAdministrator(AdministratorVO administratorVO){administratorMapper.insertAdministrator(administratorVO);}
+    public void saveAdministrator(AdministratorVO administratorVO){administratorMapper.insert(administratorVO);}
 
 //    관리자 조회
-    public Optional<AdministratorVO> findByAdministrator(Integer id){return administratorMapper.selectAdministrator(id);}
+    public Optional<AdministratorVO> findByAdministrator(Integer id){return administratorMapper.select(id);}
+
+    public Optional<AdministratorVO> findByAdministratorId(String administratorId){return administratorMapper.selectAdministratorId(administratorId);}
+
+    public Optional<AdministratorVO> findByAdministratorPassword(String administratorPassword){return administratorMapper.selectAdministratorPassword(administratorPassword);}
+
+    public Optional<AdministratorVO> findByAdministratorPasswordCheck(String administratorPasswordCheck){return administratorMapper.selectAdministratorPasswordCheck(administratorPasswordCheck);}
 
 //    관리자 로그인
     public Optional<AdministratorVO> loginAdministrator(AdministratorVO administratorVO){return  administratorMapper.selectLogin(administratorVO);}
 
 //    관리자 삭제
-    public void deleteAdministrator(Integer id) {administratorMapper.deleteAdministrator(id);}
+    public void deleteAdministrator(Integer id) {administratorMapper.delete(id);}
 }

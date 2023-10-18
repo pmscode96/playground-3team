@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -21,94 +21,83 @@
                     </h1>
                 </div>
                 <article class="main1_article1">
-                    <div class="div1" style="height: 100%; padding: 55px 0 50px;">
-                        <div class="name">
-                            <label for="">
-                                <span>이름</span>
-                            </label>
-                            <div class="name_div1">
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="id" style="margin-top: 24px">
-                            <label for="">
-                                <span>아이디</span>
-                            </label>
-                            <div class="id_div1">
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div class="password" style="margin-top: 24px">
-                            <label for="">
-                                <span>비밀번호</span>
-                            </label>
-                            <div class="password_div1">
-                                <input type="password">
-                            </div>
-                        </div>
-                        <div class="passwordCheck" style="margin-top: 24px">
-                            <label for="">
-                                <span>비밀번호 확인</span>
-                            </label>
-                            <div class="passwordCheck_div1">
-                                <input type="password">
-                            </div>
-                        </div>
-                        <div class="phone" style="margin-top: 24px">
-                            <label for="">
-                                <span>휴대폰 번호</span>
-                            </label>
-                            <div class="phone_div1">
-                                <div class="phone_div2">
-                                    <div class="phone_div3">
-                                        <input type="text">
-                                    </div>
+                    <form name="f1" th:action="@{/administrator/administrator-join}" method="post" th:object="${administratorVO}">
+                        <div class="div1" style="height: 100%; padding: 55px 0 50px;">
+                            <div class="id" style="margin-top: 24px">
+                                <label>
+                                    <span>아이디</span>
+                                </label>
+                                <div class="id_div1">
+                                    <input th:field="*{administratorId}" type="text" placeholder="관리자 아이디를 입력하세요" id="input-id"/>
                                 </div>
-                                <button class="phone_b1">
-                                    인증번호 발송
-                                </button>
                             </div>
-                        </div>
-
-                        <div class="phonecheck" style="margin-top: 24px">
-                            <label for="">
-                                <span>인증번호</span>
-                            </label>
-                            <div class="phonecheck_div1">
-                                <div class="phonecheck_div2">
-                                    <input type="text">
+                            <div class="password" style="margin-top: 24px">
+                                <label for="">
+                                    <span>비밀번호</span>
+                                </label>
+                                <div class="password_div1">
+                                    <input th:field="*{administratorPassword}" type="password" placeholder="관리자 비밀번호를 입력하세요" id="input-password"/>
                                 </div>
-                                <button class="phonecheck_b1">
-                                    인증하기
-                                </button>
+                            </div>
+                            <div class="passwordCheck" style="margin-top: 24px">
+                                <label for="">
+                                    <span>비밀번호 확인</span>
+                                </label>
+                                <div class="passwordCheck_div1">
+                                    <input th:field="*{administratorPasswordCheck}" type="password" placeholder="관리자 비밀번호를 다시 입려하세요" id="input-password-check"/>
+                                </div>
+                            </div>
+<!--                            <div class="phone" style="margin-top: 24px">-->
+<!--                                <label for="">-->
+<!--                                    <span>휴대폰 번호</span>-->
+<!--                                </label>-->
+<!--                                <div class="phone_div1">-->
+<!--                                    <div class="phone_div2">-->
+<!--                                        <div class="phone_div3">-->
+<!--                                            <input  type="text">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <button class="phone_b1">-->
+<!--                                        인증번호 발송-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--                            <div class="phonecheck" style="margin-top: 24px">-->
+<!--                                <label for="">-->
+<!--                                    <span>인증번호</span>-->
+<!--                                </label>-->
+<!--                                <div class="phonecheck_div1">-->
+<!--                                    <div class="phonecheck_div2">-->
+<!--                                        <input type="text">-->
+<!--                                    </div>-->
+<!--                                    <button class="phonecheck_b1">-->
+<!--                                        인증하기-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+                            <div class="email" style="margin-top: 24px">
+                                <label for="">
+                                    <span>이메일</span>
+                                </label>
+                                <div class="email_div1">
+                                    <input th:field="*{administratorEmail}" type="text" placeholder="'@' 를 포함한 이메일 형태" id="input-email"/>
+                                </div>
+                            </div>
+
+                            <div class="join" style="margin-top: 24px">
+                                <button>가입하기</button>
                             </div>
                         </div>
-
-                        <div class="email" style="margin-top: 24px">
-                            <label for="">
-                                <span>이메일</span>
-                            </label>
-                            <div class="email_div1">
-                                <input placeholder="'@' 를 포함한 이메일 형태">
-                            </div>
-                        </div>
-
-
-
-                        <div class="join" style="margin-top: 24px">
-                            <button>가입하기</button>
-                        </div>
-                    </div>
+                    </form>
                 </article>
             </main>
             <footer class="main2">
                 <strong>서비스 이용정보</strong>
-                <div>
-                    <!--                        여기도 채워야함...-->
-                </div>
                 <small>
                     Copyright ©
-                    <a class="" href="">Kakao Corp.</a>
+                    <a class="" href="">Playground Corp.</a>
                     All rights reserved.
                 </small>
             </footer>
@@ -116,7 +105,8 @@
     </div>
 </div>
 </body>
-<script>
+<script type="text/javascript" src="/templates/administrator/administrator-join.html"></script>
+<script th:inline="javascript">
 
     function inp(){
         const input = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3 .d3_1 input[name=in]");
@@ -131,15 +121,6 @@
             span2.style.visibility = 'visible';
         }
     }
-
-    // const button = document.querySelector(".main1_article1 .div1 .div2 .form1 .d4 .bt1");
-    // button.addEventListener("click", (e) => {
-    //     const input1 = document.querySelector(".main1_article1 .div1 .div2 .form1 .d1 .d1_1 input");
-    //     const alert = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3_5");
-    //     if(input1.value === ""){
-    //         alert.style.display = 'block';
-    //     }
-    // })
 
     const b1 = document.querySelector('.phone_b1');
     b1.addEventListener("mouseover", (e) => {
@@ -158,6 +139,30 @@
     b2.addEventListener("mouseout", (e) => {
         e.target.style.backgroundColor = '#dcdcdc';
     })
+
+    const joinButton = document.querySelector("#wrap > div > div > main > article > form > div > div.join > button");
+    const inputs = document.querySelectorAll("form[name=f1] input");
+    joinButton.addEventListener("click", (e) =>{
+        console.log(inp);
+        for(inp of inputs){
+            if(!inp.value) {
+                alert("정보를 입력해주세요.")
+                return;
+            }
+        }
+        form.submit();
+    })
+
+    const getAdministratorId = [[${foundId}]];
+    if(getAdministratorId === false){
+        alert("이미 존재하는 아이디입니다.");
+    }
+
+    const passwordCheck = [[${passwordCheck}]];
+    if(passwordCheck === null){
+        alert("비밀번호가 일치하지 않습니다.")
+    }
+
 
 </script>
 </html>

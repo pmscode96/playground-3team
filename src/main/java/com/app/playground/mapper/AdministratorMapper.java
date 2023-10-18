@@ -9,15 +9,21 @@ import java.util.Optional;
 public interface AdministratorMapper {
 
 //    관리자 가입
-    public void insertAdministrator(AdministratorVO administratorVO);
+    public void insert(AdministratorVO administratorVO);
 
 //    관리자 조회
-    public Optional<AdministratorVO> selectAdministrator(Integer id);
+    public Optional<AdministratorVO> select(Integer id);
+
+    public Optional<AdministratorVO> selectAdministratorId(String administratorId);
+
+    public Optional<AdministratorVO> selectAdministratorPassword(String administratorPassword);
+
+    public Optional<AdministratorVO> selectAdministratorPasswordCheck(String administratorPasswordCheck);
 
 //    관리자 로그인
-    public Optional<AdministratorVO> selectAdministratorLogin(AdministratorVO administratorVO);
+    public Optional<AdministratorVO> selectLogin(AdministratorVO administratorVO);
 
 //    관리자 삭제
-    public void deleteAdministrator(Integer id);
+    public void delete(Integer id);
 
 }

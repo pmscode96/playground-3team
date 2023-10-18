@@ -10,6 +10,12 @@ public interface AdministratorService {
     //    관리자 가입
     public void joinAdministrator(AdministratorVO administratorVO, Integer id);
 
+    public Optional<AdministratorVO> getAdministratorId(String administratorId);
+
+    public Optional<AdministratorVO> getAdministratorPassword(String administratorPassword);
+
+    public Optional<AdministratorVO> getAdministratorPasswordCheck(String administratorPasswordCheck);
+
     //    관리자 조회
     public Optional<AdministratorVO> getAdministrator(Integer id);
 

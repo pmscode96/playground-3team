@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.view.RedirectView;
 
+import javax.swing.plaf.PanelUI;
 import java.util.Optional;
 import java.util.PrimitiveIterator;
 
@@ -22,19 +23,29 @@ public class AdministratorServiceImpl implements AdministratorService {
 //    관리자 회원가입
     @Override
     public void joinAdministrator(AdministratorVO administratorVO, Integer id) {
-        Optional<AdministratorVO> foundAdministrator = getAdministrator(Integer.valueOf(administratorVO.getAdministratorId()));
-//            최초 로그인 검사
-       if(foundAdministrator.isEmpty()){ //아이디가 존재할 경우
-           AdministratorVO administrator = foundAdministrator.get(); //정보를 가져와라!
-       }else {
-           administratorDAO.saveAdministrator(administratorVO);
-       }
+//        가입
+        administratorDAO.saveAdministrator(administratorVO);
     }
 
 //    관리자 조회
     @Override
     public Optional<AdministratorVO> getAdministrator(Integer id) {
         return administratorDAO.findByAdministrator(id);
+    }
+
+    @Override
+    public Optional<AdministratorVO> getAdministratorId(String administratorId){
+        return administratorDAO.findByAdministratorId(administratorId);
+    }
+
+    @Override
+    public Optional<AdministratorVO> getAdministratorPassword(String administratorPassword){
+        return administratorDAO.findByAdministratorPassword(administratorPassword);
+    }
+
+    @Override
+    public Optional<AdministratorVO> getAdministratorPasswordCheck(String administratorPasswordCheck){
+        return administratorDAO.findByAdministratorPasswordCheck(administratorPasswordCheck);
     }
 
 //    관리자 로그인
