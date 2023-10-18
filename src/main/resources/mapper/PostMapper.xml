@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.playground.mapper.FreePostMapper">
+    <insert id="insert">
+        INSERT INTO TBL_POST (ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE)
+        VALUES (SEQ_FREE_POST.NEXTVAL, #{PostTitle}, #{PostContent}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    </insert>
+    
+    <select id="select" resultType="postDTO">
+        SELECT P.ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID
+        FROM TBL_POST P
+        JOIN TBL_FREE_POST FP ON P.ID = FP.ID
+        JOIN TBL_USER U ON U.ID = USER_ID
+        WHERE ID = #{id}
+    </select>
+
+    <select id="selectAll" resultType="postDTO">
+        SELECT ROWNUM, P.ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_SCHOOL, USER_DIVISION
+        FROM
+            (
+                SELECT ROWNUM R, P.ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_SCHOOL, USER_DIVISION
+                FROM
+                    (
+                        SELECT P.ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID , USER_NAME, USER_SCHOOL, USER_DIVISION
+                        FROM TBL_POST P JOIN TBL_FREE_POST FP
+                        ON P.ID = FP.ID
+                        JOIN TBL_USER U
+                        ON FP.USER_ID = U.ID
+                        ORDER BY ID DESC
+                    ) P1
+    <![CDATA[
+                WHERE ROWNUM <= #{pagination.endRow}
+                  AND POST_TITLE  LIKE '%' || #{keyword} || '%'
+            ) P2
+        WHERE P2.R >= #{pagination.startRow}
+        ]]>
+    </select>
+
+    <select id="selectTotal" resultType="int" >
+        SELECT COUNT(ID) FROM TBL_POST
+        <if test="keyword != null and !keyword.equals('')">
+            WHERE POST_TITLE LIKE '%' || #{keyword} || '%' OR POST_CONTENT LIKE '%' || #{keyword} || '%'
+        </if>
+    </select>
+
+    <select id="selectSearch" resultType="freePostVO">
+        SELECT P.ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID
+        FROM
+            (
+                SELECT P.ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID
+                FROM TBL_POST P JOIN TBL_FREE_POST FP
+                ON P.ID = FP.ID
+                JOIN TBL_USER U
+                ON FP.USER_ID = U.ID
+                WHERE POST_TITLE LIKE '%' || #{keyword} || '%' OR POST_CONTENT LIKE '%' || #{keyword} || '%'
+                ORDER BY ID DESC
+            )
+        <![CDATA[
+        WHERE ROWNUM <= 10
+        ]]>
+    </select>
+
+    <select id="nextPost" resultType="Integer">
+        SELECT MIN(ID) AS NEXT_SEQUENCE FROM TBL_POST WHERE ID > #{id}
+    </select>
+
+    <select id="prevPost" resultType="Integer">
+        SELECT MAX(ID) AS PREVIOUS_SEQUENCE FROM TBL_POST WHERE #{id} > ID
+    </select>
+
+    <update id="update">
+        UPDATE TBL_POST
+        SET POST_TITLE = #{postTitle}, POST_CONTENT = #{postContent} , UPDATE_DATE = TO_DATE(CURRENT_DATE)
+        WHERE ID = #{id}
+    </update>
+
+    <insert id="replyInsert">
+        INSERT INTO TBL_FREE_POST_REPLY (ID, F_POST_REPLY_CONTENT, F_POST_REPLY_CREATE_DATE, CREATE_DATE, UPDATE_DATE, USER_ID, FREE_POST_ID)
+        VALUES (SEQ_FREE_POST_REPLY.NEXTVAL, #{freePostReplyContent}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{userId}, #{freePostId})
+    </insert>
+
+    <update id="replyUpdate">
+        UPDATE TBL_POST_REPLY
+        SET F_POST_REPLY_CONTENT = #{freePostReplyContent}, UPDATE_DATE = CURRENT_TIMESTAMP
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="replyDelete">
+        DELETE TBL_FREE_POST_REPLY
+        WHERE ID = #{id}
+    </delete>
+</mapper>

@@ -22,6 +22,9 @@
                 </div>
                 <article class="main1_article1">
                     <form th:action="@{/login/join}" method="post" th:object="${userVO}">
+                        <input type="hidden" th:value="${userVO.userSchool}" name="userSchool">
+                        <input type="hidden" th:value="${userVO.userDivision}" name="userDivision">
+                        <input type="hidden" th:value="${userVO.userPosition}" name="userPosition">
                         <div class="div1" style="height: 100%; padding: 55px 0 50px;">
                             <div class="name">
                                 <label>

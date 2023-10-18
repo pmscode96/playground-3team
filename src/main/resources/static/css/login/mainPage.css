@@ -3047,7 +3047,7 @@ h4 {
     background-color: rgb(255, 255, 255);
 
     position: sticky;
-    top: 90px;
+    top: 25px;
     left: 0;
     right: 0;
 
@@ -3211,5 +3211,6 @@ h4 {
     font-family: "KakaoBig Regular", "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", dotum, 돋움, sans-serif;
     color: #4a4a4a;
     font-weight: lighter;
+    line-height: 20px;
 
 }

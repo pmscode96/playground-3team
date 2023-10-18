@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.app.playground.mapper.MainMapper">
+    <select id="selectBestReply" resultType="replyDTO">
+        SELECT R1.*, LIKE_COUNT FROM TBL_REPLY R1
+        JOIN(
+            SELECT ID, LIKE_COUNT FROM (
+                                       SELECT R.ID, COUNT(R.ID) LIKE_COUNT
+                                       FROM TBL_REPLY R
+                                            JOIN TBL_FREE_POST_REPLY_LIKE FRL
+                                                 ON R.ID = FRL.REPLY_ID
+                                            JOIN TBL_CONSULTING_POST_REPLY_LIKE CRL
+                                                 ON R.ID = CRL.REPLY_ID
+                                       GROUP BY R.ID
+                                       ORDER BY LIKE_COUNT DESC
+                                        ) WHERE ROWNUM = 1
+            )R2
+             ON R1.ID = R2.ID
+    </select>
 
+    <select id="selectPostCount" resultType="int">
+        SELECT COUNT(ID) POST_COUNT FROM TBL_POST
+    </select>
 </mapper>

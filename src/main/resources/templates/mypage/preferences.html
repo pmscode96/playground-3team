@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -180,56 +180,56 @@
                                 <strong class="tit_set">서비스 설정</strong>
                                 <ul class="list_set">
                                     <li>
-                                        <a routerlink="/preferences/profile" data-tiara-layer="profile" data-tiara-action-name="프로필수정_클릭" class="btn_set link_set" style="cursor: pointer;" href="/preferences/profile">
+                                        <a href="/mypage/edit-profile" data-tiara-layer="profile" data-tiara-action-name="프로필수정_클릭" class="btn_set link_set" style="cursor: pointer;" >
                                             <strong class="txt_set">프로필 수정</strong>
                                         </a>
                                     </li>
                                     <li>
-                                        <a data-tiara-layer="service_agreement" data-tiara-action-name="이용동의_보기_클릭" class="btn_set link_set" href="/preferences/service-agreement">
+                                        <a class="btn_set link_set" href="/mypage/service-agreement">
                                             <strong class="txt_set">서비스 이용 동의</strong>
                                         </a>
                                     </li>
                                     <li>
-                                        <a data-tiara-layer="third_party_agreement" data-tiara-action-name="3자제공동의_보기_클릭" class="btn_set link_set" href="/preferences/third-party-agreement">
+                                        <a  class="btn_set link_set" href="/mypage/third-party-agreement">
                                             <strong class="txt_set">개인정보 제 3자 제공 동의</strong>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="link_set">
+                                        <a class="link_set" href="/mypage/sign-out">
                                             <strong class="txt_set">놀이터 탈퇴</strong>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="svc_set">
-                                <strong class="tit_set">함께해요, 놀이터</strong>
-                                <ul class="list_set">
-                                    <li>
-                                        <a href="http://plus.kakao.com/home/@%EC%B9%B4%EC%B9%B4%EC%98%A4%EA%B0%99%EC%9D%B4%EA%B0%80%EC%B9%98" targetblankpc="" data-tiara-layer="together_yellow" data-tiara-action-name="소식받기_클릭" class="btn_set link_set" target="_blank">
-                                            <span class="ico_social social_on ico_kakaotalk"></span>
-                                            <strong class="txt_set">카카오톡으로 소식 받기</strong>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://story.kakao.com/ch/k_together" targetblankpc="" data-tiara-layer="together_kakaostory" data-tiara-action-name="카카오스토리_페이지_클릭" class="btn_set link_set" target="_blank">
-                                            <span class="ico_social social_on ico_kakaostory"></span>
-                                            <strong class="txt_set">카카오스토리 페이지 가기</strong>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.facebook.com/kakao.together" targetblankpc="" data-tiara-layer="together_facebook" data-tiara-action-name="페이스북_페이지_클릭" class="btn_set link_set" target="_blank">
-                                            <span class="ico_social social_on ico_facebook"></span>
-                                            <strong class="txt_set">페이스북 페이지 가기</strong>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://www.instagram.com/together_kakao" targetblankpc="" data-tiara-layer="together_instagram" data-tiara-action-name="인스타그램_페이지_클릭" class="btn_set link_set" target="_blank">
-                                            <span class="ico_social social_on ico_instagram"></span>
-                                            <strong class="txt_set">인스타그램 페이지 가기</strong>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+<!--                            <div class="svc_set">-->
+<!--                                <strong class="tit_set">함께해요, 놀이터</strong>-->
+<!--                                <ul class="list_set">-->
+<!--                                    <li>-->
+<!--                                        <a href=""  class="btn_set link_set" target="_blank">-->
+<!--                                            <span class="ico_social social_on ico_kakaotalk"></span>-->
+<!--                                            <strong class="txt_set">카카오톡으로 소식 받기</strong>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <a href=""   class="btn_set link_set" target="_blank">-->
+<!--                                            <span class="ico_social social_on ico_kakaostory"></span>-->
+<!--                                            <strong class="txt_set">카카오스토리 페이지 가기</strong>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <a href="https://www.facebook.com/kakao.together" targetblankpc="" data-tiara-layer="together_facebook" data-tiara-action-name="페이스북_페이지_클릭" class="btn_set link_set" target="_blank">-->
+<!--                                            <span class="ico_social social_on ico_facebook"></span>-->
+<!--                                            <strong class="txt_set">페이스북 페이지 가기</strong>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                    <li>-->
+<!--                                        <a href="https://www.instagram.com/together_kakao" targetblankpc="" data-tiara-layer="together_instagram" data-tiara-action-name="인스타그램_페이지_클릭" class="btn_set link_set" target="_blank">-->
+<!--                                            <span class="ico_social social_on ico_instagram"></span>-->
+<!--                                            <strong class="txt_set">인스타그램 페이지 가기</strong>-->
+<!--                                        </a>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
                         </div>
                     </div>
                 </div>

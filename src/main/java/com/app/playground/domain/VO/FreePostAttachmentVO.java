@@ -33,5 +33,4 @@ public class FreePostAttachmentVO {
 
     //        ================================ FK
     private Long freePostId;
-
 }

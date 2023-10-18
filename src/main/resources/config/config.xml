@@ -5,8 +5,6 @@
         <setting name="jdbcTypeForNull" value="NULL"/>
     </settings>
     <typeAliases>
-
-
         <!--    VO-->
         <typeAlias type="com.app.playground.domain.VO.AdministratorVO" alias="administratorVO" />
         <typeAlias type="com.app.playground.domain.VO.ConsultingPostAttachmentVO" alias="consultingPostAttachmentVO" />
@@ -30,5 +28,9 @@
         <typeAlias type="com.app.playground.domain.VO.SchoolScheduleVO" alias="schoolScheduleVO" />
         <typeAlias type="com.app.playground.domain.VO.SchoolVO" alias="schoolVO" />
         <typeAlias type="com.app.playground.domain.VO.UserVO" alias="userVO" />
+
+        <!--DTO-->
+        <typeAlias type="com.app.playground.domain.DTO.ReplyDTO" alias="replyDTO" />
+        <typeAlias type="com.app.playground.domain.DTO.PostDTO" alias="postDTO" />
     </typeAliases>
 </configuration>

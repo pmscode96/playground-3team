@@ -13,10 +13,17 @@ public class UserServiceImpl implements UserService {
     private final UserDAO userDAO;
 //    회원가입
     @Override
-    public void join(UserVO userVO) {
+    public void join(UserVO userVO, Long Id) {
 //        1. 일반회원, 카카오회원 구분
         if(userVO.getUserProfileName() != null){// 카카오 로그인
             Optional<UserVO> foundUser = getUser(userVO.getUserEmail());
+//            if(Id != null){
+//                userVO.setId(Id);
+//                if(foundUser.isPresent()){
+//                    delete(foundUser.get().getId());
+//                }
+//            }
+
 //            1-2. 최초 로그인 검사
             if(foundUser.isEmpty()){ // 이메일 정보가 없을 경우
                 userDAO.save(userVO);
@@ -33,7 +40,12 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-//    회원 정보 조회
+    @Override
+    public Optional<UserVO> login(UserVO userVO) {
+        return userDAO.login(userVO);
+    }
+
+    //    회원 정보 조회
     @Override
     public Optional<UserVO> getUser(String userEmail) {
         return userDAO.findByUserEmail(userEmail);

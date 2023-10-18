@@ -3,11 +3,12 @@ package com.app.playground.domain.VO;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Component
 @Data
-public class UserVO {
+public class UserVO implements Serializable {
 //    유저 고유번호
 //    not null
     private Long id;
@@ -37,6 +38,7 @@ public class UserVO {
     private Integer userDivision;
 
 //    유저 직위
+    private Integer userPosition;
 
 //    유저 SNS구분
     private  Integer userSns;
