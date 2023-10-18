@@ -7,12 +7,12 @@
         </selectKey>
         <choose>
             <when test="userPassword == null">
-                INSERT INTO TBL_USER (ID, USER_NAME, USER_EMAIL, USER_PHONE, USER_SCHOOL, USER_AGE, CREATE_DATE, UPDATE_DATE, USER_LOGIN_CODE, USER_PROFILE_NAME)
-                VALUES (#{id}, #{userName}, #{userEmail}, #{userPhone}, #{userSchool}, #{userAge}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{userLoginCode}, #{userProfileName})
+                INSERT INTO TBL_USER (ID, USER_NAME, USER_EMAIL, USER_PHONE, USER_SCHOOL, USER_DIVISION, USER_POSITION, USER_AGE, CREATE_DATE, UPDATE_DATE, USER_LOGIN_CODE, USER_PROFILE_NAME)
+                VALUES (#{id}, #{userName}, #{userEmail}, #{userPhone}, #{userSchool}, #{userDivision}, #{userPosition}, #{userAge}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{userLoginCode}, #{userProfileName})
             </when>
             <otherwise>
-                INSERT INTO TBL_USER (ID, USER_NAME, USER_EMAIL, USER_PASSWORD, USER_PHONE, USER_SCHOOL, USER_AGE, CREATE_DATE, UPDATE_DATE, USER_LOGIN_CODE)
-                VALUES (#{id}, #{userName}, #{userEmail}, #{userPassword}, #{userPhone}, #{userSchool}, #{userAge}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{userLoginCode})
+                INSERT INTO TBL_USER (ID, USER_NAME, USER_EMAIL, USER_PASSWORD, USER_PHONE, USER_SCHOOL, USER_DIVISION, USER_POSITION, USER_AGE, CREATE_DATE, UPDATE_DATE, USER_LOGIN_CODE)
+                VALUES (#{id}, #{userName}, #{userEmail}, #{userPassword}, #{userPhone}, #{userSchool}, #{userDivision},#{userPosition}, #{userAge}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{userLoginCode})
             </otherwise>
         </choose>
 
@@ -29,4 +29,15 @@
         SET USER_PROFILE_NAME = #{userProfileName}
         WHERE USER_EMAIL = #{userEmail}
     </update>
+
+    <select id="selectByLogin" resultType="userVO">
+        SELECT ID, USER_NAME, USER_EMAIL, USER_PASSWORD, USER_PHONE, USER_SCHOOL, USER_DIVISION, USER_POSITION, USER_SNS, TEACHER_EXSIT, USER_GENDER, USER_AGE, CREATE_DATE, UPDATE_DATE, USER_PROFILE_NAME, USER_PROFILE_PATH, USER_STATUS, USER_LOGIN_CODE, USER_PROFILE, KAKAO_EMAIL, USER_NICKNAME, USER_SNS_LOGIN_STATUS, USER_PASSWORD_CHECK
+        FROM TBL_USER
+        WHERE USER_EMAIL = #{userEmail} AND USER_PASSWORD = #{userPassword}
+    </select>
+
+    <delete id="delete">
+        DELETE FROM TBL_USER
+        WHERE ID = #{Id}
+    </delete>
 </mapper>

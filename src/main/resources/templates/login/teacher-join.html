@@ -29,13 +29,15 @@
                 <h5>교직원 등록</h5>
             </div>
             <div class="div2_3"></div>
+            <form th:action="@{/login/join}" method="get">
+                <input  type="hidden" name="userDivision" value="1">
             <div class="div2_4">
                 <div class="div2_5">
                     <h6 class="h6_1">학교명</h6>
                     <div class="d1">
                         <div class="d1_1">
                             <div class="d1_2">
-                                <input placeholder="학교 검색">
+                                <input placeholder="학교 검색" name="userSchool">
                             </div>
                             <div class="d1_3"></div>
                         </div>
@@ -49,23 +51,23 @@
 
 
                     <h6 class="h6_2">직위</h6>
-                    <select name="" class="select1">
-                        <option class="op1">
+                    <select name="userPosition" class="select1">
+                        <option value="0" class="op1">
                             교장
                         </option>
-                        <option value="" class="op2">
+                        <option value="1" class="op2">
                             교감
                         </option>
-                        <option value="" class="op3">
+                        <option value="2" class="op3">
                             부장교사
                         </option>
-                        <option value="" class="op4 ">
+                        <option value="3" class="op4 ">
                             교사
                         </option>
-                        <option value="" class="op5">
+                        <option value="4" class="op5">
                             교직원
                         </option>
-                        <option value="" class="op6">
+                        <option value="5" class="op6">
                             기타교직원
                         </option>
                     </select>
@@ -150,22 +152,22 @@
                     </h6>
                     <div class="h6_5_div1">
                         <select name="" class="select2">
-                            <option class="op1">
+                            <option value="1" class="op1">
                                 1학년
                             </option>
-                            <option value="" class="op2">
+                            <option value="2" class="op2">
                                 2학년
                             </option>
-                            <option value="" class="op3">
+                            <option value="3" class="op3">
                                 3학년
                             </option>
-                            <option value="" class="op4 ">
+                            <option value="4" class="op4 ">
                                 4학년
                             </option>
-                            <option value="" class="op5">
+                            <option value="5" class="op5">
                                 5학년
                             </option>
-                            <option value="" class="op6">
+                            <option value="6" class="op6">
                                 6학년
                             </option>
                         </select>
@@ -201,6 +203,7 @@
                     </button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 </div>

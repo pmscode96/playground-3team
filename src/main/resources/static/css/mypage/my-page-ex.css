@@ -582,7 +582,7 @@ address, caption, cite, code, dfn, em, strong, var {
 .mypage_cont {
     width: 700px;
     margin: 0 auto;
-    /*padding-bottom: 170px;*/
+    padding-bottom: 170px;
 }
 
 .screen_out {
@@ -684,304 +684,147 @@ address, caption, cite, code, dfn, em, strong, var {
     background-color: initial;
 }
 /* 상단 프로필까지 */
-.hr{
-    background:#e8e8e8;
-    height:2px;
-    border:0;
-    margin: 0;
-}
 
-#kakaoContent {
-    display: block;
-    width: 1180px;
-    margin: 0 auto;
-    min-height: 484px;
-}
-
-#cMain {
-    width: 990px;
-    height: 100%;
-    overflow: hidden;
-}
-
-#mFeature {
-    float: left;
-    height: 100%;
-    width: 160px;
-    padding-right: 20px;
-}
-
-.tit_menu {
-    font-size: 21px;
-    margin-top: 50px;
-}
-
-.screen_out {
-    overflow: hidden;
-    position: absolute;
-    width: 0;
-    height: 0;
-    line-height: 0;
-    text-indent: -9999px;
-}
-
-#kakaoGnb .list_menu {
-    margin-top: 50px;
-}
-
-#kakaoGnb .list_menu li {
-    margin: 0 0 20px 5px;
-    font-size: 15px;
-}
-
-#kakaoGnb .list_menu .link_menu {
-    font-weight: bold;
-    color: #878787;
-}
-
-#kakaoGnb .list_menu .on .link_menu, #kakaoGnb .list_menu .link_menu:hover, #kakaoGnb .list_menu .link_menu:focus {
-    color: #1e1e1e;
-    text-decoration: underline;
-}
-
-.cont_public {
+.group_shadow {
     position: relative;
-    float: right;
-    border-left: 1px solid #e8e8e8;
-    width: 750px;
-    padding-left: 58px;
-    min-height: 700px;
-    padding-bottom: 60px;
-}
-
-.cont_public .tit_public {
-    font-size: 32px;
-    margin: 47px 0 45px;
-}
-
-.cont_public .wrap_cont {
-    padding-bottom: 30px;
-    border-top: 2px solid #000;
-    border-bottom: 1px solid #000;
-}
-
-.cont_public .wrap_cont > .item_info {
-    padding: 12px 0 16px;
-    border-top: 1px solid #e8e8e8;
-    overflow: hidden;
-}
-
-.cont_public .wrap_cont > .item_info:first-child {
     margin-top: 30px;
-    border-top: 0 none;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px 0 #00000012;
 }
 
-.cont_public .info_tit {
-    overflow: hidden;
-}
-
-.cont_public .wrap_cont .link_cont {
-    float: left;
-    width: 740px;
-    margin: 5px;
-}
-
-.cont_public .wrap_cont .num_info {
-    float: left;
-    width: 55px;
-    margin: 0;
-    font-size: 15px;
-}
-
-.cont_public .wrap_cont .tit_info {
-    float: left;
-    width: 540px;
-    font-size: 15px;
-    font-weight: normal;
-    margin-right: 40px;
-    margin-left: 5px;
-}
-
-.cont_public .wrap_cont .btn_arr {
-    float: right;
-    width: 16px;
-    height: 16px;
-    margin-right: 14px;
-}
-
-.ico_cs {
-    display: inline-block;
-    overflow: hidden;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-    background-image: url(https://cs.kakao.com/img/ico_cs_200120.png);
-    background-repeat: no-repeat;
-    background-position: 0 0;
-}
-
-.cont_public .wrap_cont > .item_info .info_cont {
-    display: none;
-    overflow: hidden;
-    width: 690px;
-    text-align: left;
-    margin: 15px 0 15px 60px;
-    font-size: 15px;
-    line-height: 27px;
-}
-
-.cont_public .wrap_cont > .item_info .info_cont p {
-    font-family: '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif, '돋움', dotum !important;
-    font-size: 15px !important;
-    line-height: 27px !important;
-}
-
-/*클릭시 내용 나오는 부분*/
-.cont_public .wrap_cont .on .tit_info {
-    font-size: 21px;
-    line-height: 27px;
-    font-weight: bold;
-}
-
-.cont_public .wrap_cont .on .ico_arr {
-    background-position: -28px -40px;
-}
-
-.cont_public .wrap_cont .on .info_cont {
+.tit_section {
     display: block;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 26px;
+    color: #444;
+    font-family: KakaoBig Bold,sans-serif;
+    box-sizing: border-box;
 }
 
-.edit_content {
-    width: 99%;
-    resize: none;
-    height: 300px;
+.tit_section.section_type2 {
+    margin: 0 40px;
+    padding-top: 31px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 24px;
 }
 
-
-.paging_comm {
-    border-top: 1px solid #000;
-    margin-top: -1px;
-    padding-top: 24px;
-    text-align: center;
+.tit_section.section_type2:first-of-type {
+    border-top: 0;
 }
 
-.paging_comm .btn_paging {
-    width: 28px;
-    height: 28px;
+.link_round {
     display: inline-block;
-    border: 1px solid #d4d4d4;
+    height: 40px;
+    padding: 0 17px;
+    border: 1px solid #e7e7e7;
+    border-radius: 20px;
+    font-size: 13px;
+    line-height: 38px;
+    font-family: KakaoBig Regular,sans-serif;
+    box-sizing: border-box;
     vertical-align: top;
 }
 
-.paging_comm .btn_fst {
-    margin-right: 3px;
+.group_donatedetail .btn_release {
+    position: absolute;
+    top: 20px;
+    right: 40px;
 }
 
-.paging_comm .btn_paging .ico_arr {
-    display: block;
-    margin: 10px auto 0;
-    height: 9px;
-}
-
-.paging_comm .btn_fst .ico_arr {
-    width: 11px;
-    background-position: -68px 0;
-}
-
-.paging_comm .btn_prev {
-    margin-right: 29px;
-}
-
-.paging_comm .btn_paging:hover, .paging_comm .btn_paging:focus {
-    width: 30px;
-    height: 30px;
-    border: 0 none;
-    background-color: #1e1e1e;
-}
-
-.paging_comm .btn_prev .ico_arr {
-    width: 5px;
-    background-position: -68px 0;
-}
-
-.paging_comm .link_page {
-    display: inline-block;
-    margin-right: 28px;
-    line-height: 30px;
-}
-
-.paging_comm em.link_page, .paging_comm .link_page:hover, .paging_comm .link_page:focus {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-.paging_comm .btn_next .ico_arr {
-    width: 5px;
-    background-position: -84px 0;
-}
-
-.paging_comm .btn_lst {
-    margin-left: 3px;
-}
-
-.paging_comm .btn_lst .ico_arr {
-    width: 11px;
-    background-position: -84px 0;
-}
-
-.cont_public .wrap_btn {
-    clear: both;
+.group_donatedetail .area_donatedetail {
     overflow: hidden;
+    padding: 27px 40px 39px;
 }
 
-.cont_public .txt_solution {
-    display: inline-block;
-    margin-top: 50px;
-    line-height: 42px;
+.area_donatedetail .total_donate {
+    max-width: 300px;
+    float: left;
+    padding-top: 1px;
+}
+
+.area_donatedetail .total_donate .tit_total {
+    font-weight: 400;
+    font-size: 15px;
     color: #666;
 }
 
-.bundle_btn {
-    display: inline-block;
-    float: right;
+.area_donatedetail .total_donate .num_total {
+    display: block;
+    overflow: hidden;
+    height: 48px;
+    font-size: 32px;
+    font-family: KakaoBig Bold,sans-serif;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
 }
 
-.btn_cs {
-    display: inline-block;
-    padding: 0 63px;
-    line-height: 40px;
-    height: 42px;
+.area_donatedetail .detail_donate {
+    float: right;
+    min-width: 155px;
+}
+
+.area_donatedetail .detail_donate li {
+    overflow: hidden;
+    line-height: 26px;
+}
+
+.area_donatedetail .detail_donate .tit_detail {
+    float: left;
     font-size: 15px;
-    color: #1e1e1e;
-    background-color: #e8e8e8;
+    color: #666;
 }
 
-.btn_cs {
+.area_donatedetail .detail_donate .num_detail {
+    overflow: hidden;
     float: right;
-    margin: 50px 5px 5px 0;
-    font-weight: bold;
+    max-width: 170px;
+    margin-left: 10px;
+    font-size: 15px;
+    font-family: KakaoBig Bold,sans-serif;
 }
 
-.bundle_btn .btn_cs {
-    float: none;
-    width: 186px;
-    padding: 0;
-    font-weight: bold;
+.group_donatedetail .area_moreinfo {
+    height: 60px;
+    border-radius: 0 0 12px 12px;
+    background-color: #f5f5f5;
+}
+
+.area_moreinfo .list_moreinfo {
+    overflow: hidden;
     text-align: center;
 }
 
-.hide_btn{
-    display: none;
-}
-
-.bundle_btn .btn_cs .ico_write {
-    width: 17px;
-    height: 17px;
-    margin: 12px 3px 0 0;
-    background-position: -80px -60px;
+.area_moreinfo .list_moreinfo li {
+    display: inline-block;
     vertical-align: top;
 }
 
+.area_moreinfo .list_moreinfo .link_more {
+    display: inline-block;
+    position: relative;
+    font-size: 15px;
+    line-height: 60px;
+    color: #444;
+    font-family: KakaoBig Bold,sans-serif;
+    vertical-align: top;
+}
+
+.area_moreinfo .list_moreinfo li:before {
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    margin: 28px 30px;
+    border-radius: 50%;
+    background-color: #444;
+    vertical-align: top;
+    content: "";
+}
+
+.area_moreinfo .list_moreinfo li:first-of-type:before {
+    content: none
+}
 
 
 /* 메인 컨텐츠 끝*/
@@ -1117,19 +960,19 @@ address, caption, cite, code, dfn, em, strong, var {
     align-items: center;
 }
 
-.d_footer .list_menu ,.d_footer .list_menu li{
+.list_menu , .list_menu li{
     display: flex;
     align-items: center;
 }
 
-.d_footer .list_menu li {
+.list_menu li {
     position: relative;
     font-size: 13px;
     line-height: 1.54;
     letter-spacing: -.1px;
 }
 
-.d_footer .list_menu li:after {
+.list_menu li:after {
     content: "";
     display: block;
     width: 2px;
@@ -1140,7 +983,7 @@ address, caption, cite, code, dfn, em, strong, var {
     background-color: #444;
 }
 
-.d_footer .link_menu {
+.link_menu {
     display: inline-block;
     vertical-align: top;
     padding: 6px 0;

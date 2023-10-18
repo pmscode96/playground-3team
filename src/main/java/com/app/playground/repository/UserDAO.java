@@ -26,6 +26,11 @@ public class UserDAO {
         userMapper.insert(userVO);
     }
 
+    //    로그인
+    public Optional<UserVO> login(UserVO userVO){
+        return userMapper.selectByLogin(userVO);
+    };
+
 //    회원 정보 조회
     public Optional<UserVO> findByUserEmail(String userEmail){
         return userMapper.select(userEmail);

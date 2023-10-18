@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -19,13 +19,11 @@
     </style>
 </head>
 <body>
+
 <div id="page-container">
-    <div id="dkIndex">
-        <a href="">본문 바로가기</a>
-        <a href="">메뉴 바로가기</a>
-    </div>
     <div id="dkWrap">
         <!--푸터 시작-->
+        <th:block th:fragment="footer">
         <together-footer>
             <div id="dkFoot">
                 <div class="wrap_channel_banner">
@@ -41,12 +39,12 @@
                 </div>
                 <div class="d_footer">
                     <div class="inner_footer">
-                        <a href="/static" class="link_home">
+                        <a href="/" class="link_home">
                             <h1>놀이터</h1>
                         </a>
                         <p class="desc_footer">놀이터는 카카오와 카카오임팩트가 함께합니다.</p>
                         <div class="area_info">
-                            <ul class="list_menu">
+                            <ul class="fotter_list_menu">
                                 <li class="menu_corp">
                                     <a href="" target="_blank" class="link_menu link_corp">© Playground Corp.</a>
                                 </li>
@@ -89,6 +87,7 @@
             </div>
         </together-footer>
         <!--푸터 끝-->
+        </th:block>
     </div>
 </div>
 </body>

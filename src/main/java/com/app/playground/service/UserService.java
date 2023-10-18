@@ -6,7 +6,9 @@ import java.util.Optional;
 
 public interface UserService {
 //    회원가입
-    public void join(UserVO userVO);
+    public void join(UserVO userVO, Long id);
+
+    public Optional<UserVO> login(UserVO userVO);
 
 //    회원 정보 조회
     public Optional<UserVO> getUser(String userEmail);

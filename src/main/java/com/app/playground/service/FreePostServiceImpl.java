@@ -81,14 +81,14 @@ public class FreePostServiceImpl implements FreePostService {
     @Override
     public void replyInsert(FreePostReplyVO freePostReplyVO) {
         freePostDAO.replyInsert(freePostReplyVO);
-        freePostDAO.replyCountUp(freePostReplyVO.getFreePostId());
+        freePostDAO.replyCountUp(freePostReplyVO.getPostId());
     }
 
 //    댓글 삭제
     @Override
     public void replyDelete(FreePostReplyVO freePostReplyVO) {
         freePostDAO.replyDelete(freePostReplyVO.getId());
-        freePostDAO.replyCountDown(freePostReplyVO.getFreePostId());
+        freePostDAO.replyCountDown(freePostReplyVO.getPostId());
     }
 
     //    게시물 댓글 수정

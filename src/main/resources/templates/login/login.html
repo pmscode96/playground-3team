@@ -5,90 +5,100 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ADMINISTRATOR_LOGIN</title>
-    <link rel="stylesheet" href="/css/login/login.css">
+    <title>STUDENTORTEACHERLOGIN</title>
+    <link rel="stylesheet" href="/css/login/studentORteacherLogin.css">
 </head>
 <body>
-    <div id="wrap">
-        <div class="div1">
-            <div class="div2">
-                <main class="main1">
-                    <div class="main1_div1" style="padding-top: 50px">
-                        <h1 class="h1">
+<div id="wrap">
+    <div class="div1">
+        <div class="div2">
+            <main class="main1">
+                <div class="main1_div1" style="padding-top: 50px">
+                    <h1 class="h1">
                             <span class="span1">
-                                <span class="span2" >놀이터 관리자 페이지</span>
+                                <span class="span2" >교사</span>
+                                <span class="span2_1">/</span>
+                                <span class="span3">학생</span>
                             </span>
-                        </h1>
-                    </div>
-                    <article class="main1_article1">
-                        <div class="div1" style="height: 100%; padding: 55px 0 50px;">
-                            <div class="div2">
-                                <form action="" class="form1">
-                                    <div class="d1">
-                                        <div class="d1_1">
-                                            <label for="">계정정보 입력</label>
-                                            <input type="text" placeholder="관리자 아이디">
-                                        </div>
-                                        <p class="d1_p"></p>
+                    </h1>
+                </div>
+                <article class="main1_article1">
+                    <div class="div1" style="height: 100%; padding: 55px 0 50px;">
+                        <div class="div2">
+                            <form action="" class="form1" th:action="@{/login/login}" method="post">
+                                <div class="d1">
+                                    <div class="d1_1">
+                                        <label>계정정보 입력</label>
+                                        <input type="text" placeholder="놀이터메일 아이디" name="userEmail">
                                     </div>
-                                    <div class="d2">
-                                        <div class="d2_1">
-                                            <label for="">비밀번호 입력</label>
-                                            <input type="password" placeholder="비밀번호">
-                                            <div class="d2_2"></div>
-                                        </div>
-                                    </div>
-                                    <div class="d3">
-                                        <div class="d3_1">
-                                            <input type="checkbox" name="in">
-                                            <label class="label1" onclick="inp()">
-                                                <span style="background-position: 0 0;" class="span1"></span>
-                                                <span style="background-position: -25px 0;" class="span2" ></span>
-                                                간편로그인 정보 저장
-                                            </label>
-                                            <button>
-                                                <span style="background-position: -120px -110px;">도움말 보기</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="d3_5" role="alert">
-                                        <p>
-                                            관리자계정을 입력해 주세요.
-                                            <br>
-                                        </p>
-                                    </div>
-                                    <div class="d4">
-                                        <button type="submit" class="bt1">로그인</button>
-                                    </div>
-                                    <a class="kakao" href="https://kauth.kakao.com/oauth/authorize?client_id=cdf63dee9a5bfba12afcdf5841267c52&redirect_uri=http://localhost:10000/kakao/login&response_type=code">
-                                        <button type="button" class="bt1">카카오로 로그인 하기</button>
-                                    </a>
-                                </form>
-                                <div class="div3">
-                                    <a href="teacher-and-student-join" class="a1">회원가입</a>
-                                    <ul>
-                                        <li class="li1">
-                                            <a href="" class="a2">아이디 찾기</a>
-                                        </li>
-                                        <li class="li2">
-                                            <a href="" class="a3">비밀번호 찾기</a>
-                                        </li>
-                                    </ul>
+                                    <p class="d1_p"></p>
                                 </div>
+                                <div class="d2">
+                                    <div class="d2_1">
+                                        <label>비밀번호 입력</label>
+                                        <input type="password" placeholder="비밀번호" name="userPassword">
+                                        <div class="d2_2"></div>
+                                    </div>
+                                </div>
+                                <div class="d3">
+                                    <div class="d3_1">
+                                        <input type="checkbox" name="in">
+                                        <label class="label1" onclick="inp()">
+                                            <span style="background-position: 0 0;" class="span1"></span>
+                                            <span style="background-position: -25px 0;" class="span2" ></span>
+                                            간편로그인 정보 저장
+                                        </label>
+                                        <button>
+                                            <span style="background-position: -120px -110px;">도움말 보기</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="d3_5" role="alert">
+                                    <p>
+                                        놀이터계정을 입력해 주세요.
+                                        <br>
+                                    </p>
+                                </div>
+                                <div class="d4">
+                                    <button type="submit" class="bt1">로그인</button>
+                                    <span class="sp1">
+                                            <span class="sp2">또는</span>
+                                        </span>
+<!--                                    <button type="button" class="bt2">소셜 로그인</button>-->
+                                    <a class="kakao" href="https://kauth.kakao.com/oauth/authorize?client_id=cdf63dee9a5bfba12afcdf5841267c52&redirect_uri=http://localhost:10000/kakao/login&response_type=code">
+                                        <button type="button" class="bt1">카카오로 회원가입 하기</button>
+                                    </a>
+                                </div>
+                            </form>
+                            <div class="div3">
+                                <a href="/login/teacher-and-student-join" class="a1">회원가입</a>
+                                <ul>
+                                    <li class="li1">
+                                        <a href="id-find" class="a2">아이디 찾기</a>
+                                    </li>
+                                    <li class="li2">
+                                        <a href="password-find" class="a3">비밀번호 찾기</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </article>
-                </main>
-                <footer class="main2">
-                    <small>
-                        Copyright ©
-                        <a class="" href="">PlayGround.</a>
-                        All rights reserved.
-                    </small>
-                </footer>
-            </div>
+                    </div>
+                </article>
+            </main>
+            <footer class="main2">
+                <strong>서비스 이용정보</strong>
+                <div>
+                    <!--                        여기도 채워야함...-->
+                </div>
+                <small>
+                    Copyright ©
+                    <a class="link_kakaocorp" href="">Playground Corp.</a>
+                    All rights reserved.
+                </small>
+            </footer>
         </div>
     </div>
+</div>
 </body>
 <script>
 
@@ -115,7 +125,17 @@
     //     }
     // })
 
+    const teacher = document.querySelector("#wrap .div1 .div2 .main1 .main1_div1 .h1 .span1 .span2");
+    const student = document.querySelector("#wrap .div1 .div2 .main1 .main1_div1 .h1 .span1 .span3");
 
+    teacher.addEventListener("click", (e) => {
+        student.classList.remove('weight2');
+        teacher.classList.add('weight1');
+    })
 
+    student.addEventListener("click", (e) => {
+        teacher.classList.remove('weight1');
+        student.classList.add('weight2');
+    })
 </script>
 </html>

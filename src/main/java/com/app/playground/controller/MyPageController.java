@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @Slf4j
 @RequiredArgsConstructor
@@ -25,9 +27,8 @@ public class MyPageController {
     public void goToInquiry(){;}
 
     @GetMapping("/my-page")
-    public void goToMyPage(String userEmail, Model model){;
-        log.info("들어옴");
-//        model.addAttribute("user",userService.getUser(userEmail).get());
+    public void goToMyPage(String userEmail, Model model, HttpSession session){;
+        model.addAttribute("user",userService.getUser(userEmail).get());
     }
 
 
