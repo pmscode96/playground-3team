@@ -1,9 +1,11 @@
 package com.app.playground.controller;
 
+import com.app.playground.domain.DTO.FreePostDTO;
 import com.app.playground.domain.Pagination;
 import com.app.playground.domain.Search;
 import com.app.playground.domain.VO.FreePostVO;
-import com.app.playground.service.FreePostService;
+import com.app.playground.domain.VO.PostVO;
+import com.app.playground.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -22,7 +24,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @RequestMapping("/post/*")
 public class PostController {
-    public final FreePostService freePostService;
+    public final PostService postService;
 
     @GetMapping("/charge")
     public void goToPostCharge(){;}
@@ -39,20 +41,20 @@ public class PostController {
         if((String)request.getParameter("keyword")!=null) {
             keyword = (String) request.getParameter("keyword");
         }
-        pagination.setTotal(freePostService.selectTotal(search));
+        pagination.setTotal(postService.selectTotalFreePost(search));
         pagination.progress();
         model.addAttribute("pagination", pagination);
         search.setKeyword(keyword);
 
-        model.addAttribute("posts", freePostService.list(pagination, search, keyword));
+        model.addAttribute("posts", postService.freePostList(pagination, search, keyword));
         model.addAttribute("keyword",keyword);
     }
 
     @PostMapping("/free-post")
     public RedirectView goToJoinFreePostDetail(Long id, HttpSession session) {
-        Optional<FreePostVO> foundFreePost = freePostService.detail(id);
-        if(foundFreePost.isPresent()){
-            session.setAttribute("event", foundFreePost.get());
+        Optional<FreePostDTO> foundPost = postService.freePostDetail(id);
+        if(foundPost.isPresent()){
+            session.setAttribute("event", foundPost.get());
             return new RedirectView("/event/event-detail");
         }
         return new RedirectView("/event/event");

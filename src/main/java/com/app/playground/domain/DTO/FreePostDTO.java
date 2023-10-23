@@ -12,16 +12,10 @@ public class FreePostDTO {
     private Long id;
 
     //    제목
-    private String freePostTitle;
+    private String postTitle;
 
     //    내용
-    private String freePostContent;
-
-    //    좋아요수
-    private Integer likeCount;
-
-    //    댓글수
-    private  Integer replyCount;
+    private String postContent;
 
     //        생성 날짜
     private LocalDateTime createDate;
@@ -29,7 +23,7 @@ public class FreePostDTO {
 //     삭제 후 재생성이 디폴트이므로 업데이트타임은 필요없음
     private LocalDateTime updateDate;
 
-//    ================================ FK
+    //    ================================ FK
 //    회원 테이블 회원 id
 //     not null
     private Long userId;
@@ -39,4 +33,8 @@ public class FreePostDTO {
     private String userNickname;
 
     private String userSchool;
+
+    private Integer userDivision;
+
+    private Integer rownum;
 }

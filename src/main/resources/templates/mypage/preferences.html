@@ -184,6 +184,13 @@
                                             <strong class="txt_set">프로필 수정</strong>
                                         </a>
                                     </li>
+                                    <th:block th:if="${sync == true}">
+                                        <li>
+                                            <a class="btn_set link_set" id="sync" href="https://kauth.kakao.com/oauth/authorize?client_id=cdf63dee9a5bfba12afcdf5841267c52&redirect_uri=http://localhost:10000/kakao/login&response_type=code" >
+                                                <strong class="txt_set">카카오 연동하기</strong>
+                                            </a>
+                                        </li>
+                                    </th:block>
                                     <li>
                                         <a class="btn_set link_set" href="/mypage/service-agreement">
                                             <strong class="txt_set">서비스 이용 동의</strong>
@@ -348,4 +355,9 @@
     </div>
 </div>
 </body>
+<script th:inline="javascript">
+    document.getElementById("sync").addEventListener("click", (e) =>{
+
+    })
+</script>
 </html>

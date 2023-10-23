@@ -36,8 +36,8 @@ public class LoginController {
     }
 
     @PostMapping("join")
-    public RedirectView join(UserVO userVO, Long id){
-        userService.join(userVO, id);
+    public RedirectView join(UserVO userVO){
+        userService.join(userVO, null);
         return new RedirectView("/login/login");
     }
 
@@ -68,10 +68,8 @@ public class LoginController {
         Optional<UserVO> foundUser = userService.login(userVO);
         if(foundUser.isPresent()){
             session.setAttribute("user", foundUser.get());
-            redirectAttributes.addAttribute("userEmail",foundUser.get().getUserEmail());
-            return new RedirectView("/mypage/my-page");
+            return new RedirectView("/");
         }
-
         return new RedirectView("/login/no-login");
     }
     @GetMapping("/no-login")
@@ -83,4 +81,10 @@ public class LoginController {
 
     @GetMapping("/teacher-join")
     public void goToTeacherJoin(){;}
+
+    @GetMapping("/logout")
+    public RedirectView logout(HttpSession session){
+        session.invalidate();
+        return new RedirectView("/login/login");
+    }
 }

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Component
 @Data
-public class PostDTO {
+public class ConsultingPostDTO {
     //    고유번호
     private Long id;
 
@@ -23,7 +23,7 @@ public class PostDTO {
 //     삭제 후 재생성이 디폴트이므로 업데이트타임은 필요없음
     private LocalDateTime updateDate;
 
-//    ================================ FK
+    //    ================================ FK
 //    회원 테이블 회원 id
 //     not null
     private Long userId;

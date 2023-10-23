@@ -17,9 +17,8 @@
         <typeAlias type="com.app.playground.domain.VO.FreePostVO" alias="freePostVO" />
         <typeAlias type="com.app.playground.domain.VO.HomeNoticeAttachmentVO" alias="homeNoticeAttachmentVO" />
         <typeAlias type="com.app.playground.domain.VO.HomeNoticeVO" alias="homeNoticeVO" />
-        <typeAlias type="com.app.playground.domain.VO.InquirePostReplyVO" alias="inquirePostReplyVO" />
         <typeAlias type="com.app.playground.domain.VO.InquirePostVO" alias="inquirePostVO" />
-        <typeAlias type="com.app.playground.domain.VO.InquiryPostAttachmentVO" alias="inquiryPostAttachmentVO" />
+        <typeAlias type="com.app.playground.domain.VO.InquirePostAttachmentVO" alias="inquiryPostAttachmentVO" />
         <typeAlias type="com.app.playground.domain.VO.NoticeVO" alias="noticeVO" />
         <typeAlias type="com.app.playground.domain.VO.ProfileVO" alias="profileVO" />
         <typeAlias type="com.app.playground.domain.VO.SchoolMealPictureVO" alias="schoolMealPictureVO" />
@@ -32,5 +31,7 @@
         <!--DTO-->
         <typeAlias type="com.app.playground.domain.DTO.ReplyDTO" alias="replyDTO" />
         <typeAlias type="com.app.playground.domain.DTO.PostDTO" alias="postDTO" />
+        <typeAlias type="com.app.playground.domain.DTO.FreePostDTO" alias="freePostDTO" />
+        <typeAlias type="com.app.playground.domain.DTO.ConsultingPostDTO" alias="consultingPostDTO" />
     </typeAliases>
 </configuration>

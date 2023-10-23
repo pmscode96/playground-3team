@@ -46,28 +46,37 @@
                                 <h3 class="screen_out">내 프로필 정보</h3>
                                 <div class="area_name">
                                     <div class="link_myprofile">
-                                        <strong class="txt_nick" th:text="${user.userDivision}"></strong>
+                                        <strong class="txt_nick" th:text="${session.user.userDivision}"></strong>
                                         <div class="box_name">
-                                            <strong class="txt_name" th:text="${user.userName}" > 닉네임 </strong>
+                                            <strong class="txt_name" th:text="${session.user.userName}" > 닉네임 </strong>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="area_thumb">
-<!--                                    <a routerlink="badges" data-tiara-layer="talk_badge" data-tiara-action-name="스탬프_클릭" class="link_badge" href="">-->
-<!--                                        <span class="badge_thumb">-->
-<!--                                            <img class="img_thumb" src="https://mud-kage.kakaocdn.net/dn/cdS2zq/btqcKJyBiPS/SDkrVVYcKkxHXkcD8l68i0/img.png" alt="카카오같이가치에 오신 것을 환영합니다! 세상의 변화를 만드는 활동에 함께해요.">-->
-<!--                                        </span>-->
-<!--                                    </a>-->
+                                <th:block th:if="${session.user.getUserKakaoProfileUrl() eq null}">
+                                    <div class="area_thumb">
                                     <a  class="link_thumb" href="">
                                         <span class="profile_thumb">
                                             <img alt="프로필 사진" class="img_thumb" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar04.png">
                                         </span>
                                     </a>
                                 </div>
+                                </th:block>
+                                <th:block th:unless="${session.user.getUserKakaoProfileUrl() eq null}">
+                                    <div class="area_thumb">
+                                    <a  class="link_thumb" href="">
+                                        <span class="profile_thumb">
+                                            <img alt="프로필 사진" class="img_thumb" th:src="${session.user.getUserKakaoProfileUrl()}">
+                                        </span>
+                                    </a>
+                                </div>
+                                </th:block>
                                 <div class="area_setting">
-                                    <a data-tiara-layer="setting" data-tiara-action-name="설정_클릭"  class="link_setting" href="preferences">
+                                    <a class="link_setting" href="preferences">
                                         <span class="screen_out">프로필</span> 설정
                                     </a>
+                                    <form th:action="@{/login/logout}" method="get">
+                                        <button>로그아웃</button>
+                                    </form>
                                 </div>
                             </div>
                             <!--프로필 까지-->
@@ -95,6 +104,13 @@
                                                         글 목록
                                                     </a>
                                                 </li>
+                                                <th:block th:if="${session.user.userDivision == 1}">
+                                                     <li>
+                                                        <a class="link_menu" href="my-page-example-teacher.html">
+                                                            예상문제
+                                                        </a>
+                                                    </li>
+                                                </th:block>
                                                 <li>
                                                     <a class="link_menu" href="">
                                                         문의 내역
@@ -404,7 +420,7 @@
 <script type="text/javascript" src="/js/mypage/my-page.js">
 </script>
 <script th:inline="javascript">
-    let user = [[${user}]]
+    let user = [[${session.user}]]
     $('.txt_nick').text($('.txt_nick').text() == 0 ? "학생" : "교사") ;
 </script>
 </html>

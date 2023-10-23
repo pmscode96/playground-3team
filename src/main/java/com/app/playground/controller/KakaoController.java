@@ -20,23 +20,21 @@ public class KakaoController {
     private final KakaoService kakaoService;
     private final UserService userService;
 
-//    @GetMapping("/kakao/login")
-//    public RedirectView login(String code, HttpSession session, RedirectAttributes redirectAttributes) {
-//        Long Id = null;
-//        String token = kakaoService.getKaKaoAccessToken(code);
-//        Optional<UserVO> foundInfo = kakaoService.getKaKaoInfo(token);
-//
-//        log.info(foundInfo.toString());
-//        if (foundInfo.isPresent()){
-//            if(session.getAttribute("user") != null){
-//                Id = ((UserVO)session.getAttribute("user")).getId();
-//            }
-//            userService.join(foundInfo.get(), Id);
-//            UserVO userVO = userService.getUser(foundInfo.get().getKakaoEmail()).get();
-//            session.setAttribute("user", userVO);
-//            return new RedirectView("/mypage/my-page");
-//        }
-//        return new RedirectView("/login/login");
-//
-//    }
+    @GetMapping("/kakao/login")
+    public RedirectView login(String code, HttpSession session, RedirectAttributes redirectAttributes) {
+        Long id = null;
+        String token = kakaoService.getKaKaoAccessToken(code);
+        Optional<UserVO> foundInfo = kakaoService.getKaKaoInfo(token);
+        if (foundInfo.isPresent()){
+            if(session.getAttribute("user") != null){
+                id = ((UserVO)session.getAttribute("user")).getId();
+            }
+            userService.join(foundInfo.get(), id);
+            UserVO userVO = userService.getKakaoUser(foundInfo.get().getUserKakaoEmail()).get();
+
+            session.setAttribute("user", userVO);
+            return new RedirectView("/");
+        }
+        return new RedirectView("/login/login");
+    }
 }

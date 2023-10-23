@@ -43,7 +43,7 @@
             <div id="dkHead">
                 <div class="d_head d_navigation">
                     <h1>
-                        <a href="" class="link_service">놀이터</a>
+                        <a href="/" class="link_service">놀이터</a>
                     </h1>
                     <div class="navigation_list">
                         <h2 class="screen_out">놀이터 메인메뉴</h2>
@@ -65,11 +65,35 @@
                     </div>
                     <div class="wrap_util">
                         <gnb-profile>
-                            <button type="button" class="btn_profile">
-                                <div class="box_avatar_squircle">
-                                    <img  width="30" height="30" alt="프로필사진" class="thumb_profile" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar.png">
-                                </div>
-                            </button>
+                            <th:block th:if="${session.user eq null}">
+                                <a href="/login/login">
+                                    <button type="button" class="btn_profile">
+                                        <div class="box_avatar_squircle">
+                                            <img  width="30" height="30" alt="프로필사진" class="thumb_profile" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar.png">
+                                        </div>
+                                    </button>
+                                </a>
+                            </th:block>
+                            <th:block th:unless="${session.user eq null}">
+                                <th:block th:if="${session.user.getUserKakaoProfileUrl() eq null}">
+                                    <a href="/mypage/my-page">
+                                        <button type="button" class="btn_profile">
+                                            <div class="box_avatar_squircle">
+                                                <img  width="30" height="30" alt="프로필사진" class="thumb_profile" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar.png">
+                                            </div>
+                                        </button>
+                                    </a>
+                                </th:block>
+                                <th:block th:unless="${session.user.getUserKakaoProfileUrl() eq null}">
+                                    <a href="/mypage/my-page">
+                                        <button type="button" class="btn_profile">
+                                            <div class="box_avatar_squircle">
+                                                <img  width="30" height="30" alt="프로필사진" class="thumb_profile" th:src="${session.user.userKakaoProfileUrl}">
+                                            </div>
+                                        </button>
+                                    </a>
+                                </th:block>
+                            </th:block>
                         </gnb-profile>
                         <gnb-search>
                             <button type="button"  id="btnSearch"  class="btn_search" tabindex="0">
@@ -85,6 +109,5 @@
         </th:block>
     </div>
 </div>
-
 </body>
 </html>

@@ -1,8 +1,6 @@
 package com.app.playground.user;
 
-import com.app.playground.domain.VO.FreePostVO;
 import com.app.playground.domain.VO.UserVO;
-import com.app.playground.mapper.FreePostMapper;
 import com.app.playground.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

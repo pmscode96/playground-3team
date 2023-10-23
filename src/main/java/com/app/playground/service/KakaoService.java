@@ -82,10 +82,11 @@ public class KakaoService {
                 JsonElement kakaoAccount = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
                 JsonElement profile = kakaoAccount.getAsJsonObject().get("profile").getAsJsonObject();
 
-                userVO.setKakaoEmail(kakaoAccount.getAsJsonObject().get("email").getAsString());
-                userVO.setUserNickName(profile.getAsJsonObject().get("nickname").getAsString());
-                userVO.setUserProfile(profile.getAsJsonObject().get("thumbnail_image_url").getAsString());
+                userVO.setUserKakaoEmail(kakaoAccount.getAsJsonObject().get("email").getAsString());
+                userVO.setUserNickname(profile.getAsJsonObject().get("nickname").getAsString());
+                userVO.setUserKakaoProfileUrl(profile.getAsJsonObject().get("thumbnail_image_url").getAsString());
                 userVO.setUserSnsLoginStatus(1);
+                userVO.setUserLoginCode("KAKAO");
 
                 br.close();
             }

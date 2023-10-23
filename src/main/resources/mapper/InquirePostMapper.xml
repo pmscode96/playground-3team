@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.playground.mapper.InquirePostMapper">
+    <insert id="insertInquirePost">
+        INSERT INTO TBL_INQUIRE_POST(ID, INQUIRE_POST_TITLE, INQUIRE_POST_CONTENT, USER_ID, ADMINISTRATOR_ID, INQUIRE_POST_ANSWER)
+        VALUES (SEQ_INQUIRE_POST.NEXTVAL, #{inquirePostTitle}, #{inquirePostContent}, #{userId}, #{administratorId}, #{inquirePostAnswer})
+    </insert>
+    
+    <select id="selectInquirePost" resultType="inquirePostVO">
+        SELECT ID, INQUIRE_POST_TITLE, INQUIRE_POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, ADMINISTRATOR_ID, INQUIRE_POST_ANSWER
+        FROM TBL_INQUIRE_POST
+        WHERE ID = #{id}
+    </select>
+
+    <select id="selectAllPost" resultType="inquirePostVO">
+        SELECT ROWNUM, ID, INQUIRE_POST_TITLE, INQUIRE_POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, ADMINISTRATOR_ID, INQUIRE_POST_ANSWER
+        FROM
+            (
+                SELECT ROWNUM R, ID, INQUIRE_POST_TITLE, INQUIRE_POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, ADMINISTRATOR_ID, INQUIRE_POST_ANSWER
+                FROM
+                    (
+                        SELECT ID, INQUIRE_POST_TITLE, INQUIRE_POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, ADMINISTRATOR_ID, INQUIRE_POST_ANSWER
+                        FROM TBL_INQUIRE_POST
+                        ORDER BY ID DESC
+                    ) P1
+    <![CDATA[
+                WHERE ROWNUM <= #{pagination.endRow}
+                  AND INQUIRE_POST_TITLE  LIKE '%' || #{keyword} || '%'
+            ) P2
+        WHERE P2.R >= #{pagination.startRow}
+        ]]>
+    </select>
+
+    <select id="selectTotalInquirePost" resultType="int" >
+        SELECT COUNT(ID) FROM TBL_INQUIRE_POST
+        <if test="keyword != null and !keyword.equals('')">
+            WHERE INQUIRE_POST_TITLE LIKE '%' || #{keyword} || '%' OR INQUIRE_POST_CONTENT LIKE '%' || #{keyword} || '%'
+        </if>
+    </select>
+
+    <select id="selectSearchInquirePost" resultType="inquirePostVO">
+        SELECT ID, INQUIRE_POST_TITLE, INQUIRE_POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, ADMINISTRATOR_ID, INQUIRE_POST_ANSWER
+        FROM
+            (
+                SELECT ID, INQUIRE_POST_TITLE, INQUIRE_POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, ADMINISTRATOR_ID, INQUIRE_POST_ANSWER
+                FROM TBL_INQUIRE_POST
+                WHERE INQUIRE_POST_TITLE LIKE '%' || #{keyword} || '%' OR INQUIRE_POST_CONTENT LIKE '%' || #{keyword} || '%'
+                ORDER BY ID DESC
+            )
+        <![CDATA[
+        WHERE ROWNUM <= 10
+        ]]>
+    </select>
+
+    <update id="postUpdate">
+        UPDATE TBL_INQUIRE_POST
+        SET INQUIRE_POST_TITLE = #{inquriePostTitle}, INQUIRE_POST_CONTENT = #{inquriePostContent} , UPDATE_DATE = CURRENT_TIMESTAMP
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM TBL_INQUIRE_POST WHERE ID = #{id}
+    </delete>
+</mapper>

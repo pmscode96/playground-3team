@@ -327,7 +327,9 @@
     <footer class="footer"></footer>
 </div>
 </body>
-<script>
+<script th:inline="javascript">
+    let user = $[[${session.user}]];
+
     const button = document.querySelector(".header_div1_button svg");
     const modal = document.querySelector(".header_div1_2");
     const bc = document.querySelector(".header_div1_2 .div3");

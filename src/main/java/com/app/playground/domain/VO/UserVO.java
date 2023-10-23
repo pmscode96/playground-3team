@@ -64,20 +64,22 @@ public class UserVO implements Serializable {
 
     private boolean userStatus;
 
-    private String  userLoginCode;
+    private String userLoginCode;
 
-    private String KakaoEmail;
+    private String userKakaoEmail;
 
-    private String UserPasswordCheck;
+    private String userKakaoProfileUrl;
+
+    private String userPasswordCheck;
 
     //    SNS 로그인상태
 //    기본 값 : 0
 //    옵션 : 0 - 미사용, 1 - 카카오 로그인
-    private Integer UserSnsLoginStatus;
+    private Integer userSnsLoginStatus;
 
     //  회원 프로필
 //  not null
-    private  String UserProfile;
+    private  String userProfile;
 
-    private String UserNickName;
+    private String userNickname;
 }

@@ -1,18 +1,12 @@
 package com.app.playground.repository;
 
 
-import com.app.playground.domain.Pagination;
-import com.app.playground.domain.Search;
-import com.app.playground.domain.VO.FreePostReplyVO;
-import com.app.playground.domain.VO.FreePostVO;
 import com.app.playground.domain.VO.UserVO;
-import com.app.playground.mapper.FreePostMapper;
 import com.app.playground.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -36,9 +30,27 @@ public class UserDAO {
         return userMapper.select(userEmail);
     };
 
+    //    카카오회원 정보 조회
+    public Optional<UserVO> findByUserKakaoEmail(String userKakaoEmail){return userMapper.selectKakao(userKakaoEmail);};
+
+    //    회원 아이디로 조회
+    public Optional<UserVO> findByUserId(Long id){
+        return userMapper.selectUser(id);
+    };
+
     //    카카오 프사 수정
     public void setKakoProfile(UserVO userVO){
         userMapper.updateKakoProfile(userVO);
+    };
+
+    //    연동하기
+    public void updateBySync(UserVO userVO){
+        userMapper.updateBySync(userVO);
+    };
+
+    //    회원 삭제
+    public void delete(Long id){
+        userMapper.delete(id);
     };
 
 

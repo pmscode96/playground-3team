@@ -85,12 +85,10 @@ public class PlaygroundAdministratorController {
       String Id = (String) session.getAttribute("Id");
 
       if(loginId.isEmpty()){
-          return;
+
       }else {
           session.setAttribute("loginId",loginId);
           session.setAttribute("Id",Id);
-//          noticeService.create(noticeVO);
-          return ;
       }
     }
 
