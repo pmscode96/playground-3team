@@ -106,30 +106,111 @@ public class PostServiceImpl implements PostService {
         postDAO.replyUpdate(replyVO);
     }
 
+//    댓글 삭제
     @Override
     public void replyDelete(Long id) {
         postDAO.replyDelete(id);
     }
 
+//    자유게시판 댓글 삭제
     @Override
     public void freePostReplyDelete(Long id) {
         postDAO.freePostReplyDelete(id);
     }
 
+//    고민게시판 댓글 삭제
     @Override
     public void consultingPostReplyDelete(Long id) {
         postDAO.consultingPostReplyDelete(id);
     }
 
+//    자유게시판 좋아요
+    @Override
+    public void freePostReplyLike(FreePostReplyLikeVO freePostReplyLikeVO) {
+        postDAO.freePostReplyLike(freePostReplyLikeVO);
+    }
+
+//    자유게시판 좋아요 취소
+    @Override
+    public void freePostReplyLikeDelete(Long id) {
+        postDAO.freePostReplyLikeDelete(id);
+    }
+
+//    고민게시판 댓글 좋아요
+    @Override
+    public void consultingPostReplyLike(ConsultingPostReplyLikeVO consultingPostReplyLikeVO) {
+        postDAO.consultingPostReplyLike(consultingPostReplyLikeVO);
+    }
+
+//    고민게시판 댓글 좋아요 취소
+    @Override
+    public void consultingPostReplyLikeDelete(Long id) {
+        postDAO.consultingPostReplyLikeDelete(id);
+    }
+
+//    자유게시판 게시글 삭제
     @Override
     public void freePostDelete(Long id) {
-
+        postDAO.freePostReplyLikeDeleteAll(id);
+        postDAO.freePostReplyDeleteAll(id);
+        postDAO.freePostLikeDelete(id);
+        postDAO.freePostDelete(id);
     }
 
+//    고민게시판 게시글 삭제
     @Override
     public void consultingPostDelete(Long id) {
-
+        postDAO.consultingPostReplyLikeDeleteAll(id);
+        postDAO.consultingPostReplyDeleteAll(id);
+        postDAO.consultingPostLikeDelete(id);
+        postDAO.consultingPostDelete(id);
     }
 
+//    자유게시판 게시글 좋아요
+    @Override
+    public void freePostLike(FreePostLikeVO freePostLikeVO) {
+        postDAO.freePostLike(freePostLikeVO);
+    }
 
+//    자유게시판 게시글 좋아요 취소
+    @Override
+    public void freePostLikeDelete(Long id) {
+        postDAO.freePostLikeDelete(id);
+    }
+
+//    고민게시판 게시글 좋아요
+    @Override
+    public void consultingPostLike(ConsultingPostLikeVO consultingPostLikeVO) {
+        postDAO.consultingPostLike(consultingPostLikeVO);
+    }
+
+//    고민게시판 게시글 좋아요 취소
+    @Override
+    public void consultingPostLikeDelete(Long id) {
+        postDAO.consultingPostLikeDelete(id);
+    }
+
+//    자유게시판 해당 게시글 댓글 전체 삭제
+    @Override
+    public void freePostReplyDeleteAll(Long postId) {
+        postDAO.freePostReplyDeleteAll(postId);
+    }
+
+//    자유게시판 해당 게시글 댓글 좋아요 전체 삭제
+    @Override
+    public void freePostReplyLikeDeleteAll(Long postId) {
+        postDAO.freePostReplyLikeDeleteAll(postId);
+    }
+
+//    고민게시판 해당 게시글 댓글 전체 삭제
+    @Override
+    public void consultingPostReplyDeleteAll(Long postId) {
+        postDAO.consultingPostReplyDeleteAll(postId);
+    }
+
+//    고민게시판 해당 게시글 댓글 좋아요 전체 삭제
+    @Override
+    public void consultingPostReplyLikeDeleteAll(Long postId) {
+        postDAO.consultingPostReplyLikeDeleteAll(postId);
+    }
 }

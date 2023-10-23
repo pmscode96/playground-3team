@@ -58,4 +58,10 @@
         DELETE FROM TBL_USER
         WHERE ID = #{Id}
     </delete>
+
+    <update id="updateInfo">
+        UPDATE TBL_USER
+        SET USER_SCHOOL = #{userSchool}, USER_POSITION = #{userPosition}
+        WHERE ID = #{id}
+    </update>
 </mapper>

@@ -16,7 +16,7 @@ public class MainController {
     private final MainService mainService;
 
 
-    @GetMapping("/")
+    @GetMapping("")
     public String goToHome(Model model){
         model.addAttribute("reply", mainService.selectBestReply());
         model.addAttribute("postCount", mainService.selectPostCount());

@@ -30,5 +30,8 @@ public interface UserService {
     //    회원 삭제
     public void delete(Long id);
 
+    //    카카오 회원 정보 추가
+    public void updateInfo(UserVO userVO);
+
 
 }

@@ -82,4 +82,9 @@ public class UserServiceImpl implements UserService {
     public void delete(Long id) {
         userDAO.delete(id);
     }
+
+    @Override
+    public void updateInfo(UserVO userVO) {
+        userDAO.updateInfo(userVO);
+    }
 }

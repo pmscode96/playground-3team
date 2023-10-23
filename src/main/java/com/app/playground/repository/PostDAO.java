@@ -93,6 +93,18 @@ public class PostDAO {
 //   고민게시판 댓글 삭제
     public void consultingPostReplyDelete(Long id){postMapper.consultingPostReplyDelete(id);};
 
+//    자유게시판 댓글 좋아요
+    public void freePostReplyLike(FreePostReplyLikeVO freePostReplyLikeVO){postMapper.freePostReplyLike(freePostReplyLikeVO);};
+
+//    자유게시판 댓글 좋아요 취소
+    public void freePostReplyLikeDelete(Long id){postMapper.freePostReplyLikeDelete(id);};
+
+//    고민게시판 댓글 좋아요
+    public void consultingPostReplyLike(ConsultingPostReplyLikeVO consultingPostReplyLikeVO){postMapper.consultingPostReplyLike(consultingPostReplyLikeVO);};
+
+//    고민게시판 댓글 좋아요 취소
+    public void consultingPostReplyLikeDelete(Long id){postMapper.consultingPostReplyLikeDelete(id);};
+
 //    게시글 삭제
     public void postDelete(Long id){postMapper.postDelete(id);};
 
@@ -101,6 +113,30 @@ public class PostDAO {
 
 //    고민게시판 게시글 삭제
     public void consultingPostDelete(Long id){postMapper.consultingPostDelete(id);};
+
+//    자유게시판 게시글 좋아요
+    public void freePostLike(FreePostLikeVO freePostLikeVO){postMapper.freePostLike(freePostLikeVO);};
+
+//    자유게시판 게시글 좋아요 취소
+    public void freePostLikeDelete(Long id){postMapper.freePostLikeDelete(id);};
+
+//    고민게시판 게시글 좋아요
+    public void consultingPostLike(ConsultingPostLikeVO consultingPostLikeVO){postMapper.consultingPostLike(consultingPostLikeVO);};
+
+//    고민게시판 게시글 좋아요 취소
+    public void consultingPostLikeDelete(Long id){postMapper.consultingPostLikeDelete(id);};
+
+//    자유게시판 해당 게시물 댓글 전체 삭제
+    public void freePostReplyDeleteAll(Long postId){postMapper.freePostReplyDeleteAll(postId);};
+
+//    자유게시판 해당 게시물 댓글 좋아요 전체 삭제
+    public void freePostReplyLikeDeleteAll(Long postId){postMapper.freePostReplyLikeDeleteAll(postId);};
+
+//    고민게시판 해당 게시물 댓글 전체 삭제
+    public void consultingPostReplyDeleteAll(Long postId){postMapper.consultingPostReplyDeleteAll(postId);};
+
+//    고민게시판 해당 게시물 댓글 좋아요 전체 삭제
+    public void consultingPostReplyLikeDeleteAll(Long postId){postMapper.consultingPostReplyLikeDeleteAll(postId);};
 
 
 }

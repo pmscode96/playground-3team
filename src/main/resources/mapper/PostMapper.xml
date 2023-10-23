@@ -166,6 +166,24 @@
         WHERE ID = #{id}
     </delete>
 
+    <insert id="freePostReplyLike">
+        INSERT INTO TBL_FREE_POST_REPLY_LIKE(ID, USER_ID, REPLY_ID)
+        VALUES (SEQ_FREE_POST_REPLY_LIKE.NEXTVAL, #{userId}, #{replyId})
+    </insert>
+
+    <delete id="freePostReplyLikeDelete">
+        DELETE TBL_FREE_POST_REPLY_LIKE WHERE ID = #{id}
+    </delete>
+
+    <insert id="consultingPostReplyLike">
+        INSERT INTO TBL_CONSULTING_POST_REPLY_LIKE(ID, USER_ID, REPLY_ID)
+        VALUES (SEQ_CONSULTING_POST_REPLY_LIKE.NEXTVAL, #{userId}, #{replyId})
+    </insert>
+
+    <delete id="consultingPostReplyLikeDelete">
+        DELETE TBL_CONSULTING_POST_REPLY_LIKE WHERE ID = #{id}
+    </delete>
+
     <delete id="postDelete">
         DELETE TBL_POST
         WHERE ID = #{id}
@@ -196,24 +214,36 @@
     </insert>
 
     <delete id="consultingPostLikeDelete">
-        DELETE TBL_CONSULTING_POST_LIKE WHERE ID = #{id}
+        DELETE FROM TBL_CONSULTING_POST_LIKE WHERE ID = #{id}
     </delete>
 
-    <insert id="freePostReplyLike">
-        INSERT INTO TBL_FREE_POST_REPLY_LIKE(ID, USER_ID, REPLY_ID)
-        VALUES (SEQ_FREE_POST_REPLY_LIKE.NEXTVAL, #{userId}, #{replyId})
-    </insert>
-
-    <delete id="freePostReplyLikeDelete">
-        DELETE TBL_FREE_POST_REPLY_LIKE WHERE ID = #{id}
+    <delete id="freePostReplyDeleteAll">
+        DELETE FROM TBL_FREE_POST_REPLY WHERE POST_ID = #{postId}
     </delete>
 
-    <insert id="consultingPostReplyLike">
-        INSERT INTO TBL_CONSULTING_POST_REPLY_LIKE(ID, USER_ID, REPLY_ID)
-        VALUES (SEQ_CONSULTING_POST_REPLY_LIKE.NEXTVAL, #{userId}, #{replyId})
-    </insert>
+    <delete id="freePostReplyLikeDeleteAll">
+        DELETE FROM TBL_FREE_POST_REPLY_LIKE
+        WHERE REPLY_ID IN
+        (
+            SELECT R.ID
+            FROM TBL_FREE_POST_REPLY R
+            JOIN TBL_FREE_POST
+            ON R.POST_ID = #{postId}
+        )
+    </delete>
 
-    <delete id="consultingPostReplyLikeDelete">
-        DELETE TBL_CONSULTING_POST_REPLY_LIKE WHERE ID = #{id}
+    <delete id="consultingPostReplyDeleteAll">
+        DELETE FROM TBL_CONSULTING_POST_REPLY WHERE POST_ID = #{postId}
+    </delete>
+
+    <delete id="consultingPostReplyLikeDeleteAll">
+        DELETE FROM TBL_CONSULTING_POST_REPLY_LIKE
+        WHERE REPLY_ID IN
+        (
+            SELECT R.ID
+            FROM TBL_CONSULTING_POST_REPLY R
+            JOIN TBL_CONSULTING_POST
+            ON R.POST_ID = #{postId}
+        )
     </delete>
 </mapper>

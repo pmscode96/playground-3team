@@ -48,7 +48,12 @@
                                     <div class="link_myprofile">
                                         <strong class="txt_nick" th:text="${session.user.userDivision}"></strong>
                                         <div class="box_name">
-                                            <strong class="txt_name" th:text="${session.user.userName}" > 닉네임 </strong>
+                                            <th:block th:if="${session.user.userName != null}">
+                                                <strong class="txt_name" th:text="${session.user.userName}" > 닉네임 </strong>
+                                            </th:block>
+                                            <th:block th:unless="${session.user.userName != null}">
+                                                 <strong class="txt_name" th:text="${session.user.userNickname}" > 닉네임 </strong>
+                                            </th:block>
                                         </div>
                                     </div>
                                 </div>

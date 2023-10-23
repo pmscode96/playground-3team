@@ -29,10 +29,16 @@ public class KakaoController {
             if(session.getAttribute("user") != null){
                 id = ((UserVO)session.getAttribute("user")).getId();
             }
+
+            log.info(String.valueOf(foundInfo));
+
             userService.join(foundInfo.get(), id);
             UserVO userVO = userService.getKakaoUser(foundInfo.get().getUserKakaoEmail()).get();
-
             session.setAttribute("user", userVO);
+
+            if(userVO.getUserSchool() == null){
+                return new RedirectView("/login/teacher-and-student-kakao-join");
+            }
             return new RedirectView("/");
         }
         return new RedirectView("/login/login");

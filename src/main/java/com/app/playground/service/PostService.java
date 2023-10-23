@@ -65,11 +65,47 @@ public interface PostService {
 //   고민게시판 댓글 삭제
     public void consultingPostReplyDelete(Long id);
 
-    //    자유게시판 게시글 삭제
+//    자유게시판 댓글 좋아요
+    public void freePostReplyLike(FreePostReplyLikeVO freePostReplyLikeVO);
+
+//    자유게시판 댓글 좋아요 취소
+    public void freePostReplyLikeDelete(Long id);
+
+//    고민게시판 댓글 좋아요
+    public void consultingPostReplyLike(ConsultingPostReplyLikeVO consultingPostReplyLikeVO);
+
+//    고민게시판 댓글 좋아요 취소
+    public void consultingPostReplyLikeDelete(Long id);
+
+//    자유게시판 게시글 삭제
     public void freePostDelete(Long id);
 
-    //    고민게시판 게시글 삭제
+//    고민게시판 게시글 삭제
     public void consultingPostDelete(Long id);
+
+//    자유게시판 게시글 좋아요
+    public void freePostLike(FreePostLikeVO freePostLikeVO);
+
+//    자유게시판 게시글 좋아요 취소
+    public void freePostLikeDelete(Long id);
+
+//    고민게시판 게시글 좋아요
+    public void consultingPostLike(ConsultingPostLikeVO consultingPostLikeVO);
+
+//    고민게시판 게시글 좋아요 취소
+    public void consultingPostLikeDelete(Long id);
+
+//    자유게시판 해당 게시물 댓글 전체 삭제
+    public void freePostReplyDeleteAll(Long postId);
+
+//    자유게시판 해당 게시물 댓글 좋아요 전체 삭제
+    public void freePostReplyLikeDeleteAll(Long postId);
+
+//    고민게시판 해당 게시물 댓글 전체 삭제
+    public void consultingPostReplyDeleteAll(Long postId);
+
+//    고민게시판 해당 게시물 댓글 좋아요 전체 삭제
+    public void consultingPostReplyLikeDeleteAll(Long postId);
 
 
 }

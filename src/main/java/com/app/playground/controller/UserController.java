@@ -4,7 +4,6 @@ import com.app.playground.domain.VO.UserVO;
 import com.app.playground.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +19,7 @@ import java.util.Optional;
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/login/*")
-public class LoginController {
+public class UserController {
     private final UserService userService;
 
     @GetMapping("/id-find")
@@ -82,9 +81,26 @@ public class LoginController {
     @GetMapping("/teacher-join")
     public void goToTeacherJoin(){;}
 
+    @GetMapping("/teacher-and-student-kakao-join")
+    public void goToTeacherAndStudentKakaoJoin(){;}
+
+    @GetMapping("/student-kakao-join")
+    public void goToStudentKakoJoin(){;}
+
+    @GetMapping("/teacher-kakao-join")
+    public void goToTeacherKakaoJoin(){;}
+
     @GetMapping("/logout")
     public RedirectView logout(HttpSession session){
         session.invalidate();
         return new RedirectView("/login/login");
+    }
+
+    @GetMapping("update-info")
+    public RedirectView updateInfo(UserVO userVO, HttpSession session){
+        UserVO user = (UserVO) session.getAttribute("user");
+        userVO.setId(user.getId());
+        userService.updateInfo(userVO);
+        return new RedirectView("/");
     }
 }

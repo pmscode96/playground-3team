@@ -53,5 +53,7 @@ public class UserDAO {
         userMapper.delete(id);
     };
 
+    //    카카오 회원 정보 추가
+    public void updateInfo(UserVO userVO){userMapper.updateInfo(userVO);};
 
 }
