@@ -36,6 +36,7 @@
     <div id="dkWrap">
         <th:block th:replace="~{fragment/header :: header}"></th:block>
         <!--메인 시작-->
+
         <span id="rootContent">
             <user-header>
                 <div id="dkContent" class="cont_mypage">
@@ -46,18 +47,18 @@
                                 <h3 class="screen_out">내 프로필 정보</h3>
                                 <div class="area_name">
                                     <div class="link_myprofile">
-                                        <strong class="txt_nick" th:text="${session.user.userDivision}"></strong>
+                                        <strong class="txt_nick" th:text="${user.userDivision}"></strong>
                                         <div class="box_name">
-                                            <th:block th:if="${session.user.userName != null}">
-                                                <strong class="txt_name" th:text="${session.user.userName}" > 닉네임 </strong>
+                                            <th:block th:if="${user.userName != null}">
+                                                <strong class="txt_name" th:text="${user.userName}" > 닉네임 </strong>
                                             </th:block>
-                                            <th:block th:unless="${session.user.userName != null}">
-                                                 <strong class="txt_name" th:text="${session.user.userNickname}" > 닉네임 </strong>
+                                            <th:block th:unless="${user.userName != null}">
+                                                 <strong class="txt_name" th:text="${user.userNickname}" > 닉네임 </strong>
                                             </th:block>
                                         </div>
                                     </div>
                                 </div>
-                                <th:block th:if="${session.user.getUserKakaoProfileUrl() eq null}">
+                                <th:block th:if="${user.userKakaoProfileUrl eq null}">
                                     <div class="area_thumb">
                                     <a  class="link_thumb" href="">
                                         <span class="profile_thumb">
@@ -66,11 +67,11 @@
                                     </a>
                                 </div>
                                 </th:block>
-                                <th:block th:unless="${session.user.getUserKakaoProfileUrl() eq null}">
+                                <th:block th:unless="${user.userKakaoProfileUrl eq null}">
                                     <div class="area_thumb">
                                     <a  class="link_thumb" href="">
                                         <span class="profile_thumb">
-                                            <img alt="프로필 사진" class="img_thumb" th:src="${session.user.getUserKakaoProfileUrl()}">
+                                            <img alt="프로필 사진" class="img_thumb" th:src="${user.userKakaoProfileUrl}">
                                         </span>
                                     </a>
                                 </div>
@@ -109,7 +110,7 @@
                                                         글 목록
                                                     </a>
                                                 </li>
-                                                <th:block th:if="${session.user.userDivision == 1}">
+                                                <th:block th:if="${user.userDivision == 1}">
                                                      <li>
                                                         <a class="link_menu" href="my-page-example-teacher.html">
                                                             예상문제
@@ -414,6 +415,7 @@
                 </div>
             </user-header>
         </span>
+
         <!--메인 끝-->
         <hr class="hr">
         <!--푸터 시작-->
@@ -425,7 +427,8 @@
 <script type="text/javascript" src="/js/mypage/my-page.js">
 </script>
 <script th:inline="javascript">
-    let user = [[${session.user}]]
+    let users = [[${user}]]
+    console.log(users)
     $('.txt_nick').text($('.txt_nick').text() == 0 ? "학생" : "교사") ;
 </script>
 </html>

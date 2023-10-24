@@ -22,17 +22,57 @@ import java.util.Optional;
 @RequestMapping("/mypage/*")
 public class MyPageController {
     private final UserService userService;
+    private final HttpSession session;
 
     @GetMapping("/edit-profile")
-    public void goToEditProfile(){
-        ;
+    public void goToEditProfile(Model model) {
+        UserVO currentUser = (UserVO)session.getAttribute("user");
+        if (currentUser != null) {
+            Optional<UserVO> foundUser = userService.getUserById(currentUser.getId());
+            if (foundUser.isPresent()) {
+                log.info(foundUser.get().toString());
+                model.addAttribute("user", foundUser.get());
+            } else {
+                log.error("User not found with id: " + currentUser.getId());
+                // Handle user not found case
+            }
+        } else {
+            log.error("No user in session");
+            // Handle no user in session case
+        }
+    }
+
+    @PostMapping("/edit-profile")
+    public RedirectView updateProfile(UserVO userVO){
+        UserVO currentUser = (UserVO)session.getAttribute("user");
+        userVO.setId(currentUser.getId());
+        log.info(String.valueOf(userVO));
+        userService.updateUser(userVO);
+//        Optional<UserVO> foundUser = userService.getUserById(userVO.getId());
+//        session.setAttribute("user", foundUser);
+        return new RedirectView("/mypage/my-page");
     }
 
     @GetMapping("/inquiry")
     public void goToInquiry(){;}
 
     @GetMapping("/my-page")
-    public void goToMyPage(Model model){;}
+    public void goToMyPage(Model model){;
+        UserVO currentUser = (UserVO)session.getAttribute("user");
+        if (currentUser != null) {
+            Optional<UserVO> foundUser = userService.getUserById(currentUser.getId());
+            if (foundUser.isPresent()) {
+                log.info(foundUser.get().toString());
+                model.addAttribute("user", foundUser.get());
+            } else {
+                log.error("User not found with id: " + currentUser.getId());
+                // Handle user not found case
+            }
+        } else {
+            log.error("No user in session");
+            // Handle no user in session case
+        }
+    }
 
 
     @GetMapping("/preferences")

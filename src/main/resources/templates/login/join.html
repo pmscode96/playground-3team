@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JOIN</title>
     <link rel="stylesheet" href="/css/login/join.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 </head>
 <body>
 <div id="wrap">
@@ -65,13 +66,17 @@
                                 <div class="phone_div1">
                                     <div class="phone_div2">
                                         <div class="phone_div3">
-                                            <input type="text" th:field="*{userPhone}" placeholder="010-0000-0000">
+                                            <input type="text" th:field="*{userPhone}" placeholder="010-00000-0000" class="userPhoneNum" th:onblur="validatePhoneNumber()">
                                         </div>
+
                                     </div>
-                                    <button class="phone_b1">
+                                    <button type="button" class="phone_b1" id="phone_b1" disabled>
                                         인증번호 발송
                                     </button>
                                 </div>
+                            </div>
+                            <div id="errorMessge" style="display: none; position: absolute; height: 30px;  align-items: center; padding-left: 15px;">
+                                <p style="color: red; font-size: 15px;">잘못된 번호입니다.</p>
                             </div>
                             <div class="phonecheck" style="margin-top: 24px">
                                 <label>
@@ -79,23 +84,15 @@
                                 </label>
                                 <div class="phonecheck_div1">
                                     <div class="phonecheck_div2">
-                                        <input type="text">
+                                        <input type="text" id="checkNum">
                                     </div>
-                                    <button class="phonecheck_b1">
+                                    <button type="button" class="phonecheck_b1">
                                         인증하기
                                     </button>
                                 </div>
                             </div>
-<!--                            <div class="email" style="margin-top: 24px">-->
-<!--                                <label>-->
-<!--                                    <span>학교</span>-->
-<!--                                </label>-->
-<!--                                <div class="email_div1">-->
-<!--                                    <input th:field="*{userSchool}">-->
-<!--                                </div>-->
-<!--                            </div>-->
                             <div class="join" style="margin-top: 24px">
-                                <button>가입하기</button>
+                                <button id="join" disabled>가입하기</button>
                             </div>
                         </div>
                     </form>
@@ -116,7 +113,8 @@
     </div>
 </div>
 </body>
-<script>
+<script type="text/javascript" src="/js/login/join.js"></script>
+<script th:inline="javascript">
 
     function inp(){
         const input = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3 .d3_1 input[name=in]");
@@ -131,15 +129,6 @@
             span2.style.visibility = 'visible';
         }
     }
-
-    // const button = document.querySelector(".main1_article1 .div1 .div2 .form1 .d4 .bt1");
-    // button.addEventListener("click", (e) => {
-    //     const input1 = document.querySelector(".main1_article1 .div1 .div2 .form1 .d1 .d1_1 input");
-    //     const alert = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3_5");
-    //     if(input1.value === ""){
-    //         alert.style.display = 'block';
-    //     }
-    // })
 
     const b1 = document.querySelector('.phone_b1');
     b1.addEventListener("mouseover", (e) => {
@@ -158,6 +147,75 @@
     b2.addEventListener("mouseout", (e) => {
         e.target.style.backgroundColor = '#dcdcdc';
     })
+
+    function validatePhoneNumber() {
+        var phoneNumberInput = $('.userPhoneNum');
+        var phoneNumber = phoneNumberInput.val().replace(/-/g, ''); // '-' 제거
+        var pattern = /^(010|011|016|017|018|019)-?\d{3,4}-?\d{4}$/;
+        var button = $('#phone_b1');
+        var errorMessage = document.getElementById('errorMessge');
+
+        // '-' 없는 경우, 형식에 맞게 변환
+        if (phoneNumber.length === 10) {
+            phoneNumber = phoneNumber.slice(0, 3) + '-' + phoneNumber.slice(3, 6) + '-' + phoneNumber.slice(6);
+        } else if (phoneNumber.length === 8) {
+            phoneNumber = '010-' + phoneNumber.slice(0, 4) + '-' + phoneNumber.slice(4);
+        } else if (phoneNumber.length === 11) {
+            phoneNumber = phoneNumber.slice(0, 3) + '-' + phoneNumber.slice(3, 7) + '-' + phoneNumber.slice(7);
+        }
+
+        phoneNumberInput.val(phoneNumber);
+
+        if (pattern.test(phoneNumber)) {
+            phoneNumberInput.css({'border': '1px solid #ddd', 'color': 'black'});
+            errorMessage.style.display = "none";
+            button.prop('disabled', false);
+            return $.ajax({
+                type: "GET",
+                url: "/check/phone",
+                data: { phoneNumber: phoneNumber },
+            });
+        } else {
+            $('.userPhoneNum').css({'border': '1px solid red', 'color': 'red'});
+            button.prop('disabled', true);
+            errorMessage.style.display = "flex";
+            return $.Deferred().reject();  // 에러 상태로 리턴
+        }
+    }
+
+    // 인증번호 발송 쿼리
+    $('#phone_b1').click(function() {
+        validatePhoneNumber().done(function(exists) {
+            console.log(exists)
+            if (exists === true) {
+                alert("이미 사용 중인 전화번호입니다.");
+            } else {
+                var phoneNumber = $('#userPhone').val().replace(/-/g, "");
+                $.ajax({
+                    type: "GET",
+                    url: "/check/sendSMS",
+                    data: {
+                        "phoneNumber" : phoneNumber
+                    },
+                    success: function(res){
+                        $('.phonecheck_b1').click(function(){
+                            if($.trim(res) === $('#checkNum').val()){
+                                join.disabled = false
+                                join.style.backgroundColor = "#191919";
+                                join.style.borderColor = "#191919";
+                            }else{
+                                alert("인증번호가 일치하지 않습니다!")
+                            }
+                        })
+                    }
+                });
+            }
+        }).fail(function() {
+            // 에러 처리
+        });
+    });
+
+
 
 </script>
 </html>

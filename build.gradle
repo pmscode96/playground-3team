@@ -35,11 +35,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation group: 'org.json', name: 'json', version: '20200518'
-//	// https://mvnrepository.com/artifact/javax.activation/activation
-//	implementation 'javax.activation:activation:1.1'
-//	// https://mvnrepository.com/artifact/com.sun.mail/javax.mail
-//	implementation 'com.sun.mail:javax.mail:1.4.7'
-//	compile group: 'net.nurigo', name: 'javaSDK', version: '2.2'
+	implementation group: 'net.nurigo', name: 'javaSDK', version: '2.2'
 }
 
 tasks.named('test') {

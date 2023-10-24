@@ -47,7 +47,7 @@ public class UserVO implements Serializable {
     private Integer teacherExsit;
 
 //    성별
-    private Integer userGender;
+    private String userGender;
 
 //    나이
     private Integer userAge;

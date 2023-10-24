@@ -25,12 +25,16 @@ public class UserController {
     @GetMapping("/id-find")
     public void goToIdFind(){;}
 
+    @PostMapping("/id-find")
+    public void idFind(){;
+
+    }
+
     @GetMapping("/id-find-success")
     public void goToIdFindSuccess(){;}
 
     @GetMapping("/join")
     public void goToJoinForm(UserVO userVO, Model model){
-        log.info(String.valueOf(userVO));
         model.addAttribute("userSchool", userVO);
     }
 
@@ -103,4 +107,6 @@ public class UserController {
         userService.updateInfo(userVO);
         return new RedirectView("/");
     }
+
+
 }

@@ -87,4 +87,20 @@ public class UserServiceImpl implements UserService {
     public void updateInfo(UserVO userVO) {
         userDAO.updateInfo(userVO);
     }
+
+    @Override
+    public boolean userPhone(String phoneNumber) {
+        String phone = userDAO.findUserPhone(phoneNumber);
+        return phone != null;
+    }
+
+    @Override
+    public void updateUserPhone(UserVO userVO) {
+        userDAO.updateUserPhone(userVO);
+    }
+
+    @Override
+    public void updateUser(UserVO userVO) {
+        userDAO.updateUser(userVO);
+    }
 }

@@ -64,4 +64,21 @@
         SET USER_SCHOOL = #{userSchool}, USER_POSITION = #{userPosition}
         WHERE ID = #{id}
     </update>
+
+    <select id="selectPhone" resultType="String">
+        SELECT USER_PHONE FROM TBL_USER WHERE USER_PHONE = #{userPhone}
+    </select>
+
+    <update id="updateUserPhone">
+        UPDATE TBL_USER
+        SET USER_PHONE = #{userPhone}
+        WHERE ID = #{id}
+    </update>
+
+    <update id="updateUser">
+        UPDATE TBL_USER
+        SET USER_NAME = #{userName}, USER_AGE = #{userAge}, USER_GENDER = #{userGender} ,USER_SCHOOL = #{userSchool}, UPDATE_DATE = CURRENT_TIMESTAMP
+        WHERE ID = #{id}
+    </update>
+
 </mapper>

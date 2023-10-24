@@ -42,4 +42,13 @@ public interface UserMapper {
 //    카카오 회원 정보 추가
     public void updateInfo(UserVO userVO);
 
+//    핸드폰번호 있는지 조회
+    public String selectPhone(String userPhone);
+
+//    핸드폰번호 업데이트
+    public void updateUserPhone(UserVO userVO);
+
+//    유저 정보 업데이트
+    public void updateUser(UserVO userVO);
+
 }
