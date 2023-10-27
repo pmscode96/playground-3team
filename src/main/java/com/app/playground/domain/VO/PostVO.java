@@ -17,6 +17,9 @@ public class PostVO {
 //    게시물 내용
     private String postContent;
 
+//    카테고리
+    private String category;
+
 //    생성날짜
     private LocalDateTime createDate;
 

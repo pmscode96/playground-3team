@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
@@ -30,5 +31,16 @@ public class CheckController {
         UserVO userVO = (UserVO) session.getAttribute("user");
         userVO.setUserPhone(phoneNumber);
         userService.updateUserPhone(userVO);
+    }
+
+    @GetMapping("/check/email")
+    public ResponseEntity<Boolean> checkUserEmail(@RequestParam String userEmail){
+        boolean check = false;
+        Optional<UserVO> foundUser = userService.getUser(userEmail);
+        if (foundUser.isPresent()){
+            check = true;
+            return ResponseEntity.ok(check);
+        }
+        return ResponseEntity.ok(check);
     }
 }

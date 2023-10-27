@@ -103,4 +103,19 @@ public class UserServiceImpl implements UserService {
     public void updateUser(UserVO userVO) {
         userDAO.updateUser(userVO);
     }
+
+    @Override
+    public Optional<UserVO> findId(UserVO userVO) {
+        return userDAO.findId(userVO);
+    }
+
+    @Override
+    public Long findPw(UserVO userVO) {
+        return userDAO.findPw(userVO);
+    }
+
+    @Override
+    public void updatePw(UserVO userVO) {
+        userDAO.updatePw(userVO);
+    }
 }

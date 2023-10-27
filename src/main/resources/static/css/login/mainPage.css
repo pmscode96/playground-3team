@@ -3191,7 +3191,7 @@ h4 {
 }
 .main_div2_section2 .div1 .div5 .d2{
     cursor: pointer;
-    overflow: scroll;
+    /*overflow: scroll;*/
     /*overflow: scroll;*/
 }
 .main_div2_section2 .div1 .div5 .d2 .d2_1{

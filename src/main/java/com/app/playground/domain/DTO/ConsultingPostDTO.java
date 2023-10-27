@@ -17,6 +17,9 @@ public class ConsultingPostDTO {
     //    내용
     private String postContent;
 
+    //    카테고리
+    private String category;
+
     //        생성 날짜
     private LocalDateTime createDate;
     //        업데이트 날짜
@@ -37,4 +40,6 @@ public class ConsultingPostDTO {
     private Integer userDivision;
 
     private Integer rownum;
+
+    private String userKakaoProfileUrl;
 }

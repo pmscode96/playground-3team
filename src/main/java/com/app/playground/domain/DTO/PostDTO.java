@@ -18,6 +18,9 @@ public class PostDTO implements Serializable {
     //    내용
     private String postContent;
 
+//    카테고리
+    private String category;
+
     //        생성 날짜
     private LocalDateTime createDate;
     //        업데이트 날짜
@@ -36,6 +39,8 @@ public class PostDTO implements Serializable {
     private String userSchool;
 
     private Integer userDivision;
+
+    private String userKakaoProfileUrl;
 
     private Integer rownum;
 }

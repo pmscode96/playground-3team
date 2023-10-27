@@ -65,4 +65,13 @@ public class UserDAO {
 //    유저 정보 업데이트
     public void updateUser(UserVO userVO){userMapper.updateUser(userVO);};
 
+//  유저 아이디 찾기
+    public Optional<UserVO> findId(UserVO userVO){return userMapper.findId(userVO);};
+
+//    유저 비밀번호 찾기
+    public Long findPw(UserVO userVO){return userMapper.findPw(userVO);};
+
+    //    비밀번호 변경
+    public void updatePw(UserVO userVO){userMapper.updatePw(userVO);};
+
 }

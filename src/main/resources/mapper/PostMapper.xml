@@ -5,8 +5,8 @@
         <selectKey keyProperty="id" order="BEFORE" resultType="Long">
             SELECT SEQ_POST.NEXTVAL FROM DUAL
         </selectKey>
-        INSERT INTO TBL_POST (ID, POST_TITLE, POST_CONTENT)
-        VALUES (#{id}, #{postTitle}, #{postContent})
+        INSERT INTO TBL_POST (ID, POST_TITLE, POST_CONTENT, CATEGORY)
+        VALUES (#{id}, #{postTitle}, #{postContent}, #{category})
     </insert>
 
     <insert id="insertFreePost">
@@ -18,14 +18,14 @@
     </insert>
 
     <select id="selectFreePost" resultType="freePostDTO">
-        SELECT FP.ID, POST_TITLE, POST_CONTENT, FP.CREATE_DATE, FP.UPDATE_DATE, USER_ID, U.USER_NAME, USER_NICKNAME, USER_SCHOOL, USER_DIVISION
+        SELECT FP.ID, POST_TITLE, POST_CONTENT, FP.CREATE_DATE, FP.UPDATE_DATE, USER_ID, U.USER_NAME, USER_NICKNAME, USER_SCHOOL, USER_DIVISION, USER_KAKAO_PROFILE_URL
         FROM VIEW_FREE_POST FP
         JOIN TBL_USER U ON U.ID = FP.USER_ID
         WHERE FP.ID = #{id}
     </select>
 
     <select id="selectConsultingPost" resultType="consultingPostDTO">
-        SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID, U.USER_NAME, USER_NICKNAME, USER_SCHOOL, USER_DIVISION
+        SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID, U.USER_NAME, USER_NICKNAME, USER_SCHOOL, USER_DIVISION, USER_KAKAO_PROFILE_URL
         FROM VIEW_CONSULTING_POST CP
         JOIN TBL_USER U ON U.ID = CP.USER_ID
         WHERE CP.ID = #{id}
@@ -42,6 +42,9 @@
                         FROM VIEW_FREE_POST FP
                         JOIN TBL_USER U
                         ON FP.USER_ID = U.ID
+                        <if test="userId != null">
+                            WHERE USER_ID = #{userId}
+                        </if>
                         ORDER BY ID DESC
                     ) P1
     <![CDATA[
@@ -51,6 +54,7 @@
         WHERE P2.R >= #{pagination.startRow}
         ]]>
     </select>
+
 
     <select id="selectTotalFreePost" resultType="int" >
         SELECT COUNT(ID) FROM VIEW_FREE_POST
@@ -69,8 +73,11 @@
                     (
                         SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID , USER_NAME, USER_SCHOOL, USER_DIVISION
                         FROM VIEW_CONSULTING_POST CP
-                                 JOIN TBL_USER U
-                                      ON CP.USER_ID = U.ID
+                        JOIN TBL_USER U
+                        ON CP.USER_ID = U.ID
+                        <if test="userId != null">
+                            WHERE USER_ID = #{userId}
+                        </if>
                         ORDER BY ID DESC
                     ) P1
     <![CDATA[
@@ -89,15 +96,15 @@
     </select>
 
     <select id="selectSearchFreePost" resultType="freePostDTO">
-        SELECT FP.ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION
+        SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL
         FROM
             (
-                SELECT FP.ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION
+                SELECT FP.ID, POST_TITLE, POST_CONTENT, FP.CREATE_DATE, FP.UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL
                 FROM VIEW_FREE_POST FP
                 JOIN TBL_USER U
                 ON FP.USER_ID = U.ID
                 WHERE POST_TITLE LIKE '%' || #{keyword} || '%' OR POST_CONTENT LIKE '%' || #{keyword} || '%'
-                ORDER BY ID DESC
+                ORDER BY FP.ID DESC
             )
         <![CDATA[
         WHERE ROWNUM <= 10
@@ -105,10 +112,10 @@
     </select>
 
     <select id="selectSearchConsultingPost" resultType="consultingPostDTO">
-        SELECT CP.ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION
+        SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION
         FROM
             (
-                SELECT CP.ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION
+                SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION
                 FROM TBL_POST P JOIN TBL_CONSULTING_POST CP
                 ON P.ID = CP.ID
                 JOIN TBL_USER U
@@ -141,9 +148,25 @@
     </insert>
 
     <insert id="consultingPostReplyInsert">
-        INSERT INTO TBL_FREE_POST_REPLY (ID, POST_ID, USER_ID)
+        INSERT INTO TBL_CONSULTING_POST_REPLY (ID, POST_ID, USER_ID)
         VALUES (#{id}, #{postId}, #{userId})
     </insert>
+
+    <select id="freePostReplyList" resultType="replyDTO">
+        SELECT R.ID, REPLY_CONTENT, R.CREATE_DATE, POST_ID, USER_ID, USER_NAME, USER_SCHOOL, USER_NICKNAME, USER_KAKAO_PROFILE_URL
+        FROM TBL_REPLY R JOIN SCOTT.TBL_FREE_POST_REPLY FR
+        ON R.ID = FR.ID
+        JOIN TBL_USER U ON FR.USER_ID = U.ID
+        WHERE POST_ID = #{postId}
+    </select>
+
+    <select id="consultingPostReplyList" resultType="replyDTO">
+        SELECT R.ID, REPLY_CONTENT, R.CREATE_DATE, POST_ID, USER_ID, USER_NAME, USER_SCHOOL, USER_NICKNAME, USER_KAKAO_PROFILE_URL
+        FROM TBL_REPLY R JOIN SCOTT.TBL_CONSULTING_POST_REPLY CR
+        ON R.ID = CR.ID
+        JOIN TBL_USER U ON CR.USER_ID = U.ID
+        WHERE POST_ID = #{postId}
+    </select>
 
     <update id="replyUpdate">
         UPDATE TBL_REPLY
@@ -221,6 +244,10 @@
         DELETE FROM TBL_FREE_POST_REPLY WHERE POST_ID = #{postId}
     </delete>
 
+    <delete id="freePostReplyLikeDeleteAllByReplyId">
+        DELETE FROM TBL_FREE_POST_REPLY_LIKE RL WHERE REPLY_ID = #{replyId}
+    </delete>
+
     <delete id="freePostReplyLikeDeleteAll">
         DELETE FROM TBL_FREE_POST_REPLY_LIKE
         WHERE REPLY_ID IN
@@ -234,6 +261,10 @@
 
     <delete id="consultingPostReplyDeleteAll">
         DELETE FROM TBL_CONSULTING_POST_REPLY WHERE POST_ID = #{postId}
+    </delete>
+
+    <delete id="consultingPostReplyLikeDeleteAllByReplyId">
+        DELETE FROM TBL_CONSULTING_POST_REPLY_LIKE  WHERE REPLY_ID = #{replyId}
     </delete>
 
     <delete id="consultingPostReplyLikeDeleteAll">

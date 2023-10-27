@@ -81,4 +81,19 @@
         WHERE ID = #{id}
     </update>
 
+    <select id="findId" resultType="userVO">
+        SELECT ID, USER_NAME, USER_NICKNAME, USER_EMAIL FROM TBL_USER
+        WHERE USER_NAME = #{userName} AND USER_PHONE = #{userPhone}
+    </select>
+
+    <select id="findPw" resultType="Long">
+        SELECT ID FROM TBL_USER
+        WHERE USER_EMAIL = #{userEmail} AND USER_PHONE = #{userPhone}
+    </select>
+
+    <update id="updatePw">
+        UPDATE TBL_USER
+        SET USER_PASSWORD = #{userPassword}
+        WHERE ID = #{id}
+    </update>
 </mapper>

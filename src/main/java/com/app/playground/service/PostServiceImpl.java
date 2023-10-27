@@ -1,11 +1,10 @@
 package com.app.playground.service;
 
+import com.app.playground.domain.*;
 import com.app.playground.domain.DTO.ConsultingPostDTO;
 import com.app.playground.domain.DTO.FreePostDTO;
 import com.app.playground.domain.DTO.PostDTO;
-import com.app.playground.domain.PostSearchDTO;
-import com.app.playground.domain.Pagination;
-import com.app.playground.domain.Search;
+import com.app.playground.domain.DTO.ReplyDTO;
 import com.app.playground.domain.VO.*;
 import com.app.playground.repository.PostDAO;
 import lombok.RequiredArgsConstructor;
@@ -48,14 +47,14 @@ public class PostServiceImpl implements PostService {
 
 //    자유게시판 리스트
     @Override
-    public List<FreePostDTO> freePostList(Pagination pagination, Search search, String keyword) {
-        return postDAO.selectFreePostList(pagination, search, keyword);
+    public List<FreePostDTO> freePostList(Pagination pagination, Search search, String keyword, Long userId) {
+        return postDAO.selectFreePostList(pagination, search, keyword, userId);
     }
 
 //    고민게시판 리스트
     @Override
-    public List<ConsultingPostDTO> consultingPostList(Pagination pagination, Search search, String keyword) {
-        return postDAO.selectConsultingPostList(pagination, search, keyword);
+    public List<ConsultingPostDTO> consultingPostList(Pagination pagination, Search search, String keyword, Long userId) {
+        return postDAO.selectConsultingPostList(pagination, search, keyword, userId);
     }
 
     @Override
@@ -79,28 +78,52 @@ public class PostServiceImpl implements PostService {
         return postSearchDTO;
     }
 
+    @Override
+    public FreePostSearchDTO searchFreePost(Search search) {
+        FreePostSearchDTO freePostSearchDTO = new FreePostSearchDTO();
+        freePostSearchDTO.setFreePosts(postDAO.selectSearchFreePost(search));
+        freePostSearchDTO.setPostsTotalCount(postDAO.selectTotalFreePost(search));
+        return freePostSearchDTO;
+    }
+
+    @Override
+    public ConsultingPostSearchDTO searchConsultingPost(Search search) {
+        ConsultingPostSearchDTO consultingPostSearchDTO = new ConsultingPostSearchDTO();
+        consultingPostSearchDTO.setConsultingPosts(postDAO.selectSearchConsultingPost(search));
+        consultingPostSearchDTO.setPostsTotalCount(postDAO.selectTotalConsultingPost(search));
+        return consultingPostSearchDTO;
+    }
+
 //    게시물 수정
     @Override
     public void postUpdate(PostVO postVO) {
         postDAO.postUpdate(postVO);
     }
 
+
     @Override
-    public void replyInsert(ReplyVO replyVO) {
-        postDAO.replyInsert(replyVO);
+    public void freePostReplyInsert(ReplyDTO replyDTO) {
+        postDAO.replyInsert(replyDTO);
+        postDAO.freePostReplyInsert(replyDTO);
     }
 
     @Override
-    public void freePostReplyInsert(FreePostReplyVO freePostReplyVO) {
-        postDAO.freePostReplyInsert(freePostReplyVO);
+    public void consultingPostReplyInsert(ReplyDTO replyDTO) {
+        postDAO.replyInsert(replyDTO);
+        postDAO.consultingPostReplyInsert(replyDTO);
     }
 
     @Override
-    public void consultingPostReplyInsert(ConsultingPostReplyVO consultingPostReplyVO) {
-        postDAO.consultingPostReplyInsert(consultingPostReplyVO);
+    public List<ReplyDTO> freePostReplyList(Long postId) {
+        return postDAO.freePostReplyList(postId);
     }
 
-//    게시물 댓글 수정
+    @Override
+    public List<ReplyDTO> consultingPostReplyList(Long postId) {
+        return postDAO.consultingPostReplyList(postId);
+    }
+
+    //    게시물 댓글 수정
     @Override
     public void replyUpdate(ReplyVO replyVO) {
         postDAO.replyUpdate(replyVO);
@@ -212,5 +235,15 @@ public class PostServiceImpl implements PostService {
     @Override
     public void consultingPostReplyLikeDeleteAll(Long postId) {
         postDAO.consultingPostReplyLikeDeleteAll(postId);
+    }
+
+    @Override
+    public void freePostReplyLikeDeleteAllByReplyId(Long replyId) {
+        postDAO.freePostReplyLikeDeleteAllByReplyId(replyId);
+    }
+
+    @Override
+    public void consultingPostReplyLikeDeleteAllByReplyId(Long replyId) {
+        postDAO.consultingPostReplyLikeDeleteAllByReplyId(replyId);
     }
 }

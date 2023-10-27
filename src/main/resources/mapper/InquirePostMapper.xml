@@ -19,8 +19,13 @@
                 SELECT ROWNUM R, ID, INQUIRE_POST_TITLE, INQUIRE_POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, ADMINISTRATOR_ID, INQUIRE_POST_ANSWER
                 FROM
                     (
-                        SELECT ID, INQUIRE_POST_TITLE, INQUIRE_POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, ADMINISTRATOR_ID, INQUIRE_POST_ANSWER
-                        FROM TBL_INQUIRE_POST
+                        SELECT IP.ID, INQUIRE_POST_TITLE, INQUIRE_POST_CONTENT, IP.CREATE_DATE, IP.UPDATE_DATE, USER_ID, ADMINISTRATOR_ID, INQUIRE_POST_ANSWER
+                        FROM TBL_INQUIRE_POST IP
+                        JOIN TBL_USER U
+                        ON IP.USER_ID = U.ID
+                        <if test="userId != null">
+                            WHERE USER_ID = #{userId}
+                        </if>
                         ORDER BY ID DESC
                     ) P1
     <![CDATA[

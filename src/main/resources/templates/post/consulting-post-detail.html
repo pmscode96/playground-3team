@@ -36,15 +36,11 @@
         <div class="sc-8aeb359-0 hFOIQn sc-1a3c6e24-1 HgrJa">
             <div class="sc-1a3c6e24-2 idgDx">
                 <div class="sc-2d400d90-0 eSgzBo">
-                    <h3 color="black" class="sc-8aeb359-0 hymUBJ sc-5dc55ca7-0 sc-2d400d90-1 exRItp Papik">게시글 제목</h3>
+                    <h3 color="black" class="sc-8aeb359-0 hymUBJ sc-5dc55ca7-0 sc-2d400d90-1 exRItp Papik" th:text="${session.post.postTitle}">게시글 제목</h3>
                     <div class="sc-8aeb359-0 hFOIQn sc-dd445c0e-0 fkDnWj count_information_container">
                         <div class="sc-8aeb359-0 gVnVx sc-dd445c0e-2 daNeIt count_container" role="text">
                             <div aria-label="" class="sc-dd445c0e-3 jdwAGc number_count">
-                                <em size="25" color="black" aria-hidden="true" class="sc-5dc55ca7-0 sc-dd445c0e-6 dydokl hA-dlL text_amount_total">
-                                    요즘 들어 성적이 오르지 않아 고민입니다.<br>
-                                    입맛도 없고 친구들과의 관계도 영 좋지 않은것 같습니다.<br>
-                                    혹시 이런 상황을 경험하거나<br>
-                                    경험했다면 어떻게 헤쳐나갔는지 알려주세요.<br>
+                                <em size="25" color="black" aria-hidden="true" class="sc-5dc55ca7-0 sc-dd445c0e-6 dydokl hA-dlL text_amount_total" th:text="${session.post.postContent}">
                                 </em>
                             </div>
                         </div>
@@ -62,8 +58,13 @@
             <div class="sc-8aeb359-0 hFOIQn sc-611af9b7-0 bTWOMX textarea_field ">
                 <div class="sc-8aeb359-0 hFOIQn sc-611af9b7-1 bfKFmo textarea_field_box">
                     <div class="sc-8aeb359-0 cppPdh sc-611af9b7-8 jDMVzj writer_profile_container">
-                        <div src="https://t1.kakaocdn.net/together_image/common/avatar/avatar03.png" class="sc-8d574ded-0 llYZxn"></div>
-                        <strong class="sc-5dc55ca7-0 joehHl">닉네임</strong>
+                        <th:block th:if="${session.post.userKakaoProfileUrl eq null}">
+                            <div src="https://t1.kakaocdn.net/together_image/common/avatar/avatar03.png" class="sc-8d574ded-0 llYZxn"></div>
+                        </th:block>
+                        <th:block th:unless="${session.post.userKakaoProfileUrl eq null}">
+                            <div th:src="${user.userKakaoProfileUrl}" class="sc-8d574ded-0 llYZxn"></div>
+                        </th:block>
+                        <strong class="sc-5dc55ca7-0 joehHl" th:text="${session.post.userName}">닉네임</strong>
                     </div>
                     <label>
                         <textarea name="textForm" placeholder="따뜻한 댓글을 남겨주세요" class="sc-611af9b7-2 cOpjMa textarea"></textarea>
@@ -81,7 +82,7 @@
     </div>
     <div class="sc-8aeb359-0 ejoHza sc-36758169-0 BkBuU">
         <!--댓글 수-->
-        <strong class="sc-5dc55ca7-0 joehHl">댓글 20</strong>
+        <strong class="sc-5dc55ca7-0 joehHl" th:text="|댓글 ${#lists.size(session.replys)}|">댓글 20</strong>
     </div>
     <div class="sc-8aeb359-0 eussnB sc-36758169-1 lkolbO">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 21 20" width="16" height="16" opacity="1" class="sc-62ee9b1b-0 ffgRtj">
@@ -114,33 +115,48 @@
     <div class="sc-8aeb359-0 hTiRNC">
         <div class="sc-929b507f-0 eaFmFC">
             <!--댓글 한칸-->
-            <div class="sc-8aeb359-0 hFOIQn sc-16ecadde-0 byUxfv">
+            <th:block th:each="reply:${session.replys}" th:object="${reply}">
+                <div class="sc-8aeb359-0 hFOIQn sc-16ecadde-0 byUxfv">
                 <div class="sc-16ecadde-1 iSRxwL">
                     <!--유저 프로필 사진-->
-                    <div src="https://mk.kakaocdn.net/dn/together/images/profile02.png" class="sc-8d574ded-0 jokdLx"></div>
+<!--                    <div src="https://mk.kakaocdn.net/dn/together/images/profile02.png" class="sc-8d574ded-0 jokdLx"></div>-->
+                    <th:block th:if="*{userKakaoProfileUrl eq null}">
+                        <div src="https://t1.kakaocdn.net/together_image/common/avatar/avatar03.png" class="sc-8d574ded-0 llYZxn"></div>
+                    </th:block>
+                    <th:block th:unless="*{userKakaoProfileUrl eq null}">
+                        <div th:src="*{userKakaoProfileUrl}" class="sc-8d574ded-0 llYZxn"></div>
+                    </th:block>
                 </div>
                 <div class="sc-16ecadde-3 eUXhAe">
                     <div class="sc-8aeb359-0 jlmfeS sc-16ecadde-4 gaWxlP">
                         <div class="sc-16ecadde-5 eiLDmy">
-                            <strong color="gray80" class="sc-5dc55ca7-0 sc-16ecadde-16 bzlbaf eIckjY">닉네임</strong>
+                            <strong color="gray80" class="sc-5dc55ca7-0 sc-16ecadde-16 bzlbaf eIckjY" th:text="*{userName}">닉네임</strong>
                         </div>
                         <!--댓글내용-->
-                        <p color="black" class="sc-5dc55ca7-0 sc-16ecadde-7 joFBAH kzbaPc">응원합니다</p>
+                        <p color="black" class="sc-5dc55ca7-0 sc-16ecadde-7 joFBAH kzbaPc" th:text="*{replyContent}">응원합니다</p>
                     </div>
                     <div class="sc-8aeb359-0 jvkAoc sc-16ecadde-8 iYyHTX">
-                        <span color="gray60" class="sc-5dc55ca7-0 qPkKe">2023.9.20</span>
+                        <span color="gray60" class="sc-5dc55ca7-0 qPkKe replyTime" th:text="*{createDate}">2023.9.20</span>
                     </div>
                 </div>
             </div>
+            </th:block>
             <!--댓글 한칸-->
         </div>
         <div class="sc-8aeb359-0 jwCSyt sc-929b507f-1 cQylDd">
-            <button type="button" color="gray20" class="sc-e7c24948-0 lmXfxh button sc-929b507f-2 ghtCuZ">돌아가기</button>
+            <button type="button" onclick="location.href='/post/free-post'" color="gray20" class="sc-e7c24948-0 lmXfxh button sc-929b507f-2 ghtCuZ">돌아가기</button>
         </div>
     </div>
 </div>
 </body>
 <script th:inline="javascript">
     let post = [[${session.post}]]
+    let replys = [[${session.replys}]]
+    $(document).ready(function() {
+        $('.replyTime').each(function() {
+            var newText = $(this).text().replace(/T/g, " ");
+            $(this).text(newText);
+        });
+    });
 </script>
 </html>

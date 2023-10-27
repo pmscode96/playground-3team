@@ -16,13 +16,13 @@
             <main class="main1">
                 <div class="main1_div1" style="padding-top: 50px">
                     <h1 class="h1">
-                            <span class="span1">
-                                <span class="span2" >회원가입</span>
-                            </span>
+                        <span class="span1">
+                            <span class="span2" >회원가입</span>
+                        </span>
                     </h1>
                 </div>
                 <article class="main1_article1">
-                    <form th:action="@{/login/join}" method="post" th:object="${userVO}">
+                    <form th:action="@{/login/join}" method="post" th:object="${userVO}" id="form">
                         <input type="hidden" th:value="${userVO.userSchool}" name="userSchool">
                         <input type="hidden" th:value="${userVO.userDivision}" name="userDivision">
                         <input type="hidden" th:value="${userVO.userPosition}" name="userPosition">
@@ -40,7 +40,7 @@
                                     <span>아이디</span>
                                 </label>
                                 <div class="id_div1">
-                                    <input type="text" th:field="*{userEmail}" placeholder="'@' 를 포함한 이메일 형태">
+                                    <input id="userEmail" type="text" th:field="*{userEmail}" placeholder="'@' 를 포함한 이메일 형태">
                                 </div>
                             </div>
                             <div class="password" style="margin-top: 24px">
@@ -70,7 +70,7 @@
                                         </div>
 
                                     </div>
-                                    <button type="button" class="phone_b1" id="phone_b1" disabled>
+                                    <button type="button" class="phone_b1" disabled>
                                         인증번호 발송
                                     </button>
                                 </div>
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                             <div class="join" style="margin-top: 24px">
-                                <button id="join" disabled>가입하기</button>
+                                <button type="button" id="join" disabled>가입하기</button>
                             </div>
                         </div>
                     </form>
@@ -115,6 +115,7 @@
 </body>
 <script type="text/javascript" src="/js/login/join.js"></script>
 <script th:inline="javascript">
+    let join = document.getElementById("join");
 
     function inp(){
         const input = document.querySelector(".main1_article1 .div1 .div2 .form1 .d3 .d3_1 input[name=in]");
@@ -152,8 +153,9 @@
         var phoneNumberInput = $('.userPhoneNum');
         var phoneNumber = phoneNumberInput.val().replace(/-/g, ''); // '-' 제거
         var pattern = /^(010|011|016|017|018|019)-?\d{3,4}-?\d{4}$/;
-        var button = $('#phone_b1');
+        var button = $('.phone_b1');
         var errorMessage = document.getElementById('errorMessge');
+
 
         // '-' 없는 경우, 형식에 맞게 변환
         if (phoneNumber.length === 10) {
@@ -184,7 +186,7 @@
     }
 
     // 인증번호 발송 쿼리
-    $('#phone_b1').click(function() {
+    $('.phone_b1').click(function() {
         validatePhoneNumber().done(function(exists) {
             console.log(exists)
             if (exists === true) {
@@ -215,6 +217,24 @@
         });
     });
 
+
+//     회원가입 전 email 중복검사
+    $("#join").on("click", e => {
+        let userEmail = $("#userEmail").val()
+        $.ajax({
+            type: "GET",
+            url: "/check/email",
+            data: {
+                "userEmail": userEmail
+            }, success: function (check) {
+                if(check){
+                    alert("중복된 이메일 입니다.")
+                    return
+                }
+                    $("#form").submit();
+                }
+        })
+    });
 
 
 </script>

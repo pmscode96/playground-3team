@@ -28,8 +28,8 @@ public class InquirePostDAO {
     public Optional<InquirePostVO> select(Long id){return inquirePostMapper.selectInquirePost(id);};
 
     //    게시물 전체 리스트(페이징처리)
-    public List<InquirePostVO> List(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword){
-        return inquirePostMapper.selectAllPost(pagination, search, keyword);
+    public List<InquirePostVO> List(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword, @Param("userId") Long userId){
+        return inquirePostMapper.selectAllPost(pagination, search, keyword, userId);
     };
 
     //    게시물 list 총 개수

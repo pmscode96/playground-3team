@@ -1,6 +1,7 @@
 package com.app.playground.repository;
 
 
+import com.app.playground.domain.DTO.PostDTO;
 import com.app.playground.domain.DTO.ReplyDTO;
 import com.app.playground.domain.VO.UserVO;
 import com.app.playground.mapper.MainMapper;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -22,5 +24,8 @@ public class MainDAO {
 
 //    게시글 총 갯수
     public int selectPostCount(){return mainMapper.selectPostCount();}
+
+//    게시글 5개 랜덤 리스트
+    public List<PostDTO> randomList(){return mainMapper.randomList();};
 
 }

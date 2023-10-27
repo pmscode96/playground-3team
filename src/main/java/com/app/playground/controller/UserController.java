@@ -21,17 +21,39 @@ import java.util.Optional;
 @RequestMapping("/login/*")
 public class UserController {
     private final UserService userService;
+    private final HttpSession session;
 
     @GetMapping("/id-find")
-    public void goToIdFind(){;}
+    public void goToIdFind(UserVO userVO){;}
 
     @PostMapping("/id-find")
-    public void idFind(){;
-
+    public RedirectView idFind(UserVO userVO, Model model) {
+        Optional<UserVO> foundUser = userService.findId(userVO);
+        if(foundUser.isPresent()){
+            session.setAttribute("user", foundUser.get());
+            return new RedirectView("id-find-success");
+        }
+        return new RedirectView("id-find");
     }
 
     @GetMapping("/id-find-success")
-    public void goToIdFindSuccess(){;}
+    public void goToIdFindSuccess(UserVO userVO, Model model) {
+        UserVO currentUser = (UserVO)session.getAttribute("user");
+        if (currentUser != null) {
+            Optional<UserVO> foundUser = userService.getUserById(currentUser.getId());
+            if (foundUser.isPresent()) {
+                log.info(foundUser.get().toString());
+                model.addAttribute("user", foundUser.get());
+                session.invalidate();
+            } else {
+                log.error("User not found with id: " + currentUser.getId());
+                // Handle user not found case
+            }
+        } else {
+            log.error("No user in session");
+            // Handle no user in session case
+        }
+    }
 
     @GetMapping("/join")
     public void goToJoinForm(UserVO userVO, Model model){
@@ -52,10 +74,42 @@ public class UserController {
 
 
     @GetMapping("/password-find")
-    public void goToPasswordFind(){;}
+    public void goToPasswordFind(UserVO userVO){;}
+
+    @PostMapping("/password-find")
+    public RedirectView pwFind(UserVO userVO, Model model) {
+        Long id = userService.findPw(userVO);
+        session.setAttribute("id", id);
+        return new RedirectView("password-find-success");
+    }
 
     @GetMapping("/password-find-success")
-    public void goToPasswordFindSuccess(){;}
+    public void goToPasswordFindSuccess(UserVO userVO, Model model){
+        Long id = (Long) session.getAttribute("id");
+//        if (currentUser != null) {
+//            Optional<UserVO> foundUser = userService.getUserById(currentUser.getId());
+//            if (foundUser.isPresent()) {
+//                log.info(foundUser.get().toString());
+//                model.addAttribute("user", foundUser.get());
+//                session.invalidate();
+//            } else {
+//                log.error("User not found with id: " + currentUser.getId());
+//                // Handle user not found case
+//            }
+//        } else {
+//            log.error("No user in session");
+//            // Handle no user in session case
+//        }
+    }
+
+    @PostMapping("/password-find-success")
+    public RedirectView updatePassword(UserVO userVO, Model model){
+        Long id = (Long) session.getAttribute("id");
+        userVO.setId(id);
+        userService.updatePw(userVO);
+        session.invalidate();
+        return new RedirectView("login");
+    }
 
     @GetMapping("/social-login")
     public void goToSchoolPost(){;}
@@ -67,7 +121,7 @@ public class UserController {
     public void goToStudentOrTeacherLogin(){;}
 
     @PostMapping("/login")
-    public RedirectView login(UserVO userVO, HttpSession session, RedirectAttributes redirectAttributes){
+    public RedirectView login(UserVO userVO, RedirectAttributes redirectAttributes){
         Optional<UserVO> foundUser = userService.login(userVO);
         if(foundUser.isPresent()){
             session.setAttribute("user", foundUser.get());
@@ -101,7 +155,7 @@ public class UserController {
     }
 
     @GetMapping("update-info")
-    public RedirectView updateInfo(UserVO userVO, HttpSession session){
+    public RedirectView updateInfo(UserVO userVO){
         UserVO user = (UserVO) session.getAttribute("user");
         userVO.setId(user.getId());
         userService.updateInfo(userVO);

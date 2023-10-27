@@ -1,12 +1,11 @@
 package com.app.playground.service;
 
 
+import com.app.playground.domain.*;
 import com.app.playground.domain.DTO.ConsultingPostDTO;
 import com.app.playground.domain.DTO.FreePostDTO;
 import com.app.playground.domain.DTO.PostDTO;
-import com.app.playground.domain.PostSearchDTO;
-import com.app.playground.domain.Pagination;
-import com.app.playground.domain.Search;
+import com.app.playground.domain.DTO.ReplyDTO;
 import com.app.playground.domain.VO.*;
 import org.apache.ibatis.annotations.Param;
 
@@ -27,10 +26,10 @@ public interface PostService {
     public Optional<ConsultingPostDTO> consultingPostDetail(Long id);
 
 //    자유게시판 게시물 전체 리스트(페이징처리)
-    public List<FreePostDTO> freePostList(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword);
+    public List<FreePostDTO> freePostList(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword, @Param("userId") Long userId);
 
 //    자유게시판 게시물 전체 리스트(페이징처리)
-    public List<ConsultingPostDTO> consultingPostList(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword);
+    public List<ConsultingPostDTO> consultingPostList(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword, @Param("userId") Long userId);
 
 //    게시물 list 총 개수
     public int selectTotalFreePost(Search Search);
@@ -41,17 +40,26 @@ public interface PostService {
 //    게시물 검색
     public PostSearchDTO searchPost(Search search);
 
+//    자유게시판 게시물 검색
+    public FreePostSearchDTO searchFreePost(Search search);
+
+//    고민게시판 게시물 검색
+    public ConsultingPostSearchDTO searchConsultingPost(Search search);
+
 //    게시물 수정
     public void postUpdate(PostVO postVO);
 
-//    댓글 달기
-    public void replyInsert(ReplyVO replyVO);
+//    자유게시판 댓글 작성
+    public void freePostReplyInsert(ReplyDTO replyDTO);
 
-//    자유게시판 댓글
-    public void freePostReplyInsert(FreePostReplyVO freePostReplyVO);
+//    고민게시판 댓글 작성
+    public void consultingPostReplyInsert(ReplyDTO replyDTO);
 
-//    고민게시판 댓글
-    public void consultingPostReplyInsert(ConsultingPostReplyVO consultingPostReplyVO);
+//    자유게시판 댓글 리스트
+    public List<ReplyDTO> freePostReplyList(Long postId);
+
+//    고민게시판 댓글 리스트
+    public List<ReplyDTO> consultingPostReplyList(Long postId);
 
 //    댓글 수정
     public void replyUpdate(ReplyVO replyVO);
@@ -107,5 +115,10 @@ public interface PostService {
 //    고민게시판 해당 게시물 댓글 좋아요 전체 삭제
     public void consultingPostReplyLikeDeleteAll(Long postId);
 
+//    자유게시판 댓글 좋아요 전체 삭제
+    public void freePostReplyLikeDeleteAllByReplyId(Long replyId);
+
+//    고민게시판 댓글 좋아요 전체 삭제
+    public void consultingPostReplyLikeDeleteAllByReplyId(Long replyId);
 
 }

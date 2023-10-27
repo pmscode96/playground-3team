@@ -97,7 +97,7 @@ h3{
     position: relative;
     width: 24px;
     height: 24px;
-    background: url(https://t1.kakaocdn.net/together_image/common/avatar/avatar03.png) 50% 50% / cover no-repeat;
+    /*background: url(https://t1.kakaocdn.net/together_image/common/avatar/avatar03.png) 50% 50% / cover no-repeat;*/
 }
 
 .llYZxn::after {
@@ -731,6 +731,7 @@ div{
 
 .eqFEpj {
     position: relative;
+    margin-top: 30px;
 }
 
 section {

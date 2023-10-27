@@ -1,10 +1,12 @@
 package com.app.playground.service;
 
+import com.app.playground.domain.DTO.PostDTO;
 import com.app.playground.domain.DTO.ReplyDTO;
 import com.app.playground.repository.MainDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 @RequiredArgsConstructor
@@ -21,5 +23,10 @@ public class MainServiceImpl implements MainService {
     @Override
     public int selectPostCount() {
         return mainDAO.selectPostCount();
+    }
+
+    @Override
+    public List<PostDTO> randomList() {
+        return mainDAO.randomList();
     }
 }

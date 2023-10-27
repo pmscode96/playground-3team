@@ -3,11 +3,13 @@ package com.app.playground.post;
 import com.app.playground.domain.DTO.ConsultingPostDTO;
 import com.app.playground.domain.DTO.FreePostDTO;
 import com.app.playground.domain.DTO.PostDTO;
+import com.app.playground.domain.DTO.ReplyDTO;
 import com.app.playground.domain.Pagination;
 import com.app.playground.domain.Search;
 import com.app.playground.domain.VO.FreePostVO;
 import com.app.playground.domain.VO.NoticeVO;
 import com.app.playground.domain.VO.PostVO;
+import com.app.playground.mapper.MainMapper;
 import com.app.playground.mapper.PostMapper;
 import com.app.playground.mapper.NoticeMapper;
 import com.app.playground.service.PostService;
@@ -15,6 +17,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.sql.Date;
+import java.util.Random;
 
 @SpringBootTest
 @Slf4j
@@ -28,6 +33,9 @@ public class test {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    private MainMapper mainMapper;
+
 //    @Test
 //    public void postSelectTest(){
 //        postMapper.select(41L).stream().map(FreePostVO::toString).forEach(log::info);
@@ -35,12 +43,33 @@ public class test {
 
     @Test
     public void insertTest(){
-        PostDTO postDTO = new PostDTO();
-        postDTO.setPostTitle("테스트 제목 1");
-        postDTO.setPostContent("테스트 내용 1");
-        postDTO.setUserId(1L);
+        Random random = new Random();
+        PostDTO postDTO = null;
+        int idx = 0;
+        for (int i=0; i<60; i++){
+            postDTO = new PostDTO();
+            idx = random.nextInt(60) + 1;
+            postDTO.setUserId(1L);
+            postDTO.setCategory("consulting");
+            postDTO.setPostTitle("테스트 제목" + idx);
+            postDTO.setPostContent("테스트 내용" + idx);
+            postService.createConsultingPost(postDTO);
+        }
+    }
 
-        postService.createFreePost(postDTO);
+    @Test
+    public void insertReplyTest(){
+        Random random = new Random();
+        ReplyDTO replyDTO = null;
+        int idx = 0;
+        for (int i=0; i<10; i++){
+            replyDTO = new ReplyDTO();
+            idx = random.nextInt(10) + 1;
+            replyDTO.setUserId(1L);
+            replyDTO.setReplyContent("테스트 내용" + idx);
+            replyDTO.setPostId(280L);
+            postService.freePostReplyInsert(replyDTO);
+        }
     }
 
     @Test
@@ -62,13 +91,18 @@ public class test {
     public void postSelectListTest(){
         Pagination pagination = new Pagination();
         Search search = new Search();
-        String keyword = "";
+        String keyword = "12";
         pagination.setTotal(10);
         pagination.setPage(1);
         pagination.setEndRow(10);
         pagination.setStartRow(1);
-        postMapper.selectConsultingPostList(pagination, search, keyword).stream().map(ConsultingPostDTO::toString).forEach(log::info);
+        postMapper.selectFreePostList(pagination, search, keyword).stream().map(FreePostDTO::toString).forEach(log::info);
 //        postMapper.selectConsultingPost(23L).stream().map(PostDTO::toString).forEach(log::info);
+    }
+
+    @Test
+    public void mainListTest(){
+        mainMapper.randomList().stream().map(PostDTO::toString).forEach(log::info);
     }
 
     @Test

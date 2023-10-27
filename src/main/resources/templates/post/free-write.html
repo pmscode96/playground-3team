@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/post/write.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
     <link rel="stylesheet" href="/css/fragment/header.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <style>
         @font-face {
             font-family: 'SegoeUI_online_security';
@@ -45,10 +46,13 @@
             <button class="form-group">
                 <input type="submit" class="btn-submit" value="작성하기">
             </button>
-            <button class="form-group">
+            <button class="form-group" type="button">
                 <input type="button" class="btn-submit" onclick="location.href='free-post'" value="취소하기">
             </button>
         </form>
     </div>
 </body>
+<script th:inline="javascript">
+    let user = [[${session.user}]]
+</script>
 </html>

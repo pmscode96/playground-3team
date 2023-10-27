@@ -1,12 +1,23 @@
 package com.app.playground.controller;
 
+import com.app.playground.domain.DTO.ConsultingPostDTO;
+import com.app.playground.domain.DTO.FreePostDTO;
+import com.app.playground.domain.DTO.PostDTO;
+import com.app.playground.domain.DTO.ReplyDTO;
 import com.app.playground.service.MainService;
+import com.app.playground.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.view.RedirectView;
+
+import javax.servlet.http.HttpSession;
+import java.util.Objects;
+import java.util.Optional;
 
 @Controller
 @Slf4j
@@ -14,14 +25,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/*")
 public class MainController {
     private final MainService mainService;
+    private final PostService postService;
+    private final HttpSession session;
 
 
     @GetMapping("")
     public String goToHome(Model model){
-        model.addAttribute("reply", mainService.selectBestReply());
+        Optional<ReplyDTO> replyDTO = mainService.selectBestReply();
+        if(replyDTO.isPresent()){
+            model.addAttribute("reply", replyDTO);
+        }
         model.addAttribute("postCount", mainService.selectPostCount());
+        model.addAttribute("posts", mainService.randomList());
 
         return "main/main-page";
+    }
+
+    @PostMapping("/post-detail")
+    public RedirectView goToPostDetail(PostDTO postDTO){
+        if(Objects.equals(postDTO.getCategory(), "free")){
+            Optional<FreePostDTO> foundPost = postService.freePostDetail(postDTO.getId());
+            if(foundPost.isPresent()){
+                session.setAttribute("post", foundPost.get());
+                session.setAttribute("replys", postService.freePostReplyList(foundPost.get().getId()));
+                return new RedirectView("/post/free-post-detail");
+            }
+        }else if(Objects.equals(postDTO.getCategory(), "consulting")){
+            Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(postDTO.getId());
+            if(foundPost.isPresent()){
+                session.setAttribute("post", foundPost.get());
+                session.setAttribute("replys", postService.consultingPostReplyList(foundPost.get().getId()));
+                return new RedirectView("/post/consulting-post-detail");
+            }
+        }
+        return new RedirectView("");
     }
 
 }

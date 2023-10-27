@@ -20,10 +20,12 @@
     </div>
     <div class="div2">
         <div class="div2_1">
-            <p>김철수님의 아이디는 <b>flwo12**</b> 입니다.</p>
+            <p>
+                <span th:text="|${user.userName}님의 아이디는 |"></span><b th:text="${user.userEmail}"></b> 입니다.
+            </p>
             <div class="div2_2">
-                <button class="b1">로그인하러 이동</button>
-                <button class="b2" style="margin-left: 10px;">다른 번호로 찾기</button>
+                <button class="button b1" onclick="location.href='/login/login'">로그인하러 이동</button>
+                <button class="button b2" onclick="location.href='/login/id-find'" style="margin-left: 10px;">다른 번호로 찾기</button>
             </div>
         </div>
     </div>

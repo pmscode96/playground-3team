@@ -7,9 +7,9 @@
             SELECT ID, LIKE_COUNT FROM (
                                        SELECT R.ID, COUNT(R.ID) LIKE_COUNT
                                        FROM TBL_REPLY R
-                                            JOIN TBL_FREE_POST_REPLY_LIKE FRL
+                                       LEFT JOIN TBL_FREE_POST_REPLY_LIKE FRL
                                                  ON R.ID = FRL.REPLY_ID
-                                            JOIN TBL_CONSULTING_POST_REPLY_LIKE CRL
+                                       LEFT JOIN TBL_CONSULTING_POST_REPLY_LIKE CRL
                                                  ON R.ID = CRL.REPLY_ID
                                        GROUP BY R.ID
                                        ORDER BY LIKE_COUNT DESC
@@ -20,5 +20,14 @@
 
     <select id="selectPostCount" resultType="int">
         SELECT COUNT(ID) POST_COUNT FROM TBL_POST
+    </select>
+
+    <select id="randomList" resultType="postDTO">
+        SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, CATEGORY
+        FROM
+        (
+            SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, CATEGORY
+            FROM TBL_POST ORDER BY DBMS_RANDOM.VALUE()
+        ) WHERE ROWNUM <![CDATA[ <= 5 ]]>
     </select>
 </mapper>

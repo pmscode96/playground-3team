@@ -4,12 +4,14 @@ package com.app.playground.mapper;
 import com.app.playground.domain.DTO.ConsultingPostDTO;
 import com.app.playground.domain.DTO.FreePostDTO;
 import com.app.playground.domain.DTO.PostDTO;
+import com.app.playground.domain.DTO.ReplyDTO;
 import com.app.playground.domain.Pagination;
 import com.app.playground.domain.Search;
 import com.app.playground.domain.VO.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import javax.swing.plaf.PanelUI;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,10 +33,10 @@ public interface PostMapper {
     public Optional<ConsultingPostDTO> selectConsultingPost(Long id);
 
 //    자유게시판 게시물 전체 리스트(페이징처리)
-    public List<FreePostDTO> selectFreePostList(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword);
+    public List<FreePostDTO> selectFreePostList(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword, @Param("userId") Long userId);
 
 //    자유게시판 게시물 전체 리스트(페이징처리)
-    public List<ConsultingPostDTO> selectConsultingPostList(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword);
+    public List<ConsultingPostDTO> selectConsultingPostList(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword, @Param("userId") Long userId);
 
 //            게시물 list 총 개수
     public int selectTotalFreePost(Search search);
@@ -53,13 +55,19 @@ public interface PostMapper {
     public void postUpdate(PostVO postVO);
 
 //    댓글 달기
-    public void replyInsert(ReplyVO replyVO);
+    public void replyInsert(ReplyDTO replyDTO);
 
-//    자유게시판 댓글
-    public void freePostReplyInsert(FreePostReplyVO freePostReplyVO);
+//    자유게시판 댓글 작성
+    public void freePostReplyInsert(ReplyDTO replyDTO);
 
-    //    고민게시판 댓글
-    public void consultingPostReplyInsert(ConsultingPostReplyVO consultingPostReplyVO);
+//    고민게시판 댓글 작성
+    public void consultingPostReplyInsert(ReplyDTO replyDTO);
+
+//    자유게시판 댓글 리스트
+    public List<ReplyDTO> freePostReplyList(Long postId);
+
+//    고민게시판 댓글 리스트
+    public List<ReplyDTO> consultingPostReplyList(Long postId);
 
 //    댓글 수정
     public void replyUpdate(ReplyVO replyVO);
@@ -118,5 +126,10 @@ public interface PostMapper {
 //    고민게시판 해당 게시물 댓글 좋아요 전체 삭제
     public void consultingPostReplyLikeDeleteAll(Long postId);
 
+//    자유게시판 댓글 좋아요 전체 삭제
+    public void freePostReplyLikeDeleteAllByReplyId(Long replyId);
+
+//    고민게시판 댓글 좋아요 전체 삭제
+    public void consultingPostReplyLikeDeleteAllByReplyId(Long replyId);
 
 }

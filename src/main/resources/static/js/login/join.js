@@ -1,4 +1,4 @@
-let join = document.getElementById("join");
+
 
 
 // $('#phone_b1').click(function(){

@@ -20,7 +20,7 @@ public interface InquirePostMapper {
     public Optional<InquirePostVO> selectInquirePost(Long id);
 
 //    게시물 전체 리스트(페이징처리)
-    public List<InquirePostVO> selectAllPost(@Param("pagination") Pagination pagination, @Param("Search") Search Search, @Param("keyword") String keyword);
+    public List<InquirePostVO> selectAllPost(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword, @Param("userId") Long userId);
 
 //    게시물 list 총 개수
     public int selectTotalInquirePost(Search Search);

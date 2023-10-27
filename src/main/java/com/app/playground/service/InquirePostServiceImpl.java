@@ -29,8 +29,8 @@ public class InquirePostServiceImpl implements InquirePostService {
 
 //    게시물 전체 리스트
     @Override
-    public List<InquirePostVO> postList(Pagination pagination, Search search, String keyword) {
-        return inquirePostDAO.List(pagination, search, keyword);
+    public List<InquirePostVO> postList(Pagination pagination, Search search, String keyword, Long userId) {
+        return inquirePostDAO.List(pagination, search, keyword, userId);
     }
 
     @Override

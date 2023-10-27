@@ -51,4 +51,13 @@ public interface UserMapper {
 //    유저 정보 업데이트
     public void updateUser(UserVO userVO);
 
+//  유저 아이디 찾기
+    public Optional<UserVO> findId(UserVO userVO);
+
+//    유저 비밀번호 찾기
+    public Long findPw(UserVO userVO);
+
+//    비밀번호 변경
+    public void updatePw(UserVO userVO);
+
 }
