@@ -14,4 +14,6 @@ public class FreePostLikeVO {
 
 //    유저 아이디
     private Long userId;
+
+    private Integer status;
 }

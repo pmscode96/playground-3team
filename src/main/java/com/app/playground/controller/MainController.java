@@ -4,6 +4,7 @@ import com.app.playground.domain.DTO.ConsultingPostDTO;
 import com.app.playground.domain.DTO.FreePostDTO;
 import com.app.playground.domain.DTO.PostDTO;
 import com.app.playground.domain.DTO.ReplyDTO;
+import com.app.playground.domain.VO.UserVO;
 import com.app.playground.service.MainService;
 import com.app.playground.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -43,18 +44,24 @@ public class MainController {
 
     @PostMapping("/post-detail")
     public RedirectView goToPostDetail(PostDTO postDTO){
+        ReplyDTO replys = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
         if(Objects.equals(postDTO.getCategory(), "free")){
-            Optional<FreePostDTO> foundPost = postService.freePostDetail(postDTO.getId());
+            Optional<FreePostDTO> foundPost = postService.freePostDetail(postDTO.getId(), null);
             if(foundPost.isPresent()){
+                replys.setPostId(foundPost.get().getId());
+                replys.setUserId(user.getId());
                 session.setAttribute("post", foundPost.get());
-                session.setAttribute("replys", postService.freePostReplyList(foundPost.get().getId()));
+                session.setAttribute("replys", postService.freePostReplyList(replys));
                 return new RedirectView("/post/free-post-detail");
             }
         }else if(Objects.equals(postDTO.getCategory(), "consulting")){
-            Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(postDTO.getId());
+            Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(postDTO.getId(), null);
             if(foundPost.isPresent()){
+                replys.setPostId(foundPost.get().getId());
+                replys.setUserId(user.getId());
                 session.setAttribute("post", foundPost.get());
-                session.setAttribute("replys", postService.consultingPostReplyList(foundPost.get().getId()));
+                session.setAttribute("replys", postService.consultingPostReplyList(replys));
                 return new RedirectView("/post/consulting-post-detail");
             }
         }

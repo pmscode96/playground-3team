@@ -47,12 +47,46 @@
                     </div>
                 </div>
             </div>
-            <form style="display: flex; margin-left: auto; margin-right: 50px;" th:action="@{/post/free-update}" method="get">
+            <!--게시판 좋아요-->
+            <th:block th:if="${session.user != null}">
+                <div style="margin-left:auto">
+                    <form style="display:flex; flex-direction: column;">
+                        <input type="hidden" th:value="${session.post.id}" name="postId" class="postIdInput">
+                        <input type="hidden" th:value="${session.user.id}" name="userId" class="postUserIdInput">
+                        <th:block th:if="${session.post.status == 1 || session.post.status == null}">
+                            <button type="button" style="display: block" class="postLikeButton">
+                                <img src="/icon/nolike.png" style="width: 30px">
+                            </button>
+                            <button type="button" style="display: none" class="postLikeCancelButton">
+                                <img src="/icon/like.png" style="width: 30px">
+                            </button>
+                        </th:block>
+                        <th:block th:unless="${session.post.status == 1 || session.post.status == null}">
+                            <button type="button" style="display: none" class="postLikeButton">
+                                <img src="/icon/nolike.png" style="width: 30px">
+                            </button>
+                            <button type="button" style="display: block" class="postLikeCancelButton">
+                                <img src="/icon/like.png" style="width: 30px">
+                            </button>
+                        </th:block>
+                        <span class="postLikeCount" th:text="${session.post.likeCount} != null ? ${session.post.likeCount} + '개' : '0개'">개!</span>
+                    </form>
+                </div>
+            </th:block>
+            <th:block th:unless="${session.user != null}">
+                <div style="margin-left:auto">
+                    <button style="display: block"><img src="/icon/nolike.png" style="width: 30px"></button>
+                    <span th:text="${session.post.likeCount} != null ? ${session.post.likeCount} + '개' : '0개'"></span>
+                </div>
+            </th:block>
+            <!--게시판 좋아요-->
+            <form th:if="${session.user.id == session.post.userId}" style="display: flex; margin-right: 50px;" th:action="@{/post/free-update}" method="get">
                 <input type="hidden" name="postTitle" th:value="${session.post.postTitle}">
                 <input type="hidden" name="postContent" th:value="${session.post.postContent}">
                 <input type="hidden" name="id" th:value="${session.post.id}">
                 <button >게시물 수정</button>
             </form>
+            <form th:unless="${session.user.id == session.post.userId}" style="display: flex; margin-right: 50px;"></form>
         </div>
     </section>
 <div id="comment" class="sc-f4c5cbb7-0 gmVKaT">
@@ -162,6 +196,20 @@
                                             <button style="font-size: 12px; margin-left: 5px;" class="replyDelete">삭제</button>
                                         </form>
                                     </th:block>
+                                    <th:block th:unless="${reply.userId == session.user.id}">
+                                        <form>
+                                            <button type="button" style="margin-left: 65px; font-size: 12px; display: none" class="replyChange">수정</button>
+                                            <button type="button"  style="margin-left: 65px; font-size: 12px; display: none" class="replySubmit">완료</button>
+                                        </form>
+                                        <div>
+                                            <button type="button" style="font-size: 12px; margin-left: 5px; display: none" class="replyCancel">취소</button>
+                                        </div>
+                                        <form th:action="@{/post/free-post-reply-delete}" method="post">
+                                            <input type="hidden" th:value="${reply.id}" name="replyId">
+                                            <input type="hidden" th:value="${reply.postId}" name="postId">
+                                            <button style="font-size: 12px; margin-left: 5px; display: none" class="replyDelete">삭제</button>
+                                        </form>
+                                    </th:block>
                                 </th:block>
                             </div>
                             <!--댓글내용-->
@@ -178,18 +226,32 @@
                     </div>
 <!--                    좋아요 버튼 만들곳-->
                     <th:block th:if="${session.user != null}">
-                        <form style="display:flex; flex-direction: column; ">
-                            <input type="hidden" th:value="${reply.id}" name="replyId">
-                            <input type="hidden" th:value="${session.user.id}" name="userId">
-                            <button type="button" style="display: block" class="likeButton"><img src="/icon/nolike.png" style="width: 30px"></button>
-                            <button type="button" style="display: none" class="likeCancelButton"><img src="/icon/like.png" style="width: 30px"></button>
-                            <span>10개!</span>
+                        <form style="display:flex; flex-direction: column;">
+                            <input type="hidden" th:value="${reply.id}" name="replyId" class="replyIdInput">
+                            <input type="hidden" th:value="${session.user.id}" name="userId" class="userIdInput">
+                            <th:block th:if="${reply.status == 1 || reply.status == null}">
+                                <button type="button" style="display: block" class="likeButton">
+                                    <img src="/icon/nolike.png" style="width: 30px">
+                                </button>
+                                <button type="button" style="display: none" class="likeCancelButton">
+                                    <img src="/icon/like.png" style="width: 30px">
+                                </button>
+                            </th:block>
+                            <th:block th:unless="${reply.status == 1 || reply.status == null}">
+                                <button type="button" style="display: none" class="likeButton">
+                                    <img src="/icon/nolike.png" style="width: 30px">
+                                </button>
+                                <button type="button" style="display: block" class="likeCancelButton">
+                                    <img src="/icon/like.png" style="width: 30px">
+                                </button>
+                            </th:block>
+                            <span class="likeCount" th:text="${reply.likeCount} != null ? ${reply.likeCount} + '개' : '0개'">개!</span>
                         </form>
                     </th:block>
                     <th:block th:unless="${session.user != null}">
                         <div>
                             <button style="display: block"><img src="/icon/nolike.png" style="width: 30px"></button>
-                            <span>10개!</span>
+                            <span th:text="${reply.likeCount} != null ? ${reply.likeCount} + '개' : '0개'"></span>
                         </div>
                     </th:block>
                 </div>
@@ -206,78 +268,6 @@
     let user = [[${session.user}]]
     let post = [[${session.post}]]
     let replys = [[${session.replys}]]
-    $(document).ready(function() {
-        $('.replyTime').each(function() {
-            var newText = $(this).text().replace(/T/g, " ");
-            $(this).text(newText);
-        });
-    });
-
-    let replyForm = document.getElementById("replyCreate");
-    let submitButton = document.getElementById("textareaSubmitButton");
-
-    submitButton.addEventListener("click", e=>{
-        replyForm.submit();
-    })
-
-//     댓글 수정
-    let replyChangeButtons = document.querySelectorAll(".replyChange")
-    let replySubmitButtons = document.querySelectorAll(".replySubmit")
-    let replyCancelButtons = document.querySelectorAll(".replyCancel")
-    let replyDeleteButtons = document.querySelectorAll(".replyDelete")
-    let replyContents = document.querySelectorAll(".replyContent")
-    let replyInputs = document.querySelectorAll(".replyInput")
-    let likeButtons = document.querySelectorAll(".likeButton")
-    let likeCancelButtons = document.querySelectorAll(".likeCancelButton")
-
-    for (let i = 0; i < replyChangeButtons.length; i++) {
-
-        let replyChangeButton = replyChangeButtons.item(i); //수정버튼
-        let replySubmitButton = replySubmitButtons.item(i); //완료버튼
-        let replyCancelButton = replyCancelButtons.item(i); //취소버튼
-        let replyDeleteButton = replyDeleteButtons.item(i); //삭제버튼
-        let replyContent = replyContents.item(i);           //기존 댓글내용 p태그
-        let replyInput = replyInputs.item(i);               //수정할 내용 적는 input태그
-        let likeButton = likeButtons.item(i);
-        let likeCancelButton = likeCancelButtons.item(i);
-
-        // 수정버튼 눌렀을때
-        replyChangeButton.addEventListener("click", e =>{
-            console.log("들어옴")
-            replyChangeButton.style.display = 'none';
-            replyDeleteButton.style.display = 'none';
-            replyContent.style.display = 'none';
-            replySubmitButton.style.display = 'block';
-            replyCancelButton.style.display = 'block';
-            replyInput.type = 'text';
-        })
-
-        // 취소버튼 눌렀을 경우
-        replyCancelButton.addEventListener("click", e =>{
-            replyChangeButton.style.display = 'block';
-            replyDeleteButton.style.display = 'block';
-            replyContent.style.display = 'block';
-            replySubmitButton.style.display = 'none';
-            replyCancelButton.style.display = 'none';
-            replyInput.type = 'hidden';
-        })
-
-        // 완료버튼 눌렀을 경우
-        replySubmitButton.addEventListener("click", e =>{
-            replyInput.closest('form').submit();
-        })
-
-    //     좋아요 눌럿을경우
-        likeButton.addEventListener("click", e =>{
-            likeCancelButton.style.display = "block";
-            likeButton.style.display = "none";
-        })
-
-        likeCancelButton.addEventListener("click", e =>{
-            likeButton.style.display = "block";
-            likeCancelButton.style.display = "none";
-        })
-    }
-
 </script>
+<script src="/js/post/free-post-detail.js"></script>
 </html>

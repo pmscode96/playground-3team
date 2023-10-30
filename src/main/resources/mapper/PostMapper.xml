@@ -18,32 +18,61 @@
     </insert>
 
     <select id="selectFreePost" resultType="freePostDTO">
-        SELECT FP.ID, POST_TITLE, POST_CONTENT, FP.CREATE_DATE, FP.UPDATE_DATE, USER_ID, U.USER_NAME, USER_NICKNAME, USER_SCHOOL, USER_DIVISION, USER_KAKAO_PROFILE_URL
+        SELECT FP.ID, POST_TITLE, POST_CONTENT, FP.CREATE_DATE, FP.UPDATE_DATE, FP.USER_ID, U.USER_NAME, USER_NICKNAME, USER_SCHOOL, USER_DIVISION, USER_KAKAO_PROFILE_URL, LIKE_COUNT, STATUS
         FROM VIEW_FREE_POST FP
         JOIN TBL_USER U ON U.ID = FP.USER_ID
+        LEFT JOIN TBL_FREE_POST_LIKE FPL ON FPL.POST_ID = FP.ID AND FPL.USER_ID = #{userId}
+        LEFT JOIN
+        (
+            SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
+            FROM TBL_FREE_POST P
+            JOIN TBL_FREE_POST_LIKE PL
+            ON P.ID = PL.POST_ID
+            WHERE PL.STATUS = 0
+            GROUP BY P.ID
+        ) PL ON PL.ID = FP.ID
         WHERE FP.ID = #{id}
     </select>
 
     <select id="selectConsultingPost" resultType="consultingPostDTO">
-        SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID, U.USER_NAME, USER_NICKNAME, USER_SCHOOL, USER_DIVISION, USER_KAKAO_PROFILE_URL
+        SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, CP.USER_ID, U.USER_NAME, USER_NICKNAME, USER_SCHOOL, USER_DIVISION, USER_KAKAO_PROFILE_URL, LIKE_COUNT, STATUS
         FROM VIEW_CONSULTING_POST CP
         JOIN TBL_USER U ON U.ID = CP.USER_ID
+        LEFT JOIN TBL_CONSULTING_POST_LIKE CPL ON CPL.POST_ID = CP.ID AND CPL.USER_ID = #{userId}
+        LEFT JOIN
+        (
+            SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
+            FROM TBL_CONSULTING_POST P
+            JOIN TBL_CONSULTING_POST_LIKE PL
+            ON P.ID = PL.POST_ID
+            GROUP BY P.ID
+        ) PL ON PL.ID = CP.ID
         WHERE CP.ID = #{id}
     </select>
 
     <select id="selectFreePostList" resultType="freePostDTO">
-        SELECT ROWNUM, ID, POST_TITLE, POST_CONTENT, USER_ID, CREATE_DATE, UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION
+        SELECT ROWNUM, ID, POST_TITLE, POST_CONTENT, USER_ID, CREATE_DATE, UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT, STATUS
         FROM
             (
-                SELECT ROWNUM R, ID, POST_TITLE, POST_CONTENT,  USER_ID, CREATE_DATE, UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION
+                SELECT ROWNUM R, ID, POST_TITLE, POST_CONTENT,  USER_ID, CREATE_DATE, UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT, STATUS
                 FROM
                     (
-                        SELECT FP.ID, POST_TITLE, POST_CONTENT, USER_ID, FP.CREATE_DATE, FP.UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION
+                        SELECT FP.ID, POST_TITLE, POST_CONTENT, FP.USER_ID, FP.CREATE_DATE, FP.UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT, STATUS
                         FROM VIEW_FREE_POST FP
                         JOIN TBL_USER U
                         ON FP.USER_ID = U.ID
+                        LEFT JOIN TBL_FREE_POST_LIKE FPL ON FPL.POST_ID = FP.ID AND FPL.USER_ID = #{userId}
+                        LEFT JOIN
+                        (
+                            SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
+                            FROM TBL_FREE_POST P
+                            JOIN TBL_FREE_POST_LIKE PL
+                            ON P.ID = PL.POST_ID
+                            WHERE PL.STATUS = 0
+                            GROUP BY P.ID
+                        ) PL ON PL.ID = FP.ID
                         <if test="userId != null">
-                            WHERE USER_ID = #{userId}
+                            WHERE FP.USER_ID = #{userId}
                         </if>
                         ORDER BY ID DESC
                     ) P1
@@ -63,26 +92,44 @@
         </if>
     </select>
 
+    <select id="selectTotalFreePostMyPage" resultType="int" >
+        SELECT COUNT(ID) FROM VIEW_FREE_POST WHERE USER_ID = #{userId}
+    </select>
+
+    <select id="selectTotalConsultingPostMyPage" resultType="int" >
+        SELECT COUNT(ID) FROM VIEW_CONSULTING_POST WHERE USER_ID = #{userId}
+    </select>
+
 
     <select id="selectConsultingPostList" resultType="consultingPostDTO">
-        SELECT ROWNUM, ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_SCHOOL, USER_DIVISION
+        SELECT ROWNUM, ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT
         FROM
             (
-                SELECT ROWNUM R, ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_SCHOOL, USER_DIVISION
+                SELECT ROWNUM R, ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT
                 FROM
                     (
-                        SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID , USER_NAME, USER_SCHOOL, USER_DIVISION
+                        SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, CP.USER_ID , USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT
                         FROM VIEW_CONSULTING_POST CP
                         JOIN TBL_USER U
                         ON CP.USER_ID = U.ID
+                        LEFT JOIN TBL_CONSULTING_POST_LIKE FCL ON FCL.POST_ID = FC.ID AND FCL.USER_ID = #{userId}
+                        LEFT JOIN
+                        (
+                            SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
+                            FROM TBL_CONSULTING_POST P
+                            JOIN TBL_CONSULTING_POST_LIKE PL
+                            ON P.ID = PL.POST_ID
+                            WHERE PL.STATUS = 0
+                            GROUP BY P.ID
+                        ) PL ON PL.ID = CP.ID
                         <if test="userId != null">
-                            WHERE USER_ID = #{userId}
+                            WHERE CP.USER_ID = #{userId}
                         </if>
                         ORDER BY ID DESC
                     ) P1
     <![CDATA[
                 WHERE ROWNUM <= #{pagination.endRow}
-                  AND POST_TITLE  LIKE '%' || #{keyword} || '%'
+                AND POST_TITLE  LIKE '%' || #{keyword} || '%'
             ) P2
         WHERE P2.R >= #{pagination.startRow}
         ]]>
@@ -96,13 +143,21 @@
     </select>
 
     <select id="selectSearchFreePost" resultType="freePostDTO">
-        SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL
+        SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL, LIKE_COUNT
         FROM
             (
-                SELECT FP.ID, POST_TITLE, POST_CONTENT, FP.CREATE_DATE, FP.UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL
+                SELECT FP.ID, POST_TITLE, POST_CONTENT, FP.CREATE_DATE, FP.UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL, LIKE_COUNT
                 FROM VIEW_FREE_POST FP
                 JOIN TBL_USER U
                 ON FP.USER_ID = U.ID
+                LEFT JOIN
+                 (
+                    SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
+                    FROM TBL_FREE_POST P
+                    JOIN TBL_FREE_POST_LIKE PL
+                    ON P.ID = PL.POST_ID
+                    GROUP BY P.ID
+                 ) PL ON PL.ID = FP.ID
                 WHERE POST_TITLE LIKE '%' || #{keyword} || '%' OR POST_CONTENT LIKE '%' || #{keyword} || '%'
                 ORDER BY FP.ID DESC
             )
@@ -111,21 +166,51 @@
         ]]>
     </select>
 
+    <select id="freePostLikeSelect" resultType="freePostLikeVO">
+        SELECT ID, POST_ID, USER_ID, STATUS FROM TBL_FREE_POST_LIKE
+        WHERE POST_ID = ${postId} AND USER_ID = #{userId}
+    </select>
+
+    <update id="freePostLikeStatusUpdate">
+        UPDATE TBL_FREE_POST_LIKE
+        SET STATUS = #{status}
+        WHERE ID = ${id}
+    </update>
+
+    <update id="consultingPostLikeStatusUpdate">
+        UPDATE TBL_CONSULTING_POST_LIKE
+        SET STATUS = #{status}
+        WHERE ID = ${id}
+    </update>
+
     <select id="selectSearchConsultingPost" resultType="consultingPostDTO">
-        SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION
+        SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, LIKE_COUNT
         FROM
             (
-                SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION
+                SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, LIKE_COUNT
                 FROM TBL_POST P JOIN TBL_CONSULTING_POST CP
                 ON P.ID = CP.ID
                 JOIN TBL_USER U
                 ON CP.USER_ID = U.ID
+                LEFT JOIN
+                 (
+                    SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
+                    FROM TBL_CONSULTING_POST P
+                    JOIN TBL_CONSULTING_POST_LIKE PL
+                    ON P.ID = PL.POST_ID
+                    GROUP BY P.ID
+                 ) PL ON PL.ID = CP.ID
                 WHERE POST_TITLE LIKE '%' || #{keyword} || '%' OR POST_CONTENT LIKE '%' || #{keyword} || '%'
                 ORDER BY ID DESC
             )
         <![CDATA[
         WHERE ROWNUM <= 10
         ]]>
+    </select>
+
+    <select id="consultingPostLikeSelect" resultType="consultingPostLikeVO">
+        SELECT ID, POST_ID, USER_ID, STATUS FROM TBL_CONSULTING_POST_LIKE
+        WHERE POST_ID = ${postId} AND USER_ID = #{userId}
     </select>
 
     <update id="postUpdate">
@@ -153,19 +238,73 @@
     </insert>
 
     <select id="freePostReplyList" resultType="replyDTO">
-        SELECT R.ID, REPLY_CONTENT, R.CREATE_DATE, POST_ID, USER_ID, USER_NAME, USER_SCHOOL, USER_NICKNAME, USER_KAKAO_PROFILE_URL
-        FROM TBL_REPLY R JOIN SCOTT.TBL_FREE_POST_REPLY FR
-        ON R.ID = FR.ID
-        JOIN TBL_USER U ON FR.USER_ID = U.ID
+        SELECT R.ID, LIKE_COUNT, REPLY_CONTENT, R.CREATE_DATE, POST_ID, FR.USER_ID, USER_NAME, USER_SCHOOL, USER_NICKNAME, USER_KAKAO_PROFILE_URL, RL.ID LIKE_ID, RL.USER_ID LIKE_USER_ID, STATUS
+        FROM TBL_REPLY R JOIN TBL_FREE_POST_REPLY FR
+                              ON R.ID = FR.ID
+                         JOIN TBL_USER U ON FR.USER_ID = U.ID
+                        <if test="userId != null">
+                        LEFT JOIN TBL_FREE_POST_REPLY_LIKE RL ON RL.REPLY_ID = R.ID AND RL.USER_ID = #{userId}
+                        </if>
+                         LEFT JOIN (
+            SELECT COUNT(R.ID) LIKE_COUNT , R.ID AS ID
+            FROM TBL_REPLY R
+                     JOIN TBL_FREE_POST_REPLY_LIKE RL
+                          ON R.ID = RL.REPLY_ID
+            WHERE RL.STATUS = 0
+            GROUP BY R.ID
+        ) C ON C.ID = R.ID
         WHERE POST_ID = #{postId}
     </select>
 
     <select id="consultingPostReplyList" resultType="replyDTO">
-        SELECT R.ID, REPLY_CONTENT, R.CREATE_DATE, POST_ID, USER_ID, USER_NAME, USER_SCHOOL, USER_NICKNAME, USER_KAKAO_PROFILE_URL
-        FROM TBL_REPLY R JOIN SCOTT.TBL_CONSULTING_POST_REPLY CR
-        ON R.ID = CR.ID
-        JOIN TBL_USER U ON CR.USER_ID = U.ID
+        SELECT R.ID, LIKE_COUNT, REPLY_CONTENT, R.CREATE_DATE, POST_ID, CR.USER_ID, USER_NAME, USER_SCHOOL, USER_NICKNAME, USER_KAKAO_PROFILE_URL, RL.ID LIKE_ID, RL.USER_ID LIKE_USER_ID, STATUS
+        FROM TBL_REPLY R JOIN TBL_CONSULTING_POST_REPLY CR
+                              ON R.ID = CR.ID
+                         JOIN TBL_USER U ON FR.USER_ID = U.ID
+                         LEFT JOIN TBL_CONSULTING_POST_REPLY_LIKE RL ON RL.REPLY_ID = R.ID AND RL.USER_ID = #{userId}
+                         LEFT JOIN (
+            SELECT COUNT(R.ID) LIKE_COUNT , R.ID AS ID
+            FROM TBL_REPLY R
+                     JOIN TBL_CONSULTING_POST_REPLY_LIKE RL
+                          ON R.ID = RL.REPLY_ID
+            WHERE RL.STATUS = 0
+            GROUP BY R.ID
+        ) C ON C.ID = R.ID
         WHERE POST_ID = #{postId}
+    </select>
+
+    <select id="freeReplySelect" resultType="replyDTO">
+        SELECT R.ID, LIKE_COUNT, REPLY_CONTENT, R.CREATE_DATE, POST_ID, FR.USER_ID, USER_NAME, USER_SCHOOL, USER_NICKNAME, USER_KAKAO_PROFILE_URL, RL.ID LIKE_ID, RL.USER_ID LIKE_USER_ID, STATUS
+        FROM TBL_REPLY R JOIN TBL_FREE_POST_REPLY FR
+                              ON R.ID = FR.ID
+                         JOIN TBL_USER U ON FR.USER_ID = U.ID
+                         LEFT JOIN TBL_FREE_POST_REPLY_LIKE RL ON RL.REPLY_ID = R.ID AND RL.USER_ID = #{userId}
+                         LEFT JOIN (
+            SELECT COUNT(R.ID) LIKE_COUNT , R.ID AS ID
+            FROM TBL_REPLY R
+                     JOIN TBL_FREE_POST_REPLY_LIKE RL
+                          ON R.ID = RL.REPLY_ID
+            WHERE RL.STATUS = 0
+            GROUP BY R.ID
+        ) C ON C.ID = R.ID
+        WHERE R.ID = #{id}
+    </select>
+
+    <select id="consultingReplySelect" resultType="replyDTO">
+        SELECT R.ID, LIKE_COUNT, REPLY_CONTENT, R.CREATE_DATE, POST_ID, FR.USER_ID, USER_NAME, USER_SCHOOL, USER_NICKNAME, USER_KAKAO_PROFILE_URL, RL.ID LIKE_ID, RL.USER_ID LIKE_USER_ID, STATUS
+        FROM TBL_REPLY R JOIN TBL_FREE_POST_REPLY FR
+                              ON R.ID = FR.ID
+                         JOIN TBL_USER U ON FR.USER_ID = U.ID
+                         LEFT JOIN TBL_FREE_POST_REPLY_LIKE RL ON RL.REPLY_ID = R.ID AND RL.USER_ID = #{userId}
+                         LEFT JOIN (
+            SELECT COUNT(R.ID) LIKE_COUNT , R.ID AS ID
+            FROM TBL_REPLY R
+                     JOIN TBL_FREE_POST_REPLY_LIKE RL
+                          ON R.ID = RL.REPLY_ID
+            WHERE RL.STATUS = 0
+            GROUP BY R.ID
+        ) C ON C.ID = R.ID
+        WHERE R.ID = #{id}
     </select>
 
     <update id="replyUpdate">
@@ -190,9 +329,23 @@
     </delete>
 
     <insert id="freePostReplyLike">
+        <selectKey keyProperty="id" order="BEFORE" resultType="Long">
+            SELECT SEQ_FREE_POST_REPLY_LIKE.NEXTVAL FROM DUAL
+        </selectKey>
         INSERT INTO TBL_FREE_POST_REPLY_LIKE(ID, USER_ID, REPLY_ID)
-        VALUES (SEQ_FREE_POST_REPLY_LIKE.NEXTVAL, #{userId}, #{replyId})
+        VALUES (#{id}, #{userId}, #{replyId})
     </insert>
+
+    <select id="freePostReplyLikeSelect" resultType="freePostReplyLikeVO">
+        SELECT ID, REPLY_ID, USER_ID, STATUS FROM TBL_FREE_POST_REPLY_LIKE
+        WHERE REPLY_ID = ${replyId} AND USER_ID = #{userId}
+    </select>
+
+    <update id="freePostReplyLikeStatusUpdate">
+        UPDATE TBL_FREE_POST_REPLY_LIKE
+        SET STATUS = #{status}
+        WHERE ID = #{id}
+    </update>
 
     <delete id="freePostReplyLikeDelete">
         DELETE TBL_FREE_POST_REPLY_LIKE WHERE ID = #{id}
@@ -202,6 +355,17 @@
         INSERT INTO TBL_CONSULTING_POST_REPLY_LIKE(ID, USER_ID, REPLY_ID)
         VALUES (SEQ_CONSULTING_POST_REPLY_LIKE.NEXTVAL, #{userId}, #{replyId})
     </insert>
+
+    <select id="consultingPostReplyLikeSelect" resultType="boolean">
+        SELECT * FROM TBL_CONSULTING_POST_REPLY_LIKE
+        WHERE REPLY_ID = ${replyId} AND USER_ID = #{userId}
+    </select>
+
+    <update id="consultingPostReplyLikeStatusUpdate">
+        UPDATE TBL_CONSULTING_POST_REPLY_LIKE
+        SET STATUS = #{status}
+        WHERE ID = #{id}
+    </update>
 
     <delete id="consultingPostReplyLikeDelete">
         DELETE TBL_CONSULTING_POST_REPLY_LIKE WHERE ID = #{id}
@@ -224,7 +388,7 @@
 
     <insert id="freePostLike">
         INSERT INTO TBL_FREE_POST_LIKE(ID, USER_ID, POST_ID)
-        VALUES (SEQ_FREE_POST_LIKE.NESTVAL, #{userId}, #{postId})
+        VALUES (SEQ_FREE_POST_LIKE.NEXTVAL, #{userId}, #{postId})
     </insert>
 
     <delete id="freePostLikeDelete">
@@ -277,4 +441,6 @@
             ON R.POST_ID = #{postId}
         )
     </delete>
+
+
 </mapper>

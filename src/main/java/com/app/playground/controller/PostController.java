@@ -59,11 +59,16 @@ public class PostController {
 
     @PostMapping("/free-post")
     public RedirectView goToJoinFreePostDetail(Long id, HttpSession session, Model model) {
-        Optional<FreePostDTO> foundPost = postService.freePostDetail(id);
+        ReplyDTO replyDTO = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
+
+        Optional<FreePostDTO> foundPost = postService.freePostDetail(id, user.getId());
+        log.info(foundPost.toString());
         if(foundPost.isPresent()){
-            log.info("들어옴");
+            replyDTO.setPostId(foundPost.get().getId());
+            replyDTO.setUserId(user.getId());
             session.setAttribute("post", foundPost.get());
-            session.setAttribute("replys", postService.freePostReplyList(foundPost.get().getId()));
+            session.setAttribute("replys", postService.freePostReplyList(replyDTO));
             return new RedirectView("/post/free-post-detail");
         }
         log.info("못들어옴");
@@ -77,11 +82,15 @@ public class PostController {
 
     @PostMapping("/free-post-detail")
     public RedirectView  createReply(ReplyDTO replyDTO){
+        ReplyDTO replys = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
         postService.freePostReplyInsert(replyDTO);
-        Optional<FreePostDTO> foundPost = postService.freePostDetail(replyDTO.getPostId());
+        Optional<FreePostDTO> foundPost = postService.freePostDetail(replyDTO.getPostId(), user.getId());
         if(foundPost.isPresent()){
+            replys.setPostId(foundPost.get().getId());
+            replys.setUserId(user.getId());
             session.setAttribute("post", foundPost.get());
-            session.setAttribute("replys", postService.freePostReplyList(foundPost.get().getId()));
+            session.setAttribute("replys", postService.freePostReplyList(replys));
             return new RedirectView("/post/free-post-detail");
         }
         return new RedirectView("/post/free-post-detail");
@@ -89,15 +98,17 @@ public class PostController {
 
     @PostMapping("/free-post-reply-delete")
     public RedirectView deleteReplyFreePost(Long replyId, Long postId){
-        log.info(replyId.toString());
-        log.info(postId.toString());
+        ReplyDTO replys = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
 
         postService.freePostReplyLikeDeleteAllByReplyId(replyId);
         postService.freePostReplyDelete(replyId);
-        Optional<FreePostDTO> foundPost = postService.freePostDetail(postId);
+        Optional<FreePostDTO> foundPost = postService.freePostDetail(postId, user.getId());
         if(foundPost.isPresent()){
+            replys.setPostId(foundPost.get().getId());
+            replys.setUserId(user.getId());
             session.setAttribute("post", foundPost.get());
-            session.setAttribute("replys", postService.freePostReplyList(foundPost.get().getId()));
+            session.setAttribute("replys", postService.freePostReplyList(replys));
             return new RedirectView("/post/free-post-detail");
         }
         return new RedirectView("/post/free-post-detail");
@@ -105,11 +116,15 @@ public class PostController {
 
     @PostMapping("/free-post-reply-update")
     public RedirectView updateReplyFreePost(ReplyVO replyVO, Long postId){
+        ReplyDTO replys = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
         postService.replyUpdate(replyVO);
-        Optional<FreePostDTO> foundPost = postService.freePostDetail(postId);
+        Optional<FreePostDTO> foundPost = postService.freePostDetail(postId, user.getId());
         if(foundPost.isPresent()){
+            replys.setPostId(foundPost.get().getId());
+            replys.setUserId(user.getId());
             session.setAttribute("post", foundPost.get());
-            session.setAttribute("replys", postService.freePostReplyList(foundPost.get().getId()));
+            session.setAttribute("replys", postService.freePostReplyList(replys));
             return new RedirectView("/post/free-post-detail");
         }
         return new RedirectView("/post/free-post-detail");
@@ -133,10 +148,14 @@ public class PostController {
 
     @PostMapping("/consulting-post")
     public RedirectView goToJoinConsultingPostDetail(Long id, HttpSession session, Model model) {
-        Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(id);
+        ReplyDTO replys = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
+        Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(id, user.getId());
         if(foundPost.isPresent()){
+            replys.setPostId(foundPost.get().getId());
+            replys.setUserId(user.getId());
             session.setAttribute("post", foundPost.get());
-            session.setAttribute("replys", postService.consultingPostReplyList(foundPost.get().getId()));
+            session.setAttribute("replys", postService.consultingPostReplyList(replys));
             return new RedirectView("/post/consulting-post-detail");
         }
         log.info("못들어옴");
@@ -170,11 +189,15 @@ public class PostController {
 
     @PostMapping("/free-update")
     public RedirectView freeUpdate(PostVO postVO){
+        ReplyDTO replys = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
         postService.postUpdate(postVO);
-        Optional<FreePostDTO> foundPost = postService.freePostDetail(postVO.getId());
+        Optional<FreePostDTO> foundPost = postService.freePostDetail(postVO.getId(), user.getId());
         if(foundPost.isPresent()){
+            replys.setPostId(foundPost.get().getId());
+            replys.setUserId(user.getId());
             session.setAttribute("post", foundPost.get());
-            session.setAttribute("replys", postService.freePostReplyList(foundPost.get().getId()));
+            session.setAttribute("replys", postService.freePostReplyList(replys));
             return new RedirectView("/post/free-post-detail");
         }
         return new RedirectView("/post/free-post");

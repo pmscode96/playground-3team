@@ -39,10 +39,10 @@ public class PostDAO {
 
 
 //    게시물 상세보기 자유게시판
-    public Optional<FreePostDTO> selectByFreePostId(Long id){return postMapper.selectFreePost(id);}
+    public Optional<FreePostDTO> selectByFreePostId(Long id, Long userId){return postMapper.selectFreePost(id, userId);}
 
 //    게시물 상세보기 고민게시판
-    public Optional<ConsultingPostDTO> selectByConsultingPostId(Long id){return postMapper.selectConsultingPost(id);}
+    public Optional<ConsultingPostDTO> selectByConsultingPostId(Long id, Long userId){return postMapper.selectConsultingPost(id, userId);}
 
 //    자유게시판 게시물 전체 리스트(페이징처리)
     public List<FreePostDTO> selectFreePostList(@Param("pagination") Pagination pagination, @Param("Search") Search search, @Param("keyword") String keyword, @Param("userId") Long userId){
@@ -82,10 +82,28 @@ public class PostDAO {
     };
 
 //    자유게시판 댓글 리스트
-    public List<ReplyDTO> freePostReplyList(Long postId){return postMapper.freePostReplyList(postId);};
+    public List<ReplyDTO> freePostReplyList(ReplyDTO replyDTO){return postMapper.freePostReplyList(replyDTO);};
+
+//    자유게시판 댓글 한개 가져오기
+    public Optional<ReplyDTO> freeReplySelect(ReplyDTO replyDTO){return postMapper.freeReplySelect(replyDTO);};
 
 //    고민게시판 댓글 리스트
-    public List<ReplyDTO> consultingPostReplyList(Long postId){return postMapper.consultingPostReplyList(postId);};
+    public List<ReplyDTO> consultingPostReplyList(ReplyDTO replyDTO){return postMapper.consultingPostReplyList(replyDTO);};
+
+//    자유게시판 댓글 한개 가져오기
+    public Optional<ReplyDTO> consultingReplySelect(ReplyDTO replyDTO){return postMapper.consultingReplySelect(replyDTO);};
+
+//    자유게시판 좋아요 id로 확인
+    public Optional<FreePostLikeVO> freePostLikeSelect(FreePostLikeVO freePostLikeVO){return postMapper.freePostLikeSelect(freePostLikeVO);};
+
+//    고민게시판 좋아요 id로 확인
+    public Optional<ConsultingPostLikeVO> consultingPostLikeSelect(ConsultingPostLikeVO consultingPostLikeVO){return postMapper.consultingPostLikeSelect(consultingPostLikeVO);};
+
+//    자유게시판 좋아요 STATUS 수정
+    public void freePostLikeStatusUpdate(FreePostLikeVO freePostLikeVO){postMapper.freePostLikeStatusUpdate(freePostLikeVO);};
+
+//    고민게시판 좋아요 STATUS 수정
+    public void consultingPostLikeStatusUpdate(ConsultingPostLikeVO consultingPostLikeVO){postMapper.consultingPostLikeStatusUpdate(consultingPostLikeVO);};
 
 //    댓글 수정
     public void replyUpdate(ReplyVO replyVO){
@@ -103,13 +121,26 @@ public class PostDAO {
 //    자유게시판 댓글 좋아요
     public void freePostReplyLike(FreePostReplyLikeVO freePostReplyLikeVO){postMapper.freePostReplyLike(freePostReplyLikeVO);};
 
+//    자유게시판 댓글 좋아요 STATUS 수정 0< 좋아요 1< 좋아요안함
+    public void freePostReplyLikeStatusUpdate(FreePostReplyLikeVO freePostReplyLikeVO){postMapper.freePostReplyLikeStatusUpdate(freePostReplyLikeVO);};
+
+//    자유게시판 댓글 좋아요 있는지 확인
+    public Optional<FreePostReplyLikeVO> freePostReplyLikeSelect(FreePostReplyLikeVO freePostReplyLikeVO){return postMapper.freePostReplyLikeSelect(freePostReplyLikeVO);};
+
 //    자유게시판 댓글 좋아요 취소
     public void freePostReplyLikeDelete(Long id){postMapper.freePostReplyLikeDelete(id);};
 
 //    고민게시판 댓글 좋아요
     public void consultingPostReplyLike(ConsultingPostReplyLikeVO consultingPostReplyLikeVO){postMapper.consultingPostReplyLike(consultingPostReplyLikeVO);};
 
-//    고민게시판 댓글 좋아요 취소
+//    고민게시판 댓글 좋아요 STATUS 수정 0< 좋아요 1< 좋아요안함
+    public void consultingPostReplyLikeStatusUpdate(ConsultingPostLikeVO consultingPostLikeVO){postMapper.consultingPostReplyLikeStatusUpdate(consultingPostLikeVO);};
+
+//    고민게시판 댓글 좋아요 있는지 확인
+    public Boolean consultingPostReplyLikeSelect(ConsultingPostReplyLikeVO consultingPostReplyLikeVO){return postMapper.consultingPostReplyLikeSelect(consultingPostReplyLikeVO);};
+
+
+    //    고민게시판 댓글 좋아요 취소
     public void consultingPostReplyLikeDelete(Long id){postMapper.consultingPostReplyLikeDelete(id);};
 
 //    게시글 삭제
@@ -151,4 +182,11 @@ public class PostDAO {
 
 //    고민게시판 댓글 좋아요 전체 삭제
     public void consultingPostReplyLikeDeleteAllByReplyId(Long replyId){postMapper.consultingPostReplyLikeDeleteAllByReplyId(replyId);};
+
+//    마이페이지 포스트 토탈 리스트
+    public int selectTotalFreePostMyPage(Search search, Long userId){return postMapper.selectTotalFreePostMyPage(search, userId);};
+
+//    고민페이지 포스트 토탈 리스트
+    public int selectTotalConsultingPostMyPage(Search search, Long userId){return postMapper.selectTotalConsultingPostMyPage(search, userId);};
+
 }

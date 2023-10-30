@@ -16,4 +16,6 @@ public class ConsultingPostReplyVO {
 
     //    유저 아이디
     private Long userId;
+
+    private Integer status;
 }

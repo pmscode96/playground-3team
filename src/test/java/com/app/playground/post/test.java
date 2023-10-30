@@ -6,6 +6,7 @@ import com.app.playground.domain.DTO.PostDTO;
 import com.app.playground.domain.DTO.ReplyDTO;
 import com.app.playground.domain.Pagination;
 import com.app.playground.domain.Search;
+import com.app.playground.domain.VO.FreePostReplyLikeVO;
 import com.app.playground.domain.VO.FreePostVO;
 import com.app.playground.domain.VO.NoticeVO;
 import com.app.playground.domain.VO.PostVO;
@@ -90,14 +91,32 @@ public class test {
     @Test
     public void postSelectListTest(){
         Pagination pagination = new Pagination();
+        Long userId = null;
         Search search = new Search();
         String keyword = "12";
         pagination.setTotal(10);
         pagination.setPage(1);
         pagination.setEndRow(10);
         pagination.setStartRow(1);
-        postMapper.selectFreePostList(pagination, search, keyword).stream().map(FreePostDTO::toString).forEach(log::info);
+        postMapper.selectFreePostList(pagination, search, keyword, userId).stream().map(FreePostDTO::toString).forEach(log::info);
 //        postMapper.selectConsultingPost(23L).stream().map(PostDTO::toString).forEach(log::info);
+    }
+
+    @Test
+    public void likeSelectTest(){
+        FreePostReplyLikeVO freePostReplyLikeVO = new FreePostReplyLikeVO();
+        freePostReplyLikeVO.setUserId(2L);
+        freePostReplyLikeVO.setReplyId(204L);
+
+        log.info(String.valueOf(postMapper.freePostReplyLikeSelect(freePostReplyLikeVO)));
+    }
+
+    @Test
+    public void replyListSelectTest(){
+
+        log.info("1234asdf");
+//        postService.freePostReplyList(402L).stream().map(ReplyDTO::toString).forEach(log::info);
+        log.info("1234asdf");
     }
 
     @Test

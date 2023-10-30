@@ -87,12 +87,12 @@ public class MyPageController {
         if((String)request.getParameter("keyword")!=null) {
             keyword = (String) request.getParameter("keyword");
         }
-        pagination.setTotal(postService.selectTotalFreePost(search));
+        pagination.setTotal(postService.selectTotalConsultingPostMyPage(search, currentUser.getId()));
         pagination.progress();
         model.addAttribute("pagination", pagination);
         search.setKeyword(keyword);
 
-        model.addAttribute("posts", postService.freePostList(pagination, search, keyword, ((UserVO) session.getAttribute("user")).getId()));
+        model.addAttribute("posts", postService.freePostList(pagination, search, keyword, currentUser.getId()));
         model.addAttribute("keyword",keyword);
     }
 
@@ -129,7 +129,7 @@ public class MyPageController {
         if((String)request.getParameter("keyword")!=null) {
             keyword = (String) request.getParameter("keyword");
         }
-        pagination.setTotal(postService.selectTotalConsultingPost(search));
+        pagination.setTotal(postService.selectTotalConsultingPostMyPage(search, currentUser.getId()));
         pagination.progress();
         model.addAttribute("pagination", pagination);
         search.setKeyword(keyword);

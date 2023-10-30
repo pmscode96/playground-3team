@@ -27,7 +27,10 @@
         <typeAlias type="com.app.playground.domain.VO.SchoolScheduleVO" alias="schoolScheduleVO" />
         <typeAlias type="com.app.playground.domain.VO.SchoolVO" alias="schoolVO" />
         <typeAlias type="com.app.playground.domain.VO.UserVO" alias="userVO" />
-
+        <typeAlias type="com.app.playground.domain.VO.FreePostReplyLikeVO" alias="freePostReplyLikeVO" />
+        <typeAlias type="com.app.playground.domain.VO.ConsultingPostReplyLikeVO" alias="consultingPostReplyLikeVO" />
+        <typeAlias type="com.app.playground.domain.VO.FreePostLikeVO" alias="freePostLikeVO" />
+        <typeAlias type="com.app.playground.domain.VO.ConsultingPostLikeVO" alias="consultingPostLikeVO" />
         <!--DTO-->
         <typeAlias type="com.app.playground.domain.DTO.ReplyDTO" alias="replyDTO" />
         <typeAlias type="com.app.playground.domain.DTO.PostDTO" alias="postDTO" />

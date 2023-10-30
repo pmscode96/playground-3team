@@ -14,4 +14,7 @@ public class FreePostReplyLikeVO {
 
 //    유저 아이디
     private Long userId;
+
+//    좋아요 상태
+    private Integer status;
 }

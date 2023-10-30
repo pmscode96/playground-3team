@@ -43,4 +43,8 @@ public class PostDTO implements Serializable {
     private String userKakaoProfileUrl;
 
     private Integer rownum;
+
+    private Integer likeCount;
+
+    private Integer status;
 }

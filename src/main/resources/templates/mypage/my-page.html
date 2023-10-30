@@ -185,7 +185,6 @@
                                                 <em th:if="${page eq pagination.page}" class="link_page" th:text="${page}"></em>
                                                 <a th:unless="${page eq pagination.page}" class="link_page change-page" th:href="${page}" th:text="${page}"></a>
                                             </span>
-                                                                        <!--                <a class="btn_paging btn_next change-page" rel="next" th:href="${pagination.endpage > (pagination.totalPages - 4)} ? ${pagination.endPage + 1} : '#'"><span class="ico_cs ico_arr">다음 페이지로 이동</span></a>-->
                                             <a class="btn_paging btn_next change-page" rel="next" th:href="${pagination.endPage == pagination.realEnd} ? ${pagination.page} : ${pagination.endPage + 1}"><span class="ico_cs ico_arr">다음 페이지로 이동</span></a>
                                         </div>
                                         <div class="name search">
@@ -215,6 +214,7 @@
 </script>
 <script th:inline="javascript">
     let users = [[${user}]]
+    let page = [[${pagination}]]
     console.log(users)
     $('.txt_nick').text($('.txt_nick').text() == 0 ? "학생" : "교사") ;
 

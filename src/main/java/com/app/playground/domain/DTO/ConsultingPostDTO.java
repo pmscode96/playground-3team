@@ -3,11 +3,12 @@ package com.app.playground.domain.DTO;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Component
 @Data
-public class ConsultingPostDTO {
+public class ConsultingPostDTO implements Serializable {
     //    고유번호
     private Long id;
 
@@ -42,4 +43,8 @@ public class ConsultingPostDTO {
     private Integer rownum;
 
     private String userKakaoProfileUrl;
+
+    private Integer likeCount;
+
+    private Integer status;
 }

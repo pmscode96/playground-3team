@@ -68,6 +68,7 @@
             <div class="home h-two ma-c ma-c-two" id="result">
                 <th:block th:each="post:${posts}" th:object="${post}" >
                     <div class="card card-two card-thr card-four card-five">
+                        <input type="hidden" th:value="*{likeCount}">
                         <form class="goToPostDetail" th:action="@{/post/free-post}" method="post">
                             <input type="hidden" name="id" th:value="*{id}" >
                         </form>
@@ -77,7 +78,10 @@
                             </div>
                             <div class="card-con card-con-two card-con-three">
                                 <strong color="black" class="h-three carti carti-two carti-thr carti-four" aria-hidden="true" th:text="*{postTitle}"></strong>
-                                <span color="gray60" class="h-three carsub carsub-two carsub-thr carsub-four" aria-hidden="true" th:text="|*{userSchool} - *{userName}|"></span>
+                                <div style="display: flex">
+                                    <span style="color: rgb(128,128,128); width: 200%;" class="h-three carsub carsub-two carsub-thr carsub-four" aria-hidden="true" th:text="|*{userSchool} - *{userName}|"></span>
+                                    <span style="color: rgb(128,128,128); font-size: 13px; text-align: right" class="h-three carsub carsub-two carsub-thr carsub-four" th:text="*{likeCount} != null ?'좋아요 ' + *{likeCount} + '개' : '좋아요 0개'"></span>
+                                </div>
                             </div>
                         </a>
                     </div>
@@ -105,64 +109,7 @@
 </body>
 <script th:inline="javascript">
     let pagess = [[${pagination}]]
-
-    let ids = document.querySelectorAll('.goToPostDetail');
-    let buttons = document.querySelectorAll('.goToDetail')
-
-    for (let i = 0; i < buttons.length; i++) {
-
-        let button = buttons.item(i);
-        let id = ids.item(i);
-        button.addEventListener("click", e =>{
-            id.submit();
-        })
-    }
-    $("a.change-page").on("click", function(e){
-        e.preventDefault();
-        let page = $(this).attr("href");
-        let type = $("select[name=type]").val();
-        let keyword = $("#keyword").val();
-        location.href = `/post/free-post?page=${page}&keyword=${keyword}`;
-    });
-
-
-//     검색
-    document.getElementById("search").addEventListener("click", async () => {
-        const keyword = document.getElementById("keyword").value;
-        location.href = `/post/free-post?page=1&keyword=${keyword}`;
-        const response = await fetch(`/results/free-search?keyword=${keyword}`);
-        const json = await response.json();
-        console.log("총갯수")
-        console.log(json.postsTotalCount)
-        if(response.ok) {
-            console.log(json)
-            const freePosts = json.freePosts;
-            console.log(freePosts)
-
-            const postsTotalCount = json.postsTotalCount;
-            const totalPages = Math.ceil(postsTotalCount / 12); // pageSize는 페이지당 항목 수입니다.
-            let freePostData = ``;
-            console.log(freePostData)
-            freePosts.forEach(freePost => {
-                // const eventDate = new Date(freePost.eventStartDate).toISOString().replace('T', '').slice(0, 10);
-                console.log(freePost)
-                freePostData += `<div class="card card-two card-thr card-four card-five">`
-                freePostData += `<form class="goToPostDetail" action="/post/free-post" method="post">`
-                freePostData += `<input type="hidden" name="id" value="${freePost.id}" >`
-                freePostData += `</form>`
-                freePostData += `<a class="card-in card-in-two card-in-thr goToDetail" >`
-                freePostData += `<div src="https://mud-kage.kakaocdn.net/dn/iy1cB/btssvfJ45Ga/fW0LC7ROJK1ZyTKeas68d0/c360.jpg" class="ohn ohn-two thumbnail">`
-                freePostData += `<!--after -->`
-                freePostData += `</div>`
-                freePostData += `<div class="card-con card-con-two card-con-three">`
-                freePostData += `<strong color="black" class="h-three carti carti-two carti-thr carti-four" aria-hidden="true">${freePost.postTitle}</strong>`
-                freePostData += `<span color="gray60" class="h-three carsub carsub-two carsub-thr carsub-four" aria-hidden="true">${freePost.userSchool} - ${freePost.userName}</span>`
-                freePostData += `</div>`
-                freePostData += `</a>`
-                freePostData += `</div>`
-            });
-            document.getElementById("result").innerHTML = freePostData;
-        }
-    });
+    let posts = [[${posts}]]
 </script>
+<script src="/js/post/free-post.js"></script>
 </html>

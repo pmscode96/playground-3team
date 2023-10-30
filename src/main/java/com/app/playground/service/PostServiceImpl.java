@@ -35,14 +35,14 @@ public class PostServiceImpl implements PostService {
 
 //    자유게시판 상세보기
     @Override
-    public Optional<FreePostDTO> freePostDetail(Long id) {
-        return postDAO.selectByFreePostId(id);
+    public Optional<FreePostDTO> freePostDetail(Long id, Long userId) {
+        return postDAO.selectByFreePostId(id, userId);
     }
 
 //    고민게시판 상세보기
     @Override
-    public Optional<ConsultingPostDTO> consultingPostDetail(Long id) {
-        return postDAO.selectByConsultingPostId(id);
+    public Optional<ConsultingPostDTO> consultingPostDetail(Long id, Long userId) {
+        return postDAO.selectByConsultingPostId(id, userId);
     }
 
 //    자유게시판 리스트
@@ -67,8 +67,28 @@ public class PostServiceImpl implements PostService {
         return postDAO.selectTotalConsultingPost(search);
     }
 
+    @Override
+    public Optional<FreePostLikeVO> freePostLikeSelect(FreePostLikeVO freePostLikeVO) {
+       return postDAO.freePostLikeSelect(freePostLikeVO);
+    }
 
-//    게시물 검색
+    @Override
+    public Optional<ConsultingPostLikeVO> consultingPostLikeSelect(ConsultingPostLikeVO consultingPostLikeVO) {
+        return postDAO.consultingPostLikeSelect(consultingPostLikeVO);
+    }
+
+    @Override
+    public void freePostLikeStatusUpdate(FreePostLikeVO freePostLikeVO) {
+        postDAO.freePostLikeStatusUpdate(freePostLikeVO);
+    }
+
+    @Override
+    public void consultingPostLikeStatusUpdate(ConsultingPostLikeVO consultingPostLikeVO) {
+        postDAO.consultingPostLikeStatusUpdate(consultingPostLikeVO);
+    }
+
+
+    //    게시물 검색
     @Override
     public PostSearchDTO searchPost(Search search) {
         PostSearchDTO postSearchDTO = new PostSearchDTO();
@@ -114,13 +134,23 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<ReplyDTO> freePostReplyList(Long postId) {
-        return postDAO.freePostReplyList(postId);
+    public List<ReplyDTO> freePostReplyList(ReplyDTO replyDTO) {
+        return postDAO.freePostReplyList(replyDTO);
     }
 
     @Override
-    public List<ReplyDTO> consultingPostReplyList(Long postId) {
-        return postDAO.consultingPostReplyList(postId);
+    public Optional<ReplyDTO> freeReplySelect(ReplyDTO replyDTO) {
+        return postDAO.freeReplySelect(replyDTO);
+    }
+
+    @Override
+    public List<ReplyDTO> consultingPostReplyList(ReplyDTO replyDTO) {
+        return postDAO.consultingPostReplyList(replyDTO);
+    }
+
+    @Override
+    public Optional<ReplyDTO> consultingReplySelect(ReplyDTO replyDTO) {
+        return postDAO.consultingReplySelect(replyDTO);
     }
 
     //    게시물 댓글 수정
@@ -153,7 +183,19 @@ public class PostServiceImpl implements PostService {
         postDAO.freePostReplyLike(freePostReplyLikeVO);
     }
 
-//    자유게시판 좋아요 취소
+//    자유게시판 댓글 좋아요 STATUS 수정 0< 좋아요 1< 좋아요안함
+    @Override
+    public void freePostReplyLikeStatusUpdate(FreePostReplyLikeVO freePostReplyLikeVO) {
+        postDAO.freePostReplyLikeStatusUpdate(freePostReplyLikeVO);
+    }
+
+//    자유게시판 댓글 좋아요 있는지 확인
+    @Override
+    public Optional<FreePostReplyLikeVO> freePostReplyLikeSelect(FreePostReplyLikeVO freePostReplyLikeVO) {
+        return postDAO.freePostReplyLikeSelect(freePostReplyLikeVO);
+    }
+
+    //    자유게시판 좋아요 취소
     @Override
     public void freePostReplyLikeDelete(Long id) {
         postDAO.freePostReplyLikeDelete(id);
@@ -165,7 +207,19 @@ public class PostServiceImpl implements PostService {
         postDAO.consultingPostReplyLike(consultingPostReplyLikeVO);
     }
 
-//    고민게시판 댓글 좋아요 취소
+//    고민게시판 댓글 좋아요 STATUS 수정 0< 좋아요 1< 좋아요안함
+    @Override
+    public void consultingPostReplyLikeStatusUpdate(ConsultingPostLikeVO consultingPostLikeVO) {
+        postDAO.consultingPostReplyLikeStatusUpdate(consultingPostLikeVO);
+    }
+
+//    고민게시판 댓글 좋아요 있는지 확인
+    @Override
+    public Boolean consultingPostReplyLikeSelect(ConsultingPostReplyLikeVO consultingPostReplyLikeVO) {
+        return postDAO.consultingPostReplyLikeSelect(consultingPostReplyLikeVO);
+    }
+
+    //    고민게시판 댓글 좋아요 취소
     @Override
     public void consultingPostReplyLikeDelete(Long id) {
         postDAO.consultingPostReplyLikeDelete(id);
@@ -245,5 +299,15 @@ public class PostServiceImpl implements PostService {
     @Override
     public void consultingPostReplyLikeDeleteAllByReplyId(Long replyId) {
         postDAO.consultingPostReplyLikeDeleteAllByReplyId(replyId);
+    }
+
+    @Override
+    public int selectTotalFreePostMyPage(Search search, Long userId) {
+        return postDAO.selectTotalFreePostMyPage(search, userId);
+    }
+
+    @Override
+    public int selectTotalConsultingPostMyPage(Search search, Long userId) {
+        return postDAO.selectTotalConsultingPostMyPage(search, userId);
     }
 }
