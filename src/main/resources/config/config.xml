@@ -8,17 +8,21 @@
         <!--    VO-->
         <typeAlias type="com.app.playground.domain.VO.AdministratorVO" alias="administratorVO" />
         <typeAlias type="com.app.playground.domain.VO.ConsultingPostAttachmentVO" alias="consultingPostAttachmentVO" />
+        <typeAlias type="com.app.playground.domain.VO.ConsultingPostLikeVO" alias="consultingPostLikeVO" />
+        <typeAlias type="com.app.playground.domain.VO.ConsultingPostReplyLikeVO" alias="consultingPostReplyLikeVO" />
         <typeAlias type="com.app.playground.domain.VO.ConsultingPostReplyVO" alias="consultingPostReplyVO" />
         <typeAlias type="com.app.playground.domain.VO.ConsultingPostVO" alias="consultingPostVO" />
         <typeAlias type="com.app.playground.domain.VO.ExpectedProblemReplyVO" alias="expectedProblemReplyVO" />
         <typeAlias type="com.app.playground.domain.VO.ExpectedProblemVO" alias="expectedProblemVO" />
         <typeAlias type="com.app.playground.domain.VO.FreePostAttachmentVO" alias="freePostAttachmentVO" />
+        <typeAlias type="com.app.playground.domain.VO.FreePostLikeVO" alias="freePostLikeVO" />
+        <typeAlias type="com.app.playground.domain.VO.FreePostReplyLikeVO" alias="freePostReplyLikeVO" />
         <typeAlias type="com.app.playground.domain.VO.FreePostReplyVO" alias="freePostReplyVO" />
         <typeAlias type="com.app.playground.domain.VO.FreePostVO" alias="freePostVO" />
         <typeAlias type="com.app.playground.domain.VO.HomeNoticeAttachmentVO" alias="homeNoticeAttachmentVO" />
         <typeAlias type="com.app.playground.domain.VO.HomeNoticeVO" alias="homeNoticeVO" />
-        <typeAlias type="com.app.playground.domain.VO.InquirePostVO" alias="inquirePostVO" />
         <typeAlias type="com.app.playground.domain.VO.InquirePostAttachmentVO" alias="inquiryPostAttachmentVO" />
+        <typeAlias type="com.app.playground.domain.VO.InquirePostVO" alias="inquirePostVO" />
         <typeAlias type="com.app.playground.domain.VO.NoticeVO" alias="noticeVO" />
         <typeAlias type="com.app.playground.domain.VO.ProfileVO" alias="profileVO" />
         <typeAlias type="com.app.playground.domain.VO.SchoolMealPictureVO" alias="schoolMealPictureVO" />
@@ -27,14 +31,11 @@
         <typeAlias type="com.app.playground.domain.VO.SchoolScheduleVO" alias="schoolScheduleVO" />
         <typeAlias type="com.app.playground.domain.VO.SchoolVO" alias="schoolVO" />
         <typeAlias type="com.app.playground.domain.VO.UserVO" alias="userVO" />
-        <typeAlias type="com.app.playground.domain.VO.FreePostReplyLikeVO" alias="freePostReplyLikeVO" />
-        <typeAlias type="com.app.playground.domain.VO.ConsultingPostReplyLikeVO" alias="consultingPostReplyLikeVO" />
-        <typeAlias type="com.app.playground.domain.VO.FreePostLikeVO" alias="freePostLikeVO" />
-        <typeAlias type="com.app.playground.domain.VO.ConsultingPostLikeVO" alias="consultingPostLikeVO" />
         <!--DTO-->
-        <typeAlias type="com.app.playground.domain.DTO.ReplyDTO" alias="replyDTO" />
-        <typeAlias type="com.app.playground.domain.DTO.PostDTO" alias="postDTO" />
-        <typeAlias type="com.app.playground.domain.DTO.FreePostDTO" alias="freePostDTO" />
         <typeAlias type="com.app.playground.domain.DTO.ConsultingPostDTO" alias="consultingPostDTO" />
+        <typeAlias type="com.app.playground.domain.DTO.FreePostDTO" alias="freePostDTO" />
+        <typeAlias type="com.app.playground.domain.DTO.InquirePostDTO" alias="inquirePostDTO" />
+        <typeAlias type="com.app.playground.domain.DTO.PostDTO" alias="postDTO" />
+        <typeAlias type="com.app.playground.domain.DTO.ReplyDTO" alias="replyDTO" />
     </typeAliases>
 </configuration>

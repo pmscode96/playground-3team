@@ -61,15 +61,17 @@ public class PostController {
     public RedirectView goToJoinFreePostDetail(Long id, HttpSession session, Model model) {
         ReplyDTO replyDTO = new ReplyDTO();
         UserVO user = (UserVO) session.getAttribute("user");
-
-        Optional<FreePostDTO> foundPost = postService.freePostDetail(id, user.getId());
-        log.info(foundPost.toString());
-        if(foundPost.isPresent()){
-            replyDTO.setPostId(foundPost.get().getId());
-            replyDTO.setUserId(user.getId());
-            session.setAttribute("post", foundPost.get());
-            session.setAttribute("replys", postService.freePostReplyList(replyDTO));
-            return new RedirectView("/post/free-post-detail");
+        if(session.getAttribute("user") != null){
+            Optional<FreePostDTO> foundPost = postService.freePostDetail(id, user.getId());
+            if(foundPost.isPresent()){
+                replyDTO.setPostId(foundPost.get().getId());
+                replyDTO.setUserId(user.getId());
+                session.setAttribute("post", foundPost.get());
+                session.setAttribute("replys", postService.freePostReplyList(replyDTO));
+                return new RedirectView("/post/free-post-detail");
+            }
+        }else{
+            return new RedirectView("/login/login");
         }
         log.info("못들어옴");
         return new RedirectView("/post/free-post");
@@ -163,7 +165,59 @@ public class PostController {
     }
 
     @GetMapping("/consulting-post-detail")
-    public void goToConsultingPostDetail(ConsultingPostDTO consultingPostDTO){;}
+    public void goToConsultingPostDetail(ConsultingPostDTO consultingPostDTO){
+        UserVO user = (UserVO) session.getAttribute("user");
+    }
+
+    @PostMapping("/consulting-post-detail")
+    public RedirectView  createConsultingReply(ReplyDTO replyDTO){
+        ReplyDTO replys = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
+        postService.consultingPostReplyInsert(replyDTO);
+        Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(replyDTO.getPostId(), user.getId());
+        if(foundPost.isPresent()){
+            replys.setPostId(foundPost.get().getId());
+            replys.setUserId(user.getId());
+            session.setAttribute("post", foundPost.get());
+            session.setAttribute("replys", postService.consultingPostReplyList(replys));
+            return new RedirectView("/post/consulting-post-detail");
+        }
+        return new RedirectView("/post/consulting-post-detail");
+    }
+
+    @PostMapping("/consulting-post-reply-delete")
+    public RedirectView deleteReplyConsultingPost(Long replyId, Long postId){
+        ReplyDTO replys = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
+
+        postService.consultingPostReplyLikeDeleteAllByReplyId(replyId);
+        postService.consultingPostReplyDelete(replyId);
+        Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(postId, user.getId());
+        if(foundPost.isPresent()){
+            replys.setPostId(foundPost.get().getId());
+            replys.setUserId(user.getId());
+            session.setAttribute("post", foundPost.get());
+            session.setAttribute("replys", postService.consultingPostReplyList(replys));
+            return new RedirectView("/post/consulting-post-detail");
+        }
+        return new RedirectView("/post/consulting-post-detail");
+    }
+
+    @PostMapping("/consulting-post-reply-update")
+    public RedirectView updateReplyConsultingPost(ReplyVO replyVO, Long postId){
+        ReplyDTO replys = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
+        postService.replyUpdate(replyVO);
+        Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(postId, user.getId());
+        if(foundPost.isPresent()){
+            replys.setPostId(foundPost.get().getId());
+            replys.setUserId(user.getId());
+            session.setAttribute("post", foundPost.get());
+            session.setAttribute("replys", postService.consultingPostReplyList(replys));
+            return new RedirectView("/post/consulting-post-detail");
+        }
+        return new RedirectView("/post/consulting-post-detail");
+    }
 
     @GetMapping("/most-recommended-posts")
     public void goToMostRecommendedPosts(){;}
@@ -182,6 +236,16 @@ public class PostController {
         postDTO.setCategory("free");
         postService.createFreePost(postDTO);
         return new RedirectView("/post/free-post");
+    }
+
+    @GetMapping("/consulting-write")
+    public void goToConsultingWrite(){;}
+
+    @PostMapping("/consulting-write")
+    public RedirectView consultingPostCreate(PostDTO postDTO){
+        postDTO.setCategory("consulting");
+        postService.createConsultingPost(postDTO);
+        return new RedirectView("/post/consulting-post");
     }
 
     @GetMapping("/free-update")
@@ -203,6 +267,23 @@ public class PostController {
         return new RedirectView("/post/free-post");
     }
 
-    @GetMapping("/consulting-write")
-    public void goToConsultingWrite(){;}
+    @GetMapping("/consulting-update")
+    public void goToConsultingUpdate(PostDTO postDTO){;}
+
+    @PostMapping("/consulting-update")
+    public RedirectView consultingUpdate(PostVO postVO){
+        ReplyDTO replys = new ReplyDTO();
+        UserVO user = (UserVO) session.getAttribute("user");
+        postService.postUpdate(postVO);
+        Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(postVO.getId(), user.getId());
+        if(foundPost.isPresent()){
+            replys.setPostId(foundPost.get().getId());
+            replys.setUserId(user.getId());
+            session.setAttribute("post", foundPost.get());
+            session.setAttribute("replys", postService.consultingPostReplyList(replys));
+            return new RedirectView("/post/consulting-post-detail");
+        }
+        return new RedirectView("/post/free-post");
+    }
+
 }

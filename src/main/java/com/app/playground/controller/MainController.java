@@ -46,24 +46,29 @@ public class MainController {
     public RedirectView goToPostDetail(PostDTO postDTO){
         ReplyDTO replys = new ReplyDTO();
         UserVO user = (UserVO) session.getAttribute("user");
-        if(Objects.equals(postDTO.getCategory(), "free")){
-            Optional<FreePostDTO> foundPost = postService.freePostDetail(postDTO.getId(), null);
-            if(foundPost.isPresent()){
-                replys.setPostId(foundPost.get().getId());
-                replys.setUserId(user.getId());
-                session.setAttribute("post", foundPost.get());
-                session.setAttribute("replys", postService.freePostReplyList(replys));
-                return new RedirectView("/post/free-post-detail");
+        if(session.getAttribute("user") != null){
+
+            if(Objects.equals(postDTO.getCategory(), "free")){
+                Optional<FreePostDTO> foundPost = postService.freePostDetail(postDTO.getId(), null);
+                if(foundPost.isPresent()){
+                    replys.setPostId(foundPost.get().getId());
+                    replys.setUserId(user.getId());
+                    session.setAttribute("post", foundPost.get());
+                    session.setAttribute("replys", postService.freePostReplyList(replys));
+                    return new RedirectView("/post/free-post-detail");
+                }
+            }else if(Objects.equals(postDTO.getCategory(), "consulting")){
+                Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(postDTO.getId(), null);
+                if(foundPost.isPresent()){
+                    replys.setPostId(foundPost.get().getId());
+                    replys.setUserId(user.getId());
+                    session.setAttribute("post", foundPost.get());
+                    session.setAttribute("replys", postService.consultingPostReplyList(replys));
+                    return new RedirectView("/post/consulting-post-detail");
+                }
             }
-        }else if(Objects.equals(postDTO.getCategory(), "consulting")){
-            Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(postDTO.getId(), null);
-            if(foundPost.isPresent()){
-                replys.setPostId(foundPost.get().getId());
-                replys.setUserId(user.getId());
-                session.setAttribute("post", foundPost.get());
-                session.setAttribute("replys", postService.consultingPostReplyList(replys));
-                return new RedirectView("/post/consulting-post-detail");
-            }
+        }else{
+            return new RedirectView("/login/login");
         }
         return new RedirectView("");
     }

@@ -134,10 +134,10 @@ public class PostDAO {
     public void consultingPostReplyLike(ConsultingPostReplyLikeVO consultingPostReplyLikeVO){postMapper.consultingPostReplyLike(consultingPostReplyLikeVO);};
 
 //    고민게시판 댓글 좋아요 STATUS 수정 0< 좋아요 1< 좋아요안함
-    public void consultingPostReplyLikeStatusUpdate(ConsultingPostLikeVO consultingPostLikeVO){postMapper.consultingPostReplyLikeStatusUpdate(consultingPostLikeVO);};
+    public void consultingPostReplyLikeStatusUpdate(ConsultingPostReplyLikeVO consultingPostReplyLikeVO){postMapper.consultingPostReplyLikeStatusUpdate(consultingPostReplyLikeVO);};
 
 //    고민게시판 댓글 좋아요 있는지 확인
-    public Boolean consultingPostReplyLikeSelect(ConsultingPostReplyLikeVO consultingPostReplyLikeVO){return postMapper.consultingPostReplyLikeSelect(consultingPostReplyLikeVO);};
+    public Optional<ConsultingPostReplyLikeVO> consultingPostReplyLikeSelect(ConsultingPostReplyLikeVO consultingPostReplyLikeVO){return postMapper.consultingPostReplyLikeSelect(consultingPostReplyLikeVO);};
 
 
     //    고민게시판 댓글 좋아요 취소

@@ -209,13 +209,13 @@ public class PostServiceImpl implements PostService {
 
 //    고민게시판 댓글 좋아요 STATUS 수정 0< 좋아요 1< 좋아요안함
     @Override
-    public void consultingPostReplyLikeStatusUpdate(ConsultingPostLikeVO consultingPostLikeVO) {
-        postDAO.consultingPostReplyLikeStatusUpdate(consultingPostLikeVO);
+    public void consultingPostReplyLikeStatusUpdate(ConsultingPostReplyLikeVO consultingPostReplyLikeVO) {
+        postDAO.consultingPostReplyLikeStatusUpdate(consultingPostReplyLikeVO);
     }
 
 //    고민게시판 댓글 좋아요 있는지 확인
     @Override
-    public Boolean consultingPostReplyLikeSelect(ConsultingPostReplyLikeVO consultingPostReplyLikeVO) {
+    public Optional<ConsultingPostReplyLikeVO> consultingPostReplyLikeSelect(ConsultingPostReplyLikeVO consultingPostReplyLikeVO) {
         return postDAO.consultingPostReplyLikeSelect(consultingPostReplyLikeVO);
     }
 
