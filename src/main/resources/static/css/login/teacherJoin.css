@@ -321,9 +321,6 @@ body, html {
     flex-wrap: wrap;
 }
 #wrap .div2 .div2_1 .div2_4 .div2_5 .d1 .d1_1{
-    -webkit-box-flex: 0;
-    flex: 0 0 66.666667%;
-    max-width: 66.666667%;
     position: relative;
     width: 100%;
     padding-right: 15px;

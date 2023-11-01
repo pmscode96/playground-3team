@@ -68,7 +68,7 @@ public class test {
             idx = random.nextInt(10) + 1;
             replyDTO.setUserId(1L);
             replyDTO.setReplyContent("테스트 내용" + idx);
-            replyDTO.setPostId(280L);
+            replyDTO.setPostId(1L);
             postService.freePostReplyInsert(replyDTO);
         }
     }
@@ -85,7 +85,7 @@ public class test {
 
     @Test
     public void postSelectTest(){
-        postMapper.selectConsultingPost(23L).stream().map(ConsultingPostDTO::toString).forEach(log::info);
+//        postMapper.selectConsultingPost(1L).stream().map(ConsultingPostDTO::toString).forEach(log::info);
     }
 
     @Test

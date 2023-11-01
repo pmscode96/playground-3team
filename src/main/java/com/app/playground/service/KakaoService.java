@@ -30,7 +30,7 @@ public class KakaoService {
             StringBuilder sb = new StringBuilder();
             sb.append("grant_type=authorization_code");
             sb.append("&client_id=cdf63dee9a5bfba12afcdf5841267c52"); // TODO REST_API_KEY 입력
-            sb.append("&redirect_uri=http://localhost:10000/kakao/login"); // TODO 인가코드 받은 redirect_uri 입력
+            sb.append("&redirect_uri=http://localhost:10000/kakao/login"); // TODO 인가코드 받은 redirect_uri 입력 수정할 부분임
             sb.append("&code=").append(code);
             bw.write(sb.toString());
             bw.flush();

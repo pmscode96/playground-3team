@@ -1,3 +1,47 @@
+// 이름 글자수
+$(document).ready(function() {
+    $('#subTitle').on('input', function() {
+        var inputLength = $(this).val().length;
+        $('.txt_num').text(inputLength + '/20');
+    });
+    $('.select_on').text($('#opAge').find(':selected').text());
+});
+
+// 프로필 이미지
+let file = document.querySelector("#profileInput");
+const form = document.querySelector("form[name='edit-form']");
+let src = document.querySelector(".img_thumb").src;
+
+document.querySelector(".cancel").addEventListener("click", (e) => {
+    e.target.style.display = "none";
+    document.querySelector(".img_thumb").setAttribute("src", `${src}`);
+    document.querySelector("#profileInput").value = "";
+})
+
+file.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    const name = file.name;
+    const formData = new FormData();
+    formData.append("uploadFiles", file);
+
+    fetch("/file/upload", {
+        method: "POST",
+        body: formData
+    }).then((response) => response.json())
+        .then((uuids) => {
+            let now = new Date();
+            let year = now.getFullYear();
+            let month = now.getMonth() + 1;
+            let date = now.getDate();
+            month = month < 10 ? '0' + month : month;
+            date = date < 10 ? '0' + date : date;
+            let fileName = `${year}/${month}/${date}/t_${uuids[0]}_${name}`;
+            document.querySelector(".img_thumb").setAttribute("src", `/file/display?fileName=${fileName}`)
+            document.querySelector(".cancel").style.display = "block";
+            let input = document.getElementById("uuidInput");
+            input.value = uuids[0];
+        })
+});
 
 
 let phoneOpenBtn = document.querySelectorAll(".btn_number");
@@ -50,7 +94,7 @@ function handleOnChange(e) {
     e.previousElementSibling.innerHTML = e.options[e.selectedIndex].text;
 }
 
-
+// 휴대폰 번호 형태 검사
 function validatePhoneNumber() {
     var phoneNumberInput1 = $('#phoneNum1');
     var phoneNumberInput2 = $('#phoneNum2');
@@ -71,11 +115,13 @@ function validatePhoneNumber() {
     }
 }
 
+// 핸드폰 번호 인증
 $('#phone_b1').click(function() {
     var isValid = validatePhoneNumber();
     console.log("유효성 검사: " + isValid);
 
     if(isValid) {
+        // 받아온 번호 3개를 형태에 맞게 합치고 변환
         var phoneNumber = $('#phoneNum1').val() + '-' + $('#phoneNum2').val() + '-' + $('#phoneNum3').val();
         $.ajax({
             type: "GET",

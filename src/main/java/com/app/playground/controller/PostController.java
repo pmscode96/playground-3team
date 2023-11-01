@@ -229,7 +229,12 @@ public class PostController {
     public void goToSchoolPost(){;}
 
     @GetMapping("/free-write")
-    public void goToFreeWrite(){;}
+    public RedirectView goToFreeWrite(){;
+        if(session.getAttribute("user") == null){
+            return new RedirectView("/login/login");
+        }
+        return new RedirectView("/post/free-write");
+    }
 
     @PostMapping("/free-write")
     public RedirectView freePostCreate(PostDTO postDTO){
@@ -239,7 +244,12 @@ public class PostController {
     }
 
     @GetMapping("/consulting-write")
-    public void goToConsultingWrite(){;}
+    public RedirectView goToConsultingWrite(){;
+        if(session.getAttribute("user") == null){
+            return new RedirectView("/login/login");
+        }
+        return new RedirectView("/post/consulting-write");
+    }
 
     @PostMapping("/consulting-write")
     public RedirectView consultingPostCreate(PostDTO postDTO){

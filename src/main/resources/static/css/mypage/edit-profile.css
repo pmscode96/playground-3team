@@ -603,6 +603,7 @@ dl, li, menu, ol, ul {
     margin: -1px 0 0 -1px;
     border: 1px solid #e0e0e0;
     border-radius: 100px;
+    cursor: pointer;
 }
 
 .file_upload .lab_photo {
@@ -615,6 +616,7 @@ dl, li, menu, ol, ul {
     background-repeat: no-repeat;
     background-position: 0 0;
     background-size: cover;
+    cursor: pointer;
 }
 
 .ico_together {
@@ -1454,4 +1456,18 @@ dl, li, menu, ol, ul {
 
 .d_footer .area_info>.link_menu {
     display: none;
+}
+
+div.cancel {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background-image: url("/icon/cancel.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }

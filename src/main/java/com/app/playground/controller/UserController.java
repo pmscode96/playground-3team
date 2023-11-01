@@ -66,9 +66,6 @@ public class UserController {
         return new RedirectView("/login/login");
     }
 
-//    @GetMapping("/kakao")
-//    public void goToKakao(){;}
-
     @GetMapping("/admin-login")
     public void goToLoginForm(){;}
 
@@ -129,9 +126,9 @@ public class UserController {
         }
         return new RedirectView("/login/no-login");
     }
+
     @GetMapping("/no-login")
     public void goToNoLogin(){;}
-
 
     @GetMapping("/teacher-and-student-join")
     public void goToTeacherAndStudentJoin(){;}

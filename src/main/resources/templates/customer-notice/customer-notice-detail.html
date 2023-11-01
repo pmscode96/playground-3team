@@ -366,51 +366,7 @@
             </span>
             <hr class="hide">
 <!--            하단 바-->
-            <together-footer>
-                <div id="dkFoot">
-                    <div class="d_footer">
-                        <div class="inner_footer">
-                            <a class="link_home">
-                                <span class="ir_pm">playground</span>
-                            </a>
-                            <p class="desc_footer">playground(놀이터)는 교사와 학생의 소통 공간입니다.</p>
-                            <div class="area_info">
-                                <ul class="list_menu">
-                                    <li>
-                                        <a target="_blank" class="link_menu">고객센터</a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" class="link_menu">문의하기</a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" class="link_menu">이용약관</a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" class="link_menu link_policy">개인정보처리방침</a>
-                                    </li>
-                                </ul>
-                                <ul class="list_sns">
-                                    <li>
-                                        <a target="_blank" class="link_sns #together_yellow">
-                                            <span class="ico_svg ico_kakaotalk ir_pm">카카오톡</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" class="link_sns">
-                                            <span class="ico_svg ico_facebook ir_pm">페이스북 공유하기</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a target="_blank" class="link_sns">
-                                            <span class="ico_svg ico_instargram ir_pm">인스타그램 공유하기</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </together-footer>
+            <th:block th:replace="~{fragment/footer :: footer}"></th:block>
         </div>
     </together-app>
 </body>

@@ -18,10 +18,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -52,12 +57,19 @@ public class MyPageController {
             // Handle no user in session case
         }
     }
-
+    private String getPath() {
+        return LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+    }
     @PostMapping("/edit-profile")
-    public RedirectView updateProfile(UserVO userVO){
+    public RedirectView updateProfile(UserVO userVO, @RequestParam("uuid") String uuid, @RequestParam("uploadFiles") MultipartFile uploadFile){
+        log.info("들어옴");
         UserVO currentUser = (UserVO)session.getAttribute("user");
         userVO.setId(currentUser.getId());
         log.info(String.valueOf(userVO));
+        userVO.setUserProfileName(uuid + "_" + uploadFile.getOriginalFilename());
+        userVO.setUserProfilePath(getPath());
+        log.info("여기야");
+        log.info(userVO.toString());
         userService.updateUser(userVO);
 //        Optional<UserVO> foundUser = userService.getUserById(userVO.getId());
 //        session.setAttribute("user", foundUser);

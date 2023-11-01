@@ -15,6 +15,15 @@ spring:
   datasource:
     hikari:
       driver-class-name: oracle.jdbc.OracleDriver
-      jdbc-url: jdbc:oracle:thin:@3.38.149.245:1521:XE
-      username: SCOTT
-      password: TIGER
+      jdbc-url: jdbc:oracle:thin:@54.180.158.82:1521:XE
+      username: hr
+      password: hr
+
+
+#multipart
+  servlet:
+    multipart:
+      enabled: true
+      max-request-size: 40MB
+      max-file-size: 40MB
+      file-size-threshold: 100MB
