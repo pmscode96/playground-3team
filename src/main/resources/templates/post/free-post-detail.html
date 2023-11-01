@@ -84,7 +84,7 @@
                 <input type="hidden" name="postTitle" th:value="${session.post.postTitle}">
                 <input type="hidden" name="postContent" th:value="${session.post.postContent}">
                 <input type="hidden" name="id" th:value="${session.post.id}">
-                <button >게시물 수정</button>
+                <button style="min-width: 68px; display: flex; align-items: start;">게시물 수정</button>
             </form>
             <form th:unless="${session.user.id == session.post.userId}" style="display: flex; margin-right: 50px;"></form>
         </div>

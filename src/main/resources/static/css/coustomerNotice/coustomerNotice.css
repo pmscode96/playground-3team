@@ -756,7 +756,7 @@ address, caption, cite, code, dfn, em, strong, var {
     flex-shrink: 0;
     width: 115px;
     height: 18px;
-    background: url(//t1.kakaocdn.net/together_image/svg/footer_logo_black.svg) no-repeat 50%/contain;
+    /*background: url(//t1.kakaocdn.net/together_image/svg/footer_logo_black.svg) no-repeat 50%/contain;*/
 }
 
 .d_footer .desc_footer {

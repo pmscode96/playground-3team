@@ -58,23 +58,34 @@
                                         </div>
                                     </div>
                                 </div>
-                                <th:block th:if="${user.userKakaoProfileUrl eq null}">
+                                <th:block th:if="${user.userProfileName != null}">
                                     <div class="area_thumb">
-                                    <a  class="link_thumb" href="">
-                                        <span class="profile_thumb">
-                                            <img alt="프로필 사진" class="img_thumb" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar04.png">
-                                        </span>
-                                    </a>
-                                </div>
+                                        <a class="link_thumb" href="">
+                                            <span class="profile_thumb">
+                                                <img alt="프로필 사진" class="img_thumb" th:src="@{/file/display(fileName=${user.userProfilePath} + '/' + ${user.userProfileName})}">
+                                            </span>
+                                        </a>
+                                    </div>
                                 </th:block>
-                                <th:block th:unless="${user.userKakaoProfileUrl eq null}">
-                                    <div class="area_thumb">
-                                    <a  class="link_thumb" href="">
-                                        <span class="profile_thumb">
-                                            <img alt="프로필 사진" class="img_thumb" th:src="${user.userKakaoProfileUrl}">
-                                        </span>
-                                    </a>
-                                </div>
+                                <th:block th:unless="${user.userProfileName != null}">
+                                    <th:block th:if="${user.userKakaoProfileUrl eq null}">
+                                        <div class="area_thumb">
+                                            <a class="link_thumb" href="">
+                                                <span class="profile_thumb">
+                                                    <img alt="프로필 사진" class="img_thumb" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar04.png">
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </th:block>
+                                    <th:block th:unless="${user.userKakaoProfileUrl eq null}">
+                                        <div class="area_thumb">
+                                            <a class="link_thumb" href="">
+                                                <span class="profile_thumb">
+                                                    <img alt="프로필 사진" class="img_thumb" th:src="${user.userKakaoProfileUrl}">
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </th:block>
                                 </th:block>
                                 <div class="area_setting">
                                     <a class="link_setting" href="preferences">

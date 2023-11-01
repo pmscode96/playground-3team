@@ -9,12 +9,15 @@
   <link rel="stylesheet" href="/css/post/style.css">
 
   <!-- 헤더 스타일 CSS -->
-  <link rel="stylesheet" href="/css/post/header.css">
+<!--  <link rel="stylesheet" href="/css/post/header.css">-->
+  <link rel="stylesheet" href="/css/fragment/header.css">
 
   <!-- 하단 스타일 CSS -->
-  <link rel="stylesheet" href="/css/post/footer.css">
+<!--  <link rel="stylesheet" href="/css/post/footer.css">-->
+  <link rel="stylesheet" href="/css/fragment/footer.css">
 
   <link rel="stylesheet" href="/css/post/community.css">
+  <th:block th:replace="~{fragment/header :: style}"></th:block>
 
 </head>
 <body>
@@ -29,80 +32,7 @@
       <div>
 
         <!-- 헤더 콘테이너 -->
-        <div class="header-container">
-
-          <!-- 헤더 gnb -->
-          <div class="header-navigation">
-
-            <!-- 로고 -->
-            <h1>
-              <a class="link_service" href=""></a>
-            </h1>
-
-            <!-- 헤더 gnb 선택 -->
-            <div class="gnb_together">
-
-              <!-- 홈 -->
-              <a class="link_gnb" href="">
-                <span class="txt_gnb">홈</span>
-              </a>
-
-              <!-- 같이 기부 -->
-              <a class="link_gnb" href="">
-                <span class="txt_gnb">같이기부</span>
-              </a>
-
-              <!-- 모두의행동 -->
-              <a class="link_gnb" href="">
-                <span class="txt_gnb">모두의행동</span>
-              </a>
-              
-              <!-- 마음날씨 -->
-              <a class="link_gnb link-on" href="">
-                <span class="txt_gnb">마음날씨</span>
-              </a>
-              
-              <!-- 캠페인 -->
-              <a class="link_gnb" href="">
-                <span class="txt_gnb">캠페인</span>
-              </a>
-
-            </div>
-
-            <!-- 프로필, 검색 -->
-            <div class="user-util">
-
-              <!-- 프로필 -->
-              <div>
-                <button class="profile-btn">
-                  <div class="profile-bx">
-                    <img profileimagecheck="" width="30" height="30" alt="프로필사진" class="thumb_profile" src="//t1.kakaocdn.net/together_image/common/avatar/avatar.png">
-                  </div>
-                </button>
-              </div>
-
-              <!-- 검색 -->
-              <div>
-                <button class="search-btn">
-                  <span class="search-img">검색</span>
-                </button>
-              </div>
-
-            </div>
-
-            <!-- 햄버거 버튼 -->
-            <div class="burger-bx">
-
-              <button class="burger-btn">
-                <span class="screen_out">내 알림</span>
-                <span class="burget-img">같이가치 메뉴 펼치기</span>
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
+        <th:block th:replace="~{fragment/header :: header}"></th:block>
 
       </div>
 
@@ -819,82 +749,7 @@
       </main>
 
       <!-- 하단 박스 -->
-      <div>
-
-        <!--  -->
-        <div class="foot">
-
-          <!-- 하단 마진박스 -->
-          <div class="footer-mg">
-
-            <!-- 하단 인박스 -->
-            <div class="footer-ibx">
-
-              <a class="link_home" href="">
-                <span class="link_home_text">카카오 같이가치</span>
-              </a>
-
-              <p class="footer_home_content_text">
-                카카오같이가치는 카카오와 카카오임팩트가 함께합니다.
-              </p>
-
-              <div class="footer-info">
-
-                <ul class="list_menu">
-
-                  <li class="menu_corp">
-                    <a class="link_menu" href="">© Kakao Corp.</a>
-                  </li>
-
-                  <li>
-                    <a class="link_menu" href="">고객센터</a>
-                  </li>
-
-                  <li>
-                    <a class="link_menu" href="">문의하기</a>
-                  </li>
-
-                  <li>
-                    <a class="link_menu" href="">이용약관</a>
-                  </li>
-
-                  <li>
-                    <a href="">개인정보처리방침</a>
-                  </li>
-
-                </ul>
-                
-                <ul class="list_sns">
-
-                  <li>
-                    <a class="link_sns" href="">
-                      <span class="icon_svg ir_pm kakao-img"></span>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a class="link_sns" href="">
-                      <span class="icon_svg ir_pm facebook-img"></span>
-                    </a>
-                  </li>
-
-                  <li>
-                    <a class="link_sns" href="">
-                      <span class="icon_svg ir_pm instagram-img"></span>
-                    </a>
-                  </li>
-
-                </ul>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
+      <th:block th:replace="~{fragment/footer :: footer}"></th:block>
 
     </div>  
 

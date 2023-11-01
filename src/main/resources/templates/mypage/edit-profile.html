@@ -36,8 +36,13 @@
                         <div class="wrap_project wrap_profile">
                             <div class="cont_thumb">
                                 <div class="file_upload">
-                                    <img th:if="${user.userKakaoProfileUrl eq null}" alt="프로필" class="img_thumb" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar04.png">
-                                    <img th:unless="${user.userKakaoProfileUrl eq null}" alt="프로필 사진" class="img_thumb" th:src="${user.userKakaoProfileUrl}">
+                                    <th:block th:if="${user.userProfileName != null}">
+                                        <img alt="프로필 사진" class="img_thumb" th:src="@{/file/display(fileName=${user.userProfilePath} + '/' + ${user.userProfileName})}">
+                                    </th:block>
+                                    <th:block th:unless="${user.userProfileName != null}">
+                                        <img th:if="${user.userKakaoProfileUrl eq null}" alt="프로필" class="img_thumb" src="https://t1.kakaocdn.net/together_image/common/avatar/avatar04.png">
+                                        <img th:unless="${user.userKakaoProfileUrl eq null}" alt="프로필 사진" class="img_thumb" th:src="${user.userKakaoProfileUrl}">
+                                    </th:block>
                                     <label class="lab_photo" for="profileInput">
                                         <span class="ico_together ico_photo">사진첨부</span>
                                     </label>

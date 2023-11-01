@@ -56,7 +56,7 @@
             <div class="info info-two info-con false" style="align-items: center">
                 <h2 style="font-size: 2em; text-decoration-line: underline;"><a href="">자유게시판</a></h2>
                 <h2 style="font-size: 2em; margin-left:10px;"><a href="consulting-post">고민게시판</a></h2>
-                <button type="button" onclick="location.href='free-write'" color="black" class="btn-only gim button ao frind btn-tag active"  style="margin-left: 740px;">게시글 작성</button>
+                <button type="button" onclick="location.href='free-post-write'" color="black" class="btn-only gim button ao frind btn-tag active"  style="margin-left: 740px;">게시글 작성</button>
             </div>
         </div>
 
@@ -106,8 +106,9 @@
     <th:block th:replace="~{fragment/footer :: footer}"></th:block>
 </body>
 <script th:inline="javascript">
-    let pagess = [[${pagination}]]
+    let pages = [[${pagination}]]
     let posts = [[${posts}]]
+    let user = [[${session.user}]]
 </script>
 <script src="/js/post/free-post.js"></script>
 </html>

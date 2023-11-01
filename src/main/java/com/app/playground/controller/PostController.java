@@ -118,6 +118,9 @@ public class PostController {
 
     @PostMapping("/free-post-reply-update")
     public RedirectView updateReplyFreePost(ReplyVO replyVO, Long postId){
+        if(session.getAttribute("user") == null){
+            return new RedirectView("/login/login");
+        }
         ReplyDTO replys = new ReplyDTO();
         UserVO user = (UserVO) session.getAttribute("user");
         postService.replyUpdate(replyVO);
@@ -150,6 +153,9 @@ public class PostController {
 
     @PostMapping("/consulting-post")
     public RedirectView goToJoinConsultingPostDetail(Long id, HttpSession session, Model model) {
+        if(session.getAttribute("user") == null){
+            return new RedirectView("/login/login");
+        }
         ReplyDTO replys = new ReplyDTO();
         UserVO user = (UserVO) session.getAttribute("user");
         Optional<ConsultingPostDTO> foundPost = postService.consultingPostDetail(id, user.getId());
@@ -228,13 +234,16 @@ public class PostController {
     @GetMapping("/school-post")
     public void goToSchoolPost(){;}
 
-    @GetMapping("/free-write")
-    public RedirectView goToFreeWrite(){;
+    @GetMapping("/free-post-write")
+    public RedirectView goToFreeWriteForm(){;
         if(session.getAttribute("user") == null){
             return new RedirectView("/login/login");
         }
         return new RedirectView("/post/free-write");
     }
+
+    @GetMapping("/free-write")
+    public void goToFreeWrite(){;}
 
     @PostMapping("/free-write")
     public RedirectView freePostCreate(PostDTO postDTO){
@@ -243,13 +252,16 @@ public class PostController {
         return new RedirectView("/post/free-post");
     }
 
-    @GetMapping("/consulting-write")
-    public RedirectView goToConsultingWrite(){;
+    @GetMapping("/consulting-post-write")
+    public RedirectView goToConsultingWriteForm(){;
         if(session.getAttribute("user") == null){
             return new RedirectView("/login/login");
         }
         return new RedirectView("/post/consulting-write");
     }
+
+    @GetMapping("/consulting-write")
+    public void goToConsultingWrite(){;}
 
     @PostMapping("/consulting-write")
     public RedirectView consultingPostCreate(PostDTO postDTO){

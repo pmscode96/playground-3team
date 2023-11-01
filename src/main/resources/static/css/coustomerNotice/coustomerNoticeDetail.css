@@ -111,15 +111,15 @@ blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4,
     text-align: center;
 }
 
-.d_head .link_service {
-    display: block;
-    width: 115px;
-    height: 100%;
-    font-size: 0;
-    line-height: 0;
-    text-indent: -9999px;
-    background: url(//t1.kakaocdn.net/together_image/svg/logo_pc.svg) 50%/contain no-repeat;
-}
+/*.d_head .link_service {*/
+/*    display: block;*/
+/*    width: 115px;*/
+/*    height: 100%;*/
+/*    font-size: 0;*/
+/*    line-height: 0;*/
+/*    text-indent: -9999px;*/
+/*    background: url(//t1.kakaocdn.net/together_image/svg/logo_pc.svg) 50%/contain no-repeat;*/
+/*}*/
 
 .d_navigation .gnb_together {
     margin-left: 0;
@@ -663,7 +663,7 @@ address, caption, cite, code, dfn, em, strong, var {
     flex-shrink: 0;
     width: 115px;
     height: 18px;
-    background: url(//t1.kakaocdn.net/together_image/svg/footer_logo_black.svg) no-repeat 50%/contain;
+    /*background: url(//t1.kakaocdn.net/together_image/svg/footer_logo_black.svg) no-repeat 50%/contain;*/
 }
 
 .d_footer .desc_footer {

@@ -47,7 +47,7 @@ public class FileController {
     @ResponseBody
     public List<String> upload(@RequestParam("uploadFiles") List<MultipartFile> uploadFiles) throws IOException {
         log.info(uploadFiles.toString());
-        String rootPath = "C:/upload/" + getPath();
+        String rootPath = "/usr/upload/" + getPath();
         List<String> uuids = new ArrayList<>();
         File file = new File(rootPath);
         if(!file.exists()){
@@ -70,7 +70,7 @@ public class FileController {
     @GetMapping("display")
     @ResponseBody
     public byte[] display(String fileName) throws IOException{
-        return FileCopyUtils.copyToByteArray(new File("C:/upload", fileName));
+        return FileCopyUtils.copyToByteArray(new File("/usr/upload", fileName));
     }
 
     private String getPath() {

@@ -99,7 +99,7 @@ public class MyPageController {
         if((String)request.getParameter("keyword")!=null) {
             keyword = (String) request.getParameter("keyword");
         }
-        pagination.setTotal(postService.selectTotalConsultingPostMyPage(search, currentUser.getId()));
+        pagination.setTotal(postService.selectTotalFreePostMyPage(search, currentUser.getId()));
         pagination.progress();
         model.addAttribute("pagination", pagination);
         search.setKeyword(keyword);

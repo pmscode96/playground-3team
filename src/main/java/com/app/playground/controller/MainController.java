@@ -47,7 +47,6 @@ public class MainController {
         ReplyDTO replys = new ReplyDTO();
         UserVO user = (UserVO) session.getAttribute("user");
         if(session.getAttribute("user") != null){
-
             if(Objects.equals(postDTO.getCategory(), "free")){
                 Optional<FreePostDTO> foundPost = postService.freePostDetail(postDTO.getId(), null);
                 if(foundPost.isPresent()){

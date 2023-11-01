@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="/css/fragment/footer.css">
     <link rel="stylesheet" href="/css/fragment/header.css">
     <style>[_nghost-eie-c22]{display:contents}</style>
+    <th:block th:replace="~{fragment/header :: style}"></th:block>
 </head>
 
 <style>
@@ -52,7 +53,7 @@
                                     </li>
                                     <li>
 <!--                                    서비스 안내-->
-                                        <a class="#tab_1 link_tab">
+                                        <a class="#tab_1 link_tab" href="customer-service-notice">
                                             <span class="txt_tab">서비스안내</span>
                                         </a>
                                     </li>
@@ -67,7 +68,7 @@
                                     <ul class="list_official">
                                         <li data-tiara-layer="card">
                                             <intersection-observer>
-                                                <a data-tiara-action-name="공지사항_클릭" class="link_official">
+                                                <a href="customer-notice-detail" class="link_official">
                                                     <strong class="subject_official">
                                                         <span class="ico_pin">
                                                             <span class="ir_pm">고정 게시글</span>
@@ -85,7 +86,7 @@
                                         </li>
                                         <li data-tiara-layer="card">
                                             <intersection-observer>
-                                                <a data-tiara-action-name="공지사항_클릭" class="link_official">
+                                                <a href="customer-notice-detail" class="link_official">
                                                     <strong class="subject_official">
                                                         교사와 학생 소통 공간인 '놀이터'의 과목별 문제 이용 안내
                                                     </strong>
@@ -99,7 +100,7 @@
                                         </li></li>
                                         <li data-tiara-layer="card">
                                             <intersection-observer>
-                                                <a data-tiara-action-name="공지사항_클릭" class="link_official">
+                                                <a href="customer-notice-detail" class="link_official">
                                                     <strong class="subject_official">
                                                         교사와 학생 소통 공간인 '놀이터'의 게시판으로 소통해요💕
                                                     </strong>
