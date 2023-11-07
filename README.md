@@ -1,4 +1,4 @@
-# playground |<a href="http://www.jimcarry.site/"> Spring Boot 프로젝트 : 교사 간, 교사와 학생 간 소통 및 자료 공유 서비스(https://43.201.73.211/)</a>
+# playground |<a href="https://43.201.73.211/"> Spring Boot 프로젝트 : 교사 간, 교사와 학생 간 소통 및 자료 공유 서비스(https://43.201.73.211/)</a>
 
 ## 🖥️ 프로젝트 소개
 교사와 학생간의 소통, 고민상담 그리고 교사들이 학생들을 위한 자료공유가 가능한 커뮤니티 사이트
