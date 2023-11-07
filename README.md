@@ -60,7 +60,7 @@
  6. 로그인/회원가입 (로그인, 회원가입, 카카오로그인(API), 카카오 회원가입, 아이디/비밀번호 찾기)<br>
 
 ## ✨ ERD
-![짐캐리 포토폴리오 drawio](https://user-images.githubusercontent.com/122762287/233322002-5be1e3da-90ba-4e2a-ab88-38ad95b48aaf.png)
+![flowchart](https://github.com/playground-project-3team/playground-3team/assets/142221992/ba788c3e-d568-4a7a-8b82-24aff1c62775)
 
 ## ✨ 프로젝트에서 느낀점
  : 
