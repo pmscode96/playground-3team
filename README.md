@@ -44,7 +44,7 @@
 - DB 및 컨트롤러 설계 
 - 프론트 업무 : 마이페이지, 오류 페이지 
 - 백엔드 업무 : 메인페이지, 회원가입, 로그인, 마이페이지, 게시판
-- AWS 서버 배포 <a href="https://43.201.73.211/">jimcarry</a>
+- AWS 서버 배포 <a href="https://43.201.73.211/">놀이터</a>
 
 ### 퍼블리싱 작업(회원가입/로그인) - <a href="https://github.com/pmscode96/playground-3team/wiki/%EB%A7%A1%EC%9D%80-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%8D%BC%EB%B8%94%EB%A6%AC%EC%8B%B1)" > 상세보기 - WIKI 이동</a>
  1. 마이페이지 <br>
