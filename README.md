@@ -60,7 +60,7 @@
  6. 로그인/회원가입 (로그인, 회원가입, 카카오로그인(API), 카카오 회원가입, 아이디/비밀번호 찾기)<br>
 
 ## ✨ ERD
-![ERD](https://github.com/playground-project-3team/playground-3team/assets/142221992/73015b25-bd23-4f8e-bf71-82a75ba6e82d)
+![ERD](https://github.com/playground-project-3team/playground-3team/assets/142221992/db33b263-08c3-460f-88e3-984918527e12)
 
 ## ✨ 프로젝트에서 느낀점
  : 
