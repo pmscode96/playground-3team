@@ -3,10 +3,12 @@ package com.app.playground.service;
 
 import com.app.playground.domain.VO.UserVO;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -80,6 +82,16 @@ public class KakaoService {
 
                 JsonElement element = JsonParser.parseString(result);
                 JsonElement kakaoAccount = element.getAsJsonObject().get("kakao_account").getAsJsonObject();
+                if (kakaoAccount == null || kakaoAccount.isJsonNull()) {
+                    // kakao_account를 받아오지 못했을 경우 alert를 띄우기
+                    System.out.println("Alert: 카카오 이메일 정보제공을 동의해주셔야 카카오가입이 가능합니다");
+                    HttpServletResponse response = null;
+                    response.sendRedirect("http://43.201.73.211:10000/login/login");
+                } else {
+                    // kakao_account를 정상적으로 받아왔을 경우 처리 로직
+                    JsonObject kakaoAccountObj = kakaoAccount.getAsJsonObject();
+                    // 이하 처리 로직 작성
+                }
                 JsonElement profile = kakaoAccount.getAsJsonObject().get("profile").getAsJsonObject();
 
                 userVO.setUserKakaoEmail(kakaoAccount.getAsJsonObject().get("email").getAsString());

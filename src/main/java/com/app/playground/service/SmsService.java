@@ -34,22 +34,22 @@ public class SmsService {
 
         try {
             log.info(String.valueOf(params));
-//            JSONObject simpleObj = (JSONObject) coolsms.send(params);
-//
-//            // org.json.simple.JSONObject를 문자열로 변환
-//            String jsonString = simpleObj.toJSONString();
-//
-//            // 문자열을 com.google.gson.JsonObject로 변환
-//            JsonObject gsonJsonObject = JsonParser.parseString(jsonString).getAsJsonObject();
-//
-//            System.out.println(gsonJsonObject.toString());
-        }catch (Exception e){
+            JSONObject simpleObj = (JSONObject) coolsms.send(params);
 
-        }
-//        } catch (CoolsmsException e) {
-//            System.out.println(e.getMessage());
-//            System.out.println(e.getCode());
+            // org.json.simple.JSONObject를 문자열로 변환
+            String jsonString = simpleObj.toJSONString();
+
+            // 문자열을 com.google.gson.JsonObject로 변환
+            JsonObject gsonJsonObject = JsonParser.parseString(jsonString).getAsJsonObject();
+
+            System.out.println(gsonJsonObject.toString());
+//        }catch (Exception e){
+//
 //        }
+        } catch (CoolsmsException e) {
+            System.out.println(e.getMessage());
+            System.out.println(e.getCode());
+        }
 
     }
 }

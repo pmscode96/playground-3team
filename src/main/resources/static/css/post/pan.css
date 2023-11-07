@@ -1005,7 +1005,7 @@ h3{
     flex-shrink: 0;
     position: relative;
     overflow: hidden;
-    background: url(https://mud-kage.kakaocdn.net/dn/cRxy5y/btssHjx4Arm/3O2otWWRqMFfQUVBywFKc0/c360.jpg) 50% 50% / cover no-repeat, url(https://t1.kakaocdn.net/together_image/common/no_image.png);
+    background: url(/icon/post.png) 50% 50% / cover no-repeat;
 }
 
 .ohn-two::after {

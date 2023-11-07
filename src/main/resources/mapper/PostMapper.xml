@@ -100,32 +100,32 @@
         SELECT ROWNUM, ID, POST_TITLE, POST_CONTENT, USER_ID, CREATE_DATE, UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT, STATUS
         FROM
         (
-        SELECT ROWNUM R, ID, POST_TITLE, POST_CONTENT,  USER_ID, CREATE_DATE, UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT, STATUS
-        FROM
-        (
-        SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.USER_ID, CP.CREATE_DATE, CP.UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT, STATUS
-        FROM VIEW_CONSULTING_POST CP
-        JOIN TBL_USER U
-        ON CP.USER_ID = U.ID
-        LEFT JOIN TBL_CONSULTING_POST_LIKE CPL ON CPL.POST_ID = CP.ID AND CPL.USER_ID = #{userId}
-        LEFT JOIN
-        (
-        SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
-        FROM TBL_CONSULTING_POST P
-        JOIN TBL_CONSULTING_POST_LIKE PL
-        ON P.ID = PL.POST_ID
-        WHERE PL.STATUS = 0
-        GROUP BY P.ID
-        ) PL ON PL.ID = CP.ID
-        <if test="userId != null">
-            WHERE CP.USER_ID = #{userId}
-        </if>
-        ORDER BY ID DESC
-        ) P1
-        <![CDATA[
-                WHERE ROWNUM <= #{pagination.endRow}
-                  AND POST_TITLE  LIKE '%' || #{keyword} || '%'
-            ) P2
+            SELECT ROWNUM R, ID, POST_TITLE, POST_CONTENT,  USER_ID, CREATE_DATE, UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT, STATUS
+            FROM
+            (
+                SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.USER_ID, CP.CREATE_DATE, CP.UPDATE_DATE , USER_NAME, USER_SCHOOL, USER_DIVISION, LIKE_COUNT, STATUS
+                FROM VIEW_CONSULTING_POST CP
+                JOIN TBL_USER U
+                ON CP.USER_ID = U.ID
+                LEFT JOIN TBL_CONSULTING_POST_LIKE CPL ON CPL.POST_ID = CP.ID AND CPL.USER_ID = #{userId}
+                LEFT JOIN
+                (
+                    SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
+                    FROM TBL_CONSULTING_POST P
+                    JOIN TBL_CONSULTING_POST_LIKE PL
+                    ON P.ID = PL.POST_ID
+                    WHERE PL.STATUS = 0
+                    GROUP BY P.ID
+                ) PL ON PL.ID = CP.ID
+                <if test="userId != null">
+                    WHERE CP.USER_ID = #{userId}
+                </if>
+                ORDER BY ID DESC
+            ) P1
+            <![CDATA[
+                    WHERE ROWNUM <= #{pagination.endRow}
+                      AND POST_TITLE  LIKE '%' || #{keyword} || '%'
+        ) P2
         WHERE P2.R >= #{pagination.startRow}
         ]]>
     </select>
@@ -145,23 +145,28 @@
         SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL, LIKE_COUNT
         FROM
             (
-                SELECT FP.ID, POST_TITLE, POST_CONTENT, FP.CREATE_DATE, FP.UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL, LIKE_COUNT
-                FROM VIEW_FREE_POST FP
-                JOIN TBL_USER U
-                ON FP.USER_ID = U.ID
-                LEFT JOIN
-                 (
-                    SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
-                    FROM TBL_FREE_POST P
-                    JOIN TBL_FREE_POST_LIKE PL
-                    ON P.ID = PL.POST_ID
-                    GROUP BY P.ID
-                 ) PL ON PL.ID = FP.ID
-                WHERE POST_TITLE LIKE '%' || #{keyword} || '%' OR POST_CONTENT LIKE '%' || #{keyword} || '%'
-                ORDER BY FP.ID DESC
-            )
-        <![CDATA[
-        WHERE ROWNUM <= 10
+                SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL, LIKE_COUNT
+                FROM
+                    (
+                        SELECT ROWNUM R, CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL, LIKE_COUNT
+                        FROM VIEW_CONSULTING_POST CP
+                                 JOIN TBL_USER U
+                                      ON CP.USER_ID = U.ID
+                                 LEFT JOIN
+                             (
+                                 SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
+                                 FROM TBL_CONSULTING_POST P
+                                          JOIN TBL_CONSULTING_POST_LIKE PL
+                                               ON P.ID = PL.POST_ID
+                                 GROUP BY P.ID
+                             ) PL ON PL.ID = CP.ID
+    <![CDATA[
+                        WHERE POST_TITLE LIKE '%' || #{search.keyword} || '%' OR POST_CONTENT LIKE '%' || #{search.keyword} || '%'
+                        ORDER BY CP.ID DESC
+                    )
+                WHERE ROWNUM <= #{pagination.endRow}
+            ) P2
+        WHERE P2.R >= #{pagination.startRow}
         ]]>
     </select>
 
@@ -179,24 +184,29 @@
     <select id="selectSearchConsultingPost" resultType="consultingPostDTO">
         SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL, LIKE_COUNT
         FROM
+        (
+            SELECT ID, POST_TITLE, POST_CONTENT, CREATE_DATE, UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL, LIKE_COUNT
+            FROM
             (
-                SELECT CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL, LIKE_COUNT
+                SELECT ROWNUM R, CP.ID, POST_TITLE, POST_CONTENT, CP.CREATE_DATE, CP.UPDATE_DATE, USER_ID, USER_NAME, USER_NICKNAME, USER_DIVISION, USER_SCHOOL, LIKE_COUNT
                 FROM VIEW_CONSULTING_POST CP
-                         JOIN TBL_USER U
-                              ON CP.USER_ID = U.ID
-                         LEFT JOIN
-                     (
-                         SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
-                         FROM TBL_CONSULTING_POST P
-                                  JOIN TBL_CONSULTING_POST_LIKE PL
-                                       ON P.ID = PL.POST_ID
-                         GROUP BY P.ID
-                     ) PL ON PL.ID = CP.ID
-                WHERE POST_TITLE LIKE '%' || #{keyword} || '%' OR POST_CONTENT LIKE '%' || #{keyword} || '%'
+                JOIN TBL_USER U
+                ON CP.USER_ID = U.ID
+                LEFT JOIN
+                (
+                    SELECT COUNT(P.ID) LIKE_COUNT, P.ID AS ID
+                    FROM TBL_CONSULTING_POST P
+                    JOIN TBL_CONSULTING_POST_LIKE PL
+                    ON P.ID = PL.POST_ID
+                    GROUP BY P.ID
+                ) PL ON PL.ID = CP.ID
+    <![CDATA[
+                WHERE POST_TITLE LIKE '%' || #{search.keyword} || '%' OR POST_CONTENT LIKE '%' || #{search.keyword} || '%'
                 ORDER BY CP.ID DESC
             )
-        <![CDATA[
-        WHERE ROWNUM <= 10
+            WHERE ROWNUM <= #{pagination.endRow}
+        ) P2
+        WHERE P2.R >= #{pagination.startRow}
         ]]>
     </select>
 

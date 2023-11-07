@@ -1,16 +1,9 @@
 package com.app.playground.mapper;
 
 
-import com.app.playground.domain.Pagination;
-import com.app.playground.domain.Search;
-import com.app.playground.domain.VO.FreePostReplyVO;
-import com.app.playground.domain.VO.FreePostVO;
 import com.app.playground.domain.VO.UserVO;
-import org.apache.catalina.User;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
 import java.util.Optional;
 
 @Mapper

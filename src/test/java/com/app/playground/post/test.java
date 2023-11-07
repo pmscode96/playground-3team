@@ -1,15 +1,12 @@
 package com.app.playground.post;
 
-import com.app.playground.domain.DTO.ConsultingPostDTO;
 import com.app.playground.domain.DTO.FreePostDTO;
 import com.app.playground.domain.DTO.PostDTO;
 import com.app.playground.domain.DTO.ReplyDTO;
-import com.app.playground.domain.Pagination;
-import com.app.playground.domain.Search;
+import com.app.playground.domain.DTO.Pagination;
+import com.app.playground.domain.DTO.Search;
 import com.app.playground.domain.VO.FreePostReplyLikeVO;
-import com.app.playground.domain.VO.FreePostVO;
 import com.app.playground.domain.VO.NoticeVO;
-import com.app.playground.domain.VO.PostVO;
 import com.app.playground.mapper.MainMapper;
 import com.app.playground.mapper.PostMapper;
 import com.app.playground.mapper.NoticeMapper;
@@ -19,7 +16,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.sql.Date;
 import java.util.Random;
 
 @SpringBootTest

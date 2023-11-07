@@ -1,6 +1,6 @@
 
 
-
+//
 // $('#phone_b1').click(function(){
 //
 //     let phoneNumber = $('#userPhone').val();

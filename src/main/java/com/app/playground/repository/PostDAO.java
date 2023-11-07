@@ -5,8 +5,8 @@ import com.app.playground.domain.DTO.ConsultingPostDTO;
 import com.app.playground.domain.DTO.FreePostDTO;
 import com.app.playground.domain.DTO.PostDTO;
 import com.app.playground.domain.DTO.ReplyDTO;
-import com.app.playground.domain.Pagination;
-import com.app.playground.domain.Search;
+import com.app.playground.domain.DTO.Pagination;
+import com.app.playground.domain.DTO.Search;
 import com.app.playground.domain.VO.*;
 import com.app.playground.mapper.PostMapper;
 import lombok.RequiredArgsConstructor;
@@ -61,10 +61,10 @@ public class PostDAO {
     public int selectTotalConsultingPost(Search search){return postMapper.selectTotalConsultingPost(search);};
 
 //    게시물 목록
-    public List<FreePostDTO> selectSearchFreePost(Search search){return postMapper.selectSearchFreePost(search);};
+    public List<FreePostDTO> selectSearchFreePost(Search search, Pagination pagination){return postMapper.selectSearchFreePost(search, pagination);};
 
 //    게시물 목록
-    public List<ConsultingPostDTO> selectSearchConsultingPost(Search search){return postMapper.selectSearchConsultingPost(search);};
+    public List<ConsultingPostDTO> selectSearchConsultingPost(Search search, Pagination pagination){return postMapper.selectSearchConsultingPost(search, pagination);};
 
 //    게시물 수정
     public void postUpdate(PostVO postVO){

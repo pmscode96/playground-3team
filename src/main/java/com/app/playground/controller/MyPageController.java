@@ -1,18 +1,15 @@
 package com.app.playground.controller;
 
-import com.app.playground.domain.DTO.FreePostDTO;
-import com.app.playground.domain.Pagination;
-import com.app.playground.domain.Search;
+import com.app.playground.domain.DTO.Pagination;
+import com.app.playground.domain.DTO.Search;
 import com.app.playground.domain.VO.InquirePostVO;
 import com.app.playground.domain.VO.PostVO;
-import com.app.playground.domain.VO.ReplyVO;
 import com.app.playground.domain.VO.UserVO;
 import com.app.playground.service.InquirePostService;
 import com.app.playground.service.PostService;
 import com.app.playground.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +23,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 

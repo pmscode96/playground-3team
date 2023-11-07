@@ -1,4 +1,4 @@
-package com.app.playground.domain;
+package com.app.playground.domain.DTO;
 
 import lombok.Data;
 

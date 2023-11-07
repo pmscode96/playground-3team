@@ -1,10 +1,6 @@
 package com.app.playground.service;
 
-import com.app.playground.domain.*;
-import com.app.playground.domain.DTO.ConsultingPostDTO;
-import com.app.playground.domain.DTO.FreePostDTO;
-import com.app.playground.domain.DTO.PostDTO;
-import com.app.playground.domain.DTO.ReplyDTO;
+import com.app.playground.domain.DTO.*;
 import com.app.playground.domain.VO.*;
 import com.app.playground.repository.PostDAO;
 import lombok.RequiredArgsConstructor;
@@ -90,26 +86,17 @@ public class PostServiceImpl implements PostService {
 
     //    게시물 검색
     @Override
-    public PostSearchDTO searchPost(Search search) {
-        PostSearchDTO postSearchDTO = new PostSearchDTO();
-        postSearchDTO.setFreePosts(postDAO.selectSearchFreePost(search));
-        postSearchDTO.setConsultingPosts(postDAO.selectSearchConsultingPost(search));
-        postSearchDTO.setPostsTotalCount(postDAO.selectTotalFreePost(search) + postDAO.selectTotalConsultingPost(search));
-        return postSearchDTO;
-    }
-
-    @Override
-    public FreePostSearchDTO searchFreePost(Search search) {
+    public FreePostSearchDTO searchFreePost(Search search, Pagination pagination) {
         FreePostSearchDTO freePostSearchDTO = new FreePostSearchDTO();
-        freePostSearchDTO.setFreePosts(postDAO.selectSearchFreePost(search));
+        freePostSearchDTO.setFreePosts(postDAO.selectSearchFreePost(search, pagination));
         freePostSearchDTO.setPostsTotalCount(postDAO.selectTotalFreePost(search));
         return freePostSearchDTO;
     }
 
     @Override
-    public ConsultingPostSearchDTO searchConsultingPost(Search search) {
+    public ConsultingPostSearchDTO searchConsultingPost(Search search, Pagination pagination) {
         ConsultingPostSearchDTO consultingPostSearchDTO = new ConsultingPostSearchDTO();
-        consultingPostSearchDTO.setConsultingPosts(postDAO.selectSearchConsultingPost(search));
+        consultingPostSearchDTO.setConsultingPosts(postDAO.selectSearchConsultingPost(search, pagination));
         consultingPostSearchDTO.setPostsTotalCount(postDAO.selectTotalConsultingPost(search));
         return consultingPostSearchDTO;
     }

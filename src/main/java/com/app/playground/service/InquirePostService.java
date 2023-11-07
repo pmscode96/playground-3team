@@ -1,11 +1,9 @@
 package com.app.playground.service;
 
 
-import com.app.playground.domain.DTO.PostDTO;
-import com.app.playground.domain.InquirePostSearchDTO;
-import com.app.playground.domain.Pagination;
-import com.app.playground.domain.PostSearchDTO;
-import com.app.playground.domain.Search;
+import com.app.playground.domain.DTO.InquirePostSearchDTO;
+import com.app.playground.domain.DTO.Pagination;
+import com.app.playground.domain.DTO.Search;
 import com.app.playground.domain.VO.*;
 import org.apache.ibatis.annotations.Param;
 

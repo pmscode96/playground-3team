@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/post/pan.css">
     <link rel="stylesheet" href="/css/fragment/footer.css">
     <link rel="stylesheet" href="/css/fragment/header.css">
-    <link rel="icon" href="/fundraisings/favicon.ico" type="image/x-icon" sizes="192x192">
+    <link rel="icon" href="/icon/favicon.ico" type="image/x-icon" sizes="192x192">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <style id="_goober"> @keyframes go2264125279{from{transform:scale(0) rotate(45deg);opacity:0;}to{transform:scale(1) rotate(45deg);opacity:1;}}@keyframes go3020080000{from{transform:scale(0);opacity:0;}to{transform:scale(1);opacity:1;}}@keyframes go463499852{from{transform:scale(0) rotate(90deg);opacity:0;}to{transform:scale(1) rotate(90deg);opacity:1;}}@keyframes go1268368563{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}@keyframes go1310225428{from{transform:scale(0) rotate(45deg);opacity:0;}to{transform:scale(1) rotate(45deg);opacity:1;}}@keyframes go651618207{0%{height:0;width:0;opacity:0;}40%{height:0;width:6px;opacity:1;}100%{opacity:1;height:10px;}}@keyframes go901347462{from{transform:scale(0.6);opacity:0.4;}to{transform:scale(1);opacity:1;}}.go4109123758{z-index:9999;}.go4109123758 > *{pointer-events:auto;}</style>
     <style type="text/css" data-fbcssmodules="css:fb.css.base css:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:'lucida grande', tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
@@ -73,7 +73,7 @@
                             <input type="hidden" name="id" th:value="*{id}" >
                         </form>
                         <a class="card-in card-in-two card-in-thr goToDetail" >
-                            <div src="https://mud-kage.kakaocdn.net/dn/iy1cB/btssvfJ45Ga/fW0LC7ROJK1ZyTKeas68d0/c360.jpg" class="ohn ohn-two thumbnail">
+                            <div class="ohn ohn-two thumbnail">
                                 <!--after -->
                             </div>
                             <div class="card-con card-con-two card-con-three">
@@ -87,7 +87,7 @@
                     </div>
                 </th:block>
             </div>
-            <div class="paging_comm">
+            <div class="paging_comm" id="page_con">
                 <a th:if="${pagination.prev == true}" class="btn_paging btn_prev change-page" rel="prev" th:href="${pagination.startPage > 1} ? ${pagination.startPage - 1} : ${pagination.page}" th:disabled="${pagination.page == 1}"><span class="ico_cs ico_arr">이전 페이지로 이동</span></a>
                 <span th:each="page : ${#numbers.sequence(pagination.startPage, pagination.endPage)}">
                     <em th:if="${page eq pagination.page}" class="link_page" th:text="${page}"></em>
@@ -95,7 +95,7 @@
                 </span>
                 <a th:if="${pagination.next == true}" class="btn_paging btn_next change-page" rel="next" th:href="${pagination.endPage == pagination.realEnd} ? ${pagination.page} : ${pagination.endPage + 1}"><span class="ico_cs ico_arr">다음 페이지로 이동</span></a>
             </div>
-            <div class="name search">
+            <div class="name search" >
                 <div class="name_div1">
                     <input type="text" placeholder="검색" id="keyword" name="search" th:value="${keyword}">
                     <button type="button" class="phone_b1" id="search" style="background-color: rgb(220, 220, 220);">검색</button>

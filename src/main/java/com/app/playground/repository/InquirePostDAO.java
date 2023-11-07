@@ -1,12 +1,10 @@
 package com.app.playground.repository;
 
 
-import com.app.playground.domain.DTO.PostDTO;
-import com.app.playground.domain.Pagination;
-import com.app.playground.domain.Search;
+import com.app.playground.domain.DTO.Pagination;
+import com.app.playground.domain.DTO.Search;
 import com.app.playground.domain.VO.*;
 import com.app.playground.mapper.InquirePostMapper;
-import com.app.playground.mapper.PostMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;

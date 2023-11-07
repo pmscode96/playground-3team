@@ -5,13 +5,12 @@ import com.app.playground.domain.DTO.ConsultingPostDTO;
 import com.app.playground.domain.DTO.FreePostDTO;
 import com.app.playground.domain.DTO.PostDTO;
 import com.app.playground.domain.DTO.ReplyDTO;
-import com.app.playground.domain.Pagination;
-import com.app.playground.domain.Search;
+import com.app.playground.domain.DTO.Pagination;
+import com.app.playground.domain.DTO.Search;
 import com.app.playground.domain.VO.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import javax.swing.plaf.PanelUI;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,10 +44,10 @@ public interface PostMapper {
     public int selectTotalConsultingPost(Search search);
 
 //    게시물 목록
-    public List<FreePostDTO> selectSearchFreePost(Search search);
+    public List<FreePostDTO> selectSearchFreePost(Search search, Pagination pagination);
 
 //    게시물 목록
-    public List<ConsultingPostDTO> selectSearchConsultingPost(Search search);
+    public List<ConsultingPostDTO> selectSearchConsultingPost(Search search, Pagination pagination);
 
 //    자유게시판 좋아요 id로 확인
     public Optional<FreePostLikeVO> freePostLikeSelect(FreePostLikeVO freePostLikeVO);

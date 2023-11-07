@@ -1,11 +1,7 @@
 package com.app.playground.service;
 
 
-import com.app.playground.domain.*;
-import com.app.playground.domain.DTO.ConsultingPostDTO;
-import com.app.playground.domain.DTO.FreePostDTO;
-import com.app.playground.domain.DTO.PostDTO;
-import com.app.playground.domain.DTO.ReplyDTO;
+import com.app.playground.domain.DTO.*;
 import com.app.playground.domain.VO.*;
 import org.apache.ibatis.annotations.Param;
 
@@ -49,14 +45,12 @@ public interface PostService {
 //    고민게시판 좋아요 STATUS 수정
     public void consultingPostLikeStatusUpdate(ConsultingPostLikeVO consultingPostLikeVO);
 
-//    게시물 검색
-    public PostSearchDTO searchPost(Search search);
 
 //    자유게시판 게시물 검색
-    public FreePostSearchDTO searchFreePost(Search search);
+    public FreePostSearchDTO searchFreePost(Search search, Pagination pagination);
 
 //    고민게시판 게시물 검색
-    public ConsultingPostSearchDTO searchConsultingPost(Search search);
+    public ConsultingPostSearchDTO searchConsultingPost(Search search, Pagination pagination);
 
 //    게시물 수정
     public void postUpdate(PostVO postVO);
