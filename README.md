@@ -46,11 +46,11 @@
 - 백엔드 업무 : 메인페이지, 회원가입, 로그인, 마이페이지, 게시판
 - AWS 서버 배포 <a href="https://43.201.73.211/">놀이터</a>
 
-### 퍼블리싱 작업(회원가입/로그인) - <a href="https://github.com/pmscode96/playground-3team/wiki/%EB%A7%A1%EC%9D%80-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%ED%8D%BC%EB%B8%94%EB%A6%AC%EC%8B%B1)" > 상세보기 - WIKI 이동</a>
+### 퍼블리싱 작업(회원가입/로그인)
  1. 마이페이지 <br>
  2. 오류페이지 <br>
 
-### 백엔드 작업(메인페이지, 마이페이지, 게시판, 로그인/회원가입) - <a href="https://github.com/pmscode96/playground-3team/wiki/%EB%A7%A1%EC%9D%80-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%B0%B1%EC%95%A4%EB%93%9C)" >상세보기 - WIKI 이동</a>
+### 백엔드 작업(메인페이지, 마이페이지, 게시판, 로그인/회원가입)
 #### 관리자계정 : test@gmail.com/123456
  1. 메인페이지 (게시글 랜덤 목록, 헤더, 푸터, 마이페이지 이동) <br>
  2. 마이페이지 (게시글 작성 목록, 상세보기/수정, 검색, 삭제, 카카오계정 연동, 회원탈퇴)<br>
